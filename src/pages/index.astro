@@ -3,12 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
-import CircuitHero from '../components/CircuitHero.astro';
 ---
 
 <BaseLayout
   title="Home"
-  description="Mau Consulting — Business technology consulting for small businesses. Salesforce, automation, websites, and AI integration. Your technical partner for growth."
+  description="Mau Consulting — Business technology consulting for small businesses. Salesforce, automation, websites, AI, and team training. Your technical partner for growth."
 >
   <Header />
 
@@ -17,72 +16,134 @@ import CircuitHero from '../components/CircuitHero.astro';
     <!-- HERO                           -->
     <!-- ============================= -->
     <section class="relative overflow-hidden bg-white dark:bg-gray-950">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-8">
-        <!-- Headline -->
-        <div class="max-w-2xl mx-auto text-center mb-12">
-          <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-5">
-            Systems&ensp;&middot;&ensp;Automation&ensp;&middot;&ensp;Growth
-          </p>
+      <!-- Subtle circuit-grid background -->
+      <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" aria-hidden="true" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0H0v60' fill='none' stroke='%2310B981' stroke-width='.5'/%3E%3C/svg%3E&quot;); background-size: 60px 60px;"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 sm:pt-24 pb-16 sm:pb-20">
+        <!-- Headline + proof -->
+        <div class="max-w-3xl mx-auto text-center mb-14">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
             Technology that works<br />
             <span class="text-accent-600 dark:text-accent-400">as hard as you do.</span>
           </h1>
-          <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg mx-auto">
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto mb-8">
             I help small businesses untangle their tech, automate the busywork,
-            and build systems that actually scale.
+            and build systems that actually scale&nbsp;&mdash; then train your team to run them.
           </p>
+
+          <!-- Proof bar inline -->
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-400 mb-10">
+            <span class="font-semibold text-slate-900 dark:text-white">10+ years</span>
+            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
+            <span>Salesforce Certified</span>
+            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
+            <span>87% fewer bottlenecks</span>
+            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
+            <span>Free consultation</span>
+          </div>
+
+          <div class="flex flex-wrap gap-4 justify-center">
+            <Button href="/contact" variant="primary" size="lg">
+              Book a Free Call
+            </Button>
+            <Button href="#problems" variant="outline" size="lg">
+              See If I Can Help
+            </Button>
+          </div>
         </div>
 
-        <!-- Circuit board visualization -->
-        <CircuitHero />
-
-        <!-- CTAs below the visual -->
-        <div class="flex flex-wrap gap-4 justify-center mt-10 mb-4">
-          <Button href="/contact" variant="primary" size="lg">
-            Book a Free Call
-          </Button>
-          <Button href="#services" variant="outline" size="lg">
-            See How I Help
-          </Button>
+        <!-- Service tiles — immediately visible -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {[
+            {
+              title: 'Salesforce & CRM',
+              desc: 'Setup, optimization, dashboards',
+              href: '/salesforce-consulting',
+              icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+            },
+            {
+              title: 'Automation',
+              desc: 'Workflows, integrations, APIs',
+              href: '/automation-consulting',
+              icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+            },
+            {
+              title: 'Websites & AI',
+              desc: 'Modern sites, GPT tools, strategy',
+              href: '/website-design',
+              icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+            },
+            {
+              title: 'Training',
+              desc: 'Team enablement, documentation',
+              href: '/consulting',
+              icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+            },
+          ].map((svc) => (
+            <a href={svc.href} class="group block">
+              <div class="h-full p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 hover:border-accent-400 dark:hover:border-accent-600 hover:shadow-lg hover:shadow-accent-500/[0.08] hover:-translate-y-0.5 transition-all duration-200 text-center">
+                <div class="w-10 h-10 rounded-lg bg-accent-50 dark:bg-accent-900/30 border border-accent-200/60 dark:border-accent-800/40 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/50 transition-colors">
+                  <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={svc.icon} />
+                  </svg>
+                </div>
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{svc.title}</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">{svc.desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
 
     <!-- ============================= -->
-    <!-- TRUST STRIP                    -->
+    <!-- PROBLEMS (moved up)            -->
     <!-- ============================= -->
-    <div class="border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-5">
-        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500 dark:text-slate-400">
-          {[
-            'Salesforce Certified Administrator',
-            '10+ Years in Revenue Operations',
-            'Based in New York',
-            'Free 30-Min Consultation',
-          ].map((item) => (
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-              {item}
-            </span>
-          ))}
+    <section id="problems" class="py-16 sm:py-20 bg-slate-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Sound Familiar?</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-10">
+            Problems I solve every week
+          </h2>
+          <div class="flex flex-wrap justify-center gap-3">
+            {[
+              '\u201COur CRM is a mess\u201D',
+              '\u201CWe\u2019re drowning in manual data entry\u201D',
+              '\u201CI don\u2019t trust our reports\u201D',
+              '\u201COur tools don\u2019t talk to each other\u201D',
+              '\u201CWe need a website that actually converts\u201D',
+              '\u201CI know AI can help — where do I start?\u201D',
+              '\u201CWe outgrew our spreadsheets\u201D',
+              '\u201CThe consultant left and nobody knows the system\u201D',
+            ].map((problem) => (
+              <span class="inline-block px-4 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-300 shadow-sm hover:border-accent-300 dark:hover:border-accent-600 hover:shadow-md transition-all duration-200 cursor-default">
+                {problem}
+              </span>
+            ))}
+          </div>
+          <p class="mt-8 text-slate-500 dark:text-slate-400">
+            If any of these hit home,
+            <a href="/contact" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">let&rsquo;s talk</a>.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- ============================= -->
-    <!-- SERVICES                       -->
+    <!-- SERVICES (detailed)            -->
     <!-- ============================= -->
     <section id="services" class="py-20 sm:py-28 bg-white dark:bg-gray-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Services</p>
+        <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">What I Do</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-          Three ways I help
+          Build it, connect it, teach it
         </h2>
         <p class="text-lg text-slate-500 dark:text-slate-400 mb-14 max-w-2xl">
-          Every engagement starts with understanding your business&nbsp;&mdash; then building the right solution, not the most complicated one.
+          I don&rsquo;t just set things up and disappear. Every project includes documentation and training so your team can own the system long after I&rsquo;m done.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             {
               label: 'REVENUE + OPS',
@@ -104,6 +165,13 @@ import CircuitHero from '../components/CircuitHero.astro';
               desc: 'Modern websites, AI-powered tools, and tech strategy for businesses ready to level up.',
               items: ['Web Development', 'AI Integration', 'Tech Stack Audits', 'Digital Strategy'],
               href: '/website-design',
+            },
+            {
+              label: 'TRAINING + ENABLEMENT',
+              title: 'Training & Documentation',
+              desc: 'Your team shouldn\u2019t need me forever. I train your people on every system I build and leave behind docs that actually make sense.',
+              items: ['Team Training Sessions', 'Admin Enablement', 'Process Documentation', 'Video Walkthroughs'],
+              href: '/consulting',
             },
           ].map((svc) => (
             <a href={svc.href} class="group block">
@@ -130,43 +198,9 @@ import CircuitHero from '../components/CircuitHero.astro';
     </section>
 
     <!-- ============================= -->
-    <!-- PROBLEMS                       -->
-    <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-slate-50 dark:bg-gray-900">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center">
-          <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Sound Familiar?</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-12">
-            Problems I solve every week
-          </h2>
-          <div class="flex flex-wrap justify-center gap-3">
-            {[
-              '\u201COur CRM is a mess\u201D',
-              '\u201CWe\u2019re drowning in manual data entry\u201D',
-              '\u201CI don\u2019t trust our reports\u201D',
-              '\u201COur tools don\u2019t talk to each other\u201D',
-              '\u201CWe need a website that actually converts\u201D',
-              '\u201CI know AI can help but don\u2019t know where to start\u201D',
-              '\u201CWe outgrew our spreadsheets\u201D',
-              '\u201COur sales process is all over the place\u201D',
-            ].map((problem) => (
-              <span class="inline-block px-4 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-300 shadow-sm hover:border-accent-300 dark:hover:border-accent-600 hover:shadow-md transition-all duration-200 cursor-default">
-                {problem}
-              </span>
-            ))}
-          </div>
-          <p class="mt-10 text-slate-500 dark:text-slate-400">
-            If any of these hit home,
-            <a href="/contact" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">let&rsquo;s talk</a>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================= -->
     <!-- HOW I WORK                     -->
     <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
+    <section class="py-20 sm:py-28 bg-slate-50 dark:bg-gray-900">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Partner Approach</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-14">
@@ -182,12 +216,12 @@ import CircuitHero from '../components/CircuitHero.astro';
             {
               step: '02',
               title: 'Build & Ship',
-              desc: 'Clear scope, fixed timeline. I build the solution, test it, and hand it off with documentation you can actually follow.',
+              desc: 'Clear scope, fixed timeline. I build the solution, test it thoroughly, and deliver with full documentation.',
             },
             {
               step: '03',
-              title: 'Support & Scale',
-              desc: 'Ongoing support when you need it. As your business grows, your systems grow with it. No lock-in, no retainer games.',
+              title: 'Train & Support',
+              desc: 'I train your team to own the system\u00a0\u2014 not depend on me. Then I stick around for support as you grow. No lock-in, no retainer games.',
             },
           ].map((item) => (
             <div class="relative group">
@@ -208,7 +242,7 @@ import CircuitHero from '../components/CircuitHero.astro';
     <!-- ============================= -->
     <!-- RESULTS                        -->
     <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-slate-50 dark:bg-gray-900">
+    <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Results</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-14">
@@ -220,8 +254,8 @@ import CircuitHero from '../components/CircuitHero.astro';
               metric: '87%',
               metricLabel: 'fewer bottlenecks',
               title: 'Sales Pipeline Overhaul',
-              desc: 'Rebuilt a 200-person org\u2019s Salesforce instance from scratch\u00a0\u2014 custom objects, automated lead routing, and dashboards that replaced 15 spreadsheets.',
-              tags: ['Salesforce', 'RevOps'],
+              desc: 'Rebuilt a 200-person org\u2019s Salesforce instance from scratch\u00a0\u2014 custom objects, automated lead routing, dashboards that replaced 15 spreadsheets. Trained 4 admins to maintain it.',
+              tags: ['Salesforce', 'Training'],
             },
             {
               metric: '10\u00d7',
@@ -238,7 +272,7 @@ import CircuitHero from '../components/CircuitHero.astro';
               tags: ['Web Dev', 'Integration'],
             },
           ].map((study) => (
-            <div class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 hover:shadow-md transition-shadow duration-200">
+            <div class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 hover:shadow-md transition-shadow duration-200">
               <div class="mb-6 pb-5 border-b border-slate-100 dark:border-slate-800">
                 <span class="text-4xl font-bold text-accent-600 dark:text-accent-400 tabular-nums">{study.metric}</span>
                 <span class="block text-sm text-slate-500 dark:text-slate-400 mt-1">{study.metricLabel}</span>
@@ -259,7 +293,7 @@ import CircuitHero from '../components/CircuitHero.astro';
     <!-- ============================= -->
     <!-- TOOLBOX                        -->
     <!-- ============================= -->
-    <section class="py-16 sm:py-20 bg-white dark:bg-gray-950 border-y border-slate-100 dark:border-slate-800">
+    <section class="py-14 sm:py-16 bg-slate-50 dark:bg-gray-900 border-y border-slate-100 dark:border-slate-800">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-2 text-center">Toolbox</p>
         <p class="text-sm text-slate-400 dark:text-slate-500 text-center mb-8">Technologies I work with daily</p>
@@ -269,7 +303,7 @@ import CircuitHero from '../components/CircuitHero.astro';
             'Astro', 'React', 'Tailwind CSS', 'Node.js', 'PostgreSQL',
             'OpenAI API', 'Claude API', 'Vercel', 'GitHub', 'Figma',
           ].map((tool) => (
-            <span class="px-3.5 py-1.5 rounded-md bg-slate-50 dark:bg-slate-800/80 text-sm text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60 hover:border-accent-300 dark:hover:border-accent-700 hover:text-accent-700 dark:hover:text-accent-300 transition-colors duration-150 cursor-default">
+            <span class="px-3.5 py-1.5 rounded-md bg-white dark:bg-slate-800/80 text-sm text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60 hover:border-accent-300 dark:hover:border-accent-700 hover:text-accent-700 dark:hover:text-accent-300 transition-colors duration-150 cursor-default">
               {tool}
             </span>
           ))}
@@ -303,7 +337,8 @@ import CircuitHero from '../components/CircuitHero.astro';
             <p>
               I&rsquo;m not an agency. I&rsquo;m one person who knows this stuff inside and
               out. When you work with me, you get direct access&nbsp;&mdash; no account
-              managers, no junior devs, no runaround.
+              managers, no junior devs, no runaround. And when the project&rsquo;s done,
+              your team will know exactly how to keep things running.
             </p>
           </div>
           <div class="mt-8">
@@ -338,6 +373,10 @@ import CircuitHero from '../components/CircuitHero.astro';
               {
                 q: 'I already have Salesforce but it\u2019s a mess. Can you fix it?',
                 a: 'That\u2019s literally my favorite kind of project. I\u2019ll audit what you have, clean up the data, and rebuild it so it actually works for your team.',
+              },
+              {
+                q: 'What happens after the project is done?',
+                a: 'Every project includes documentation and training for your team. I don\u2019t build things that only I can maintain\u00a0\u2014 the whole point is for your people to own it. And if you need ongoing support, I\u2019m a call away.',
               },
               {
                 q: 'How long does a typical project take?',
