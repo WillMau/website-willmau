@@ -1,0 +1,84 @@
+---
+/**
+ * TechnicalCard — A small "systems status" tile displayed in the hero.
+ * Designed to look like a mini dashboard widget with live-looking
+ * status indicators. Purely static HTML/CSS — no JS required.
+ */
+---
+
+<div class="relative w-full max-w-[320px]" aria-hidden="true">
+  <!-- Card -->
+  <div class="rounded-2xl border border-slate-200/80 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-xl shadow-slate-200/50 dark:shadow-black/20 p-5 space-y-4">
+
+    <!-- Header row -->
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></div>
+        <span class="font-mono text-[11px] tracking-wide uppercase text-slate-500 dark:text-slate-400">Systems Overview</span>
+      </div>
+      <span class="font-mono text-[10px] text-slate-400 dark:text-slate-500">Live</span>
+    </div>
+
+    <!-- Metric row -->
+    <div class="grid grid-cols-3 gap-3">
+      <div>
+        <div class="text-xl font-bold text-slate-900 dark:text-white tabular-nums">12</div>
+        <div class="text-[10px] font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wide">Integrations</div>
+      </div>
+      <div>
+        <div class="text-xl font-bold text-accent-600 dark:text-accent-400 tabular-nums">99.8%</div>
+        <div class="text-[10px] font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wide">Uptime</div>
+      </div>
+      <div>
+        <div class="text-xl font-bold text-slate-900 dark:text-white tabular-nums">3.2k</div>
+        <div class="text-[10px] font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wide">Records/day</div>
+      </div>
+    </div>
+
+    <!-- Mini bar chart (pure CSS) -->
+    <div>
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wide">Pipeline health</span>
+        <span class="text-[10px] font-mono text-accent-600 dark:text-accent-400">+12%</span>
+      </div>
+      <div class="flex items-end gap-[3px] h-8">
+        <div class="flex-1 rounded-sm bg-accent-200 dark:bg-accent-800" style="height: 45%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-300 dark:bg-accent-700" style="height: 60%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-300 dark:bg-accent-700" style="height: 40%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-400 dark:bg-accent-600" style="height: 75%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-400 dark:bg-accent-600" style="height: 55%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-500 dark:bg-accent-500" style="height: 85%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-500 dark:bg-accent-500" style="height: 70%;"></div>
+        <div class="flex-1 rounded-sm bg-accent-600 dark:bg-accent-400" style="height: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Status rows -->
+    <div class="space-y-2 pt-1 border-t border-slate-100 dark:border-slate-800">
+      <div class="flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-accent-500"></div>
+          <span class="text-slate-600 dark:text-slate-300">Salesforce CRM</span>
+        </div>
+        <span class="font-mono text-[10px] text-accent-600 dark:text-accent-400">Connected</span>
+      </div>
+      <div class="flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-accent-500"></div>
+          <span class="text-slate-600 dark:text-slate-300">Zapier workflows</span>
+        </div>
+        <span class="font-mono text-[10px] text-accent-600 dark:text-accent-400">Active</span>
+      </div>
+      <div class="flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+          <span class="text-slate-600 dark:text-slate-300">Website analytics</span>
+        </div>
+        <span class="font-mono text-[10px] text-blue-600 dark:text-blue-400">Syncing</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative glow behind the card -->
+  <div class="absolute -inset-4 -z-10 bg-gradient-to-br from-accent-400/10 via-transparent to-blue-400/10 rounded-3xl blur-2xl"></div>
+</div>
