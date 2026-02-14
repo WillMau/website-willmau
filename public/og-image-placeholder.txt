@@ -1,0 +1,15 @@
+OG Image Placeholder
+
+To create your og-image.png for social media sharing:
+
+1. Create a 1200x630px image with your branding
+2. Include your name and tagline
+3. Use a professional design that matches your site
+4. Save as og-image.png in this public/ directory
+
+Recommended tools:
+- Canva (free templates available)
+- Figma (design from scratch)
+- Any image editor
+
+For now, the site will fall back to your headshot photo.

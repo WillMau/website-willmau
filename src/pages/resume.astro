@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+---
+
+<BaseLayout
+  title="Resume"
+  description="William Mau's professional resume. Vice President of Operations with expertise in Salesforce, revenue operations, process automation, and executive leadership."
+>
+  <Header />
+
+  <main>
+    <Section class="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+              William Mau
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300">
+              Schenectady, NY 12306
+            </p>
+          </div>
+          <Button href="/resume.pdf" variant="primary" download>
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download PDF
+          </Button>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="flex flex-wrap gap-4 mb-8 text-gray-600 dark:text-gray-300">
+          <a href="tel:518-930-8185" class="hover:text-accent-600 dark:hover:text-accent-400">518-930-8185</a>
+          <span>•</span>
+          <a href="mailto:William.Mau@gmail.com" class="hover:text-accent-600 dark:hover:text-accent-400">William.Mau@gmail.com</a>
+          <span>•</span>
+          <a href="https://www.linkedin.com/in/will-mau/" target="_blank" rel="noopener noreferrer" class="hover:text-accent-600 dark:hover:text-accent-400">LinkedIn</a>
+        </div>
+
+        <!-- Summary -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-accent-600 pb-2">
+            Professional Summary
+          </h2>
+          <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            Data-driven operations and revenue leader specializing in strategic transformation, system optimization, and scalable growth. Proven ability to diagnose complex business challenges and deliver technology-driven solutions that improve sales velocity, enhance data integrity, and reduce manual workloads. Experienced in Salesforce administration, Pardot, AI, and process automation, with a track record of building reporting frameworks and dashboards that provide actionable insights for executive decision-making. Recognized for leading cross-functional teams globally, fostering collaboration between Sales, Marketing, Finance, and Product, and driving sustainable organizational change.
+          </p>
+        </div>
+
+        <!-- Core Competencies -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-accent-600 pb-2">
+            Executive Competencies
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              'Strategic Planning & Vision',
+              'Revenue Operations',
+              'Technology & Systems Integration',
+              'Executive Leadership',
+              'Change Management',
+              'Cross-Functional Collaboration',
+              'Performance Metrics & Reporting',
+              'Project Management',
+              'Talent Development & Coaching',
+              'Risk Management',
+              'Tactical Analysis & Decision Making',
+              'Organizational Transformation'
+            ].map((skill) => (
+              <Badge variant="accent" class="justify-center">{skill}</Badge>
+            ))}
+          </div>
+        </div>
+
+        <!-- Selected Impact -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-accent-600 pb-2">
+            Selected Impact
+          </h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Reengineered Salesforce and Pardot workflows, <strong>eliminating 87% of funnel bottlenecks</strong>, increasing sales velocity, and improving forecasting accuracy for executive decision-making
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Led enterprise-wide Salesforce implementation delivering a <strong>10x productivity increase within six months</strong> by automating workflows, improving data integrity, and standardizing reporting
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Built executive dashboards tracking pipeline health, win rates, and rep performance, equipping sales leadership with actionable insights that guided strategic investments
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Developed scalable onboarding and enablement programs, <strong>reducing new hire ramp time from eight months to four weeks</strong> and accelerating time-to-revenue
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Implemented AI and process automation to streamline quoting, onboarding, and reporting, enabling measurable productivity gains while maintaining high data quality
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Directed IT infrastructure improvements including cloud migrations (Google to Microsoft 365) and server transitions, strengthening scalability, security, and system uptime
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent-600 dark:text-accent-400 mt-1">▸</span>
+              <span class="text-gray-700 dark:text-gray-300">
+                Spearheaded sales process optimization initiatives, <strong>increasing overall sales metrics by 9%</strong> and reducing customer handle times while improving experience
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b-2 border-accent-600 pb-2">
+            Professional Experience
+          </h2>
+
+          <!-- TalentSmart -->
+          <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Vice President of Operations
+                </h3>
+                <p class="text-accent-600 dark:text-accent-400 font-medium">
+                  TalentSmart, Inc — San Diego, CA
+                </p>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                May 2021 – Present
+              </span>
+            </div>
+            <ul class="space-y-2 mt-3">
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Led revenue operations strategy by reengineering Salesforce and Pardot workflows, eliminating 87% of funnel bottlenecks, increasing sales velocity, and improving forecasting accuracy for executive decision-making
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Developed and implemented performance dashboards in Salesforce to track pipeline health, win rates, and rep performance, equipping sales leadership with actionable insights that guided strategic investments
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Implemented AI and process automation to streamline quoting, onboarding, and reporting, enabling measurable productivity gains while maintaining high data quality and compliance standards
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Designed and launched an enterprise-wide SharePoint intranet, centralizing resources and improving cross-team collaboration across Sales, Marketing, and Client Success
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Directed IT infrastructure improvements, including migration from Google Cloud to Microsoft 365 and server transition from Codero to Azure, strengthening scalability, security, and system uptime
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cengage -->
+          <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Senior Sales Manager
+                </h3>
+                <p class="text-accent-600 dark:text-accent-400 font-medium">
+                  Cengage Learning — Boston, MA
+                </p>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                March 2018 – May 2021
+              </span>
+            </div>
+            <ul class="space-y-2 mt-3">
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Led enterprise-wide Salesforce implementation, delivering a 10x increase in productivity within six months by automating workflows, improving data integrity, and standardizing reporting
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Built KPIs, reporting frameworks, and compensation models that aligned sales behavior with strategic growth goals, improving accountability and transparency across the revenue cycle
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Developed scalable onboarding and enablement programs, reducing new hire ramp time from eight months to four weeks and accelerating time-to-revenue
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Directed sales operations strategy and channel realignment, driving sustained revenue growth through improved segmentation, territory planning, and customer engagement in B2B markets
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Charter -->
+          <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Sales Manager
+                </h3>
+                <p class="text-accent-600 dark:text-accent-400 font-medium">
+                  Charter Communications — Albany, NY
+                </p>
+              </div>
+              <span class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                January 2014 – March 2018
+              </span>
+            </div>
+            <ul class="space-y-2 mt-3">
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Spearheaded sales process optimization, increasing overall sales metrics by 9% and reducing customer handle times, significantly improving productivity and customer experience
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Designed and implemented a highly effective peer mentorship program, elevating team-wide sales performance and consistently achieving top-ranked metrics within the enterprise
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">•</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  Directed strategic initiatives to redefine enterprise-wide sales workflows, enhancing reporting accuracy, accountability, and sales team effectiveness
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-accent-600 pb-2">
+            Certifications
+          </h2>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Salesforce Administrator Certification</strong></span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">Mastering Emotional Intelligence Level 1 & Level 2 Certification</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">New York State Teachers Certification</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-accent-600 pb-2">
+            Education
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                Master of Arts: History
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300">
+                University At Albany — Albany, NY
+              </p>
+              <p class="text-accent-600 dark:text-accent-400 text-sm">
+                4.0 GPA
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                Bachelor of Arts: History Teacher Education
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300">
+                The College of Saint Rose — Albany, NY
+              </p>
+              <p class="text-accent-600 dark:text-accent-400 text-sm">
+                3.6 GPA
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Leadership -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-accent-600 pb-2">
+            Community Leadership
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Board of Education
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400 text-sm">
+                  May 2024 – Present
+                </span>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300">
+                Schalmont Central School District — Schenectady, NY
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">
+                Contribute to strategic decision-making, budgeting oversight, and educational governance
+              </p>
+            </div>
+            <div>
+              <div class="flex justify-between items-start mb-1">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Committee Chair
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400 text-sm">
+                  April 2024 – Present
+                </span>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300">
+                Scouting America BSA — Schenectady, NY
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">
+                Lead strategic planning, adult leader development, and community engagement initiatives
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-accent-50 dark:bg-accent-900/20 rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Let's Work Together
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-6">
+            Interested in discussing a role or consulting engagement? Let's talk about what's stuck and how to fix it.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <Button href="/consulting" variant="primary">Consulting Services</Button>
+            <Button href="/contact" variant="outline">Get In Touch</Button>
+          </div>
+        </div>
+      </div>
+    </Section>
+  </main>
+
+  <Footer />
+</BaseLayout>

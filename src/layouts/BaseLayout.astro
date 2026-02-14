@@ -1,0 +1,110 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/william-mau-headshot.jpg',
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href
+} = Astro.props;
+
+const siteTitle = 'Mau Consulting | Technology Partner for Small Businesses';
+const fullTitle = title === 'Home' ? siteTitle : `${title} | Mau Consulting`;
+const ogImage = new URL(image, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Mau Consulting",
+        "url": "https://williammau.github.io",
+        "logo": "https://williammau.github.io/william-mau-headshot.jpg",
+        "description": "Technology consulting for small businesses. Salesforce, automation, website design, and AI integration services.",
+        "founder": {
+          "@type": "Person",
+          "name": "William Mau",
+          "jobTitle": "Founder & Principal Consultant",
+          "sameAs": "https://www.linkedin.com/in/will-mau/"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Schenectady",
+          "addressRegion": "NY",
+          "postalCode": "12306"
+        },
+        "email": "William.Mau@gmail.com",
+        "telephone": "+1-518-930-8185",
+        "priceRange": "$$",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "serviceType": [
+          "Salesforce Consulting",
+          "Website Design",
+          "Process Automation",
+          "Technology Consulting",
+          "AI Integration"
+        ]
+      }
+    </script>
+
+    <!-- Dark Mode Script (runs before page load to prevent flash) -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+    </script>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+    <slot />
+  </body>
+</html>

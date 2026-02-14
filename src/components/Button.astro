@@ -1,0 +1,42 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  download?: boolean;
+}
+
+const { href, variant = 'primary', size = 'md', class: className, download = false } = Astro.props;
+
+const baseClasses = 'group relative inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden';
+
+const variantClasses = {
+  primary: 'bg-gradient-to-r from-accent-600 to-blue-600 hover:from-accent-500 hover:to-blue-500 text-white shadow-lg shadow-accent-500/50 hover:shadow-xl hover:shadow-accent-500/70 hover:scale-105 hover:-translate-y-0.5 active:scale-95',
+  secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600 hover:scale-105 active:scale-95',
+  outline: 'border-2 border-accent-600 text-accent-600 hover:bg-accent-50/50 dark:hover:bg-accent-900/30 backdrop-blur-sm hover:scale-105 active:scale-95 focus:ring-accent-500 dark:border-accent-400 dark:text-accent-400'
+};
+
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg'
+};
+---
+
+<a
+  href={href}
+  class:list={[baseClasses, variantClasses[variant], sizeClasses[size], className]}
+  download={download ? true : undefined}
+>
+  <span class="relative z-10">
+    <slot />
+  </span>
+
+  <!-- Shimmer effect for primary buttons -->
+  {variant === 'primary' && (
+    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+    </div>
+  )}
+</a>

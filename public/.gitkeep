@@ -1,0 +1,5 @@
+# This file ensures the public directory is tracked by git
+# Place your static assets here:
+# - resume.pdf (your PDF resume)
+# - william-mau-headshot.jpg (your professional photo)
+# - og-image.png (Open Graph image for social sharing)

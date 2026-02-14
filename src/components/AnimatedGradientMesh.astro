@@ -1,0 +1,35 @@
+---
+interface Props {
+  colors?: string[];
+  speed?: 'slow' | 'normal' | 'fast';
+  opacity?: number;
+  class?: string;
+}
+
+const {
+  colors = ['from-accent-50', 'via-purple-50', 'to-pink-50'],
+  opacity = 1,
+  class: className
+} = Astro.props;
+
+const darkColors = colors.map(c =>
+  c.replace(/-50/g, '-950').replace(/-100/g, '-900')
+);
+---
+
+<div
+  class:list={[
+    'absolute inset-0 bg-gradient-to-br',
+    colors.join(' '),
+    `dark:${darkColors.join(' dark:')}`,
+    'bg-400%',
+    'animate-gradient-shift',
+    className
+  ]}
+  style={`opacity: ${opacity};`}
+>
+  <!-- Floating blur orbs for depth -->
+  <div class="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-float"></div>
+  <div class="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  <div class="absolute top-1/2 left-1/2 w-80 h-80 bg-gradient-to-br from-cyan-400/20 to-indigo-400/20 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+</div>

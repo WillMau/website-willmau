@@ -1,0 +1,25 @@
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Icon part -->
+  <g transform="translate(0, 0)">
+    <!-- Connection lines forming M shape -->
+    <path d="M6 36 L6 24 L20 12 L34 24 L34 36" stroke="url(#logoGradientLight)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+
+    <!-- Network nodes -->
+    <circle cx="6" cy="36" r="3" fill="url(#logoGradientLight)" opacity="0.9"/>
+    <circle cx="6" cy="24" r="2.5" fill="url(#logoGradientLight)" opacity="0.85"/>
+    <circle cx="20" cy="12" r="3.5" fill="url(#logoGradientLight)"/>
+    <circle cx="34" cy="24" r="2.5" fill="url(#logoGradientLight)" opacity="0.85"/>
+    <circle cx="34" cy="36" r="3" fill="url(#logoGradientLight)" opacity="0.9"/>
+  </g>
+
+  <!-- Text part -->
+  <text x="48" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#111827">MAU</text>
+  <text x="48" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#6b7280">CONSULTING</text>
+</svg>

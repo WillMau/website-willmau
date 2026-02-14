@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+---
+
+<BaseLayout
+  title="Consulting"
+  description="Consulting services for revenue operations, Salesforce optimization, process automation, and operational transformation. Fixed-scope engagements and strategic partnerships."
+>
+  <Header />
+
+  <main>
+    <Hero
+      title="I take messy systems and make them reliable."
+      subtitle="Whether you need a diagnostic, a specific fix, or a strategic partner—I work with teams to eliminate friction, improve data quality, and deliver measurable results."
+    >
+      <Button href="/contact" variant="primary" size="lg">Request a Fit Call</Button>
+      <Button href="/revops" variant="outline" size="lg">Salesforce & RevOps</Button>
+    </Hero>
+
+    <!-- Working Style -->
+    <Section
+      title="Working Style"
+      class="bg-white dark:bg-gray-900"
+    >
+      <div class="max-w-3xl">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+          I work directly with founders, revenue leaders, and ops teams who know something's broken but don't have time to fix it themselves. My approach is diagnostic-first: understand the system, identify the root cause, then fix it with minimal disruption.
+        </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+          I deliver fixed-scope projects with clear outcomes, timelines, and deliverables. No ongoing retainers unless you need them. No buzzwords. Just measurable improvements to your revenue operations, systems, and workflows.
+        </p>
+      </div>
+    </Section>
+
+    <!-- Consulting Lanes -->
+    <Section
+      title="Consulting Lanes"
+      subtitle="Three core areas where I deliver the most impact"
+      class="bg-gray-50 dark:bg-gray-800"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Lane 1: Revenue Systems -->
+        <Card>
+          <div class="text-accent-600 dark:text-accent-400 mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Revenue Systems
+          </h3>
+          <div class="space-y-4 text-gray-700 dark:text-gray-300">
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Who it's for</p>
+              <p class="text-sm">Companies with Salesforce/CRM friction, funnel bottlenecks, or unreliable forecasting</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Outcomes</p>
+              <p class="text-sm">Faster sales velocity, clean data, accurate forecasts, and dashboards executives trust</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Deliverables</p>
+              <p class="text-sm">Workflow fixes, automation, dashboards, data hygiene, lifecycle definitions</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Typical timeline</p>
+              <p class="text-sm">1–4 weeks depending on scope</p>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Lane 2: Ops Automation -->
+        <Card>
+          <div class="text-accent-600 dark:text-accent-400 mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Ops Automation & Process Design
+          </h3>
+          <div class="space-y-4 text-gray-700 dark:text-gray-300">
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Who it's for</p>
+              <p class="text-sm">Teams drowning in manual work, duplicate data entry, or unclear escalation paths</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Outcomes</p>
+              <p class="text-sm">Reduced manual workload, clear process ownership, automated reporting</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Deliverables</p>
+              <p class="text-sm">Process maps, tiered support models, automation (AI/Zapier/native), SOPs</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Typical timeline</p>
+              <p class="text-sm">2–6 weeks depending on complexity</p>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Lane 3: Internal Platforms -->
+        <Card>
+          <div class="text-accent-600 dark:text-accent-400 mb-4">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Internal Platforms & Enablement
+          </h3>
+          <div class="space-y-4 text-gray-700 dark:text-gray-300">
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Who it's for</p>
+              <p class="text-sm">Teams with scattered knowledge, hard-to-find resources, or poor onboarding</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Outcomes</p>
+              <p class="text-sm">Centralized knowledge base, faster onboarding, better cross-team collaboration</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Deliverables</p>
+              <p class="text-sm">SharePoint/intranet, documentation systems, enablement content, templates</p>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white mb-1">Typical timeline</p>
+              <p class="text-sm">2–8 weeks depending on scope</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </Section>
+
+    <!-- Productized Offers -->
+    <Section
+      title="Productized Offers"
+      subtitle="Fixed-scope engagements with clear deliverables and timelines"
+      class="bg-white dark:bg-gray-900"
+    >
+      <div class="space-y-8 max-w-4xl">
+        <!-- Offer 1: Health Check -->
+        <div class="bg-gradient-to-r from-accent-50 to-white dark:from-accent-900/20 dark:to-gray-800 rounded-lg p-6 border border-accent-200 dark:border-accent-800">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Salesforce / RevOps Health Check
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <Badge variant="accent">1–2 weeks</Badge>
+                <Badge variant="accent">Fixed Scope</Badge>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Comprehensive audit of your Salesforce instance, marketing automation, and revenue workflows. Identify bottlenecks, data quality issues, and quick wins.
+          </p>
+          <div class="mb-4">
+            <p class="font-semibold text-gray-900 dark:text-white mb-2">Deliverables:</p>
+            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Documented assessment of funnel health, data quality, and workflow bottlenecks</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Prioritized recommendations (quick wins, strategic fixes)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>30-minute debrief with leadership</span>
+              </li>
+            </ul>
+          </div>
+          <Button href="/contact" variant="primary">Request Health Check</Button>
+        </div>
+
+        <!-- Offer 2: Funnel Bottleneck Sprint -->
+        <div class="bg-gradient-to-r from-accent-50 to-white dark:from-accent-900/20 dark:to-gray-800 rounded-lg p-6 border border-accent-200 dark:border-accent-800">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Funnel Bottleneck Sprint
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <Badge variant="accent">2 weeks</Badge>
+                <Badge variant="accent">Fixed Scope</Badge>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Focused engagement to diagnose and fix a specific bottleneck in your lead-to-close workflow. Ideal for teams with known pain points.
+          </p>
+          <div class="mb-4">
+            <p class="font-semibold text-gray-900 dark:text-white mb-2">Deliverables:</p>
+            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Root cause analysis of specific bottleneck (e.g., lead routing, stage definitions, handoffs)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Workflow reengineering and implementation</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Documentation and team training</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Post-implementation validation</span>
+              </li>
+            </ul>
+          </div>
+          <Button href="/contact" variant="primary">Start Sprint</Button>
+        </div>
+
+        <!-- Offer 3: Executive Dashboard Pack -->
+        <div class="bg-gradient-to-r from-accent-50 to-white dark:from-accent-900/20 dark:to-gray-800 rounded-lg p-6 border border-accent-200 dark:border-accent-800">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Executive Dashboard Pack
+              </h3>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <Badge variant="accent">1 week</Badge>
+                <Badge variant="accent">Fixed Scope</Badge>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Custom Salesforce dashboards designed for executive decision-making. Track pipeline health, win rates, rep performance, and forecasting accuracy.
+          </p>
+          <div class="mb-4">
+            <p class="font-semibold text-gray-900 dark:text-white mb-2">Deliverables:</p>
+            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>3–5 custom dashboards (pipeline, conversion, rep performance, forecast accuracy)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Clean data validation and quality controls</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-accent-600 dark:text-accent-400 mt-1">✓</span>
+                <span>Dashboard usage guide and training</span>
+              </li>
+            </ul>
+          </div>
+          <Button href="/contact" variant="primary">Order Dashboard Pack</Button>
+        </div>
+      </div>
+    </Section>
+
+    <!-- How We'll Work -->
+    <Section
+      title="How We'll Work Together"
+      class="bg-gray-50 dark:bg-gray-800"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-accent-600 dark:bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto mb-3">
+            1
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Fit Call</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            30-minute conversation to understand your challenge and determine if I'm the right fit
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-accent-600 dark:bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto mb-3">
+            2
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Scope & Proposal</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            I'll send a fixed-scope proposal with clear deliverables, timeline, and pricing
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-accent-600 dark:bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto mb-3">
+            3
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Execution</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            I work directly in your systems, collaborating with your team to deliver outcomes
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-accent-600 dark:bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto mb-3">
+            4
+          </div>
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Handoff</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            You receive documentation, training, and validation that it works
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <!-- CTA -->
+    <Section class="bg-accent-600 dark:bg-accent-700 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+          Let's fix what's stuck
+        </h2>
+        <p class="text-xl mb-8 text-accent-50">
+          If you're dealing with revenue system friction, process bottlenecks, or data quality issues—let's talk about how to solve it.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Button href="/contact" variant="secondary" size="lg">Request a Fit Call</Button>
+          <Button href="/work" variant="outline" size="lg" class="!border-white !text-white hover:!bg-white/10">View Case Studies</Button>
+        </div>
+      </div>
+    </Section>
+  </main>
+
+  <Footer />
+</BaseLayout>

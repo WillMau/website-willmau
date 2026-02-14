@@ -1,0 +1,36 @@
+---
+interface Props {
+  blur?: 'sm' | 'md' | 'lg' | 'xl';
+  opacity?: number;
+  border?: boolean;
+  padding?: string;
+  class?: string;
+}
+
+const {
+  blur = 'lg',
+  opacity = 0.7,
+  border = true,
+  padding = 'p-8',
+  class: className
+} = Astro.props;
+
+const blurClass = `backdrop-blur-${blur}`;
+const bgOpacity = Math.round(opacity * 100);
+const bgClass = `bg-white/${bgOpacity} dark:bg-gray-900/${bgOpacity}`;
+const borderClass = border ? 'border border-white/20 dark:border-gray-700/30' : '';
+---
+
+<div
+  class:list={[
+    blurClass,
+    bgClass,
+    borderClass,
+    'rounded-2xl',
+    'shadow-xl',
+    padding,
+    className
+  ]}
+>
+  <slot />
+</div>

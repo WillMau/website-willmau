@@ -1,0 +1,258 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { name: 'Home', href: '/' },
+  {
+    name: 'Services',
+    href: '#',
+    dropdown: [
+      { name: 'Salesforce Consulting', href: '/salesforce-consulting' },
+      { name: 'Website Design', href: '/website-design' },
+      { name: 'Process Automation', href: '/automation-consulting' },
+      { name: 'Tech Consulting', href: '/tech-consulting' },
+      { name: 'AI Integration', href: '/ai-integration' },
+    ]
+  },
+  { name: 'Portfolio', href: '/work' },
+  { name: 'Contact', href: '/contact' },
+];
+
+function isActive(href: string) {
+  if (href === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(href);
+}
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 w-full border-b border-gray-200/50 dark:border-gray-800/50 backdrop-blur-xl transition-all duration-300"
+  style="background-color: rgba(255, 255, 255, 0);"
+>
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center gap-2 group">
+          <!-- Icon only on mobile -->
+          <img
+            src="/logo-icon.svg"
+            alt="Mau Consulting"
+            class="h-10 w-10 md:hidden group-hover:scale-110 transition-transform"
+          />
+          <!-- Full logo on desktop - light mode -->
+          <img
+            src="/logo-light.svg"
+            alt="Mau Consulting"
+            class="hidden md:block dark:hidden h-12 group-hover:scale-105 transition-transform"
+          />
+          <!-- Full logo on desktop - dark mode -->
+          <img
+            src="/logo-dark.svg"
+            alt="Mau Consulting"
+            class="hidden dark:md:block h-12 group-hover:scale-105 transition-transform"
+          />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-4">
+          {navItems.map((item) => (
+            item.dropdown ? (
+              <!-- Dropdown menu for Services -->
+              <div class="relative group">
+                <button
+                  class="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white flex items-center gap-1"
+                >
+                  {item.name}
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <!-- Dropdown panel -->
+                <div class="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-lg shadow-xl border border-gray-200/50 dark:border-gray-700/50 py-2">
+                    {item.dropdown.map((subItem) => (
+                      <a
+                        href={subItem.href}
+                        class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-accent-900/30 hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
+                      >
+                        {subItem.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a
+                href={item.href}
+                class:list={[
+                  'px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                  isActive(item.href)
+                    ? 'bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
+                ]}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.name}
+              </a>
+            )
+          ))}
+        </div>
+      </div>
+
+      <!-- Dark Mode Toggle & Mobile Menu Button -->
+      <div class="flex items-center space-x-2">
+        <button
+          id="theme-toggle"
+          type="button"
+          class="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+          aria-label="Toggle dark mode"
+        >
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        {navItems.map((item) => (
+          item.dropdown ? (
+            <div>
+              <button
+                class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center justify-between"
+                data-mobile-dropdown-toggle
+              >
+                {item.name}
+                <svg class="w-5 h-5 transition-transform" data-dropdown-icon fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="hidden pl-4 space-y-1 mt-1" data-mobile-dropdown-panel>
+                {item.dropdown.map((subItem) => (
+                  <a
+                    href={subItem.href}
+                    class="block px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-accent-50 dark:hover:bg-accent-900/30 hover:text-accent-700 dark:hover:text-accent-300"
+                  >
+                    {subItem.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a
+              href={item.href}
+              class:list={[
+                'block px-3 py-2 rounded-md text-base font-medium transition-colors',
+                isActive(item.href)
+                  ? 'bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+              ]}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.name}
+            </a>
+          )
+        ))}
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Dark mode toggle
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+  // Show appropriate icon
+  if (document.documentElement.classList.contains('dark')) {
+    themeToggleLightIcon?.classList.remove('hidden');
+  } else {
+    themeToggleDarkIcon?.classList.remove('hidden');
+  }
+
+  themeToggleBtn?.addEventListener('click', () => {
+    // Toggle icons
+    themeToggleDarkIcon?.classList.toggle('hidden');
+    themeToggleLightIcon?.classList.toggle('hidden');
+
+    // Toggle dark mode
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Scroll-based background opacity
+  const header = document.getElementById('site-header');
+
+  const updateHeaderOpacity = () => {
+    if (!header) return;
+
+    const scrolled = window.scrollY;
+    const opacity = Math.min(scrolled / 100, 0.95);
+
+    const isDark = document.documentElement.classList.contains('dark');
+    const bgColor = isDark
+      ? `rgba(17, 24, 39, ${opacity})`
+      : `rgba(255, 255, 255, ${opacity})`;
+
+    header.style.backgroundColor = bgColor;
+  };
+
+  window.addEventListener('scroll', updateHeaderOpacity);
+  updateHeaderOpacity(); // Run on load
+
+  // Mobile dropdown toggle
+  const mobileDropdownToggles = document.querySelectorAll('[data-mobile-dropdown-toggle]');
+
+  mobileDropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const panel = toggle.nextElementSibling as HTMLElement;
+      const icon = toggle.querySelector('[data-dropdown-icon]') as HTMLElement;
+
+      if (panel && panel.hasAttribute('data-mobile-dropdown-panel')) {
+        panel.classList.toggle('hidden');
+        icon?.classList.toggle('rotate-180');
+      }
+    });
+  });
+</script>

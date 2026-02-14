@@ -1,0 +1,171 @@
+---
+interface Props {
+  density?: 'sparse' | 'normal' | 'dense';
+  animated?: boolean;
+  opacity?: number;
+  class?: string;
+}
+
+const {
+  density = 'normal',
+  animated = true,
+  opacity = 0.4,
+  class: className
+} = Astro.props;
+
+---
+
+<div class:list={['absolute inset-0 overflow-hidden pointer-events-none', className]} style={`opacity: ${opacity};`}>
+  <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Gradient for lines -->
+      <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" class="text-accent-400 dark:text-accent-500" style="stop-color: currentColor; stop-opacity: 0.2" />
+        <stop offset="50%" class="text-blue-400 dark:text-blue-500" style="stop-color: currentColor; stop-opacity: 0.6" />
+        <stop offset="100%" class="text-cyan-400 dark:text-cyan-500" style="stop-color: currentColor; stop-opacity: 0.2" />
+      </linearGradient>
+
+      <!-- Glow filter for nodes -->
+      <filter id="nodeGlow">
+        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- Data packet animation -->
+      <circle id="dataPacket" r="3" class="fill-cyan-400 dark:fill-cyan-300" filter="url(#nodeGlow)" />
+    </defs>
+
+    <!-- Network lines -->
+    <g class="network-lines" stroke="url(#lineGradient)" stroke-width="1" fill="none">
+      <!-- Top-left to top-right -->
+      <line x1="10%" y1="20%" x2="90%" y2="15%" opacity="0.5">
+        {animated && <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Top-left to center -->
+      <line x1="15%" y1="25%" x2="50%" y2="50%" opacity="0.4">
+        {animated && <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Top-right to center -->
+      <line x1="85%" y1="20%" x2="55%" y2="48%" opacity="0.5">
+        {animated && <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4.5s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Center to bottom-left -->
+      <line x1="48%" y1="52%" x2="20%" y2="80%" opacity="0.4">
+        {animated && <animate attributeName="opacity" values="0.2;0.6;0.2" dur="6s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Center to bottom-right -->
+      <line x1="52%" y1="52%" x2="80%" y2="75%" opacity="0.5">
+        {animated && <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5.5s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Bottom-left to bottom-right -->
+      <line x1="25%" y1="85%" x2="75%" y2="80%" opacity="0.4">
+        {animated && <animate attributeName="opacity" values="0.2;0.6;0.2" dur="7s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Middle horizontal -->
+      <line x1="15%" y1="50%" x2="85%" y2="50%" opacity="0.3">
+        {animated && <animate attributeName="opacity" values="0.1;0.5;0.1" dur="6s" repeatCount="indefinite" />}
+      </line>
+
+      <!-- Diagonal cross -->
+      <line x1="30%" y1="30%" x2="70%" y2="70%" opacity="0.3">
+        {animated && <animate attributeName="opacity" values="0.1;0.4;0.1" dur="8s" repeatCount="indefinite" />}
+      </line>
+    </g>
+
+    <!-- Network nodes -->
+    <g class="network-nodes">
+      <!-- Top nodes -->
+      <circle cx="10%" cy="20%" r="4" class="fill-blue-500 dark:fill-blue-400" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="4;5;4" dur="3s" repeatCount="indefinite" />}
+      </circle>
+
+      <circle cx="50%" cy="15%" r="5" class="fill-accent-500 dark:fill-accent-400" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="5;6;5" dur="2.5s" repeatCount="indefinite" />}
+      </circle>
+
+      <circle cx="90%" cy="15%" r="4" class="fill-cyan-500 dark:fill-cyan-400" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="4;5;4" dur="3.5s" repeatCount="indefinite" />}
+      </circle>
+
+      <!-- Middle nodes -->
+      <circle cx="15%" cy="50%" r="3" class="fill-blue-400 dark:fill-blue-300" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="3;4;3" dur="4s" repeatCount="indefinite" />}
+      </circle>
+
+      <circle cx="50%" cy="50%" r="6" class="fill-accent-600 dark:fill-accent-500" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="6;7;6" dur="2s" repeatCount="indefinite" />}
+        {animated && <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />}
+      </circle>
+
+      <circle cx="85%" cy="50%" r="3" class="fill-cyan-400 dark:fill-cyan-300" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="3;4;3" dur="3.5s" repeatCount="indefinite" />}
+      </circle>
+
+      <!-- Bottom nodes -->
+      <circle cx="20%" cy="80%" r="4" class="fill-blue-500 dark:fill-blue-400" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="4;5;4" dur="3.2s" repeatCount="indefinite" />}
+      </circle>
+
+      <circle cx="50%" cy="85%" r="5" class="fill-accent-500 dark:fill-accent-400" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="5;6;5" dur="2.8s" repeatCount="indefinite" />}
+      </circle>
+
+      <circle cx="80%" cy="75%" r="4" class="fill-cyan-500 dark:fill-cyan-400" filter="url(#nodeGlow)">
+        {animated && <animate attributeName="r" values="4;5;4" dur="3.8s" repeatCount="indefinite" />}
+      </circle>
+    </g>
+
+    <!-- Animated data packets (traveling dots) -->
+    {animated && (
+      <g class="data-packets">
+        <!-- Packet 1: Top-left to center -->
+        <circle r="2" class="fill-cyan-400 dark:fill-cyan-300" filter="url(#nodeGlow)">
+          <animateMotion dur="4s" repeatCount="indefinite">
+            <mpath href="#path1" />
+          </animateMotion>
+        </circle>
+        <path id="path1" d="M 15,25 L 50,50" fill="none" opacity="0" />
+
+        <!-- Packet 2: Top-right to bottom-left -->
+        <circle r="2" class="fill-blue-400 dark:fill-blue-300" filter="url(#nodeGlow)">
+          <animateMotion dur="6s" repeatCount="indefinite">
+            <mpath href="#path2" />
+          </animateMotion>
+        </circle>
+        <path id="path2" d="M 85,20 L 20,80" fill="none" opacity="0" />
+
+        <!-- Packet 3: Center to bottom-right -->
+        <circle r="2" class="fill-accent-400 dark:fill-accent-300" filter="url(#nodeGlow)">
+          <animateMotion dur="5s" repeatCount="indefinite" begin="1s">
+            <mpath href="#path3" />
+          </animateMotion>
+        </circle>
+        <path id="path3" d="M 50,50 L 80,75" fill="none" opacity="0" />
+      </g>
+    )}
+  </svg>
+</div>
+
+<style>
+  /* Ensure SVG percentages work correctly */
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Smooth animations */
+  .network-lines line,
+  .network-nodes circle {
+    transition: opacity 0.3s ease;
+  }
+</style>

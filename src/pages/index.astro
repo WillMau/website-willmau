@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import TechVisual from '../components/TechVisual.astro';
+import Badge from '../components/Badge.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Mau Consulting - Business technology consulting for small businesses. Salesforce, process automation, website design, and AI integration. Founded by William Mau, Certified Salesforce Administrator."
+>
+  <Header />
+
+  <main>
+    <!-- =============================== -->
+    <!-- HERO: Headline + Tech Visual    -->
+    <!-- =============================== -->
+    <section class="relative overflow-hidden min-h-[85vh] flex items-center">
+      <!-- Subtle background gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-accent-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-accent-950/30"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left: Copy -->
+          <div class="max-w-xl">
+            <div class="animate-fade-in-up">
+              <Badge variant="accent" class="mb-6">
+                Salesforce Certified Admin
+              </Badge>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 animate-delay-100">
+              Your technology<br />
+              <span class="bg-gradient-to-r from-accent-600 to-blue-600 dark:from-accent-400 dark:to-blue-400 bg-clip-text text-transparent">should work for you.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed animate-delay-200">
+              Salesforce, automation, websites, and AI&mdash;built and optimized for small businesses that want to stop wasting time and start growing.
+            </p>
+
+            <div class="flex flex-wrap gap-4 animate-delay-300">
+              <Button href="/contact" variant="primary" size="lg">
+                Get a Free Consultation
+              </Button>
+              <Button href="#services" variant="outline" size="lg">
+                See What I Do
+              </Button>
+            </div>
+          </div>
+
+          <!-- Right: Animated dashboard visual -->
+          <div class="hidden lg:block animate-delay-200">
+            <TechVisual />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== -->
+    <!-- SERVICES: Clean tiles            -->
+    <!-- =============================== -->
+    <section id="services" class="py-20 sm:py-24 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            What I do
+          </h2>
+          <p class="text-lg text-gray-500 dark:text-gray-400">
+            Five services, one goal&mdash;make your business run better.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {[
+            {
+              title: 'Salesforce',
+              desc: 'CRM setup, automation, dashboards & RevOps',
+              href: '/salesforce-consulting',
+              gradient: 'from-blue-500 to-cyan-500',
+              icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+            },
+            {
+              title: 'Websites',
+              desc: 'Fast, modern sites with free hosting & SEO',
+              href: '/website-design',
+              gradient: 'from-purple-500 to-pink-500',
+              icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+            },
+            {
+              title: 'Automation',
+              desc: 'Zapier, Power Automate & custom workflows',
+              href: '/automation-consulting',
+              gradient: 'from-green-500 to-emerald-500',
+              icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+            },
+            {
+              title: 'Tech Stack',
+              desc: 'Software selection, integration & migration',
+              href: '/tech-consulting',
+              gradient: 'from-orange-500 to-amber-500',
+              icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+            },
+            {
+              title: 'AI',
+              desc: 'ChatGPT API, custom GPTs & AI workflows',
+              href: '/ai-integration',
+              gradient: 'from-indigo-500 to-violet-500',
+              iconFill: true,
+              icon: 'M13 7H7v6h6V7z',
+              icon2: 'M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z',
+            },
+          ].map((service) => (
+            <a href={service.href} class="group block">
+              <div class="relative h-full p-6 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-gray-50/50 dark:bg-gray-800/30 hover:border-transparent hover:shadow-xl hover:shadow-accent-500/10 hover:-translate-y-1 transition-all duration-300">
+                <!-- Icon -->
+                <div class:list={['w-11 h-11 rounded-lg bg-gradient-to-br flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform shadow-lg', service.gradient]}>
+                  {service.iconFill ? (
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d={service.icon} />
+                      <path fill-rule="evenodd" d={service.icon2} clip-rule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+                    </svg>
+                  )}
+                </div>
+
+                <!-- Text -->
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                  {service.title}
+                </h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {service.desc}
+                </p>
+
+                <!-- Arrow -->
+                <div class="mt-4 text-accent-600 dark:text-accent-400 text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+                  Learn more →
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== -->
+    <!-- CTA: Clean close                 -->
+    <!-- =============================== -->
+    <section class="py-20 sm:py-24 bg-gray-50 dark:bg-gray-800/50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Let's fix your tech.
+          </h2>
+          <p class="text-lg text-gray-500 dark:text-gray-400 mb-8">
+            30-minute free consultation. No pitch, just a conversation about what's not working and how to fix it.
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center mb-12">
+            <Button href="/contact" variant="primary" size="lg">
+              Schedule Free Consultation
+            </Button>
+            <Button href="/work" variant="outline" size="lg">
+              View Portfolio
+            </Button>
+          </div>
+
+          <!-- Credentials strip -->
+          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-500 dark:text-gray-400">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Salesforce Certified
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Based in New York
+            </span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Free Consultation
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

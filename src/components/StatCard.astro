@@ -1,0 +1,134 @@
+---
+import ProgressRing from './ProgressRing.astro';
+import MiniBarChart from './MiniBarChart.astro';
+
+interface Props {
+  value: string;
+  label: string;
+  icon?: string;
+  trend?: 'up' | 'down';
+  color?: 'blue' | 'green' | 'purple' | 'orange';
+  showChart?: boolean;
+  percentage?: number;
+  chartData?: number[];
+}
+
+const { value, label, icon, trend, color = 'blue', showChart = false, percentage, chartData } = Astro.props;
+
+const colorClasses = {
+  blue: 'from-blue-500 to-blue-600',
+  green: 'from-green-500 to-green-600',
+  purple: 'from-purple-500 to-purple-600',
+  orange: 'from-orange-500 to-orange-600',
+};
+---
+
+<div class="relative group">
+  <div class:list={['absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 rounded-lg transition-opacity', colorClasses[color]]}></div>
+
+  <div class="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg rounded-lg p-6 border-2 border-white/20 dark:border-gray-700/30 hover:border-accent-500 dark:hover:border-accent-400 transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-2 overflow-hidden">
+    <div class="flex items-start justify-between">
+      <div class="flex-1">
+        <!-- Animated counter -->
+        <div
+          class="text-4xl font-bold text-gray-900 dark:text-white mb-2 tabular-nums"
+          data-counter
+          data-target={value}
+        >
+          0
+        </div>
+        <div class="text-sm font-medium text-gray-600 dark:text-gray-400">
+          {label}
+        </div>
+      </div>
+      {icon && (
+        <div class="text-accent-600 dark:text-accent-400 opacity-20">
+          <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon} />
+          </svg>
+        </div>
+      )}
+    </div>
+    {trend && (
+      <div class="mt-4 flex items-center text-sm">
+        {trend === 'up' ? (
+          <>
+            <svg class="w-4 h-4 text-green-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <span class="text-green-600 dark:text-green-400 font-medium">Increased</span>
+          </>
+        ) : (
+          <>
+            <svg class="w-4 h-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
+            <span class="text-red-600 dark:text-red-400 font-medium">Reduced</span>
+          </>
+        )}
+      </div>
+    )}
+
+    <!-- Data visualization charts -->
+    {showChart && percentage !== undefined && (
+      <div class="mt-4 flex justify-center">
+        <ProgressRing percentage={percentage} size={80} strokeWidth={6} color={color === 'blue' ? 'accent-500' : `${color}-500`} />
+      </div>
+    )}
+
+    {showChart && chartData && (
+      <div class="mt-4">
+        <MiniBarChart data={chartData} color={color === 'blue' ? 'accent-500' : `${color}-500`} height={40} />
+      </div>
+    )}
+
+    <!-- Shimmer effect -->
+    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Animated counter on scroll into view
+  const counters = document.querySelectorAll('[data-counter]');
+
+  const animateCounter = (element: Element) => {
+    const target = element.getAttribute('data-target') || '0';
+
+    // Extract numeric value and suffix
+    const numericValue = parseFloat(target.replace(/[^0-9.-]/g, ''));
+    const suffix = target.replace(/[0-9.-]/g, '');
+
+    if (isNaN(numericValue)) {
+      element.textContent = target;
+      return;
+    }
+
+    const duration = 1500;
+    const steps = 60;
+    const increment = numericValue / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= numericValue) {
+        element.textContent = target;
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current) + suffix;
+      }
+    }, duration / steps);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(counter => observer.observe(counter));
+</script>

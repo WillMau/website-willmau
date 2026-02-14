@@ -1,0 +1,39 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Network M Icon -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Connection lines forming M shape -->
+  <path d="M8 36 L8 24 L24 12 L40 24 L40 36" stroke="url(#logoGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+
+  <!-- Network nodes at key points -->
+  <!-- Bottom left node -->
+  <circle cx="8" cy="36" r="3.5" fill="url(#logoGradient)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Top left node -->
+  <circle cx="8" cy="24" r="3" fill="url(#logoGradient)" opacity="0.9"/>
+
+  <!-- Center top node (peak of M) -->
+  <circle cx="24" cy="12" r="4" fill="url(#logoGradient)">
+    <animate attributeName="r" values="4;4.5;4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Top right node -->
+  <circle cx="40" cy="24" r="3" fill="url(#logoGradient)" opacity="0.9"/>
+
+  <!-- Bottom right node -->
+  <circle cx="40" cy="36" r="3.5" fill="url(#logoGradient)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+
+  <!-- Data flow particles (subtle animation) -->
+  <circle cx="0" cy="0" r="1.5" fill="#0ea5e9" opacity="0.8">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M8,36 L8,24 L24,12 L40,24 L40,36"/>
+  </circle>
+</svg>

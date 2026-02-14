@@ -1,0 +1,38 @@
+---
+interface Props {
+  data: number[];
+  color?: string;
+  height?: number;
+}
+
+const { data, color = 'accent-500', height = 40 } = Astro.props;
+const max = Math.max(...data);
+const normalized = data.map(v => (v / max) * 100);
+---
+
+<div class="flex items-end gap-1" style={`height: ${height}px;`}>
+  {normalized.map((value, index) => (
+    <div
+      class={`flex-1 bg-${color} rounded-t transition-all duration-500 ease-out`}
+      style={`height: 0%; animation-delay: ${index * 0.05}s;`}
+      data-bar
+      data-height={value}
+    ></div>
+  ))}
+</div>
+
+<script>
+  const bars = document.querySelectorAll('[data-bar]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const targetHeight = entry.target.getAttribute('data-height');
+        (entry.target as HTMLElement).style.height = `${targetHeight}%`;
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  bars.forEach(bar => observer.observe(bar));
+</script>

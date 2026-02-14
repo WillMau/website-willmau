@@ -1,0 +1,49 @@
+---
+import AnimatedGradientMesh from './AnimatedGradientMesh.astro';
+import GlassContainer from './GlassContainer.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { title, subtitle, align = 'center' } = Astro.props;
+const alignClasses = align === 'center' ? 'text-center' : 'text-left';
+---
+
+<section class="relative overflow-hidden py-16 sm:py-24">
+  <!-- Animated gradient mesh background -->
+  <AnimatedGradientMesh />
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class:list={['max-w-4xl', align === 'center' ? 'mx-auto' : '']}>
+      <!-- Glass container for content -->
+      <GlassContainer blur="xl" opacity={0.7} padding="p-8 sm:p-12">
+        <h1 class:list={[
+          'text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6',
+          alignClasses,
+          'animate-fade-in-up'
+        ]}>
+          {title}
+        </h1>
+        {subtitle && (
+          <p class:list={[
+            'text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8',
+            alignClasses,
+            'animate-delay-100'
+          ]}>
+            {subtitle}
+          </p>
+        )}
+        <div class:list={[
+          'flex flex-wrap gap-4',
+          align === 'center' ? 'justify-center' : 'justify-start',
+          'animate-delay-200'
+        ]}>
+          <slot />
+        </div>
+      </GlassContainer>
+    </div>
+  </div>
+</section>
