@@ -36,24 +36,19 @@ function isActive(href: string) {
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center gap-2 group">
-          <!-- Icon only on mobile -->
+          <!-- Logo icon on mobile -->
           <img
-            src="/logo-icon.svg"
+            src="/mau-consulting-favicon.png"
             alt="Mau Consulting"
-            class="h-10 w-10 md:hidden group-hover:scale-110 transition-transform"
+            class="h-10 w-10 rounded-lg md:hidden group-hover:scale-110 transition-transform"
           />
-          <!-- Full logo on desktop - light mode -->
+          <!-- Logo icon + text on desktop -->
           <img
-            src="/logo-light.svg"
+            src="/mau-consulting-favicon.png"
             alt="Mau Consulting"
-            class="hidden md:block dark:hidden h-12 group-hover:scale-105 transition-transform"
+            class="hidden md:block h-10 w-10 rounded-lg group-hover:scale-105 transition-transform"
           />
-          <!-- Full logo on desktop - dark mode -->
-          <img
-            src="/logo-dark.svg"
-            alt="Mau Consulting"
-            class="hidden dark:md:block h-12 group-hover:scale-105 transition-transform"
-          />
+          <span class="hidden md:block text-lg font-bold text-gray-900 dark:text-white">Mau Consulting</span>
         </a>
       </div>
 

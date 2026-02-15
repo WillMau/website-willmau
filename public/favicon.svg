@@ -1,22 +1,38 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0d9680"/>
+      <stop offset="1" stop-color="#3dcfab"/>
     </linearGradient>
+    <!-- Grid pattern -->
+    <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M8 0H0V8" fill="none" stroke="white" stroke-width="0.3" opacity="0.15"/>
+    </pattern>
+    <!-- Dot pattern -->
+    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.3" fill="white" opacity="0.1"/>
+    </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="32" height="32" fill="#f8fafc" rx="6"/>
+  <!-- Gradient background -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
 
-  <!-- Simplified network M for small sizes -->
-  <!-- Connection lines -->
-  <path d="M4 26 L4 16 L16 6 L28 16 L28 26" stroke="url(#faviconGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Grid overlay -->
+  <rect width="32" height="32" rx="7" fill="url(#grid)"/>
 
-  <!-- Network nodes -->
-  <circle cx="4" cy="26" r="2.5" fill="url(#faviconGradient)"/>
-  <circle cx="4" cy="16" r="2" fill="url(#faviconGradient)"/>
-  <circle cx="16" cy="6" r="3" fill="url(#faviconGradient)"/>
-  <circle cx="28" cy="16" r="2" fill="url(#faviconGradient)"/>
-  <circle cx="28" cy="26" r="2.5" fill="url(#faviconGradient)"/>
+  <!-- Dot overlay -->
+  <rect width="32" height="32" rx="7" fill="url(#dots)"/>
+
+  <!-- Circuit traces in bottom-right corner -->
+  <g opacity="0.2">
+    <path d="M22 28 h4 l2 -2 v-3" stroke="white" stroke-width="0.6" stroke-linecap="round" fill="none"/>
+    <path d="M24 26 h3 l1.5 -1.5" stroke="white" stroke-width="0.5" stroke-linecap="round" fill="none"/>
+    <circle cx="28" cy="23" r="0.8" fill="white"/>
+  </g>
+
+  <!-- Bold white M — solid filled letterform -->
+  <path
+    d="M5 25 V8 L10 8 L16 16 L22 8 L27 8 V25 H23 V15 L16 22 L9 15 V25 Z"
+    fill="white"
+  />
 </svg>
