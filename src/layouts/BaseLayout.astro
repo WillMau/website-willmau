@@ -63,7 +63,8 @@ const ogImage = new URL(image, Astro.site).href;
         "name": "Mau Consulting",
         "url": "https://mauops.com",
         "logo": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png",
-        "description": "Technology consulting for small businesses. Salesforce, automation, website design, and AI integration services.",
+        "image": "https://mauops.com/william-mau-headshot.jpg",
+        "description": "Technology consulting for small businesses. Salesforce, workflow optimization, and website design services.",
         "founder": {
           "@type": "Person",
           "name": "William Mau",
@@ -74,12 +75,77 @@ const ogImage = new URL(image, Astro.site).href;
           "@type": "PostalAddress",
           "addressLocality": "Schenectady",
           "addressRegion": "NY",
-          "postalCode": "12306"
+          "postalCode": "12306",
+          "addressCountry": "US"
         },
         "priceRange": "$$",
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Schenectady",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "New York"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Albany",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "New York"
+            }
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/will-mau/",
+          "https://github.com/WillMau"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Consulting Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Salesforce Consulting",
+                "description": "CRM setup, admin, automation, and optimization for small businesses.",
+                "url": "https://mauops.com/salesforce-consulting"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Workflows & Integrations",
+                "description": "Process mapping, workflow optimization, and system integration.",
+                "url": "https://mauops.com/automation-consulting"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Websites & Digital Presence",
+                "description": "Fast, modern websites built for small businesses.",
+                "url": "https://mauops.com/website-design"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Advisory & Office Hours",
+                "description": "On-demand consulting for technology strategy and operations.",
+                "url": "https://mauops.com/consulting"
+              }
+            }
+          ]
         },
         "serviceType": [
           "Salesforce Consulting",
