@@ -1,19 +1,13 @@
 ---
-import ProgressRing from './ProgressRing.astro';
-import MiniBarChart from './MiniBarChart.astro';
-
 interface Props {
   value: string;
   label: string;
   icon?: string;
   trend?: 'up' | 'down';
   color?: 'blue' | 'green' | 'purple' | 'orange';
-  showChart?: boolean;
-  percentage?: number;
-  chartData?: number[];
 }
 
-const { value, label, icon, trend, color = 'blue', showChart = false, percentage, chartData } = Astro.props;
+const { value, label, icon, trend, color = 'blue' } = Astro.props;
 
 const colorClasses = {
   blue: 'from-blue-500 to-blue-600',
@@ -24,20 +18,19 @@ const colorClasses = {
 ---
 
 <div class="relative group">
-  <div class:list={['absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 rounded-lg transition-opacity', colorClasses[color]]}></div>
+  <div class:list={['absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity', colorClasses[color]]}></div>
 
-  <div class="relative bg-white/60 dark:bg-gray-800/60 backdrop-blur-lg rounded-lg p-6 border-2 border-white/20 dark:border-gray-700/30 hover:border-accent-500 dark:hover:border-accent-400 transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-2 overflow-hidden">
+  <div class="relative bg-white dark:bg-stone-900/60 rounded-2xl p-6 border border-stone-200 dark:border-stone-800 hover:border-accent-400 dark:hover:border-accent-600 transition-all hover:shadow-lg hover:-translate-y-1 overflow-hidden">
     <div class="flex items-start justify-between">
       <div class="flex-1">
-        <!-- Animated counter -->
         <div
-          class="text-4xl font-bold text-gray-900 dark:text-white mb-2 tabular-nums"
+          class="text-4xl font-bold text-navy-900 dark:text-white mb-2 tabular-nums"
           data-counter
           data-target={value}
         >
           0
         </div>
-        <div class="text-sm font-medium text-gray-600 dark:text-gray-400">
+        <div class="text-sm font-medium text-stone-600 dark:text-stone-400">
           {label}
         </div>
       </div>
@@ -60,32 +53,14 @@ const colorClasses = {
           </>
         ) : (
           <>
-            <svg class="w-4 h-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-green-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
             </svg>
-            <span class="text-red-600 dark:text-red-400 font-medium">Reduced</span>
+            <span class="text-green-600 dark:text-green-400 font-medium">Reduced</span>
           </>
         )}
       </div>
     )}
-
-    <!-- Data visualization charts -->
-    {showChart && percentage !== undefined && (
-      <div class="mt-4 flex justify-center">
-        <ProgressRing percentage={percentage} size={80} strokeWidth={6} color={color === 'blue' ? 'accent-500' : `${color}-500`} />
-      </div>
-    )}
-
-    {showChart && chartData && (
-      <div class="mt-4">
-        <MiniBarChart data={chartData} color={color === 'blue' ? 'accent-500' : `${color}-500`} height={40} />
-      </div>
-    )}
-
-    <!-- Shimmer effect -->
-    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
-    </div>
   </div>
 </div>
 
@@ -95,8 +70,6 @@ const colorClasses = {
 
   const animateCounter = (element: Element) => {
     const target = element.getAttribute('data-target') || '0';
-
-    // Extract numeric value and suffix
     const numericValue = parseFloat(target.replace(/[^0-9.-]/g, ''));
     const suffix = target.replace(/[0-9.-]/g, '');
 

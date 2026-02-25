@@ -6,21 +6,44 @@ export default {
     extend: {
       colors: {
         accent: {
-          50: '#eefcf8',
-          100: '#d5f7ec',
-          200: '#aef0d9',
-          300: '#76e4c2',
-          400: '#3dcfab',
-          500: '#1ab893',
-          600: '#0d9680',
-          700: '#0e786a',
-          800: '#115e56',
-          900: '#124e46',
+          50: '#fef4f2',
+          100: '#fde8e3',
+          200: '#fcd0c8',
+          300: '#f9b0a3',
+          400: '#f48672',
+          500: '#ec6249',
+          600: '#d94a33',
+          700: '#b63b28',
+          800: '#97321f',
+          900: '#7d2c1c',
+        },
+        salesforce: {
+          50: '#f0f7ff',
+          100: '#dceefb',
+          200: '#b4d7f5',
+          300: '#7fbfed',
+          400: '#1b96ff',
+          500: '#0176d3',
+          600: '#014486',
+          700: '#032d60',
+        },
+        navy: {
+          50: '#f0f4f8',
+          100: '#d9e2ec',
+          200: '#bcccdc',
+          300: '#9fb3c8',
+          400: '#829ab1',
+          500: '#627d98',
+          600: '#486581',
+          700: '#334e68',
+          800: '#243b53',
+          900: '#102a43',
+          950: '#0a1f33',
         },
       },
       fontFamily: {
         sans: [
-          'Inter',
+          '"DM Sans"',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
@@ -29,13 +52,6 @@ export default {
           '"Helvetica Neue"',
           'Arial',
           'sans-serif',
-        ],
-        mono: [
-          '"JetBrains Mono"',
-          '"Fira Code"',
-          'ui-monospace',
-          'SFMono-Regular',
-          'monospace',
         ],
       },
       keyframes: {
@@ -59,7 +75,7 @@ export default {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.slate.700'),
+            color: theme('colors.stone.700'),
             a: {
               color: theme('colors.accent.600'),
               '&:hover': {
@@ -70,18 +86,18 @@ export default {
         },
         dark: {
           css: {
-            color: theme('colors.slate.300'),
+            color: theme('colors.stone.300'),
             a: {
               color: theme('colors.accent.400'),
               '&:hover': {
                 color: theme('colors.accent.300'),
               },
             },
-            h1: { color: theme('colors.slate.100') },
-            h2: { color: theme('colors.slate.100') },
-            h3: { color: theme('colors.slate.100') },
-            h4: { color: theme('colors.slate.100') },
-            strong: { color: theme('colors.slate.100') },
+            h1: { color: theme('colors.stone.100') },
+            h2: { color: theme('colors.stone.100') },
+            h3: { color: theme('colors.stone.100') },
+            h4: { color: theme('colors.stone.100') },
+            strong: { color: theme('colors.stone.100') },
           },
         },
       }),

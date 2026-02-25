@@ -2,400 +2,254 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
 import Badge from '../components/Badge.astro';
 ---
 
 <BaseLayout
-  title="Work & Case Studies"
-  description="Portfolio of operations work, revenue systems projects, and production websites. Case studies demonstrating measurable outcomes in Salesforce optimization, workflow automation, and executive reporting."
+  title="Portfolio | Work & Case Studies"
+  description="Production websites, Salesforce optimizations, and operational transformations. Real projects with measurable outcomes for small and mid-size businesses."
 >
   <Header />
 
   <main>
-    <Hero
-      title="Selected Work & Case Studies"
-      subtitle="Examples of production sites, revenue operations projects, and operational transformations that delivered measurable results."
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 sm:py-24 bg-white dark:bg-gray-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <Badge variant="accent" class="mb-4">
+          <svg class="w-4 h-4 inline-block mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm-2 5a1 1 0 100 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+          </svg>
+          Portfolio
+        </Badge>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-fade-in-up">
+          Work That Speaks<br />for Itself
+        </h1>
+
+        <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-100">
+          Production websites, CRM overhauls, and process transformations. Every project here solved a real problem for a real business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Websites -->
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Websites I Have Built" subtitle="Designed, written, built, and launched.">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/shoreline-screenshot.jpg" alt="Shoreline Senior Care website" class="w-full h-48 object-cover object-top rounded-lg mb-4" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Business Website</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Shoreline Senior Care</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Full website for a senior care provider in Schenectady, NY. Clean design, clear service pages, and a strong call to action for families seeking care.</p>
+        <a
+          href="https://www.shorelinecares.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit shorelinecares.com
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/rockford-screenshot.jpg" alt="Rockford Milling & Woodworking website" class="w-full h-48 object-cover object-top rounded-lg mb-4" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Portfolio Site</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Rockford Milling & Woodworking</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Custom woodworking portfolio showcasing craftsmanship with clean layout, product categories, and clear contact options.</p>
+        <a
+          href="https://www.rockfordmilling.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit rockfordmilling.com
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/mau-consulting-favicon-M-consulting-transparent.jpg" alt="Mau Consulting website" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Consulting Site</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Mau Consulting</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">This site. Built on Astro with Tailwind CSS, custom branding, dark mode, and optimized for performance and SEO.</p>
+        <span class="text-accent-600 dark:text-accent-400 font-medium text-sm">You are here</span>
+      </Card>
+
+    </div>
+  </Section>
+
+  <!-- Case Studies: Transformation Stories -->
+  <Section title="Operations & Systems Work" subtitle="The before and after of real projects">
+    <div class="space-y-6 max-w-5xl">
+
+      <!-- Case Study 1: Excel to Dashboards -->
+      <div class="bg-white dark:bg-stone-900/60 rounded-2xl border border-stone-200 dark:border-stone-800 p-8 hover:shadow-md transition-shadow duration-300">
+        <div class="flex flex-wrap gap-2 mb-4">
+          <Badge variant="accent">Salesforce</Badge>
+          <Badge variant="accent">Reporting</Badge>
+        </div>
+        <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-2">From 15 Spreadsheets to One Dashboard</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="bg-stone-50 dark:bg-stone-800/40 rounded-xl p-5">
+            <p class="text-xs font-semibold text-red-500 dark:text-red-400 uppercase tracking-wide mb-2">Before</p>
+            <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Weekly reporting took a full day of manual Excel work</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> 15 spreadsheets across 3 teams, none of them matching</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Executives making decisions on stale, inconsistent data</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> No one trusted the numbers in meetings</li>
+            </ul>
+          </div>
+          <div class="bg-accent-50/50 dark:bg-accent-900/10 rounded-xl p-5">
+            <p class="text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-wide mb-2">After</p>
+            <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> 5 live dashboards pulling from one clean data source</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Automated delivery to leadership every Monday morning</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Weekly reporting time dropped from a full day to zero</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Adopted in every executive meeting within two weeks</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <Badge>Salesforce Dashboards</Badge>
+          <Badge>Custom Reports</Badge>
+          <Badge>Data Cleanup</Badge>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Scattered Process to Defined Workflow -->
+      <div class="bg-white dark:bg-stone-900/60 rounded-2xl border border-stone-200 dark:border-stone-800 p-8 hover:shadow-md transition-shadow duration-300">
+        <div class="flex flex-wrap gap-2 mb-4">
+          <Badge variant="accent">Process Design</Badge>
+          <Badge variant="accent">Salesforce</Badge>
+        </div>
+        <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-2">From 73 Manual Steps to 8 Automated Ones</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="bg-stone-50 dark:bg-stone-800/40 rounded-xl p-5">
+            <p class="text-xs font-semibold text-red-500 dark:text-red-400 uppercase tracking-wide mb-2">Before</p>
+            <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Leads routed manually by one person checking email</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> 14 handoff points between Marketing and Sales, most undocumented</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Lifecycle stages meant different things to different teams</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Forecasting was guesswork</li>
+            </ul>
+          </div>
+          <div class="bg-accent-50/50 dark:bg-accent-900/10 rounded-xl p-5">
+            <p class="text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-wide mb-2">After</p>
+            <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Automated lead routing with clear assignment rules</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Defined MQL/SQL criteria both teams agreed on</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Sales velocity improved with shorter time-to-close</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Documented governance model the team maintains themselves</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <Badge>Salesforce</Badge>
+          <Badge>Pardot</Badge>
+          <Badge>Process Mapping</Badge>
+          <Badge>Documentation</Badge>
+        </div>
+      </div>
+
+      <!-- Case Study 3: Chaos to Tiered Support -->
+      <div class="bg-white dark:bg-stone-900/60 rounded-2xl border border-stone-200 dark:border-stone-800 p-8 hover:shadow-md transition-shadow duration-300">
+        <div class="flex flex-wrap gap-2 mb-4">
+          <Badge variant="accent">Operations</Badge>
+          <Badge variant="accent">Enablement</Badge>
+        </div>
+        <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-2">From "Everything Is Urgent" to a System That Scales</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div class="bg-stone-50 dark:bg-stone-800/40 rounded-xl p-5">
+            <p class="text-xs font-semibold text-red-500 dark:text-red-400 uppercase tracking-wide mb-2">Before</p>
+            <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Support team handled every request the same way, no triage</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> High-priority issues delayed by routine questions</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Same questions asked over and over with no shared answers</li>
+              <li class="flex items-start gap-2"><span class="text-stone-400">&bull;</span> Leadership had no visibility into volume or resolution time</li>
+            </ul>
+          </div>
+          <div class="bg-accent-50/50 dark:bg-accent-900/10 rounded-xl p-5">
+            <p class="text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-wide mb-2">After</p>
+            <ul class="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Three-tier model: routine, technical, escalation</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Internal knowledge base cut repeat questions by ~30%</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Salesforce Cases tracking volume, SLAs, and resolution time</li>
+              <li class="flex items-start gap-2"><span class="text-green-600 dark:text-green-400">&#10003;</span> Team balanced workload, burnout dropped</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <Badge>Salesforce Cases</Badge>
+          <Badge>Knowledge Base</Badge>
+          <Badge>SOPs</Badge>
+          <Badge>Team Training</Badge>
+        </div>
+      </div>
+
+    </div>
+  </Section>
+
+  <!-- Photo Break -->
+  <section class="relative h-48 sm:h-64 overflow-hidden">
+    <img
+      src="/photo-break-portfolio.jpg"
+      alt="Team reviewing charts and data together"
+      class="w-full h-full object-cover grayscale"
+      loading="lazy"
     />
+    <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/20 dark:from-gray-950/30 dark:to-gray-950/30"></div>
+  </section>
 
-    <!-- Public Websites -->
-    <Section
-      title="Public Websites"
-      subtitle="Production sites I've designed, built, and shipped"
-      class="bg-white dark:bg-gray-900"
-    >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-        <Card>
-          <div class="mb-4">
-            <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </div>
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-              Shoreline Senior Care
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              Full website for senior care services in Schenectady, NY. Demonstrates ability to write for users, design clean interfaces, and ship production-ready sites with clear CTAs and service offerings.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <Badge variant="accent">Web Design</Badge>
-              <Badge variant="accent">Content Writing</Badge>
-              <Badge variant="accent">Production Site</Badge>
-              <Badge variant="accent">User-Focused</Badge>
-            </div>
-            <a
-              href="https://www.shorelinecares.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2"
-            >
-              Visit shorelinecares.com
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+  <!-- What Clients Get -->
+  <Section class="bg-accent-50/50 dark:bg-accent-950/20" title="Every Project Includes">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {[
+        { title: 'Documentation', desc: 'Process maps, SOPs, and system documentation so institutional knowledge lives in a document, not in someone\'s head.', icon: 'M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2' },
+        { title: 'Team Training', desc: 'Live sessions, recorded walkthroughs, and reference materials so your team runs the system confidently without me.', icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z' },
+        { title: 'Ongoing Support', desc: 'Post-project support so your team has a safety net as they take ownership. No lock-in, just a resource when you need one.', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' }
+      ].map(item => (
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 bg-accent-100 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 rounded-2xl mb-4">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+            </svg>
           </div>
-        </Card>
-
-        <Card>
-          <div class="mb-4">
-            <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </div>
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-              Rockford Milling & Woodworking
-            </h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              Custom woodworking portfolio site showcasing craftsmanship with clean layout, clear service offerings, and strong visual presentation. Demonstrates ability to build and ship client-facing production sites.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <Badge variant="accent">Portfolio Site</Badge>
-              <Badge variant="accent">Design</Badge>
-              <Badge variant="accent">Production</Badge>
-              <Badge variant="accent">Shipping</Badge>
-            </div>
-            <a
-              href="https://www.rockfordmilling.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2"
-            >
-              Visit rockfordmilling.com
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
-        </Card>
-      </div>
-    </Section>
-
-    <!-- Case Studies -->
-    <Section
-      title="Case Studies"
-      subtitle="Anonymized examples of revenue operations and systems work with measurable outcomes"
-      class="bg-gray-50 dark:bg-gray-800"
-    >
-      <div class="space-y-12 max-w-5xl mx-auto">
-        <!-- Case Study 1: CRM Workflow Reengineering -->
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <Badge variant="accent">Salesforce</Badge>
-            <Badge variant="accent">Pardot</Badge>
-            <Badge variant="accent">Revenue Operations</Badge>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            CRM & Marketing Automation Workflow Reengineering
-          </h3>
-
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Problem</h4>
-              <p class="text-gray-700 dark:text-gray-300">
-                B2B company with complex sales cycle experiencing major funnel friction. Leads getting stuck between Marketing and Sales, unclear lifecycle definitions, unreliable forecasting, and executives lacking confidence in pipeline data. Sales velocity declining despite increasing lead volume.
-              </p>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Constraints</h4>
-              <ul class="space-y-1 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Had to maintain business continuity during changes—couldn't "stop the world"</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Limited Salesforce admin resources; needed sustainable solution</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Existing data quality issues complicating any workflow changes</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Approach</h4>
-              <ol class="space-y-2 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">1.</span>
-                  <span><strong>Diagnostic:</strong> Mapped current-state workflows, identified 14 major bottlenecks across lead routing, stage definitions, and handoff protocols</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">2.</span>
-                  <span><strong>Lifecycle redefinition:</strong> Collaborated cross-functionally to establish clear MQL/SQL criteria and stage entry/exit requirements</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">3.</span>
-                  <span><strong>Automation rebuild:</strong> Cleaned up redundant workflows, fixed lead routing rules, automated data validation</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">4.</span>
-                  <span><strong>Data hygiene sprint:</strong> Deduped records, enforced validation rules, backfilled missing fields</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">5.</span>
-                  <span><strong>Dashboard deployment:</strong> Built executive dashboards for pipeline health and stage conversion tracking</span>
-                </li>
-              </ol>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Outcome</h4>
-              <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span><strong>Eliminated 87% of identified funnel bottlenecks</strong>, improving lead-to-close flow</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Sales velocity increased measurably; time-to-close improved</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Forecasting accuracy improved, giving executives confidence in pipeline data</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Clear documentation and governance model for ongoing maintenance</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Tools</h4>
-              <div class="flex flex-wrap gap-2">
-                <Badge>Salesforce Sales Cloud</Badge>
-                <Badge>Pardot</Badge>
-                <Badge>Process Builder</Badge>
-                <Badge>Validation Rules</Badge>
-                <Badge>Dashboards</Badge>
-              </div>
-            </div>
-          </div>
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{item.title}</h3>
+          <p class="text-sm text-stone-600 dark:text-stone-400">{item.desc}</p>
         </div>
+      ))}
+    </div>
+  </Section>
 
-        <!-- Case Study 2: Executive Dashboards -->
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <Badge variant="accent">Salesforce</Badge>
-            <Badge variant="accent">Business Intelligence</Badge>
-            <Badge variant="accent">Executive Reporting</Badge>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Executive Dashboard & Reporting System
-          </h3>
-
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Problem</h4>
-              <p class="text-gray-700 dark:text-gray-300">
-                Sales leadership lacked visibility into pipeline health, win rates, and rep performance. Weekly reporting was manual, time-consuming, and inconsistent. Executives couldn't confidently make territory planning or quota decisions due to unreliable data.
-              </p>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Constraints</h4>
-              <ul class="space-y-1 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Had to use native Salesforce reporting (no Einstein Analytics budget)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Data quality varied; some fields incomplete or inaccurate</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Needed real-time or near-real-time updates (not static monthly reports)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Approach</h4>
-              <ol class="space-y-2 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">1.</span>
-                  <span><strong>Stakeholder interviews:</strong> Identified key metrics executives needed for decision-making</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">2.</span>
-                  <span><strong>Data validation:</strong> Fixed underlying data quality issues before building dashboards</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">3.</span>
-                  <span><strong>Dashboard design:</strong> Built 5 executive dashboards covering pipeline health, conversion rates, rep performance, win/loss analysis, and forecast accuracy</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">4.</span>
-                  <span><strong>Automation:</strong> Added scheduled email delivery and mobile access</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">5.</span>
-                  <span><strong>Training:</strong> Conducted executive walkthrough sessions and created usage documentation</span>
-                </li>
-              </ol>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Outcome</h4>
-              <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Executive leadership gained real-time visibility into pipeline health and performance</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Weekly reporting workload eliminated (automated dashboards replaced manual reports)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Leadership used insights to guide territory planning, quota setting, and strategic investments</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Dashboard adoption: used in every weekly executive meeting</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Tools</h4>
-              <div class="flex flex-wrap gap-2">
-                <Badge>Salesforce Dashboards</Badge>
-                <Badge>Custom Reports</Badge>
-                <Badge>Formula Fields</Badge>
-                <Badge>Report Scheduling</Badge>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 3: Operations Support Model -->
-        <div class="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-200 dark:border-gray-700">
-          <div class="flex flex-wrap gap-2 mb-4">
-            <Badge variant="accent">Process Design</Badge>
-            <Badge variant="accent">Operations</Badge>
-            <Badge variant="accent">Scalability</Badge>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Tiered Support Model & Process Redesign
-          </h3>
-
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Problem</h4>
-              <p class="text-gray-700 dark:text-gray-300">
-                Client Success team overwhelmed with escalations and routine requests mixed together. No clear triage process, resulting in high-priority issues getting delayed and team burnout. Leadership had no visibility into support volume or resolution times.
-              </p>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Constraints</h4>
-              <ul class="space-y-1 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Could not add headcount; had to improve with existing resources</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>Team resistant to process changes (previous attempts failed)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span>•</span>
-                  <span>No formal support ticketing system in place</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Approach</h4>
-              <ol class="space-y-2 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">1.</span>
-                  <span><strong>Current-state analysis:</strong> Mapped support workflows and categorized requests by complexity and urgency</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">2.</span>
-                  <span><strong>Tiered model design:</strong> Created Tier 1 (routine), Tier 2 (technical), Tier 3 (escalation) with clear escalation criteria</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">3.</span>
-                  <span><strong>Knowledge base:</strong> Built internal documentation for common resolutions (reducing repeat questions)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">4.</span>
-                  <span><strong>Lightweight ticketing:</strong> Used Salesforce Cases to track volume, categorize requests, and measure resolution time</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-semibold">5.</span>
-                  <span><strong>Team training:</strong> Conducted workshops and created SOPs for each tier</span>
-                </li>
-              </ol>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Outcome</h4>
-              <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Support volume triaged effectively; high-priority issues resolved faster</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Team workload balanced; burnout reduced</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Leadership gained visibility into support metrics (volume, SLA adherence, resolution times)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-green-600 dark:text-green-400">✓</span>
-                  <span>Knowledge base reduced repeat escalations by ~30%</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 class="font-semibold text-accent-600 dark:text-accent-400 mb-2">Tools</h4>
-              <div class="flex flex-wrap gap-2">
-                <Badge>Salesforce Cases</Badge>
-                <Badge>SharePoint Knowledge Base</Badge>
-                <Badge>Process Documentation</Badge>
-                <Badge>SOP Templates</Badge>
-              </div>
-            </div>
-          </div>
+  <!-- CTA -->
+  <section class="relative overflow-hidden bg-navy-900 dark:bg-navy-950 py-16 sm:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Like What You See?</h2>
+        <p class="text-xl text-navy-200 mb-8">
+          Every project starts with a free call. Tell me what is not working and I will give you honest advice on what to do next.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Button href="/contact?source=portfolio" variant="primary" size="lg">Book a Free Call</Button>
+          <Button href="/#services" variant="outline" size="lg" class="text-white border-white hover:bg-white/10">See Services</Button>
         </div>
       </div>
-    </Section>
+    </div>
+  </section>
   </main>
 
   <Footer />
 </BaseLayout>
+

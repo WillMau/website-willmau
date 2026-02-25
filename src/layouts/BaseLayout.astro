@@ -23,9 +23,16 @@ const ogImage = new URL(image, Astro.site).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/mau-consulting-favicon.png" />
-    <link rel="apple-touch-icon" href="/mau-consulting-favicon.png" />
+    <link rel="icon" type="image/png" href="/mau-consulting-favicon-navy-coral-transparent-filled-512.png" />
+    <link rel="apple-touch-icon" href="/mau-consulting-favicon-navy-coral-transparent-filled-512.png" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Google Fonts: DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://formspree.io" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet" />
 
     <!-- Primary Meta Tags -->
     <title>{fullTitle}</title>
@@ -34,6 +41,7 @@ const ogImage = new URL(image, Astro.site).href;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={fullTitle} />
@@ -53,8 +61,8 @@ const ogImage = new URL(image, Astro.site).href;
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Mau Consulting",
-        "url": "https://williammau.github.io",
-        "logo": "https://williammau.github.io/mau-consulting-favicon.png",
+        "url": "https://mauops.com",
+        "logo": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png",
         "description": "Technology consulting for small businesses. Salesforce, automation, website design, and AI integration services.",
         "founder": {
           "@type": "Person",
@@ -68,8 +76,6 @@ const ogImage = new URL(image, Astro.site).href;
           "addressRegion": "NY",
           "postalCode": "12306"
         },
-        "email": "William.Mau@gmail.com",
-        "telephone": "+1-518-930-8185",
         "priceRange": "$$",
         "areaServed": {
           "@type": "Country",
@@ -79,8 +85,7 @@ const ogImage = new URL(image, Astro.site).href;
           "Salesforce Consulting",
           "Website Design",
           "Process Automation",
-          "Technology Consulting",
-          "AI Integration"
+          "Technology Consulting"
         ]
       }
     </script>

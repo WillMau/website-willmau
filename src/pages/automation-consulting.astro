@@ -5,79 +5,478 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
-import NetworkBackground from '../components/NetworkBackground.astro';
-import StatCard from '../components/StatCard.astro';
 import Badge from '../components/Badge.astro';
+
+const expertise = [
+  {
+    title: 'Sales & Pipeline',
+    description: 'Lead routing, deal stages, handoff points, and pipeline visibility.',
+    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
+  },
+  {
+    title: 'Marketing & Lead Gen',
+    description: 'Campaign workflows, lead scoring, nurture sequences, and attribution tracking.',
+    icon: 'M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z'
+  },
+  {
+    title: 'Client Onboarding',
+    description: 'Intake forms, welcome sequences, account setup, and resource provisioning.',
+    icon: 'M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z'
+  },
+  {
+    title: 'Legal & Compliance',
+    description: 'Contract workflows, approval chains, document routing, and audit trails.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+  },
+  {
+    title: 'IT & Operations',
+    description: 'Ticket routing, provisioning workflows, escalation logic, and system integrations.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+  },
+  {
+    title: 'Finance & Invoicing',
+    description: 'Invoice generation, approval routing, payment tracking, and reconciliation.',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Training & Enablement',
+    description: 'Enrollment flows, certification tracking, resource distribution, and progress reporting.',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
+  },
+  {
+    title: 'Reporting & Analytics',
+    description: 'Dashboard design, data consolidation, KPI tracking, and executive reporting.',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What does a process map actually look like?',
+    answer: 'You get a visual Lucidchart diagram showing every step, decision point, and handoff in your workflow. Alongside that, you get a plain-English runbook that explains the process in language anyone on your team can follow. For leadership, I also prepare a summary presentation highlighting bottlenecks and recommendations.'
+  },
+  {
+    question: 'Can you map processes outside of sales and CRM?',
+    answer: 'Absolutely. I have run sales, marketing, legal, IT, training, and finance operations in my current role. If your business has a process that involves people, tools, and handoffs, I can document it, find the gaps, and recommend improvements.'
+  },
+  {
+    question: 'Do you just document, or do you also build the solution?',
+    answer: 'Both, depending on what you need. Some clients want a clear documentation package they can hand to their internal team or another vendor. Others want me to build and configure the recommended workflow using Salesforce Flows, Power Automate, or custom API connections. Pricing adjusts accordingly.'
+  },
+  {
+    question: 'Will my leadership team understand the deliverables?',
+    answer: 'That is the entire point. I have been praised specifically for translating complex, technical workflows into clear documentation that stakeholders at every level can understand. The goal is always: everyone in the org knows what the goal is and how to get there.'
+  },
+  {
+    question: 'How is this different from hiring a business analyst?',
+    answer: 'I combine the mapping and documentation skills of a BA with hands-on technical experience. I have built and managed Salesforce orgs, configured integrations, written API connections, and trained teams on the systems I design. You get strategy and execution from the same person.'
+  }
+];
 ---
 
 <BaseLayout
-  title="Process Automation Consulting | Zapier, Power Automate & Workflow Optimization"
-  description="Business process automation consulting. Zapier, Power Automate, custom workflows. Eliminate manual tasks and increase efficiency."
+  title="Workflows & Process Mapping | Mau Consulting"
+  description="Process mapping and workflow optimization consulting. I document your current processes, identify bottlenecks, and deliver clear recommendations your entire team can follow."
 >
   <Header />
 
   <main>
-  <section class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-900 dark:via-green-950 dark:to-teal-950">
-    <NetworkBackground density="normal" opacity={0.5} />
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-16 sm:py-24 bg-white dark:bg-gray-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
-        <Badge variant="success" class="mb-4">
-          <svg class="w-4 h-4 inline-block mr-1" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+        <Badge variant="accent" class="mb-4">
+          <svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
           </svg>
-          Efficiency & Automation Expert
+          Process &amp; Workflow Specialist
         </Badge>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 animate-fade-in-up">
-          Stop Doing Manual Work<br />That Software Can Do
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-fade-in-up">
+          I Map the Mess So<br />Your Team Sees the Plan
         </h1>
 
-        <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-delay-100">
-          Custom automation workflows that save hours per week. Zapier, Power Automate, and API integrations that actually work.
+        <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-100">
+          Complex processes across sales, marketing, legal, IT, and operations, documented clearly so every stakeholder knows the goal and how to get there.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center animate-delay-200">
-          <Button href="/contact?service=automation" variant="primary" size="lg">
-            Request Automation Audit
+          <Button href="/contact?service=automation&source=automation-consulting" variant="primary" size="lg">
+            Book a Process Review
           </Button>
-          <Button href="/portfolio" variant="outline" size="lg">
-            See Examples
+          <Button href="#approach" variant="outline" size="lg">
+            See How It Works
           </Button>
         </div>
       </div>
     </div>
   </section>
 
-  <Section class="bg-white dark:bg-gray-900">
-    <h2 class="text-3xl font-bold text-center mb-12">Proven Time Savings</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <StatCard value="15hrs" label="Average Weekly Time Saved" color="green" />
-      <StatCard value="10x" label="Productivity Increase" trend="up" color="blue" />
-      <StatCard value="87%" label="Manual Tasks Eliminated" trend="down" color="purple" />
+  <!-- My Approach -->
+  <Section id="approach" class="bg-stone-50 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">My Approach</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">From confusion to clarity in four steps</h2>
+      <p class="text-lg text-stone-600 dark:text-stone-300 mb-12 max-w-2xl">
+        Every engagement follows the same proven structure. You see the full picture before any changes are made.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            step: '01',
+            title: 'Discovery',
+            desc: 'I sit down with your team and walk through your current process step by step. No assumptions, just questions and listening.',
+            icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
+          },
+          {
+            step: '02',
+            title: 'Current-State Map',
+            desc: 'I document exactly what happens today in Lucidchart: every handoff, every tool, every decision point, every bottleneck.',
+            icon: 'M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2'
+          },
+          {
+            step: '03',
+            title: 'Bottleneck Analysis',
+            desc: 'I identify where things break down, slow down, or get lost. Redundancies, manual steps, and gaps are all highlighted.',
+            icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+          },
+          {
+            step: '04',
+            title: 'Recommendation',
+            desc: 'You get a simplified future-state workflow with clear next steps. Choose documentation only or full implementation.',
+            icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+          }
+        ].map(phase => (
+          <div class="relative group">
+            <div class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-navy-800 to-navy-900 text-white rounded-2xl font-bold text-xl mb-4 shadow-lg">
+              {phase.step}
+            </div>
+            <h3 class="text-lg font-bold text-navy-900 dark:text-white mb-2">{phase.title}</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{phase.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-accent-50/50 dark:bg-accent-900/10 p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center">
+          <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-navy-900 dark:text-white">Every workflow starts with a Lucidchart diagram.</p>
+          <p class="text-sm text-stone-500 dark:text-stone-400">You see the full process mapped out before anything is built or changed. No surprises, no guesswork.</p>
+        </div>
+      </div>
     </div>
   </Section>
 
-  <Section title="What I Automate" subtitle="Common workflows I build for clients">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {[
-        { title: 'CRM Automation', desc: 'Lead routing, data entry, follow-up sequences, status updates', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' },
-        { title: 'Email Workflows', desc: 'Automated responses, email parsing, attachment handling, notifications', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
-        { title: 'Data Sync', desc: 'Keep data in sync between systems (Salesforce ↔ Google Sheets ↔ Slack)', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15' },
-        { title: 'Document Generation', desc: 'Auto-create PDFs, contracts, invoices from templates', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
-        { title: 'Form Processing', desc: 'Intake forms → CRM, notifications, task creation, approvals', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
-        { title: 'Notification Systems', desc: 'Slack alerts, SMS notifications, custom webhooks', icon: 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9' }
-      ].map(item => (
+  <!-- Process Transformation Visual -->
+  <Section class="bg-white dark:bg-gray-950">
+    <h2 class="text-3xl font-bold text-center mb-4 text-navy-900 dark:text-white">From Scattered to Streamlined</h2>
+    <p class="text-center text-stone-600 dark:text-stone-300 mb-10 max-w-2xl mx-auto">
+      This is what a workflow transformation looks like. I take the chaos on the left and turn it into the clarity on the right.
+    </p>
+
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-center">
+      <!-- Messy Side -->
+      <div class="rounded-2xl border-2 border-dashed border-red-300 dark:border-red-800 bg-red-50/50 dark:bg-red-900/10 p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-red-500 dark:text-red-400 mb-4">Current State</p>
+        <div class="space-y-3">
+          {[
+            'Spreadsheet A',
+            'Email thread',
+            'Slack DM',
+            'Shared drive folder',
+            'Spreadsheet B',
+            'Manual handoff',
+            'Another email',
+          ].map((item, i) => (
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-red-300 dark:bg-red-600 flex-shrink-0"></div>
+              <div class="flex-1 h-8 rounded-lg bg-red-100/80 dark:bg-red-900/20 border border-red-200/60 dark:border-red-800/40 flex items-center px-3">
+                <span class="text-xs text-red-600 dark:text-red-400">{item}</span>
+              </div>
+              {i < 6 && (
+                <svg class="w-4 h-4 text-red-300 dark:text-red-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={`transform: rotate(${[45, -30, 60, -15, 40, -45][i]}deg)`}>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              )}
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-red-400 dark:text-red-500 mt-4 text-center italic">7 tools, no single source of truth</p>
+      </div>
+
+      <!-- Arrow -->
+      <div class="hidden lg:flex flex-col items-center gap-2">
+        <svg class="w-12 h-12 text-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+        <span class="text-xs font-semibold text-accent-600 dark:text-accent-400 uppercase tracking-wide">Mapped &<br/>simplified</span>
+      </div>
+      <div class="lg:hidden flex justify-center">
+        <svg class="w-10 h-10 text-accent-500 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </div>
+
+      <!-- Clean Side -->
+      <div class="rounded-2xl border-2 border-green-300 dark:border-green-800 bg-green-50/50 dark:bg-green-900/10 p-6">
+        <p class="text-xs font-semibold uppercase tracking-wide text-green-600 dark:text-green-400 mb-4">Recommended State</p>
+        <div class="space-y-2">
+          {[
+            { label: 'Lead captured', step: '1' },
+            { label: 'Auto-assigned to rep', step: '2' },
+            { label: 'Follow-up triggered', step: '3' },
+            { label: 'Deal stage updated', step: '4' },
+            { label: 'Report updated live', step: '5' },
+          ].map((item, i) => (
+            <div class="flex items-center gap-3">
+              <div class="flex-shrink-0 w-7 h-7 rounded-full bg-green-200 dark:bg-green-800/40 text-green-700 dark:text-green-300 text-xs font-bold flex items-center justify-center">{item.step}</div>
+              <div class="flex-1 h-8 rounded-lg bg-green-100/80 dark:bg-green-900/20 border border-green-200/60 dark:border-green-800/40 flex items-center px-3">
+                <span class="text-xs text-green-700 dark:text-green-300">{item.label}</span>
+              </div>
+              {i < 4 && (
+                <svg class="w-4 h-4 text-green-400 dark:text-green-600 flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              )}
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-green-600 dark:text-green-400 mt-4 text-center italic">5 steps, one clear flow, full visibility</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- What This Looks Like in Practice (Before/After Scenarios) -->
+  <Section class="bg-stone-50 dark:bg-gray-900">
+    <h2 class="text-3xl font-bold text-center mb-4 text-navy-900 dark:text-white">What This Looks Like in Practice</h2>
+    <p class="text-center text-stone-600 dark:text-stone-300 mb-8 max-w-2xl mx-auto">
+      Real examples of messy processes I have mapped, simplified, and documented. Pick a scenario you recognize.
+    </p>
+
+    <!-- Scenario Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10" id="scenario-tabs">
+      <button data-tab="sales" class="scenario-tab active-tab px-4 py-2 rounded-lg text-sm font-semibold transition-all border border-accent-300 bg-accent-600 text-white">
+        Sales Pipeline
+      </button>
+      <button data-tab="onboarding" class="scenario-tab px-4 py-2 rounded-lg text-sm font-semibold transition-all border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:border-accent-300 hover:text-accent-600">
+        Client Onboarding
+      </button>
+      <button data-tab="operations" class="scenario-tab px-4 py-2 rounded-lg text-sm font-semibold transition-all border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:border-accent-300 hover:text-accent-600">
+        IT &amp; Operations
+      </button>
+    </div>
+
+    <!-- Scenario Panels -->
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Sales Pipeline -->
+      <div id="tab-sales" class="scenario-panel grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl border-2 border-red-200 dark:border-red-900/40 bg-white dark:bg-stone-900/60 p-6 relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800">Before: What I Found</span>
+          </div>
+          <div class="mt-3 space-y-3">
+            {[
+              { label: 'Leads tracked in personal email and spreadsheets', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8' },
+              { label: 'No defined stages, deals stall with no visibility', icon: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636' },
+              { label: 'Follow-ups depend on memory, not a system', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Handoffs between sales and ops happen over Slack DMs', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+              { label: 'Leadership has no pipeline report they trust', icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+            ].map((step, i) => (
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-red-400 dark:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+                  </svg>
+                </div>
+                <span class="text-sm text-stone-600 dark:text-stone-400">{step.label}</span>
+                {i < 4 && <svg class="w-4 h-4 text-red-300 dark:text-red-800 ml-auto flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="rounded-2xl border-2 border-green-200 dark:border-green-900/40 bg-white dark:bg-stone-900/60 p-6 relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800">After: What I Recommended</span>
+          </div>
+          <div class="mt-3 space-y-3">
+            {[
+              { label: 'All leads enter CRM from one source (web form or import)', icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4' },
+              { label: 'Clear pipeline stages with defined exit criteria', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+              { label: 'Automated follow-up reminders at each stage', icon: 'M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9' },
+              { label: 'Structured handoff from sales to ops with a checklist', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Real-time pipeline dashboard leadership can trust', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6' },
+            ].map((step, i) => (
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+                  </svg>
+                </div>
+                <span class="text-sm text-stone-700 dark:text-stone-300">{step.label}</span>
+                {i < 4 && <svg class="w-4 h-4 text-green-300 dark:text-green-800 ml-auto flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Client Onboarding -->
+      <div id="tab-onboarding" class="scenario-panel hidden grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl border-2 border-red-200 dark:border-red-900/40 bg-white dark:bg-stone-900/60 p-6 relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800">Before: What I Found</span>
+          </div>
+          <div class="mt-3 space-y-3">
+            {[
+              { label: 'Contract signed, then silence for days', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Client info collected over a chain of emails', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+              { label: 'Project setup is manual and different every time', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+              { label: 'Welcome materials sent inconsistently (or not at all)', icon: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636' },
+              { label: 'No one owns the process, things fall through cracks', icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
+            ].map((step, i) => (
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-red-400 dark:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+                  </svg>
+                </div>
+                <span class="text-sm text-stone-600 dark:text-stone-400">{step.label}</span>
+                {i < 4 && <svg class="w-4 h-4 text-red-300 dark:text-red-800 ml-auto flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="rounded-2xl border-2 border-green-200 dark:border-green-900/40 bg-white dark:bg-stone-900/60 p-6 relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800">After: What I Recommended</span>
+          </div>
+          <div class="mt-3 space-y-3">
+            {[
+              { label: 'Contract triggers an intake form automatically', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+              { label: 'Standardized project and task template created from form data', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+              { label: 'Welcome email and resource kit delivered same day', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+              { label: 'Tool access provisioned with a checklist', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Clear owner assigned at every stage of onboarding', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
+            ].map((step, i) => (
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+                  </svg>
+                </div>
+                <span class="text-sm text-stone-700 dark:text-stone-300">{step.label}</span>
+                {i < 4 && <svg class="w-4 h-4 text-green-300 dark:text-green-800 ml-auto flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- IT & Operations -->
+      <div id="tab-operations" class="scenario-panel hidden grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl border-2 border-red-200 dark:border-red-900/40 bg-white dark:bg-stone-900/60 p-6 relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800">Before: What I Found</span>
+          </div>
+          <div class="mt-3 space-y-3">
+            {[
+              { label: 'Support requests come in through email, Slack, and hallway conversations', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+              { label: 'No priority system, everything feels urgent', icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
+              { label: 'New hire setup takes 3 days and 12 manual steps', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Software licenses tracked in a spreadsheet (maybe)', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+              { label: 'Offboarding has no checklist, access lingers for weeks', icon: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636' },
+            ].map((step, i) => (
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-red-400 dark:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+                  </svg>
+                </div>
+                <span class="text-sm text-stone-600 dark:text-stone-400">{step.label}</span>
+                {i < 4 && <svg class="w-4 h-4 text-red-300 dark:text-red-800 ml-auto flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="rounded-2xl border-2 border-green-200 dark:border-green-900/40 bg-white dark:bg-stone-900/60 p-6 relative">
+          <div class="absolute -top-3 left-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800">After: What I Recommended</span>
+          </div>
+          <div class="mt-3 space-y-3">
+            {[
+              { label: 'Single intake point for all requests with auto-categorization', icon: 'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4' },
+              { label: 'Priority tiers with defined response times', icon: 'M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12' },
+              { label: 'New hire setup reduced to 4 steps with a repeatable template', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'License tracking connected to your directory', icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4' },
+              { label: 'Offboarding checklist with access revocation tracking', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+            ].map((step, i) => (
+              <div class="flex items-center gap-3">
+                <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+                  </svg>
+                </div>
+                <span class="text-sm text-stone-700 dark:text-stone-300">{step.label}</span>
+                {i < 4 && <svg class="w-4 h-4 text-green-300 dark:text-green-800 ml-auto flex-shrink-0 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </Section>
+
+  <script>
+    const tabs = document.querySelectorAll('.scenario-tab');
+    const panels = document.querySelectorAll('.scenario-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = (tab as HTMLElement).dataset.tab;
+
+        // Update tab styles
+        tabs.forEach(t => {
+          t.classList.remove('active-tab', 'bg-accent-600', 'text-white', 'border-accent-300');
+          t.classList.add('bg-white', 'dark:bg-stone-800', 'text-stone-600', 'dark:text-stone-300', 'border-stone-300', 'dark:border-stone-700');
+        });
+        tab.classList.add('active-tab', 'bg-accent-600', 'text-white', 'border-accent-300');
+        tab.classList.remove('bg-white', 'dark:bg-stone-800', 'text-stone-600', 'dark:text-stone-300', 'border-stone-300', 'dark:border-stone-700');
+
+        // Show/hide panels
+        panels.forEach(panel => {
+          if ((panel as HTMLElement).id === `tab-${target}`) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Areas of Expertise -->
+  <Section id="expertise" class="bg-stone-50 dark:bg-gray-900" title="Processes I Map" subtitle="I have managed operations across all of these areas. If your business has a process with people, tools, and handoffs, I can document it and improve it.">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {expertise.map(item => (
         <Card shimmer={true}>
           <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center text-white shadow-lg">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
               </svg>
             </div>
             <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
+              <h3 class="text-base font-semibold text-navy-900 dark:text-white mb-1">{item.title}</h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400">{item.description}</p>
             </div>
           </div>
         </Card>
@@ -85,45 +484,238 @@ import Badge from '../components/Badge.astro';
     </div>
   </Section>
 
-  <Section class="bg-gray-50 dark:bg-gray-800" title="Pricing" subtitle="Fixed-scope automation projects">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- Photo Break -->
+  <section class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+    <img
+      src="/photo-break-whiteboard.jpg"
+      alt="Process diagram mapped out on a whiteboard"
+      class="absolute inset-0 w-full h-full object-cover grayscale"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-navy-950/70 to-navy-900/20 dark:from-gray-950/80 dark:to-gray-950/30"></div>
+    <div class="relative z-10 h-full flex items-center">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold max-w-lg leading-snug">
+          Clear processes, trusted by<br />
+          every stakeholder in the room.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <Section class="bg-white dark:bg-gray-950" title="What You Get" subtitle="Two levels of engagement depending on what your team needs.">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+      <!-- Documentation Package -->
+      <Card class="h-full flex flex-col">
+        <div class="flex-1">
+          <div class="inline-flex items-center justify-center w-12 h-12 bg-accent-100 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 rounded-xl mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-navy-900 dark:text-white mb-2">Process Documentation</h3>
+          <p class="text-sm text-stone-500 dark:text-stone-400 mb-6">A complete picture of where you are and where you should go. Your team or vendor handles the build.</p>
+          <ul class="space-y-2.5">
+            {[
+              'Current-state workflow diagram (Lucidchart)',
+              'Bottleneck and gap analysis',
+              'Recommended future-state workflow',
+              'Plain-English runbook for your team',
+              'Presentation-ready summary for leadership'
+            ].map(f => (
+              <li class="flex items-start gap-2 text-sm">
+                <svg class="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-stone-600 dark:text-stone-400">{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Card>
+
+      <!-- Documentation + Implementation -->
+      <Card class="h-full flex flex-col border-accent-300 dark:border-accent-700">
+        <div class="flex-1">
+          <div class="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-xl mb-4 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-navy-900 dark:text-white mb-2">Documentation + Implementation</h3>
+          <p class="text-sm text-stone-500 dark:text-stone-400 mb-6">Everything above, plus I build and configure the recommended solution and train your team to run it.</p>
+          <ul class="space-y-2.5">
+            {[
+              'Everything in Process Documentation',
+              'Build and configure the recommended workflow',
+              'Salesforce Flows, Power Automate, or API integration',
+              'Testing and validation',
+              'Hands-on team training and handoff'
+            ].map(f => (
+              <li class="flex items-start gap-2 text-sm">
+                <svg class="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-stone-600 dark:text-stone-400">{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Card>
+
+    </div>
+  </Section>
+
+  <!-- Toolkit -->
+  <Section class="bg-stone-50 dark:bg-gray-900">
+    <h2 class="text-3xl font-bold text-center mb-4 text-navy-900 dark:text-white">My Toolkit</h2>
+    <p class="text-center text-stone-600 dark:text-stone-300 mb-12 max-w-2xl mx-auto">
+      I use the right tool for each phase: mapping, documentation, presentation, and implementation.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
       {[
-        { name: 'Simple Workflow', price: '$750', duration: '3-5 days', features: ['1-2 app integration', 'Basic logic', 'Testing & documentation', '30 days support'] },
-        { name: 'Complex Automation', price: '$2,500', duration: '1-2 weeks', features: ['Multi-step workflows', '3-5 app integrations', 'Conditional logic', 'Error handling', 'Full documentation', '60 days support'] },
-        { name: 'Enterprise Suite', price: 'Custom', duration: '2-4 weeks', features: ['Multiple workflows', 'API development', 'Custom integrations', 'Training', 'Ongoing support available'] }
+        { name: 'Lucidchart', desc: 'Process Mapping', highlight: true },
+        { name: 'Microsoft Office', desc: 'Docs & Presentations' },
+        { name: 'Salesforce Flows', desc: 'CRM Automation' },
+        { name: 'Power Automate', desc: 'Microsoft Stack' },
+        { name: 'Custom APIs', desc: 'Direct Integration' },
+        { name: 'Google Workspace', desc: 'Collaboration' },
+      ].map(tool => (
+        <div class:list={[
+          'text-center p-4 rounded-xl border transition-colors',
+          tool.highlight
+            ? 'border-accent-300 dark:border-accent-700 bg-accent-50/50 dark:bg-accent-900/10'
+            : 'border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/30'
+        ]}>
+          <p class="text-sm font-semibold text-navy-900 dark:text-white">{tool.name}</p>
+          <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">{tool.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Pricing -->
+  <Section class="bg-white dark:bg-gray-950" title="Pricing" subtitle="Ballpark ranges to help you plan. Final pricing depends on the number of processes, tools involved, and implementation complexity.">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {[
+        {
+          name: 'Process Audit & Documentation',
+          price: 'From $1,500',
+          desc: 'For teams that need clarity on their current workflows and a clear path forward.',
+          features: [
+            'Current-state workflow map',
+            'Bottleneck and gap analysis',
+            'Future-state recommendation',
+            'Stakeholder-ready documentation',
+            'Leadership presentation'
+          ]
+        },
+        {
+          name: 'Documentation + Implementation',
+          price: 'From $3,500',
+          desc: 'For teams that want the plan and the build handled together.',
+          features: [
+            'Everything in Process Audit',
+            'Build and configure the solution',
+            'Salesforce, Power Automate, or API work',
+            'Testing and validation',
+            'Team training and handoff'
+          ]
+        },
+        {
+          name: 'Ongoing Advisory',
+          price: '$250/hr',
+          desc: 'For teams that need a trusted advisor on call for process reviews and optimization.',
+          features: [
+            'Office hours and check-ins',
+            'Process review sessions',
+            'Optimization recommendations',
+            'Ad-hoc documentation',
+            'No long-term commitment'
+          ]
+        }
       ].map(pkg => (
         <Card class="h-full flex flex-col">
           <div class="flex-1">
-            <h3 class="text-2xl font-bold mb-2">{pkg.name}</h3>
-            <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">{pkg.price}</div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">{pkg.duration}</p>
+            <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-2">{pkg.name}</h3>
+            <div class="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">{pkg.price}</div>
+            <p class="text-sm text-stone-500 dark:text-stone-400 mb-4">{pkg.desc}</p>
             <ul class="space-y-2">
               {pkg.features.map(f => (
                 <li class="flex items-start gap-2 text-sm">
-                  <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                   </svg>
-                  <span class="text-gray-600 dark:text-gray-400">{f}</span>
+                  <span class="text-stone-600 dark:text-stone-400">{f}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <Button href="/contact?service=automation" variant="primary" class="w-full mt-6">Get Started</Button>
+          <div class="mt-auto pt-10">
+            <Button href={`/contact?service=automation&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=automation-consulting`} variant="primary" class="w-full">Get Started</Button>
+          </div>
         </Card>
       ))}
     </div>
   </Section>
 
-  <Section class="relative overflow-hidden bg-gradient-to-br from-green-50/50 via-emerald-50/50 to-teal-50/50 dark:from-gray-900/50 dark:via-green-950/50 dark:to-teal-950/50">
-    <NetworkBackground density="sparse" opacity={0.4} />
-    <div class="relative z-10 text-center max-w-3xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Automate Your Workflows?</h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Free consultation to identify automation opportunities in your business.
-      </p>
-      <Button href="/contact?service=automation" variant="primary" size="lg">Schedule Free Consultation</Button>
+  <!-- How It Works -->
+  <Section class="bg-stone-50 dark:bg-gray-900" title="How We Work Together">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {[
+        { step: '01', title: 'Free Call', desc: 'Walk me through what is not working. I ask questions, listen, and identify where the biggest pain points are.' },
+        { step: '02', title: 'Process Map', desc: 'I document your current workflow in Lucidchart and pinpoint every bottleneck, redundancy, and gap.' },
+        { step: '03', title: 'Recommendation', desc: 'You get a clear plan with a simplified workflow and options: documentation only or full implementation.' },
+        { step: '04', title: 'Deliver & Train', desc: 'Clean documentation, team training, and a stakeholder presentation so everyone is aligned.' }
+      ].map(phase => (
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-navy-800 to-navy-900 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
+            {phase.step}
+          </div>
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{phase.title}</h3>
+          <p class="text-sm text-stone-600 dark:text-stone-400">{phase.desc}</p>
+        </div>
+      ))}
     </div>
   </Section>
+
+  <!-- FAQ -->
+  <Section class="bg-white dark:bg-gray-950" title="Frequently Asked Questions">
+    <div class="max-w-3xl mx-auto space-y-3">
+      {faqs.map(faq => (
+        <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+            <span>{faq.question}</span>
+            <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-24 bg-navy-900 dark:bg-navy-950">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Ready to untangle your processes?</h2>
+        <p class="text-xl text-navy-200 mb-8">
+          Free 30-minute call. I will listen to how things work today, identify the biggest bottlenecks, and tell you exactly what I would recommend.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Button href="/contact?service=automation&source=automation-consulting" variant="primary" size="lg">Book a Free Process Review</Button>
+          <Button href="/" variant="outline" size="lg" class="border-white text-white hover:bg-white/10">Back to Home</Button>
+        </div>
+      </div>
+    </div>
+  </section>
   </main>
 
   <Footer />

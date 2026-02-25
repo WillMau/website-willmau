@@ -5,213 +5,173 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
-import NetworkBackground from '../components/NetworkBackground.astro';
-import StatCard from '../components/StatCard.astro';
 import Badge from '../components/Badge.astro';
 
-const features = [
+const services = [
   {
-    title: 'Modern, Fast Websites',
-    description: 'Built with Astro for lightning-fast load times. No WordPress bloat, no complex CMSs to manage.',
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z'
+    title: 'Custom Website Design & Build',
+    description: 'Clean, fast, mobile-first websites designed around your brand and business goals. No cookie-cutter templates.',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
   },
   {
-    title: 'Mobile-First Design',
-    description: 'Responsive on all devices. Looks perfect on phones, tablets, and desktops.',
-    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z'
-  },
-  {
-    title: 'SEO Optimized',
-    description: 'Built-in SEO best practices. Proper meta tags, structured data, fast Core Web Vitals scores.',
-    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-  },
-  {
-    title: 'Easy to Update',
-    description: 'Simple content updates via GitHub or I can handle it for you. No complicated admin panels.',
+    title: 'Content Writing & Strategy',
+    description: 'Clear, conversion-focused copy that speaks to your audience. I write for real people, not search engines.',
     icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'
   },
   {
-    title: 'Hosting Included',
-    description: 'Free, fast hosting on GitHub Pages or Netlify. SSL certificate, CDN, and 99.9% uptime included.',
-    icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z'
+    title: 'CRM & Form Integration',
+    description: 'Contact forms that connect directly to Salesforce or your CRM. Leads are captured, routed, and ready for follow-up.',
+    icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
   },
   {
-    title: 'Contact Forms',
-    description: 'Working contact forms that route to your email. Optional integrations with your CRM.',
-    icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-  }
-];
-
-const portfolioSites = [
-  {
-    name: 'Shoreline Senior Care',
-    url: 'https://shorelineseniorcareadvocates.com',
-    description: 'Clean, professional site for senior care advocacy services. Built with Astro, optimized for conversions.',
-    tags: ['Astro', 'Tailwind', 'SEO']
+    title: 'SEO & Performance',
+    description: 'Built-in search optimization, fast load times, structured data, and sitemaps so your site ranks and performs from day one.',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
   },
   {
-    name: 'Rockford Milling',
-    url: 'https://rockfordmilling.com',
-    description: 'Industrial manufacturing site with product catalog and contact forms.',
-    tags: ['Astro', 'Contact Forms', 'Responsive']
-  }
-];
-
-const packages = [
-  {
-    name: 'Landing Page',
-    price: '$1,500',
-    duration: '1 week',
-    description: 'Single-page site perfect for service businesses or product launches.',
-    features: [
-      '1 custom designed page',
-      'Mobile responsive',
-      'Contact form',
-      'SEO optimization',
-      'Free hosting setup',
-      'SSL certificate',
-      '1 round of revisions'
-    ]
+    title: 'Site Refreshes & Redesigns',
+    description: 'Modernize an outdated site without starting from scratch. I migrate your content and preserve your SEO value.',
+    icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
   },
   {
-    name: 'Business Website',
-    price: '$3,500',
-    duration: '2-3 weeks',
-    description: 'Multi-page website with custom design, SEO, and all the essentials.',
-    features: [
-      '5-7 custom pages',
-      'Full custom design',
-      'Contact forms + CRM integration',
-      'Blog/news section (optional)',
-      'Advanced SEO setup',
-      'Analytics integration',
-      'Free hosting + SSL',
-      '2 rounds of revisions',
-      '30 days post-launch support'
-    ]
-  },
-  {
-    name: 'E-Commerce / Custom',
-    price: 'Custom pricing',
-    duration: '3-6 weeks',
-    description: 'Online stores, member portals, or complex custom functionality.',
-    features: [
-      'Custom page count',
-      'Payment processing (Stripe)',
-      'Product catalog',
-      'Member login/authentication',
-      'Custom functionality',
-      'API integrations',
-      'Ongoing support available'
-    ]
+    title: 'Ongoing Support & Updates',
+    description: 'Content updates, performance monitoring, and maintenance so your site stays fast, secure, and current.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
   }
 ];
 
 const faqs = [
   {
-    question: 'Do you use WordPress?',
-    answer: 'No - I build with modern frameworks like Astro that are faster, more secure, and easier to maintain. No plugin bloat, no security vulnerabilities.'
+    question: 'What platforms do you build on?',
+    answer: 'Astro and WordPress. I pick the platform that matches your needs, budget, and how comfortable your team is with technology. No lock-in.'
   },
   {
-    question: 'Can I update the content myself?',
-    answer: 'Yes! Simple content changes can be made through GitHub, or I offer a monthly retainer ($200/mo) where I handle all updates for you.'
+    question: 'Can you redesign my existing website?',
+    answer: 'Yes. I can refresh the design in place or rebuild from scratch, depending on what makes sense. Either way, I migrate your content and set up redirects so you keep your SEO value.'
   },
   {
-    question: 'What about hosting and domain names?',
-    answer: 'Hosting is free (GitHub Pages or Netlify). Domain names cost ~$15/year - I can help you register one or connect an existing domain.'
+    question: 'Do you write the copy too?',
+    answer: 'Yes. I write clear, conversion-focused content for every page. If you already have messaging you like, I will work with that and refine it for the web.'
   },
   {
-    question: 'How long does a website take to build?',
-    answer: 'Landing pages: 1 week. Full business sites: 2-3 weeks. Custom projects: 3-6 weeks. Timeline depends on content readiness and revision rounds.'
+    question: 'Will I be able to update the site myself?',
+    answer: 'Yes. Every project includes training and documentation so your team can make content updates, add pages, and manage the site day to day without needing a developer.'
+  },
+  {
+    question: 'How long does a typical website project take?',
+    answer: 'Most sites launch within 2 to 4 weeks. After our call, you get a clear timeline with milestones so you know exactly what to expect.'
   }
 ];
 ---
 
 <BaseLayout
-  title="Website Design | Modern, Fast Websites for Small Businesses"
-  description="Custom website design and development for small businesses. Modern, fast sites built with Astro. Free hosting, SEO-optimized, mobile responsive."
+  title="Websites & Digital Presence | Mau Consulting"
+  description="Custom website design for small businesses. Fast, mobile-first sites with SEO, CRM integration, content writing, and team training included."
 >
   <Header />
 
   <main>
-  <!-- Hero Section with Network Theme -->
-  <section class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 dark:from-gray-900 dark:via-purple-950 dark:to-fuchsia-950">
-    <NetworkBackground density="normal" opacity={0.5} />
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 sm:py-24 bg-white dark:bg-gray-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
         <Badge variant="accent" class="mb-4">
           <svg class="w-4 h-4 inline-block mr-1" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.029 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd" />
           </svg>
-          Built with Modern Technology
+          Web Design & Development
         </Badge>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 animate-fade-in-up">
-          Websites That Actually<br />Help Your Business
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-fade-in-up">
+          A Sharp Site That<br />Brings Leads In
         </h1>
 
-        <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-delay-100">
-          Fast, modern websites for small businesses. No WordPress bloat. No monthly fees. Just clean, professional sites that convert visitors into customers.
+        <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-100">
+          Fast, modern websites with clear copy, CRM integration, and SEO built in. Every project includes training so your team stays in control.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center animate-delay-200">
-          <Button href="/contact?service=website-design" variant="primary" size="lg">
-            Get a Free Quote
+          <Button href="/contact?service=website&source=website-design" variant="primary" size="lg">
+            Get a Free Site Review
           </Button>
           <Button href="#portfolio" variant="outline" size="lg">
-            View Portfolio
+            See My Work
           </Button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose These Websites -->
-  <Section class="relative overflow-hidden bg-white dark:bg-gray-900">
-    <div class="relative z-10">
-      <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-        What Makes These Sites Different
-      </h2>
+  <!-- Portfolio -->
+  <Section id="portfolio" class="bg-stone-50 dark:bg-gray-900" title="Sites I Have Built" subtitle="Production websites I designed, wrote the content for, built, and launched.">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard
-          value="<1s"
-          label="Average Load Time"
-          color="purple"
-        />
-        <StatCard
-          value="95+"
-          label="Lighthouse Performance Score"
-          color="green"
-        />
-        <StatCard
-          value="$0/mo"
-          label="Hosting Costs After Launch"
-          color="blue"
-        />
-      </div>
+      <!-- Shoreline Senior Care -->
+      <Card class="overflow-hidden">
+        <img src="/portfolio/shoreline-screenshot.jpg" alt="Shoreline Senior Care website" class="w-full h-48 object-cover object-top rounded-lg mb-4" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Business Website</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Shoreline Senior Care</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Full website for a senior care provider in Schenectady, NY. Clean design, clear service pages, and a strong call to action for families seeking care.</p>
+        <a
+          href="https://www.shorelinecares.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit shorelinecares.com
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <!-- Rockford Milling -->
+      <Card class="overflow-hidden">
+        <img src="/portfolio/rockford-screenshot.jpg" alt="Rockford Milling & Woodworking website" class="w-full h-48 object-cover object-top rounded-lg mb-4" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Portfolio Site</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Rockford Milling & Woodworking</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Custom woodworking portfolio showcasing craftsmanship with clean layout, product categories, and clear contact options for custom orders.</p>
+        <a
+          href="https://www.rockfordmilling.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit rockfordmilling.com
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <!-- Mau Consulting (this site) -->
+      <Card class="overflow-hidden">
+        <img src="/portfolio/mau-consulting-favicon-M-consulting-transparent.jpg" alt="Mau Consulting website" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Consulting Site</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Mau Consulting</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">This site. Built on Astro with Tailwind CSS, custom branding, dark mode, and optimized for performance and SEO. Designed and coded from scratch.</p>
+        <span class="text-accent-600 dark:text-accent-400 font-medium text-sm">You are here</span>
+      </Card>
+
     </div>
   </Section>
 
-  <!-- Features -->
-  <Section title="What's Included" subtitle="Everything you need for a professional online presence">
+  <!-- Services -->
+  <Section id="services" title="What I Build" subtitle="Everything you need for a site that works as hard as your business.">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {features.map((feature) => (
+      {services.map(item => (
         <Card shimmer={true}>
           <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center text-white shadow-lg">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon} />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
               </svg>
             </div>
-            <div class="flex-1">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                {feature.title}
-              </h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
-                {feature.description}
-              </p>
+            <div>
+              <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{item.title}</h3>
+              <p class="text-sm text-stone-600 dark:text-stone-400">{item.description}</p>
             </div>
           </div>
         </Card>
@@ -219,84 +179,137 @@ const faqs = [
     </div>
   </Section>
 
-  <!-- Portfolio -->
-  <Section id="portfolio" class="bg-gray-50 dark:bg-gray-800" title="Recent Projects" subtitle="Live examples of websites I've built">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {portfolioSites.map((site) => (
-        <Card class="h-full flex flex-col">
-          <div class="flex-1">
-            <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
-                {site.name}
-              </h3>
-              <a
-                href={site.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
-              >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
-
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              {site.description}
-            </p>
-
-            <div class="flex flex-wrap gap-2">
-              {site.tags.map((tag) => (
-                <Badge variant="accent">{tag}</Badge>
-              ))}
-            </div>
+  <!-- Every Project Includes -->
+  <Section class="bg-accent-50/50 dark:bg-accent-950/20" title="Every Project Includes">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {[
+        { title: 'Documentation', desc: 'Site architecture docs, content management guides, and update procedures your team can follow without a developer.', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+        { title: 'Hands-On Training', desc: 'Live walkthrough of how to update content, add pages, and manage your site. Plus recorded guides your team can reference anytime.', icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z' },
+        { title: 'SEO Built In', desc: 'Meta tags, structured data, sitemaps, fast load times, and mobile optimization so your site performs well from launch day.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' }
+      ].map(item => (
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 bg-accent-100 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 rounded-2xl mb-4">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+            </svg>
           </div>
-
-          <div class="mt-6">
-            <Button href={site.url} variant="outline" class="w-full">
-              Visit Site →
-            </Button>
-          </div>
-        </Card>
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{item.title}</h3>
+          <p class="text-sm text-stone-600 dark:text-stone-400">{item.desc}</p>
+        </div>
       ))}
     </div>
   </Section>
 
-  <!-- Packages & Pricing -->
-  <Section title="Pricing & Packages" subtitle="Fixed-price packages with no surprises">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {packages.map((pkg) => (
+  <!-- Photo Break -->
+  <section class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+    <img
+      src="/photo-break-laptop.jpg"
+      alt="Laptop and notepad on a clean desk"
+      class="absolute inset-0 w-full h-full object-cover grayscale"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-navy-950/70 to-navy-900/20 dark:from-gray-950/80 dark:to-gray-950/30"></div>
+    <div class="relative z-10 h-full flex items-center">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold max-w-lg leading-snug">
+          A site your team can<br />
+          actually update themselves.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toolkit -->
+  <Section class="bg-white dark:bg-gray-950">
+    <h2 class="text-3xl font-bold text-center mb-4 text-navy-900 dark:text-white">Built With</h2>
+    <p class="text-center text-stone-600 dark:text-stone-300 mb-12 max-w-2xl mx-auto">
+      I pick the platform that matches your needs and your team's comfort level. No lock-in.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
+      {[
+        { name: 'Astro', desc: 'Fast Static Sites', highlight: true },
+        { name: 'WordPress', desc: 'CMS & Blogs' },
+        { name: 'Tailwind CSS', desc: 'Modern Styling' },
+        { name: 'Salesforce', desc: 'CRM Integration' },
+        { name: 'Google Analytics', desc: 'Tracking' },
+        { name: 'GitHub', desc: 'Version Control' },
+      ].map(tool => (
+        <div class:list={[
+          'text-center p-4 rounded-xl border transition-colors',
+          tool.highlight
+            ? 'border-accent-300 dark:border-accent-700 bg-accent-50/50 dark:bg-accent-900/10'
+            : 'border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/30'
+        ]}>
+          <p class="text-sm font-semibold text-navy-900 dark:text-white">{tool.name}</p>
+          <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">{tool.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Pricing -->
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="Ballpark ranges to help you plan. Final pricing depends on scope, number of pages, and integrations needed.">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {[
+        {
+          name: 'Landing Page',
+          price: 'From $1,500',
+          desc: 'A single, focused page to capture leads or promote a service.',
+          features: [
+            'Single-page design',
+            'Mobile responsive',
+            'Contact form with CRM integration',
+            'Basic SEO setup',
+            'Content writing',
+            '30 days support'
+          ]
+        },
+        {
+          name: 'Business Website',
+          price: 'From $3,500',
+          desc: 'A full multi-page site that represents your business and brings in inquiries.',
+          features: [
+            'Up to 7 pages',
+            'Custom design and branding',
+            'CRM and form integrations',
+            'SEO optimization',
+            'Content writing for all pages',
+            'CMS training and documentation',
+            '60 days support'
+          ]
+        },
+        {
+          name: 'Ongoing Support',
+          price: '$150/mo',
+          desc: 'For teams that want a partner to keep their site running smoothly.',
+          features: [
+            'Content updates',
+            'Performance monitoring',
+            'Security patches',
+            'Monthly analytics review',
+            'Priority support'
+          ]
+        }
+      ].map(pkg => (
         <Card class="h-full flex flex-col">
           <div class="flex-1">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              {pkg.name}
-            </h3>
-            <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
-              {pkg.price}
-            </div>
-            <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              {pkg.duration}
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">
-              {pkg.description}
-            </p>
-
-            <ul class="space-y-3">
-              {pkg.features.map((feature) => (
+            <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-2">{pkg.name}</h3>
+            <div class="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">{pkg.price}</div>
+            <p class="text-sm text-stone-500 dark:text-stone-400 mb-4">{pkg.desc}</p>
+            <ul class="space-y-2">
+              {pkg.features.map(f => (
                 <li class="flex items-start gap-2 text-sm">
-                  <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                   </svg>
-                  <span class="text-gray-600 dark:text-gray-400">{feature}</span>
+                  <span class="text-stone-600 dark:text-stone-400">{f}</span>
                 </li>
               ))}
             </ul>
           </div>
-
-          <div class="mt-8">
-            <Button href="/contact?service=website-design" variant="primary" class="w-full">
-              Get Started
-            </Button>
+          <div class="mt-auto pt-10">
+            <Button href={`/contact?service=website&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=website-design`} variant="primary" class="w-full">Get Started</Button>
           </div>
         </Card>
       ))}
@@ -304,66 +317,59 @@ const faqs = [
   </Section>
 
   <!-- How It Works -->
-  <Section class="bg-gray-50 dark:bg-gray-800" title="How It Works">
+  <Section title="How We Work Together">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       {[
-        { step: '01', title: 'Discovery', desc: 'Free call to discuss your business, goals, and design preferences' },
-        { step: '02', title: 'Design', desc: 'Mockup and wireframes for your review (2-3 days)' },
-        { step: '03', title: 'Build', desc: 'Full development with weekly progress updates' },
-        { step: '04', title: 'Launch', desc: 'Domain setup, hosting, and training on how to make updates' }
-      ].map((phase) => (
+        { step: '01', title: 'Free Call', desc: 'We discuss your goals, your audience, and what is not working with your current site (if you have one).' },
+        { step: '02', title: 'Design', desc: 'I create wireframes and mockups for your review. Nothing gets built until you approve the direction.' },
+        { step: '03', title: 'Build & Launch', desc: 'Development, content writing, testing, and go-live. You see progress along the way.' },
+        { step: '04', title: 'Train & Support', desc: 'Hands-on training, documentation handoff, and ongoing support so your team owns the site.' }
+      ].map(phase => (
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-navy-800 to-navy-900 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
             {phase.step}
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            {phase.title}
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            {phase.desc}
-          </p>
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{phase.title}</h3>
+          <p class="text-sm text-stone-600 dark:text-stone-400">{phase.desc}</p>
         </div>
       ))}
     </div>
   </Section>
 
   <!-- FAQ -->
-  <Section title="Frequently Asked Questions">
-    <div class="max-w-3xl mx-auto space-y-6">
-      {faqs.map((faq) => (
-        <Card>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            {faq.question}
-          </h3>
-          <p class="text-gray-600 dark:text-gray-400">
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Frequently Asked Questions">
+    <div class="max-w-3xl mx-auto space-y-3">
+      {faqs.map(faq => (
+        <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+            <span>{faq.question}</span>
+            <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
             {faq.answer}
-          </p>
-        </Card>
+          </div>
+        </details>
       ))}
     </div>
   </Section>
 
-  <!-- CTA Section -->
-  <Section class="relative overflow-hidden bg-gradient-to-br from-purple-50/50 via-pink-50/50 to-fuchsia-50/50 dark:from-gray-900/50 dark:via-purple-950/50 dark:to-fuchsia-950/50">
-    <NetworkBackground density="sparse" opacity={0.4} />
-
-    <div class="relative z-10 text-center max-w-3xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-        Ready for a Website That Works?
-      </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Get a free quote and see examples of what I can build for your business.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <Button href="/contact?service=website-design" variant="primary" size="lg">
-          Get Free Quote
-        </Button>
-        <Button href="#portfolio" variant="outline" size="lg">
-          View More Examples
-        </Button>
+  <!-- CTA -->
+  <section class="py-16 sm:py-24 bg-navy-900 dark:bg-navy-950">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Ready for a site that actually works?</h2>
+        <p class="text-xl text-navy-200 mb-8">
+          Free consultation to review your current site and talk through what a modern, lead-generating website looks like for your business.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Button href="/contact?service=website&source=website-design" variant="primary" size="lg">Schedule Free Consultation</Button>
+          <Button href="/" variant="outline" size="lg" class="border-white text-white hover:bg-white/10">Back to Home</Button>
+        </div>
       </div>
     </div>
-  </Section>
+  </section>
   </main>
 
   <Footer />

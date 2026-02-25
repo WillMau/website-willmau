@@ -7,11 +7,10 @@ const navItems = [
     name: 'Services',
     href: '#',
     dropdown: [
-      { name: 'Salesforce Consulting', href: '/salesforce-consulting' },
-      { name: 'Website Design', href: '/website-design' },
-      { name: 'Process Automation', href: '/automation-consulting' },
-      { name: 'Tech Consulting', href: '/tech-consulting' },
-      { name: 'AI Integration', href: '/ai-integration' },
+      { name: 'Salesforce & CRM', href: '/salesforce-consulting' },
+      { name: 'Workflows & Integrations', href: '/automation-consulting' },
+      { name: 'Websites & Digital Presence', href: '/website-design' },
+      { name: 'Advisory & Office Hours', href: '/consulting' },
     ]
   },
   { name: 'Portfolio', href: '/work' },
@@ -38,17 +37,17 @@ function isActive(href: string) {
         <a href="/" class="flex items-center gap-2 group">
           <!-- Logo icon on mobile -->
           <img
-            src="/mau-consulting-favicon.png"
+            src="/mau-consulting-favicon-navy-coral-transparent-filled-512.png"
             alt="Mau Consulting"
             class="h-10 w-10 rounded-lg md:hidden group-hover:scale-110 transition-transform"
           />
           <!-- Logo icon + text on desktop -->
           <img
-            src="/mau-consulting-favicon.png"
+            src="/mau-consulting-favicon-navy-coral-transparent-filled-512.png"
             alt="Mau Consulting"
             class="hidden md:block h-10 w-10 rounded-lg group-hover:scale-105 transition-transform"
           />
-          <span class="hidden md:block text-lg font-bold text-gray-900 dark:text-white">Mau Consulting</span>
+          <span class="hidden md:block text-lg font-bold text-navy-900 dark:text-white">Mau Consulting</span>
         </a>
       </div>
 

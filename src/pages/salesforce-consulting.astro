@@ -5,39 +5,38 @@ import Footer from '../components/Footer.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
-import NetworkBackground from '../components/NetworkBackground.astro';
-import StatCard from '../components/StatCard.astro';
-import Badge from '../components/Badge.astro';
+
+
 
 const services = [
   {
     title: 'CRM Setup & Configuration',
-    description: 'Clean Salesforce setup tailored to your sales process - custom objects, fields, workflows, and automation.',
+    description: 'Clean Salesforce setup tailored to your sales process, including custom objects, fields, page layouts, and validation rules that match how your team actually works.',
     icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
   },
   {
-    title: 'Revenue Operations (RevOps)',
-    description: 'Align sales, marketing, and customer success with unified data, clear lifecycle stages, and actionable dashboards.',
+    title: 'Pipeline & Revenue Operations',
+    description: 'Align sales, marketing, and customer success with unified lifecycle stages, lead routing, and dashboards that tell the truth about your pipeline.',
     icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
   },
   {
-    title: 'Automation Cleanup',
-    description: 'Diagnose broken workflows, eliminate redundant automation, and rebuild process logic that actually works.',
+    title: 'Automation & Flows',
+    description: 'Replace broken workflows with reliable automation, including Flows, approval processes, email alerts, and AI-assisted lead scoring that keep deals moving.',
     icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
   },
   {
     title: 'Reporting & Dashboards',
-    description: 'Executive-ready reports and real-time dashboards that track what actually matters to your business.',
+    description: 'Executive-ready reports and real-time dashboards that track what actually matters: pipeline velocity, conversion rates, and revenue forecasts.',
     icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
   },
   {
-    title: 'Pardot/Marketing Automation',
-    description: 'Lead scoring, email campaigns, drip nurture sequences, and marketing-to-sales handoff automation.',
+    title: 'Pardot / Account Engagement',
+    description: 'Lead scoring, email campaigns, drip nurture sequences, and marketing-to-sales handoff automation that closes the loop between marketing spend and revenue.',
     icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
   },
   {
-    title: 'Data Migration & Cleanup',
-    description: 'Clean data imports, deduplication, field mapping, and ongoing data hygiene best practices.',
+    title: 'Data Cleanup & Migration',
+    description: 'Clean imports, deduplication, field mapping, and ongoing data hygiene. I also set up AI-powered duplicate detection and enrichment workflows.',
     icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4'
   }
 ];
@@ -46,13 +45,14 @@ const packages = [
   {
     name: 'Health Check',
     price: 'Starting at $2,500',
-    duration: '1-2 weeks',
-    description: 'Comprehensive audit of your current Salesforce setup with prioritized recommendations.',
+    duration: '1–2 weeks',
+    description: 'Comprehensive audit of your current Salesforce setup with a prioritized roadmap.',
     features: [
       'Data quality assessment',
-      'Automation review',
+      'Automation & flow review',
       'User workflow analysis',
       'Security & permissions audit',
+      'AI opportunity identification',
       'Detailed improvement roadmap',
       '60-minute findings presentation'
     ]
@@ -60,14 +60,15 @@ const packages = [
   {
     name: 'Implementation Sprint',
     price: 'Starting at $5,000',
-    duration: '2-4 weeks',
+    duration: '2–4 weeks',
     description: 'Focused project to build or fix a specific Salesforce capability.',
     features: [
       'Custom object & field setup',
-      'Process automation (flows, approvals)',
+      'Process automation (Flows, approvals)',
       'Report & dashboard creation',
       'Integration setup',
-      'User training documentation',
+      'AI-assisted workflows where applicable',
+      'Team training & documentation',
       'Post-launch support (2 weeks)'
     ]
   },
@@ -75,13 +76,14 @@ const packages = [
     name: 'Ongoing Retainer',
     price: 'Custom pricing',
     duration: 'Monthly',
-    description: 'Continuous Salesforce support and optimization for growing teams.',
+    description: 'Continuous Salesforce support, optimization, and team enablement.',
     features: [
-      'Priority support (24-48hr response)',
+      'Priority support (24–48hr response)',
       'Monthly optimization reviews',
       'Ongoing automation improvements',
       'New feature implementation',
-      'User training & enablement',
+      'Team training & enablement sessions',
+      'Documentation kept up to date',
       'Strategic planning sessions'
     ]
   }
@@ -90,118 +92,172 @@ const packages = [
 const faqs = [
   {
     question: 'Do you work with Salesforce Classic or Lightning?',
-    answer: 'Primarily Lightning Experience, which is Salesforce\'s modern interface. If you\'re still on Classic, I can help you plan a migration strategy.'
+    answer: 'Primarily Lightning Experience, which is Salesforce\'s modern interface. If you\'re still on Classic, I can help you plan and execute a migration.'
   },
   {
     question: 'Can you help with custom development (Apex/Visualforce)?',
-    answer: 'I focus on declarative (clicks, not code) solutions using Flows, Process Builder, and formulas. For complex custom development, I can recommend trusted Salesforce developers.'
+    answer: 'Yes. I build Lightning Web Components (LWC) for custom UI, and handle all declarative work: Flows, formulas, validation rules, and configuration. For complex Apex back-end logic, I can recommend trusted developers and manage the project.'
   },
   {
     question: 'What size companies do you work with?',
-    answer: 'Primarily small to mid-size businesses (10-200 employees) who need expert Salesforce help without hiring a full-time admin.'
+    answer: 'Primarily small to mid-size businesses (10–200 employees) who need expert Salesforce help without hiring a full-time admin.'
   },
   {
-    question: 'Do you offer ongoing support after a project?',
-    answer: 'Yes! Most clients opt for a monthly retainer (10-20 hours/month) for ongoing improvements, troubleshooting, and user support.'
+    question: 'How do you use AI in Salesforce projects?',
+    answer: 'I integrate AI where it adds real value: lead scoring, duplicate detection, data enrichment, and smart automation triggers. No gimmicks, just practical time savings.'
+  },
+  {
+    question: 'Do you provide training after a project?',
+    answer: 'Every project includes documentation and hands-on training for your team. The goal is for your people to run the system confidently without me.'
   }
 ];
 ---
 
 <BaseLayout
-  title="Salesforce Consulting | RevOps & CRM Expert"
-  description="Salesforce consulting for small businesses. CRM setup, automation cleanup, reporting, and RevOps strategy. Certified Salesforce Administrator with 10+ years experience."
+  title="Salesforce & CRM | Setup, Optimization & RevOps"
+  description="Salesforce consulting for small businesses. CRM setup, automation, reporting, RevOps, and AI-powered workflows. Certified Administrator with 15+ years experience."
 >
   <Header />
 
   <main>
-  <!-- Hero Section with Network Theme -->
-  <section class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 dark:from-gray-900 dark:via-blue-950 dark:to-cyan-950">
-    <NetworkBackground density="normal" opacity={0.5} />
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-16 sm:py-24 bg-white dark:bg-gray-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-salesforce-50/60 via-transparent to-navy-50/30 dark:from-salesforce-700/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
-        <!-- Salesforce Certification Badge -->
-        <div class="flex justify-center mb-6 animate-fade-in-up">
+        <!-- Trailblazer Credentials -->
+        <a href="https://www.salesforce.com/trailblazer/wmau" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-6 mb-8 animate-fade-in-up group">
           <img
             src="/salesforce-admin-badge.png"
             alt="Salesforce Certified Administrator"
-            class="w-32 h-32 sm:w-40 sm:h-40 drop-shadow-2xl hover:scale-110 transition-transform duration-300"
+            class="w-24 h-24 sm:w-28 sm:h-28 drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
           />
-        </div>
+          <div class="text-left">
+            <div class="flex flex-wrap gap-2 mb-2">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-salesforce-500/20 dark:bg-salesforce-400/10 text-salesforce-700 dark:text-salesforce-300 border border-salesforce-500/30">
+                <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                Certified Administrator
+              </span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-salesforce-500/20 dark:bg-salesforce-400/10 text-salesforce-700 dark:text-salesforce-300 border border-salesforce-500/30">
+                <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Ranger Rank
+              </span>
+            </div>
+            <span class="text-xs text-stone-500 dark:text-stone-400 group-hover:text-salesforce-500 dark:group-hover:text-salesforce-400 transition-colors">
+              View Trailblazer Profile &rarr;
+            </span>
+          </div>
+        </a>
 
-        <Badge variant="accent" class="mb-4 animate-delay-100">
-          <svg class="w-4 h-4 inline-block mr-1" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-          </svg>
-          Certified Salesforce Administrator
-        </Badge>
-
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 animate-delay-200">
-          Salesforce Consulting for<br />Growing Businesses
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-delay-200">
+          A CRM Your Team<br />Actually Uses
         </h1>
 
-        <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-delay-300">
-          Clean CRM setup, automation that works, and dashboards that drive decisions. No enterprise bloat, no wasted features.
+        <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-300">
+          Clean setup, smart automation, and dashboards that drive decisions, not confusion. Every project includes training so your team runs it confidently.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center" style="animation: fade-in-up 0.6s ease-out 0.4s both;">
-          <Button href="/contact?service=salesforce" variant="primary" size="lg">
+          <Button href="/contact?service=salesforce&source=salesforce-consulting" variant="primary" size="lg">
             Request Salesforce Audit
           </Button>
-          <Button href="/portfolio" variant="outline" size="lg">
-            View Case Studies
+          <Button href="#services" variant="outline" size="lg">
+            See What's Included
           </Button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Impact Metrics -->
-  <Section class="relative overflow-hidden bg-white dark:bg-gray-900">
-    <div class="relative z-10">
-      <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-        Proven Results
+  <!-- What I Work With -->
+  <Section class="bg-salesforce-50/50 dark:bg-salesforce-700/10">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-4 text-navy-900 dark:text-white">
+        What I Work With
       </h2>
+      <p class="text-center text-stone-600 dark:text-stone-300 mb-12 max-w-2xl mx-auto">
+        Deep platform experience across the Salesforce ecosystem. These are the tools and features I build with every day.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard
-          value="87%"
-          label="Funnel Bottlenecks Eliminated"
-          trend="down"
-          color="green"
-        />
-        <StatCard
-          value="10x"
-          label="Reporting Speed Improvement"
-          trend="up"
-          color="blue"
-        />
-        <StatCard
-          value="4 weeks"
-          label="From 8 Months to 4 Weeks Onboarding"
-          trend="down"
-          color="purple"
-        />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Build & Configure -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-salesforce-500 dark:text-salesforce-400 mb-4 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            Build & Configure
+          </h3>
+          <div class="space-y-2">
+            {['Custom Objects & Fields', 'Page Layouts & Record Types', 'Lightning Web Components (LWC)', 'Validation Rules & Formulas'].map(item => (
+              <div class="flex items-center gap-2 px-3 py-2 bg-white dark:bg-stone-900/60 rounded-lg border border-salesforce-200/60 dark:border-salesforce-700/30">
+                <div class="w-1.5 h-1.5 rounded-full bg-salesforce-400 flex-shrink-0"></div>
+                <span class="text-sm text-navy-900 dark:text-stone-200">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Automate & Optimize -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-salesforce-500 dark:text-salesforce-400 mb-4 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Automate & Optimize
+          </h3>
+          <div class="space-y-2">
+            {['Flows & Process Automation', 'Approval Processes', 'Scheduled Jobs & Triggers', 'AI-Powered Lead Scoring'].map(item => (
+              <div class="flex items-center gap-2 px-3 py-2 bg-white dark:bg-stone-900/60 rounded-lg border border-salesforce-200/60 dark:border-salesforce-700/30">
+                <div class="w-1.5 h-1.5 rounded-full bg-salesforce-400 flex-shrink-0"></div>
+                <span class="text-sm text-navy-900 dark:text-stone-200">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Analyze & Report -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-salesforce-500 dark:text-salesforce-400 mb-4 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            Analyze & Report
+          </h3>
+          <div class="space-y-2">
+            {['Reports & Dashboards', 'Pipeline Analytics', 'Data Hygiene & Deduplication', 'Forecast Modeling'].map(item => (
+              <div class="flex items-center gap-2 px-3 py-2 bg-white dark:bg-stone-900/60 rounded-lg border border-salesforce-200/60 dark:border-salesforce-700/30">
+                <div class="w-1.5 h-1.5 rounded-full bg-salesforce-400 flex-shrink-0"></div>
+                <span class="text-sm text-navy-900 dark:text-stone-200">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </Section>
 
   <!-- What's Included -->
-  <Section title="What I Do" subtitle="Salesforce services tailored to your business needs">
+  <Section id="services" title="What I Do" subtitle="Salesforce services tailored to your business, with AI and training built in">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services.map((service) => (
         <Card shimmer={true}>
           <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-salesforce-500 to-salesforce-600 rounded-xl flex items-center justify-center text-white shadow-lg">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
               </svg>
             </div>
             <div class="flex-1">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">
                 {service.title}
               </h3>
-              <p class="text-gray-600 dark:text-gray-400 text-sm">
+              <p class="text-stone-600 dark:text-stone-400 text-sm">
                 {service.description}
               </p>
             </div>
@@ -211,39 +267,60 @@ const faqs = [
     </div>
   </Section>
 
+  <!-- Every Project Includes -->
+  <Section class="bg-accent-50/50 dark:bg-accent-950/20" title="Every Project Includes">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {[
+        { title: 'Documentation', desc: 'Step-by-step guides, process maps, and reference docs your team can actually follow.', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+        { title: 'Hands-On Training', desc: 'Live walkthroughs and recorded sessions so your team knows exactly how to use what I build.', icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z' },
+        { title: 'AI Where It Helps', desc: 'Smart automation, lead scoring, and data enrichment. Practical AI that saves real time.', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' }
+      ].map(item => (
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 bg-salesforce-100 dark:bg-salesforce-700/30 text-salesforce-500 dark:text-salesforce-400 rounded-2xl mb-4">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{item.title}</h3>
+          <p class="text-sm text-stone-600 dark:text-stone-400">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
   <!-- Packages & Pricing -->
-  <Section class="bg-gray-50 dark:bg-gray-800" title="Pricing & Packages" subtitle="Transparent, fixed-scope engagements">
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing & Packages" subtitle="Transparent, fixed-scope engagements">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {packages.map((pkg) => (
         <Card class="h-full flex flex-col">
           <div class="flex-1">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h3 class="text-2xl font-bold text-navy-900 dark:text-white mb-2">
               {pkg.name}
             </h3>
             <div class="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">
               {pkg.price}
             </div>
-            <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <div class="text-sm text-stone-500 dark:text-stone-400 mb-4">
               {pkg.duration}
             </div>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">
+            <p class="text-stone-600 dark:text-stone-300 mb-6">
               {pkg.description}
             </p>
 
             <ul class="space-y-3">
               {pkg.features.map((feature) => (
                 <li class="flex items-start gap-2 text-sm">
-                  <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                   </svg>
-                  <span class="text-gray-600 dark:text-gray-400">{feature}</span>
+                  <span class="text-stone-600 dark:text-stone-400">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           <div class="mt-8">
-            <Button href="/contact?service=salesforce" variant="primary" class="w-full">
+            <Button href={`/contact?service=salesforce&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=salesforce-consulting`} variant="primary" class="w-full">
               Get Started
             </Button>
           </div>
@@ -259,16 +336,16 @@ const faqs = [
         { step: '01', title: 'Discovery Call', desc: 'Free 30-min call to understand your needs and current setup' },
         { step: '02', title: 'Proposal', desc: 'Detailed scope, timeline, and fixed-price proposal within 48 hours' },
         { step: '03', title: 'Build & Test', desc: 'Iterative development with weekly check-ins and sandbox testing' },
-        { step: '04', title: 'Launch & Support', desc: 'Production deployment, user training, and 2 weeks of post-launch support' }
+        { step: '04', title: 'Train & Launch', desc: 'Team training, documentation handoff, and 2 weeks of post-launch support' }
       ].map((phase) => (
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-salesforce-600 to-salesforce-700 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
             {phase.step}
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">
             {phase.title}
           </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+          <p class="text-sm text-stone-600 dark:text-stone-400">
             {phase.desc}
           </p>
         </div>
@@ -277,14 +354,14 @@ const faqs = [
   </Section>
 
   <!-- FAQ -->
-  <Section class="bg-gray-50 dark:bg-gray-800" title="Frequently Asked Questions">
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Frequently Asked Questions">
     <div class="max-w-3xl mx-auto space-y-6">
       {faqs.map((faq) => (
         <Card>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+          <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-3">
             {faq.question}
           </h3>
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="text-stone-600 dark:text-stone-400">
             {faq.answer}
           </p>
         </Card>
@@ -293,26 +370,26 @@ const faqs = [
   </Section>
 
   <!-- CTA Section -->
-  <Section class="relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-cyan-50/50 to-sky-50/50 dark:from-gray-900/50 dark:via-blue-950/50 dark:to-cyan-950/50">
-    <NetworkBackground density="sparse" opacity={0.4} />
-
-    <div class="relative z-10 text-center max-w-3xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-        Ready to Fix Your Salesforce?
-      </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">
-        Start with a free 30-minute consultation. No obligation, just honest advice.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <Button href="/contact?service=salesforce" variant="primary" size="lg">
-          Schedule Free Consultation
-        </Button>
-        <Button href="/portfolio" variant="outline" size="lg">
-          See My Work
-        </Button>
+  <section class="bg-navy-900 dark:bg-navy-950 py-16 sm:py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+          Ready to Fix Your Salesforce?
+        </h2>
+        <p class="text-xl text-navy-200 mb-8">
+          Start with a free 30-minute consultation. No obligation, just honest advice about what's working and what's not.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Button href="/contact?service=salesforce&source=salesforce-consulting" variant="primary" size="lg">
+            Schedule Free Consultation
+          </Button>
+          <a href="/" class="group relative inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden px-8 py-4 text-lg border-2 border-white/30 text-white hover:bg-white/10 hover:scale-105 active:scale-95">
+            <span class="relative z-10">Back to Home</span>
+          </a>
+        </div>
       </div>
     </div>
-  </Section>
+  </section>
   </main>
 
   <Footer />

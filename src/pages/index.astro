@@ -7,7 +7,7 @@ import Button from '../components/Button.astro';
 
 <BaseLayout
   title="Home"
-  description="Mau Consulting — Business technology consulting for small businesses. Salesforce, automation, websites, AI, and team training. Your technical partner for growth."
+  description="Mau Consulting: Business technology consulting for small businesses. Salesforce, automation, websites, AI, and team training. Your technical partner for growth."
 >
   <Header />
 
@@ -16,95 +16,62 @@ import Button from '../components/Button.astro';
     <!-- HERO                           -->
     <!-- ============================= -->
     <section class="relative overflow-hidden bg-white dark:bg-gray-950">
-      <!-- Subtle circuit-grid background -->
-      <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" aria-hidden="true" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0H0v60' fill='none' stroke='%231ab893' stroke-width='.5'/%3E%3C/svg%3E&quot;); background-size: 60px 60px;"></div>
+      <!-- Warm subtle gradient background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
 
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 sm:pt-24 pb-16 sm:pb-20">
-        <!-- Headline + proof -->
-        <div class="max-w-3xl mx-auto text-center mb-14">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
-            Technology that works<br />
-            <span class="text-accent-600 dark:text-accent-400">as hard as you do.</span>
-          </h1>
-          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto mb-8">
-            I help small businesses untangle their tech, automate the busywork,
-            and build systems that actually scale&nbsp;&mdash; then train your team to run them.
-          </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <!-- Left column: Headline + proof -->
+          <div class="text-center lg:text-left">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 leading-[1.1]">
+              Your Salesforce, workflows, and website,<br />
+              <span class="text-accent-600 dark:text-accent-400">finally working together.</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-stone-600 dark:text-stone-400 leading-relaxed max-w-2xl lg:max-w-none mb-8">
+              I help small businesses untangle their tech, automate the busywork,
+              and build systems that actually scale, then train your team to run them.
+            </p>
 
-          <!-- Proof bar inline -->
-          <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-400 mb-10">
-            <span class="font-semibold text-slate-900 dark:text-white">Salesforce Certified</span>
-            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
-            <span>15+ Years Operations</span>
-            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
-            <span>New York&ndash;Based</span>
-            <span class="hidden sm:inline text-slate-300 dark:text-slate-700">|</span>
-            <span>Documentation + Training</span>
+            <!-- Proof bar inline -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-stone-500 dark:text-stone-400 mb-10">
+              <span class="font-semibold text-navy-800 dark:text-white">Salesforce Certified</span>
+              <span class="hidden sm:inline text-stone-300 dark:text-stone-700">|</span>
+              <span>15+ Years Operations</span>
+              <span class="hidden sm:inline text-stone-300 dark:text-stone-700">|</span>
+              <span>New York&ndash;Based</span>
+            </div>
+
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <Button href="/contact?source=homepage" variant="primary" size="lg">
+                Book a Free Call
+              </Button>
+              <Button href="#services" variant="outline" size="lg">
+                See What I Do
+              </Button>
+            </div>
           </div>
 
-          <div class="flex flex-wrap gap-4 justify-center">
-            <Button href="/contact" variant="primary" size="lg">
-              Book a Free Call
-            </Button>
-            <Button href="#problems" variant="outline" size="lg">
-              See How I Can Help
-            </Button>
+          <!-- Right column: B&W photo -->
+          <div>
+            <img
+              src="/hero-consulting.jpg"
+              alt="Consultant working with a client on their business systems"
+              class="rounded-2xl grayscale shadow-xl w-full object-cover aspect-[4/3]"
+              loading="eager"
+            />
           </div>
         </div>
-
-        <!-- Service tiles — immediately visible -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {[
-            {
-              title: 'Salesforce & CRM',
-              desc: 'A CRM your team actually uses.',
-              href: '/salesforce-consulting',
-              icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-            },
-            {
-              title: 'Workflows & Integrations',
-              desc: 'Turn chaos into a clear flow.',
-              href: '/automation-consulting',
-              icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-            },
-            {
-              title: 'Websites & Digital Presence',
-              desc: 'A sharp site that brings leads in.',
-              href: '/website-design',
-              icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
-            },
-            {
-              title: 'Systems & Process Design',
-              desc: 'Make tools work together—on purpose.',
-              href: '/consulting',
-              icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
-            },
-          ].map((svc) => (
-            <a href={svc.href} class="group block">
-              <div class="h-full p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 hover:border-accent-400 dark:hover:border-accent-600 hover:shadow-lg hover:shadow-accent-500/[0.08] hover:-translate-y-0.5 transition-all duration-200 text-center">
-                <div class="w-10 h-10 rounded-lg bg-accent-50 dark:bg-accent-900/30 border border-accent-200/60 dark:border-accent-800/40 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/50 transition-colors">
-                  <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={svc.icon} />
-                  </svg>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{svc.title}</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400">{svc.desc}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-        <p class="text-center font-mono text-[10px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mt-5">AI-enabled workflows &ensp;|&ensp; Documentation &ensp;|&ensp; Team Training included</p>
       </div>
     </section>
 
     <!-- ============================= -->
-    <!-- PROBLEMS (moved up)            -->
+    <!-- PROBLEMS                       -->
     <!-- ============================= -->
-    <section id="problems" class="py-16 sm:py-20 bg-slate-50 dark:bg-gray-900">
+    <section id="problems" class="py-16 sm:py-20 bg-stone-50 dark:bg-gray-900">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
-          <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Sound Familiar?</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-10">
+          <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">Sound Familiar?</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-10">
             Problems I solve every week
           </h2>
           <div class="flex flex-wrap justify-center gap-3">
@@ -115,16 +82,16 @@ import Button from '../components/Button.astro';
               '\u201COur numbers never match\u201D',
               '\u201CLeads fall through the cracks\u201D',
               '\u201CWe need a website that converts\u201D',
-              '\u201CAI feels overwhelming \u2014 where do we start?\u201D',
+              '\u201CAI feels overwhelming. Where do we start?\u201D',
             ].map((problem) => (
-              <span class="inline-block px-4 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-300 shadow-sm hover:border-accent-300 dark:hover:border-accent-600 hover:shadow-md transition-all duration-200 cursor-default">
+              <span class="inline-block px-4 py-2.5 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-sm text-stone-600 dark:text-stone-300 shadow-sm hover:border-accent-300 dark:hover:border-accent-600 hover:shadow-md transition-all duration-200 cursor-default">
                 {problem}
               </span>
             ))}
           </div>
-          <p class="mt-8 text-slate-500 dark:text-slate-400">
+          <p class="mt-8 text-stone-500 dark:text-stone-400">
             If any of these hit home,
-            <a href="/contact" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">let&rsquo;s talk</a>.
+            <a href="/contact?source=homepage" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">let&rsquo;s talk</a>.
           </p>
         </div>
       </div>
@@ -135,53 +102,46 @@ import Button from '../components/Button.astro';
     <!-- ============================= -->
     <section id="services" class="py-20 sm:py-28 bg-white dark:bg-gray-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">What I Do</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">What I Do</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
           Build it. Connect it. Teach it.
         </h2>
-        <p class="text-lg text-slate-500 dark:text-slate-400 mb-14 max-w-2xl">
-          I don&rsquo;t just set things up and disappear. Every project includes documentation and training&hellip;so your team can run it confidently without me.
+        <p class="text-lg text-stone-500 dark:text-stone-400 mb-14 max-w-2xl">
+          I don&rsquo;t just set things up and disappear. Every project includes documentation and training so your team can run it confidently without me.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
               label: 'CRM + PIPELINE',
               title: 'Salesforce & CRM',
-              desc: 'Make your CRM useful for sales\u2014clear stages, clean data, and dashboards you trust.',
+              desc: 'Make your CRM useful for sales: clear stages, clean data, and dashboards you trust.',
               items: ['Setup & cleanup', 'Sales stages that match reality', 'Dashboards & reporting', 'Data hygiene & permissions'],
               href: '/salesforce-consulting',
             },
             {
               label: 'AUTOMATION + INTEGRATIONS',
               title: 'Workflows & Integrations',
-              desc: 'Turn chaos into a clear flow\u2014so leads, tasks, and updates move smoothly across your tools.',
+              desc: 'Turn chaos into a clear flow so leads, tasks, and updates move smoothly across your tools.',
               items: ['Automate handoffs (less copy/paste)', 'Connect tools using built-in integrations', 'Lightweight API connections (when needed)', 'Keep data clean and consistent'],
               href: '/automation-consulting',
             },
             {
               label: 'GROWTH + DIGITAL',
               title: 'Websites & Digital Presence',
-              desc: 'A modern site that looks sharp and brings in inquiries\u2014built to connect to how you work.',
+              desc: 'A modern site that looks sharp and brings in inquiries, built to connect to how you work.',
               items: ['Website builds & refreshes', 'Forms + lead capture', 'Tracking basics (so you know what\u2019s working)', 'Easy handoff and simple edits'],
               href: '/website-design',
             },
-            {
-              label: 'TRAINING + ENABLEMENT',
-              title: 'Training & Documentation',
-              desc: 'Clear handoff, clear docs, and training your team will actually use.',
-              items: ['Live walkthroughs', 'Documentation of changes + \u201Chow it works\u201D', 'Simple guides and checklists', 'Post-launch support (as needed)'],
-              href: '/consulting',
-            },
           ].map((svc) => (
             <a href={svc.href} class="group block">
-              <div class="relative h-full p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-lg hover:shadow-accent-500/[0.06] hover:-translate-y-1 transition-all duration-300">
-                <p class="font-mono text-[10px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-4">{svc.label}</p>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{svc.title}</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">{svc.desc}</p>
+              <div class="relative h-full p-8 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-lg hover:shadow-accent-500/[0.06] hover:-translate-y-1 transition-all duration-300">
+                <p class="text-xs font-semibold uppercase tracking-wide text-navy-400 dark:text-stone-500 mb-4">{svc.label}</p>
+                <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{svc.title}</h3>
+                <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-6">{svc.desc}</p>
                 <ul class="space-y-2.5">
                   {svc.items.map((item: string) => (
-                    <li class="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-300">
+                    <li class="flex items-center gap-2.5 text-sm text-stone-600 dark:text-stone-300">
                       <div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0"></div>
                       {item}
                     </li>
@@ -194,16 +154,47 @@ import Button from '../components/Button.astro';
             </a>
           ))}
         </div>
+
+        <!-- Training callout -->
+        <div class="mt-8 rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-accent-50/50 dark:bg-accent-900/10 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-navy-900 dark:text-white">Every project includes training + documentation.</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400">Live walkthroughs, clear docs, and simple guides so your team owns the system without depending on me.</p>
+          </div>
+        </div>
+
+        <!-- Advisory banner -->
+        <a href="/consulting" class="group block mt-6 rounded-2xl border border-navy-200/60 dark:border-navy-800/40 bg-navy-50/50 dark:bg-navy-900/20 p-6 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-md transition-all duration-300">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-900/40 flex items-center justify-center">
+              <svg class="w-5 h-5 text-navy-700 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold text-navy-900 dark:text-white">Not ready for a full project? Book a strategy call instead.</p>
+              <p class="text-sm text-stone-500 dark:text-stone-400">One-off calls, monthly office hours, and half-day deep dives for when you just need honest advice from someone in the trenches.</p>
+            </div>
+            <div class="hidden sm:block text-accent-600 dark:text-accent-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              Learn more&ensp;&rarr;
+            </div>
+          </div>
+        </a>
       </div>
     </section>
 
     <!-- ============================= -->
     <!-- HOW I WORK                     -->
     <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-slate-50 dark:bg-gray-900">
+    <section class="py-20 sm:py-28 bg-stone-50 dark:bg-gray-900">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Partner Approach</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-14">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">Partner Approach</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-14">
           How it works
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -211,30 +202,51 @@ import Button from '../components/Button.astro';
             {
               step: '01',
               title: 'Listen & Map',
-              desc: 'Free 30-minute call. I learn how your business actually runs\u2014your tools, your people, your pain points. No pressure\u2014just questions.',
+              desc: 'Free 30-minute call. I learn how your business actually runs: your tools, your people, your pain points. No pressure, just questions.',
             },
             {
               step: '02',
               title: 'Build & Ship',
-              desc: 'Clear scope, fixed timeline. I build, test, and deliver\u2014so your system runs smoothly and your team knows what to do next.',
+              desc: 'Clear scope, fixed timeline. I build, test, and deliver so your system runs smoothly and your team knows what to do next.',
             },
             {
               step: '03',
               title: 'Train & Support',
-              desc: 'I train your team to own the system\u2014so you\u2019re not dependent on me. Then I\u2019m here if you need support as you grow. No lock-in. No surprises.',
+              desc: 'I train your team to own the system so you\u2019re not dependent on me. Then I\u2019m here if you need support as you grow. No lock-in. No surprises.',
             },
           ].map((item) => (
             <div class="relative group">
               <div class="flex items-center gap-3 mb-4">
-                <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 font-mono text-xs font-bold border border-accent-200/60 dark:border-accent-800/40">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 text-xs font-bold border border-accent-200/60 dark:border-accent-800/40">
                   {item.step}
                 </span>
-                <div class="h-px flex-1 bg-slate-200 dark:bg-slate-800 group-hover:bg-accent-300 dark:group-hover:bg-accent-700 transition-colors"></div>
+                <div class="h-px flex-1 bg-stone-200 dark:bg-stone-800 group-hover:bg-accent-300 dark:group-hover:bg-accent-700 transition-colors"></div>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{item.title}</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{item.desc}</p>
+              <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">{item.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- PHOTO BREAK                    -->
+    <!-- ============================= -->
+    <section class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+      <img
+        src="/photo-break-workspace.jpg"
+        alt="Modern workspace with natural light"
+        class="absolute inset-0 w-full h-full object-cover grayscale"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950/70 to-navy-900/20 dark:from-gray-950/80 dark:to-gray-950/30"></div>
+      <div class="relative z-10 h-full flex items-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <p class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold max-w-lg leading-snug">
+            Less time fixing tools.<br />
+            More time running your business.
+          </p>
         </div>
       </div>
     </section>
@@ -244,291 +256,48 @@ import Button from '../components/Button.astro';
     <!-- ============================= -->
     <section id="results" class="py-20 sm:py-28 bg-white dark:bg-gray-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">Results</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">Results</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
           Real projects. Real impact.
         </h2>
-        <p class="text-lg text-slate-500 dark:text-slate-400 mb-14 max-w-2xl">
+        <p class="text-lg text-stone-500 dark:text-stone-400 mb-14 max-w-2xl">
           Practical changes that saved time, reduced manual work, and made systems reliable.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <!-- Card 1: Process Optimization -->
-          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col">
-            <div class="p-8 flex-1">
-              <div class="mb-6 pb-5 border-b border-slate-100 dark:border-slate-800">
-                <span class="text-4xl font-bold text-accent-600 dark:text-accent-400 tabular-nums" data-countup="89" data-suffix="%">0%</span>
-                <span class="block text-sm text-slate-500 dark:text-slate-400 mt-1">fewer manual steps</span>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Process Optimization</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5">Cut a sprawling 73-step process down to 8 by removing redundant handoffs and consolidating spreadsheets into one reliable workflow.</p>
-              <p class="font-mono text-[10px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-2">Highlights</p>
-              <ul class="space-y-2 mb-5">
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Consolidated 15 spreadsheets</li>
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Steps reduced: 73 &rarr; 8</li>
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Trained teams across 3 verticals</li>
-              </ul>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Systems & Process</span>
-                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Workflows</span>
-              </div>
-            </div>
-            <!-- Blueprint diagram: dense flow → clean flow -->
-            <div class="border-t border-slate-100 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-800/20 px-6 py-4 text-center">
-              <p class="font-mono text-[9px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-2">Before &rarr; After</p>
-              <svg class="w-full max-w-[260px] mx-auto" viewBox="0 0 280 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Before: dense tangled nodes -->
-                <g stroke="currentColor" stroke-width="0.9" class="text-slate-400 dark:text-slate-500">
-                  <rect x="6" y="8" width="12" height="9" rx="2"/>
-                  <rect x="6" y="22" width="12" height="9" rx="2"/>
-                  <rect x="6" y="36" width="12" height="9" rx="2"/>
-                  <rect x="6" y="50" width="12" height="9" rx="2"/>
-                  <rect x="6" y="64" width="12" height="9" rx="2"/>
-                  <rect x="24" y="15" width="12" height="9" rx="2"/>
-                  <rect x="24" y="29" width="12" height="9" rx="2"/>
-                  <rect x="24" y="43" width="12" height="9" rx="2"/>
-                  <rect x="24" y="57" width="12" height="9" rx="2"/>
-                  <rect x="42" y="8" width="12" height="9" rx="2"/>
-                  <rect x="42" y="22" width="12" height="9" rx="2"/>
-                  <rect x="42" y="36" width="12" height="9" rx="2"/>
-                  <rect x="42" y="50" width="12" height="9" rx="2"/>
-                  <rect x="42" y="64" width="12" height="9" rx="2"/>
-                  <rect x="60" y="15" width="12" height="9" rx="2"/>
-                  <rect x="60" y="36" width="12" height="9" rx="2"/>
-                  <rect x="60" y="57" width="12" height="9" rx="2"/>
-                  <path d="M18 13 L24 19 M18 27 L24 33 M18 41 L24 47 M18 55 L24 61 M18 27 L24 19 M18 55 L24 47" stroke-dasharray="2 2"/>
-                  <path d="M36 19 L42 13 M36 33 L42 27 M36 47 L42 41 M36 61 L42 55 M36 19 L42 27 M36 47 L42 55" stroke-dasharray="2 2"/>
-                  <path d="M54 13 L60 19 M54 27 L60 19 M54 41 L60 41 M54 55 L60 61 M54 69 L60 61" stroke-dasharray="2 2"/>
-                </g>
-                <!-- Label -->
-                <text x="40" y="84" font-family="ui-monospace, monospace" font-size="7" fill="currentColor" text-anchor="middle" class="text-slate-400 dark:text-slate-500">73 steps</text>
-
-                <!-- Arrow -->
-                <g class="text-accent-600 dark:text-accent-400">
-                  <path d="M90 40 L128 40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
-                  <path d="M124 36 L130 40 L124 44" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                </g>
-
-                <!-- After: clean 4-step flow -->
-                <g stroke="currentColor" stroke-width="1.4" class="text-accent-600 dark:text-accent-400">
-                  <rect x="148" y="6" width="28" height="16" rx="3" fill="none"/>
-                  <rect x="148" y="30" width="28" height="16" rx="3" fill="none"/>
-                  <rect x="148" y="54" width="28" height="16" rx="3" fill="none"/>
-                  <rect x="194" y="30" width="28" height="16" rx="3" fill="none"/>
-                  <path d="M162 22 L162 30 M162 46 L162 54 M176 38 L194 38"/>
-                  <path d="M156 12 L159 16 L165 10" stroke-width="1.1"/>
-                  <path d="M156 36 L159 40 L165 34" stroke-width="1.1"/>
-                  <path d="M156 60 L159 64 L165 58" stroke-width="1.1"/>
-                  <path d="M202 36 L205 40 L211 34" stroke-width="1.1"/>
-                </g>
-                <text x="176" y="84" font-family="ui-monospace, monospace" font-size="7" fill="currentColor" text-anchor="middle" class="text-accent-600 dark:text-accent-400">8 steps</text>
-              </svg>
+          <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/60 p-8 hover:shadow-md transition-shadow duration-200">
+            <span class="text-5xl sm:text-6xl font-bold text-accent-600 dark:text-accent-400 tabular-nums leading-none" data-countup="89" data-suffix="%">0%</span>
+            <p class="text-sm font-medium text-navy-800 dark:text-white mt-3 mb-2">fewer manual steps</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-5">Cut a 73-step process down to 8 by removing redundant handoffs and consolidating 15 spreadsheets into one workflow.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Systems & Process</span>
+              <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Workflows</span>
             </div>
           </div>
 
           <!-- Card 2: Enrollment Flow -->
-          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col">
-            <div class="p-8 flex-1">
-              <div class="mb-6 pb-5 border-b border-slate-100 dark:border-slate-800">
-                <span class="text-4xl font-bold text-accent-600 dark:text-accent-400 tabular-nums" data-countup="15" data-suffix=" min">0 min</span>
-                <span class="block text-sm text-slate-500 dark:text-slate-400 mt-1">interest &rarr; enrolled</span>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Enrollment Flow</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5">Reduced the time from interest to enrollment with a single online workflow and a simple, repeatable handoff package.</p>
-              <p class="font-mono text-[10px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-2">Highlights</p>
-              <ul class="space-y-2 mb-5">
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Interest &rarr; enrolled in 15 min</li>
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Auto-enrollment workflow</li>
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Video + quick admin guide</li>
-              </ul>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Enablement</span>
-                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Training</span>
-              </div>
-            </div>
-            <!-- Blueprint diagram: long timeline → stopwatch -->
-            <div class="border-t border-slate-100 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-800/20 px-6 py-4 text-center">
-              <p class="font-mono text-[9px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-2">Before &rarr; After</p>
-              <svg class="w-full max-w-[260px] mx-auto" viewBox="0 0 280 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Before: calendar + long timeline -->
-                <g stroke="currentColor" stroke-width="0.9" class="text-slate-400 dark:text-slate-500">
-                  <!-- Calendar -->
-                  <rect x="10" y="6" width="18" height="16" rx="2"/>
-                  <path d="M10 13 L28 13"/>
-                  <path d="M15 3 L15 8 M23 3 L23 8"/>
-                  <circle cx="15" cy="17" r="1"/><circle cx="20" cy="17" r="1"/><circle cx="25" cy="17" r="1"/>
-                  <!-- Scattered docs -->
-                  <rect x="34" y="4" width="10" height="14" rx="1" transform="rotate(-4 39 11)"/>
-                  <rect x="48" y="6" width="10" height="14" rx="1" transform="rotate(3 53 13)"/>
-                  <path d="M37 9 L42 9 M37 12 L40 12" transform="rotate(-4 39 11)"/>
-                  <!-- Long timeline -->
-                  <path d="M8 38 L72 38"/>
-                  <path d="M12 34 L12 42"/><circle cx="12" cy="34" r="1.5"/>
-                  <path d="M22 34 L22 42"/><circle cx="22" cy="34" r="1.5"/>
-                  <path d="M32 34 L32 42"/><circle cx="32" cy="34" r="1.5"/>
-                  <path d="M42 34 L42 42"/><circle cx="42" cy="34" r="1.5"/>
-                  <path d="M52 34 L52 42"/><circle cx="52" cy="34" r="1.5"/>
-                  <path d="M62 34 L62 42"/><circle cx="62" cy="34" r="1.5"/>
-                </g>
-                <text x="40" y="56" font-family="ui-monospace, monospace" font-size="7" fill="currentColor" text-anchor="middle" class="text-slate-400 dark:text-slate-500">weeks</text>
-
-                <!-- Arrow -->
-                <g class="text-accent-600 dark:text-accent-400">
-                  <path d="M90 38 L128 38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
-                  <path d="M124 34 L130 38 L124 42" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                </g>
-
-                <!-- After: stopwatch + doc -->
-                <g class="text-accent-600 dark:text-accent-400">
-                  <circle cx="172" cy="36" r="22" stroke="currentColor" stroke-width="1.3" fill="none"/>
-                  <circle cx="172" cy="36" r="17" stroke="currentColor" stroke-width="0.5" fill="none" stroke-dasharray="3 3"/>
-                  <rect x="169" y="10" width="6" height="5" rx="1" stroke="currentColor" stroke-width="1"/>
-                  <path d="M172 36 L172 22" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-                  <path d="M172 36 L181 33" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
-                  <circle cx="172" cy="36" r="1.5" fill="currentColor"/>
-                  <path d="M172 16 L172 19 M172 53 L172 56 M153 36 L156 36 M188 36 L191 36" stroke="currentColor" stroke-width="0.8"/>
-                  <text x="172" y="72" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="currentColor" text-anchor="middle">15m</text>
-                  <!-- Checkmark + compact doc -->
-                  <path d="M210 28 L214 33 L222 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="208" y="40" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1" fill="none"/>
-                  <path d="M212 47 L218 47 M212 51 L216 51" stroke="currentColor" stroke-width="0.7"/>
-                </g>
-                <text x="188" y="84" font-family="ui-monospace, monospace" font-size="7" fill="currentColor" text-anchor="middle" class="text-accent-600 dark:text-accent-400">15 minutes</text>
-              </svg>
+          <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/60 p-8 hover:shadow-md transition-shadow duration-200">
+            <span class="text-5xl sm:text-6xl font-bold text-accent-600 dark:text-accent-400 tabular-nums leading-none" data-countup="15" data-suffix=" min">0 min</span>
+            <p class="text-sm font-medium text-navy-800 dark:text-white mt-3 mb-2">from interest to enrolled</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-5">Built a single online workflow with auto-enrollment so the process that used to take weeks now takes 15 minutes.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Enablement</span>
+              <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Training</span>
             </div>
           </div>
 
           <!-- Card 3: Reporting Automation -->
-          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 hover:shadow-md transition-shadow duration-200 overflow-hidden flex flex-col">
-            <div class="p-8 flex-1">
-              <div class="mb-6 pb-5 border-b border-slate-100 dark:border-slate-800">
-                <span class="text-4xl font-bold text-accent-600 dark:text-accent-400 tabular-nums" data-countup="10" data-suffix="&times;">0&times;</span>
-                <span class="block text-sm text-slate-500 dark:text-slate-400 mt-1">faster reporting</span>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Reporting Automation</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-5">Automated reporting and dashboards so leaders get trusted answers in minutes&mdash;not hours.</p>
-              <p class="font-mono text-[10px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-2">Highlights</p>
-              <ul class="space-y-2 mb-5">
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Built 2 orgs; upgraded a 3rd</li>
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Reporting: hours &rarr; minutes</li>
-                <li class="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"><div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-1.5"></div>Dashboards + automated alerts</li>
-              </ul>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Salesforce & CRM</span>
-                <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Reporting</span>
-              </div>
-            </div>
-            <!-- Blueprint diagram: messy chart → clean dashboard -->
-            <div class="border-t border-slate-100 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-800/20 px-6 py-4 text-center">
-              <p class="font-mono text-[9px] tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-2">Before &rarr; After</p>
-              <svg class="w-full max-w-[260px] mx-auto" viewBox="0 0 280 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Before: messy chart -->
-                <g stroke="currentColor" stroke-width="0.9" class="text-slate-400 dark:text-slate-500">
-                  <path d="M8 68 L8 6 M8 68 L72 68"/>
-                  <path d="M12 58 L18 24 L22 52 L26 18 L32 44 L36 14 L40 48 L46 28 L50 56 L54 16 L58 40 L62 54 L68 30" stroke-width="1" fill="none"/>
-                  <circle cx="18" cy="36" r="1.5"/><circle cx="32" cy="50" r="1.5"/>
-                  <circle cx="46" cy="22" r="1.5"/><circle cx="58" cy="46" r="1.5"/>
-                  <text x="26" y="10" font-family="ui-monospace, monospace" font-size="7" fill="currentColor">?</text>
-                  <text x="50" y="66" font-family="ui-monospace, monospace" font-size="7" fill="currentColor">?</text>
-                </g>
-                <text x="40" y="82" font-family="ui-monospace, monospace" font-size="7" fill="currentColor" text-anchor="middle" class="text-slate-400 dark:text-slate-500">hours</text>
-
-                <!-- Arrow -->
-                <g class="text-accent-600 dark:text-accent-400">
-                  <path d="M90 40 L128 40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3"/>
-                  <path d="M124 36 L130 40 L124 44" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                </g>
-
-                <!-- After: clean dashboard -->
-                <g class="text-accent-600 dark:text-accent-400">
-                  <!-- Dashboard frame -->
-                  <rect x="144" y="4" width="92" height="62" rx="4" stroke="currentColor" stroke-width="1.3" fill="none"/>
-                  <path d="M144 15 L236 15" stroke="currentColor" stroke-width="0.6"/>
-                  <circle cx="151" cy="10" r="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <circle cx="157" cy="10" r="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <circle cx="163" cy="10" r="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <!-- Trend line panel -->
-                  <rect x="149" y="19" width="40" height="20" rx="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <path d="M153 34 L160 29 L167 31 L174 25 L181 21" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                  <path d="M179 23 L181 19 L183 23" stroke="currentColor" stroke-width="0.8" fill="none"/>
-                  <!-- KPI widget -->
-                  <rect x="193" y="19" width="38" height="20" rx="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <text x="212" y="29" font-family="ui-monospace, monospace" font-size="8" font-weight="700" fill="currentColor" text-anchor="middle">10x</text>
-                  <text x="212" y="36" font-family="ui-monospace, monospace" font-size="5" fill="currentColor" text-anchor="middle">faster</text>
-                  <!-- Bar chart -->
-                  <rect x="149" y="43" width="40" height="18" rx="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <rect x="154" y="54" width="4" height="5" rx="0.5" fill="currentColor" opacity="0.3"/>
-                  <rect x="161" y="50" width="4" height="9" rx="0.5" fill="currentColor" opacity="0.4"/>
-                  <rect x="168" y="47" width="4" height="12" rx="0.5" fill="currentColor" opacity="0.5"/>
-                  <rect x="175" y="44" width="4" height="15" rx="0.5" fill="currentColor" opacity="0.7"/>
-                  <!-- Status widget -->
-                  <rect x="193" y="43" width="38" height="18" rx="2" stroke="currentColor" stroke-width="0.7" fill="none"/>
-                  <circle cx="202" cy="52" r="3" stroke="currentColor" stroke-width="0.8" fill="none"/>
-                  <path d="M200 52 L202 54 L205 50" stroke="currentColor" stroke-width="0.8"/>
-                  <path d="M208 50 L224 50 M208 54 L220 54" stroke="currentColor" stroke-width="0.5"/>
-                </g>
-                <text x="190" y="82" font-family="ui-monospace, monospace" font-size="7" fill="currentColor" text-anchor="middle" class="text-accent-600 dark:text-accent-400">minutes</text>
-              </svg>
+          <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/60 p-8 hover:shadow-md transition-shadow duration-200">
+            <span class="text-5xl sm:text-6xl font-bold text-accent-600 dark:text-accent-400 tabular-nums leading-none" data-countup="10" data-suffix="&times;">0&times;</span>
+            <p class="text-sm font-medium text-navy-800 dark:text-white mt-3 mb-2">faster reporting</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-5">Automated dashboards across 3 Salesforce orgs so leaders get trusted answers in minutes, not hours of spreadsheet work.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Salesforce & CRM</span>
+              <span class="text-[11px] font-medium px-2.5 py-1 rounded-md bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/30">Reporting</span>
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================= -->
-    <!-- TOOLBOX                        -->
-    <!-- ============================= -->
-    <section class="py-14 sm:py-16 bg-slate-50 dark:bg-gray-900 border-y border-slate-100 dark:border-slate-800">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-2 text-center">Delivery Stack</p>
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white text-center mb-3">Tools I use to build and hand off</h2>
-        <p class="text-sm text-slate-500 dark:text-slate-400 text-center mb-8 max-w-xl mx-auto">CRM, reporting, workflows, and AI&mdash;built around how your team actually operates.</p>
-
-        <!-- Primary chips -->
-        <div class="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto">
-          {[
-            'Salesforce & RevOps',
-            'Pardot (Account Engagement)',
-            'Salesforce Automation (Flows)',
-            'CRM + Lifecycle Workflows',
-            'Data Quality & Cleanup',
-            'Reporting & Dashboards',
-            'Integrations (APIs + Webhooks)',
-            'AI (OpenAI + Claude)',
-            'Microsoft 365 (Excel + SharePoint)',
-            'Process Mapping (SOP-lite)',
-          ].map((tool) => (
-            <span class="px-3.5 py-1.5 rounded-md bg-white dark:bg-slate-800/80 text-sm text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60 hover:border-accent-300 dark:hover:border-accent-700 hover:text-accent-700 dark:hover:text-accent-300 transition-colors duration-150 cursor-default">
-              {tool}
-            </span>
-          ))}
-        </div>
-
-        <!-- Full toolbox (collapsed) -->
-        <div class="mt-6 text-center">
-          <button
-            id="toolbox-toggle"
-            class="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-slate-400 dark:text-slate-500 hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
-          >
-            <span id="toolbox-label">Show full toolbox</span>
-            <svg id="toolbox-chevron" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div id="toolbox-expanded" class="hidden mt-4">
-            <div class="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
-              {[
-                'Tableau', 'Power BI', 'Python', 'SQL',
-                'ZoomInfo', 'Git', 'Docker',
-                'SharePoint (Advanced)', 'Excel (Advanced)',
-                'Astro',
-                'Operational Resilience', 'Recovery Planning',
-              ].map((tool) => (
-                <span class="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/50 text-xs text-slate-500 dark:text-slate-400 border border-slate-200/60 dark:border-slate-700/40 cursor-default">
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -536,33 +305,39 @@ import Button from '../components/Button.astro';
     <!-- ============================= -->
     <!-- ABOUT                          -->
     <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
+    <section class="py-20 sm:py-28 bg-stone-50 dark:bg-gray-900">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-          <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">About</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-            Hey, I&rsquo;m Will.
-          </h2>
-          <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
-            <p>
-              I help small businesses get real value out of the tools they already pay for&mdash;especially Salesforce, Pardot, reporting, and the workflows that keep sales and operations moving.
-            </p>
-            <p>
-              I&rsquo;ve spent 15+ years in revenue operations, enablement, and business technology&mdash;most of it at
-              <a href="https://www.talentsmarteq.com" target="_blank" rel="noopener noreferrer" class="text-slate-900 dark:text-white font-semibold hover:text-accent-600 dark:hover:text-accent-400 underline underline-offset-2 transition-colors">TalentSmartEQ</a>,
-              where I run the technical side of a global training and consulting organization. My work is a mix of systems design, automation, data quality, and reporting that leaders actually trust.
-            </p>
-            <p>
-              Mau Consulting is simple: I listen, map how your business really works, and build practical improvements you can own. That usually means cleaning up CRM + data, streamlining messy handoffs, and shipping dashboards and automation that reduce manual work.
-            </p>
-            <p>
-              I&rsquo;m not an agency. You work directly with me, and every project includes documentation and training&mdash;so your team can run the system long after I&rsquo;m done.
-            </p>
-          </div>
-          <div class="mt-8">
-            <Button href="/resume" variant="outline" size="md">
-              View Full Resume&ensp;&rarr;
-            </Button>
+        <div class="max-w-4xl mx-auto">
+          <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">About</p>
+          <div class="flex flex-col md:flex-row gap-10 items-start">
+            <div class="flex-shrink-0">
+              <img
+                src="/william-mau-headshot.jpg"
+                alt="William Mau"
+                class="w-48 h-48 rounded-2xl grayscale object-cover shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-6">
+                Hey, I&rsquo;m Will.
+              </h2>
+              <div class="space-y-4 text-stone-600 dark:text-stone-400 leading-relaxed">
+                <p>
+                  I&rsquo;ve spent 15+ years in revenue operations, enablement, and business technology, most of it at
+                  <a href="https://www.talentsmarteq.com" target="_blank" rel="noopener noreferrer" class="text-navy-800 dark:text-white font-semibold hover:text-accent-600 dark:hover:text-accent-400 underline underline-offset-2 transition-colors">TalentSmartEQ</a>,
+                  where I run the technical side of a global training organization. I help small businesses get real value out of Salesforce, automation, and reporting.
+                </p>
+                <p>
+                  I&rsquo;m not an agency. You work directly with me. I listen, map how your business really works, and build practical improvements you can own. Every project includes documentation and training so your team can run the system long after I&rsquo;m done.
+                </p>
+              </div>
+              <div class="mt-8">
+                <Button href="/resume" variant="outline" size="md">
+                  View Full Resume&ensp;&rarr;
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -571,11 +346,11 @@ import Button from '../components/Button.astro';
     <!-- ============================= -->
     <!-- FAQ                            -->
     <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-slate-50 dark:bg-gray-900">
+    <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
-          <p class="font-mono text-xs tracking-widest uppercase text-accent-600 dark:text-accent-400 mb-3">FAQ</p>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-12">
+          <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">FAQ</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-12">
             Common questions
           </h2>
           <div class="space-y-3">
@@ -609,14 +384,14 @@ import Button from '../components/Button.astro';
                 a: 'Yes. I translate technical work into plain language and build systems your team can actually run day to day.',
               },
             ].map((faq) => (
-              <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-hidden">
-                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-slate-900 dark:text-white font-medium hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+              <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
                   <span>{faq.q}</span>
-                  <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
-                <div class="px-6 pb-5 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                <div class="px-6 pb-5 text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
                   {faq.a}
                 </div>
               </details>
@@ -629,22 +404,22 @@ import Button from '../components/Button.astro';
     <!-- ============================= -->
     <!-- FOOTER CTA                     -->
     <!-- ============================= -->
-    <section class="py-20 sm:py-28 bg-white dark:bg-gray-950">
+    <section class="py-20 sm:py-28 bg-navy-900 dark:bg-navy-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
             Ready to make your systems run smoother?
           </h2>
-          <p class="text-lg text-slate-500 dark:text-slate-400 mb-10">
+          <p class="text-lg text-navy-200 mb-10">
             30-minute free call. No pitch. Just a quick look at what&rsquo;s not working and a clear plan for what to do next.
           </p>
           <div class="flex flex-wrap gap-4 justify-center">
-            <Button href="/contact" variant="primary" size="lg">
+            <Button href="/contact?source=homepage" variant="primary" size="lg">
               Book a Free Call
             </Button>
-            <Button href="#results" variant="outline" size="lg">
-              See Example Results
-            </Button>
+            <a href="#results" class="group relative inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden px-8 py-4 text-lg border-2 border-white/30 text-white hover:bg-white/10 hover:scale-105 active:scale-95">
+              <span class="relative z-10">See Example Results</span>
+            </a>
           </div>
         </div>
       </div>
@@ -688,20 +463,6 @@ import Button from '../components/Button.astro';
 
     document.querySelectorAll<HTMLElement>('[data-countup]').forEach((el) => {
       observer.observe(el);
-    });
-
-    // Toolbox expand/collapse
-    const toggle = document.getElementById('toolbox-toggle');
-    const expanded = document.getElementById('toolbox-expanded');
-    const label = document.getElementById('toolbox-label');
-    const chevron = document.getElementById('toolbox-chevron');
-    let isOpen = false;
-
-    toggle?.addEventListener('click', () => {
-      isOpen = !isOpen;
-      expanded?.classList.toggle('hidden', !isOpen);
-      chevron?.classList.toggle('rotate-180', isOpen);
-      if (label) label.textContent = isOpen ? 'Hide full toolbox' : 'Show full toolbox';
     });
   </script>
 </BaseLayout>
