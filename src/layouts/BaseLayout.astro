@@ -28,6 +28,15 @@ const ogImage = new URL(image, Astro.site).href;
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0f172a" />
 
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-VS8SPLJCKZ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VS8SPLJCKZ');
+    </script>
+
     <!-- Google Fonts: DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
