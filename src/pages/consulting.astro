@@ -94,13 +94,27 @@ const faqs = [
     answer: 'Anything in my wheelhouse: Salesforce, CRM strategy, process design, workflow optimization, tech stack decisions, tool selection, team enablement, documentation strategy, and operational efficiency. If it is outside my expertise, I will tell you upfront.'
   }
 ];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
 ---
 
 <BaseLayout
-  title="Technology Advisory & Office Hours"
-  description="Book a strategy call or monthly office hours with a Certified Salesforce Administrator. Practical advice on CRM, workflows, and tech stack decisions for small businesses."
+  title="Technology Advisory & Office Hours | Schenectady, NY"
+  description="Book a strategy call or monthly office hours with a Certified Salesforce Administrator in Schenectady, NY. Practical advice on CRM, workflows, and tech stack decisions for small businesses in the Capital Region."
 >
   <Header />
+  <script type="application/ld+json" set:html={faqSchema} />
 
   <main>
   <!-- Hero -->

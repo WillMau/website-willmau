@@ -111,6 +111,19 @@ const faqs = [
     answer: 'Every project includes documentation and hands-on training for your team. The goal is for your people to run the system confidently without me.'
   }
 ];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
 ---
 
 <BaseLayout
@@ -118,6 +131,7 @@ const faqs = [
   description="Certified Salesforce Administrator with 15+ years experience. CRM setup, optimization, reporting, and automation for small businesses in the Capital Region and nationwide."
 >
   <Header />
+  <script type="application/ld+json" set:html={faqSchema} />
 
   <main>
   <!-- Hero Section -->
