@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://mauops.com',
   base: '/',
+  trailingSlash: 'always',
   integrations: [
     tailwind(),
     sitemap({
