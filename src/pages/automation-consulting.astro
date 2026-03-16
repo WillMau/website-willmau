@@ -103,7 +103,7 @@ const faqs = [
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center animate-delay-200">
-          <Button href="/contact?service=automation&source=automation-consulting" variant="primary" size="lg">
+          <Button href="/contact/?service=automation&source=automation-consulting" variant="primary" size="lg">
             Book a Process Review
           </Button>
           <Button href="#approach" variant="outline" size="lg">
@@ -655,7 +655,7 @@ const faqs = [
             </ul>
           </div>
           <div class="mt-auto pt-10">
-            <Button href={`/contact?service=automation&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=automation-consulting`} variant="primary" class="w-full">Get Started</Button>
+            <Button href={`/contact/?service=automation&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=automation-consulting`} variant="primary" class="w-full">Get Started</Button>
           </div>
         </Card>
       ))}
@@ -710,7 +710,7 @@ const faqs = [
           Free 30-minute call. I will listen to how things work today, identify the biggest bottlenecks, and tell you exactly what I would recommend.
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
-          <Button href="/contact?service=automation&source=automation-consulting" variant="primary" size="lg">Book a Free Process Review</Button>
+          <Button href="/contact/?service=automation&source=automation-consulting" variant="primary" size="lg">Book a Free Process Review</Button>
           <Button href="/" variant="outline" size="lg" class="border-white text-white hover:bg-white/10">Back to Home</Button>
         </div>
       </div>

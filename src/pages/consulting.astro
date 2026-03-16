@@ -139,7 +139,7 @@ const faqSchema = JSON.stringify({
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center animate-delay-200">
-          <Button href="/contact?service=advisory&source=consulting" variant="primary" size="lg">
+          <Button href="/contact/?service=advisory&source=consulting" variant="primary" size="lg">
             Book a Strategy Call
           </Button>
           <Button href="#formats" variant="outline" size="lg">
@@ -215,7 +215,7 @@ const faqSchema = JSON.stringify({
           </ul>
 
           <div class="mt-auto pt-6">
-            <Button href={`/contact?service=advisory&tier=${encodeURIComponent(format.title + ' (' + format.price + ')')}&source=consulting`} variant="primary" class="w-full">Book Now</Button>
+            <Button href={`/contact/?service=advisory&tier=${encodeURIComponent(format.title + ' (' + format.price + ')')}&source=consulting`} variant="primary" class="w-full">Book Now</Button>
           </div>
         </Card>
       ))}
@@ -294,7 +294,7 @@ const faqSchema = JSON.stringify({
           No commitment, no pitch. Just a conversation about what you are dealing with and whether I can help.
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
-          <Button href="/contact?service=advisory&source=consulting" variant="primary" size="lg">Book a Strategy Call</Button>
+          <Button href="/contact/?service=advisory&source=consulting" variant="primary" size="lg">Book a Strategy Call</Button>
           <Button href="/" variant="outline" size="lg" class="text-white border-white hover:bg-white/10">Back to Home</Button>
         </div>
       </div>

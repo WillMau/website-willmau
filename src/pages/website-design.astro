@@ -107,7 +107,7 @@ const faqSchema = JSON.stringify({
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center animate-delay-200">
-          <Button href="/contact?service=website&source=website-design" variant="primary" size="lg">
+          <Button href="/contact/?service=website&source=website-design" variant="primary" size="lg">
             Get a Free Site Review
           </Button>
           <Button href="#portfolio" variant="outline" size="lg">
@@ -342,7 +342,7 @@ const faqSchema = JSON.stringify({
             </ul>
           </div>
           <div class="mt-auto pt-10">
-            <Button href={`/contact?service=website&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=website-design`} variant="primary" class="w-full">Get Started</Button>
+            <Button href={`/contact/?service=website&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=website-design`} variant="primary" class="w-full">Get Started</Button>
           </div>
         </Card>
       ))}
@@ -397,7 +397,7 @@ const faqSchema = JSON.stringify({
           Free consultation to review your current site and talk through what a modern, lead-generating website looks like for your business.
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
-          <Button href="/contact?service=website&source=website-design" variant="primary" size="lg">Schedule Free Consultation</Button>
+          <Button href="/contact/?service=website&source=website-design" variant="primary" size="lg">Schedule Free Consultation</Button>
           <Button href="/" variant="outline" size="lg" class="border-white text-white hover:bg-white/10">Back to Home</Button>
         </div>
       </div>
