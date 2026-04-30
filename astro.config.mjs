@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => !page.includes('/404'),
+      filter: (page) => !page.includes('/404') && !page.includes('/resume') && !page.includes('/notes'),
       changefreq: 'monthly',
       priority: 0.7,
       serialize(item) {

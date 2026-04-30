@@ -165,6 +165,14 @@ const faqSchema = JSON.stringify({
               See What I Build
             </Button>
           </div>
+
+          <p class="mt-6 text-sm text-stone-500 dark:text-stone-400 inline-flex items-center gap-2">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Currently accepting new projects
+          </p>
         </div>
       </div>
     </section>
@@ -278,6 +286,59 @@ const faqSchema = JSON.stringify({
             <p class="text-sm text-stone-600 dark:text-stone-400">{item.desc}</p>
           </div>
         ))}
+      </div>
+    </Section>
+
+    <!-- Price Anchor -->
+    <Section class="bg-white dark:bg-gray-950">
+      <div class="max-w-5xl mx-auto">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3 text-center">Why Work With Me</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4 text-center">
+          Enterprise AI patterns at small business prices.
+        </h2>
+        <p class="text-lg text-stone-600 dark:text-stone-300 mb-12 text-center max-w-3xl mx-auto">
+          The same AI work I deliver at $5K&ndash;$15K is what big consultancies bill at $50K&ndash;$200K+. Same patterns, same production rigor, same outcomes. The difference is overhead, not capability.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border-2 border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/40 p-6">
+            <p class="text-xs uppercase tracking-wide text-stone-500 dark:text-stone-400 font-semibold mb-2">Big Consultancy</p>
+            <p class="text-3xl font-bold text-stone-700 dark:text-stone-300 mb-2">$80K&ndash;$200K+</p>
+            <ul class="space-y-1.5 text-sm text-stone-600 dark:text-stone-400 mt-4">
+              <li>&bull; 12-person delivery team</li>
+              <li>&bull; 6&ndash;9 month timeline</li>
+              <li>&bull; Account managers and PMs you'll rarely talk to</li>
+              <li>&bull; Heavy retainers</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border-2 border-stone-200 dark:border-stone-800 bg-stone-50/50 dark:bg-stone-900/40 p-6">
+            <p class="text-xs uppercase tracking-wide text-stone-500 dark:text-stone-400 font-semibold mb-2">Mid-Market Boutique</p>
+            <p class="text-3xl font-bold text-stone-700 dark:text-stone-300 mb-2">$30K&ndash;$75K</p>
+            <ul class="space-y-1.5 text-sm text-stone-600 dark:text-stone-400 mt-4">
+              <li>&bull; 3&ndash;5 person team</li>
+              <li>&bull; 3&ndash;4 month timeline</li>
+              <li>&bull; Senior on the sales call, juniors on the build</li>
+              <li>&bull; Templated solutions</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border-2 border-accent-500 bg-accent-50/40 dark:bg-accent-900/20 p-6 shadow-lg shadow-accent-500/10 relative">
+            <span class="absolute -top-3 left-6 inline-block px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-accent-500 text-white shadow">Mau Consulting</span>
+            <p class="text-xs uppercase tracking-wide text-accent-600 dark:text-accent-400 font-semibold mb-2 mt-2">Solo + AI-Native</p>
+            <p class="text-3xl font-bold text-accent-700 dark:text-accent-300 mb-2">$5K&ndash;$15K</p>
+            <ul class="space-y-1.5 text-sm text-stone-700 dark:text-stone-300 mt-4">
+              <li class="font-semibold">&bull; You work directly with me, every call</li>
+              <li class="font-semibold">&bull; 3&ndash;6 week timeline</li>
+              <li class="font-semibold">&bull; Production AI patterns from day one</li>
+              <li class="font-semibold">&bull; No bloat. No retainers required.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-stone-500 dark:text-stone-400 mt-8 italic">
+          Numbers based on typical published rates for AI agent and Salesforce automation builds in the U.S. market.
+        </p>
       </div>
     </Section>
 
