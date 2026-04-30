@@ -1,0 +1,386 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+
+const services = [
+  {
+    title: 'AI Customer Service Agents',
+    description: 'Deploy an AI Agent that classifies, responds to, and resolves inbound emails, tickets, or chats. Lives in your existing tools (Salesforce, Zendesk, Help Scout, email). Phased rollout with full audit trails.',
+    icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
+  },
+  {
+    title: 'AI Lead Qualification & Routing',
+    description: 'AI agents that score, qualify, and route inbound leads automatically. Works with HubSpot, Salesforce, Pipedrive, or any CRM. Confidence-based escalation keeps humans in the loop where it matters.',
+    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+  },
+  {
+    title: 'Document & Email Automation',
+    description: 'Auto-summarize, draft, and route emails and documents. Vision-powered processing for receipts, invoices, and forms. Pulls data from PDFs into your systems, no manual entry.',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+  },
+  {
+    title: 'Internal AI Assistants',
+    description: 'Custom "ask my data" assistants trained on your company knowledge: SOPs, customer history, product docs, internal wikis. Your team gets answers in seconds instead of hunting through folders.',
+    icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Custom AI Integrations',
+    description: 'Connect AI to the tools you already use. Smart Zapier replacements, custom API workflows, AI-powered triggers in Make, n8n, Power Automate. The kind of automation Zapier alone cannot do.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+  },
+  {
+    title: 'AI Strategy & Audit',
+    description: 'Not sure where to start? I audit your current operations, identify the highest-ROI AI opportunities, and deliver a prioritized roadmap with cost estimates, no commitment.',
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4'
+  }
+];
+
+const packages = [
+  {
+    name: 'AI Opportunity Audit',
+    price: '$1,500 fixed',
+    duration: '1 week',
+    description: 'Sit-down audit of your current operations, identify the 3 highest-ROI AI opportunities, and deliver a prioritized implementation roadmap.',
+    features: [
+      'Process review with documented current state',
+      'Cost-benefit analysis for each opportunity',
+      'Tool and platform recommendations',
+      'Implementation roadmap with budget ranges',
+      '60-minute findings presentation',
+      'No commitment to build with me'
+    ]
+  },
+  {
+    name: 'AI Agent Build',
+    price: 'Starting at $5,000',
+    duration: '3–6 weeks',
+    description: 'Build a production AI Agent for one specific workflow (customer service, lead qualification, document processing). Most projects $5K–15K depending on scope.',
+    features: [
+      'Custom AI Agent with phased rollout',
+      'Integration with your existing tools',
+      'Confidence scoring & audit trails',
+      'Shadow mode testing before autonomy',
+      'Operating cost transparency',
+      'Team training & documentation',
+      '30 days of post-launch support'
+    ]
+  },
+  {
+    name: 'AI Operations Partner',
+    price: 'From $2,000/month',
+    duration: 'Monthly retainer',
+    description: 'Ongoing AI operations: monitor agents, refine prompts, expand capabilities, and add new agents as you find more places to apply them.',
+    features: [
+      'Priority support and incident response',
+      'Monthly performance reviews',
+      'Prompt engineering & model tuning',
+      'New agent builds (scoped per project)',
+      'Cost optimization across providers',
+      'Documentation kept current',
+      'Strategic AI roadmap planning'
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: 'Do I need to use Salesforce to work with you?',
+    answer: 'No. I build AI Agents on whatever platform makes sense for your business. HubSpot, Pipedrive, Zendesk, Help Scout, Zapier, Make, custom APIs, or just plain email. Salesforce is one option, not the requirement.'
+  },
+  {
+    question: 'What AI models do you use?',
+    answer: 'GPT-4o and GPT-4o-mini (OpenAI/Azure OpenAI) for most production work, Claude for content and reasoning-heavy tasks. I select the cheapest model that meets your accuracy bar, not the flashiest one.'
+  },
+  {
+    question: 'How much does an AI Agent actually cost to run?',
+    answer: 'Less than you think. The customer service agent I built handles 1,500+ cases per month for under $5/month in API costs. That is roughly $0.003 per case. Most small business agents run $5–50/month in operating costs.'
+  },
+  {
+    question: 'How do I trust an AI to run autonomously?',
+    answer: 'You don\'t, at first. Every agent I build starts in shadow mode where it shows what it would do but doesn\'t act. You watch it work, review the decisions, and only flip to autonomy when you trust the output. Confidence scoring lets you set thresholds so the agent escalates anything uncertain to a human.'
+  },
+  {
+    question: 'Can AI replace my customer service team?',
+    answer: 'Probably not entirely, and you don\'t want it to. Good AI agents handle the repetitive 60-80% so your team can focus on the complex 20-40% that needs judgment, empathy, or relationship work. The economics still work overwhelmingly in your favor.'
+  },
+  {
+    question: 'What if the AI makes a mistake?',
+    answer: 'That\'s why every system has audit trails, confidence thresholds, and human review queues. I treat AI like a junior employee that needs supervision, not magic. Mistakes get caught, the prompt gets refined, and the system gets smarter.'
+  }
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+---
+
+<BaseLayout
+  title="AI Solutions for Small Businesses | Capital Region NY"
+  description="Production AI Agents for small businesses: customer service automation, lead qualification, document processing, and custom integrations. Real systems running today, not demos."
+>
+  <Header />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden py-16 sm:py-24 bg-white dark:bg-gray-950">
+      <div class="absolute inset-0 bg-gradient-to-br from-accent-50/60 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200 dark:border-accent-800/50 mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
+            </span>
+            Production AI, Running Today
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-fade-in-up">
+            Practical AI<br />For Small Businesses
+          </h1>
+
+          <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-300">
+            Real AI Agents that handle real work. One I built handles <span class="font-bold text-accent-600 dark:text-accent-400">68% of customer service cases</span> end-to-end for under <span class="font-bold text-accent-600 dark:text-accent-400">$5/month</span>. Not slide decks. Not chatbots that hallucinate. Production systems your team can run.
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center" style="animation: fade-in-up 0.6s ease-out 0.4s both;">
+            <Button href="/contact/?service=ai&source=ai-solutions" variant="primary" size="lg">
+              Book a Free AI Audit
+            </Button>
+            <Button href="#what-i-build" variant="outline" size="lg">
+              See What I Build
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Build -->
+    <Section title="What I've Built" subtitle="Production AI systems I've shipped, with real numbers from real production data.">
+      <div class="max-w-6xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden border-2 border-accent-500/40 dark:border-accent-400/40 shadow-2xl">
+          <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-900 to-accent-900"></div>
+          <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+          <div class="relative grid grid-cols-1 lg:grid-cols-5 gap-8 p-8 sm:p-10 lg:p-12">
+            <div class="lg:col-span-3">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-accent-500 text-white shadow-lg">Featured Build</span>
+                <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white border border-white/20">AI Customer Service Agent</span>
+              </div>
+
+              <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+                The AI Agent That Pays For Itself in 30 Minutes a Month
+              </h3>
+
+              <p class="text-lg text-stone-200 mb-6 leading-relaxed">
+                A production AI Agent that classifies inbound cases, validates receipts using vision AI, drafts responses from approved templates, and closes routine cases without any human touch. It runs around the clock and only escalates what genuinely needs human judgment.
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4">
+                  <div class="text-xs uppercase tracking-wide text-stone-300 mb-1">Volume</div>
+                  <div class="text-lg font-bold text-white">1,516 cases / 5wk</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4">
+                  <div class="text-xs uppercase tracking-wide text-stone-300 mb-1">Operating Cost</div>
+                  <div class="text-lg font-bold text-white">~$4/month</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4">
+                  <div class="text-xs uppercase tracking-wide text-stone-300 mb-1">Cost Per Case</div>
+                  <div class="text-lg font-bold text-white">$0.003</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4">
+                  <div class="text-xs uppercase tracking-wide text-stone-300 mb-1">Capabilities</div>
+                  <div class="text-sm font-semibold text-white">Text + Vision + Routing</div>
+                </div>
+              </div>
+
+              <p class="text-sm text-stone-300 italic">
+                You read that right. Less than five dollars a month replaces hours of repetitive customer service work. Per case it costs about a third of a cent.
+              </p>
+            </div>
+
+            <div class="lg:col-span-2 flex items-center justify-center">
+              <div class="text-center bg-white/10 backdrop-blur-sm border-2 border-accent-400/50 rounded-2xl p-8 w-full">
+                <div class="text-xs uppercase tracking-widest text-accent-300 font-bold mb-3">Headline Result</div>
+                <div class="text-7xl sm:text-8xl font-black text-white leading-none mb-2">68<span class="text-accent-400">%</span></div>
+                <div class="text-lg font-semibold text-white mb-1">Cases Auto-Handled</div>
+                <div class="text-sm text-stone-300">end-to-end, no human review</div>
+                <div class="mt-6 pt-6 border-t border-white/20">
+                  <div class="text-xs text-stone-300">5 weeks of stable production data</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-stone-500 dark:text-stone-400 mt-8 max-w-2xl mx-auto">
+          Want similar economics for your business? Whatever platform you use, I can build, deploy, and train your team to run it.
+        </p>
+      </div>
+    </Section>
+
+    <!-- What I Build -->
+    <Section id="what-i-build" class="bg-stone-50 dark:bg-gray-900" title="What I Build" subtitle="Six categories of AI work, all platform-agnostic.">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <Card>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">
+                  {service.title}
+                </h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Every Project Includes -->
+    <Section class="bg-accent-50/50 dark:bg-accent-950/20" title="Every AI Project Includes">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {[
+          { title: 'Phased Rollout', desc: 'Shadow mode first so you can watch the agent work before it goes autonomous. No surprises.', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+          { title: 'Cost Transparency', desc: 'I show you the per-call cost upfront and design within your operating budget. No surprises on the bill.', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+          { title: 'Audit Trails', desc: 'Every decision the agent makes is logged. You see what it did and why. Refine prompts, escalate edge cases, expand confidently.', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' }
+        ].map(item => (
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-14 h-14 bg-accent-100 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 rounded-2xl mb-4">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{item.title}</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Pricing -->
+    <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="Transparent ranges. Final scope confirmed after a free 30-minute call.">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {packages.map((pkg) => (
+          <Card class="h-full flex flex-col">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-navy-900 dark:text-white mb-2">
+                {pkg.name}
+              </h3>
+              <div class="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+                {pkg.price}
+              </div>
+              <div class="text-sm text-stone-500 dark:text-stone-400 mb-4">
+                {pkg.duration}
+              </div>
+              <p class="text-stone-600 dark:text-stone-300 mb-6">
+                {pkg.description}
+              </p>
+
+              <ul class="space-y-3">
+                {pkg.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <svg class="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-stone-600 dark:text-stone-400">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <Button href={`/contact/?service=ai&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=ai-solutions`} variant="primary" class="w-full">
+                Start Here
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- How It Works -->
+    <Section title="How We Work Together">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {[
+          { step: '01', title: 'Free Audit Call', desc: '30-minute call to understand your operations and find the highest-ROI AI opportunity' },
+          { step: '02', title: 'Scoped Proposal', desc: 'Fixed-price proposal with operating cost estimates within 48 hours' },
+          { step: '03', title: 'Build in Shadow', desc: 'Agent is built and runs in shadow mode while we tune prompts and confidence thresholds' },
+          { step: '04', title: 'Go Live & Train', desc: 'Flip to autonomy, train your team to monitor and maintain, 30 days post-launch support' }
+        ].map((phase) => (
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
+              {phase.step}
+            </div>
+            <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">
+              {phase.title}
+            </h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400">
+              {phase.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    <!-- FAQ -->
+    <Section class="bg-stone-50 dark:bg-gray-900" title="Frequently Asked Questions">
+      <div class="max-w-3xl mx-auto space-y-6">
+        {faqs.map((faq) => (
+          <Card>
+            <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-3">
+              {faq.question}
+            </h3>
+            <p class="text-stone-600 dark:text-stone-400">
+              {faq.answer}
+            </p>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- CTA -->
+    <section class="bg-navy-900 dark:bg-navy-950 py-16 sm:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Ready to Find Your AI Opportunity?
+          </h2>
+          <p class="text-xl text-navy-200 mb-8">
+            30-minute audit call, no obligation. I'll tell you what's worth automating, what isn't, and roughly what it'll cost.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <Button href="/contact/?service=ai&source=ai-solutions" variant="primary" size="lg">
+              Book a Free Audit
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
