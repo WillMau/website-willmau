@@ -75,13 +75,14 @@ import Button from '../components/Button.astro';
           </h2>
           <div class="flex flex-wrap justify-center gap-3">
             {[
+              '\u201CWe can\u2019t afford another customer service hire\u201D',
+              '\u201COur reps spend half their time on repetitive emails\u201D',
+              '\u201CAI feels overwhelming. Where do we start?\u201D',
               '\u201CSales doesn\u2019t see value in our CRM\u201D',
               '\u201CWe\u2019re stuck in copy/paste between tools\u201D',
               '\u201COur process lives in people\u2019s heads\u201D',
-              '\u201COur numbers never match\u201D',
               '\u201CLeads fall through the cracks\u201D',
               '\u201CWe need a website that converts\u201D',
-              '\u201CAI feels overwhelming. Where do we start?\u201D',
             ].map((problem) => (
               <span class="inline-block px-4 py-2.5 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-sm text-stone-600 dark:text-stone-300 shadow-sm hover:border-accent-300 dark:hover:border-accent-600 hover:shadow-md transition-all duration-200 cursor-default">
                 {problem}
@@ -97,16 +98,116 @@ import Button from '../components/Button.astro';
     </section>
 
     <!-- ============================= -->
+    <!-- AI SPOTLIGHT                   -->
+    <!-- ============================= -->
+    <section id="ai-spotlight" class="relative py-20 sm:py-28 overflow-hidden bg-navy-900 dark:bg-navy-950">
+      <!-- Decorative pattern -->
+      <div class="absolute inset-0 opacity-10" aria-hidden="true" style="background-image: radial-gradient(circle at 20% 30%, white 1px, transparent 1px), radial-gradient(circle at 80% 70%, white 1px, transparent 1px); background-size: 50px 50px;"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-900 to-accent-900/40" aria-hidden="true"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <!-- Section header -->
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-accent-500 text-white shadow-lg">
+              <span class="relative flex h-2 w-2 mr-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+              Featured Service
+            </span>
+            <span class="text-xs font-semibold uppercase tracking-wide text-accent-300">AI Agents</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+            What if you didn&rsquo;t need to hire<br class="hidden sm:inline" /> for that next role?
+          </h2>
+          <p class="text-lg text-stone-300 mb-12 max-w-3xl leading-relaxed">
+            AI Agents handle the repetitive work that drains your team. I build production agents that classify, respond, and resolve real work autonomously, then ramp up safely with full audit trails. Below are the actual numbers from one running today.
+          </p>
+
+          <!-- Stats grid + CTA -->
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+            <!-- Big stat -->
+            <div class="lg:col-span-2">
+              <div class="text-center bg-white/10 backdrop-blur-sm border-2 border-accent-400/50 rounded-2xl p-8">
+                <div class="text-xs uppercase tracking-widest text-accent-300 font-bold mb-3">Production Result</div>
+                <div class="text-7xl sm:text-8xl font-black text-white leading-none mb-2">68<span class="text-accent-400">%</span></div>
+                <div class="text-lg font-semibold text-white mb-1">Cases Auto-Handled</div>
+                <div class="text-sm text-stone-300">end-to-end, no human review</div>
+              </div>
+            </div>
+
+            <!-- Supporting metrics + capabilities -->
+            <div class="lg:col-span-3 space-y-6">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-white">~$4</div>
+                  <div class="text-xs text-stone-300 mt-1">per month</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-white">1,516</div>
+                  <div class="text-xs text-stone-300 mt-1">cases / 5 weeks</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-white">$0.003</div>
+                  <div class="text-xs text-stone-300 mt-1">per case</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 text-center">
+                  <div class="text-2xl font-bold text-white">24/7</div>
+                  <div class="text-xs text-stone-300 mt-1">running hours</div>
+                </div>
+              </div>
+
+              <!-- What can be built -->
+              <div>
+                <p class="text-sm font-semibold text-accent-300 uppercase tracking-wide mb-3">What I can build for you</p>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                  {[
+                    'Customer service agents',
+                    'Lead qualification &amp; routing',
+                    'Document &amp; receipt automation',
+                    'Internal AI assistants',
+                    'Custom Salesforce AI integrations',
+                    'Smart cross-tool workflows',
+                  ].map((item) => (
+                    <li class="flex items-center gap-2 text-stone-200">
+                      <svg class="w-4 h-4 text-accent-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-sm" set:html={item}></span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- CTAs -->
+              <div class="flex flex-wrap gap-4 pt-2">
+                <a href="/ai-solutions/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-semibold transition-colors shadow-lg">
+                  Explore AI Solutions
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </a>
+                <a href="/contact/?service=ai&source=homepage-ai-spotlight" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-white/30 hover:border-white text-white font-semibold transition-colors">
+                  Book a Free AI Audit
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
     <!-- SERVICES (detailed)            -->
     <!-- ============================= -->
     <section id="services" class="py-20 sm:py-28 bg-white dark:bg-gray-950">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">What I Do</p>
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">More Ways I Help</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
-          Build it. Connect it. Teach it.
+          Beyond AI: the full stack.
         </h2>
         <p class="text-lg text-stone-500 dark:text-stone-400 mb-14 max-w-2xl">
-          I don&rsquo;t just set things up and disappear. Every project includes documentation and training so your team can run it confidently without me.
+          AI is the headliner, but most projects need plumbing too. CRM that works, integrations that hold up, websites that bring in leads. Every project includes documentation and training so your team owns it.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
