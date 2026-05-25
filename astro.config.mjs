@@ -19,6 +19,8 @@ export default defineConfig({
       serialize(item) {
         if (item.url === 'https://mauops.com/') {
           item.priority = 1.0;
+        } else if (item.url.includes('/audit')) {
+          item.priority = 0.9;
         } else if (item.url.includes('/ai-solutions')) {
           item.priority = 0.9;
         } else if (item.url.includes('/salesforce-consulting') || item.url.includes('/operations') || item.url.includes('/website-design') || item.url.includes('/consulting')) {
