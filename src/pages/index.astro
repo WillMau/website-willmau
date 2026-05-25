@@ -142,10 +142,32 @@ const faqSchema = JSON.stringify({
               </span>
             ))}
           </div>
-          <p class="mt-8 text-stone-500 dark:text-stone-400">
-            If any of these hit home,
-            <a href="/contact/?source=homepage" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">let&rsquo;s talk</a>.
-          </p>
+          <!-- Audit CTA -->
+          <div class="mt-10 rounded-2xl border-2 border-accent-300/60 dark:border-accent-700/40 bg-gradient-to-br from-accent-50 to-white dark:from-accent-900/20 dark:to-stone-900/40 p-6 sm:p-8 max-w-2xl mx-auto shadow-sm">
+            <div class="flex items-center justify-center gap-2 mb-3">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-accent-600 text-white shadow">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Free Tool
+              </span>
+              <span class="text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">5 minutes</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-2">
+              Take the Small Business Operations Self-Audit.
+            </h3>
+            <p class="text-stone-600 dark:text-stone-400 mb-5 leading-relaxed">
+              16 plain-spoken questions. Instant personalized diagnosis with your score, your weakest area, and what it&rsquo;s costing you in time and money. No email required to see your results.
+            </p>
+            <a
+              href="/audit/"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-600 hover:bg-accent-700 text-white font-semibold shadow-lg shadow-accent-500/20 hover:shadow-xl hover:shadow-accent-500/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            >
+              Start the Audit
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <p class="text-xs text-stone-500 dark:text-stone-400 mt-4">
+              Or, if you&rsquo;re ready to talk: <a href="/contact/?source=homepage" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">book a free call</a>.
+            </p>
+          </div>
         </div>
       </div>
     </section>
