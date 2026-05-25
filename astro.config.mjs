@@ -7,6 +7,9 @@ export default defineConfig({
   site: 'https://mauops.com',
   base: '/',
   trailingSlash: 'always',
+  redirects: {
+    '/automation-consulting': '/ai-solutions',
+  },
   integrations: [
     tailwind(),
     sitemap({
@@ -18,7 +21,7 @@ export default defineConfig({
           item.priority = 1.0;
         } else if (item.url.includes('/ai-solutions')) {
           item.priority = 0.9;
-        } else if (item.url.includes('/salesforce-consulting') || item.url.includes('/automation-consulting') || item.url.includes('/website-design') || item.url.includes('/consulting')) {
+        } else if (item.url.includes('/salesforce-consulting') || item.url.includes('/operations') || item.url.includes('/website-design') || item.url.includes('/consulting')) {
           item.priority = 0.8;
         } else if (item.url.includes('/contact')) {
           item.priority = 0.9;

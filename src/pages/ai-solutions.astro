@@ -42,9 +42,9 @@ const services = [
 const packages = [
   {
     name: 'AI Opportunity Audit',
-    price: '$1,500 fixed',
-    duration: '1 week',
-    description: 'Sit-down audit of your current operations, identify the 3 highest-ROI AI opportunities, and deliver a prioritized implementation roadmap.',
+    price: '$3,500',
+    duration: 'Delivered in ~2 weeks',
+    description: 'Productized audit of your operations. About 15–25 hours of my time across two calendar weeks. Identify the 3 highest-ROI AI opportunities and hand you a prioritized roadmap.',
     features: [
       'Process review with documented current state',
       'Cost-benefit analysis for each opportunity',
@@ -71,9 +71,9 @@ const packages = [
   },
   {
     name: 'AI Operations Partner',
-    price: 'From $2,000/month',
+    price: 'From $2,500/month',
     duration: 'Monthly retainer',
-    description: 'Ongoing AI operations: monitor agents, refine prompts, expand capabilities, and add new agents as you find more places to apply them.',
+    description: 'Ongoing AI operations: monitor agents, refine prompts, expand capabilities, and add new agents as you find more places to apply them. Typically 5–10 hours per month.',
     features: [
       'Priority support and incident response',
       'Monthly performance reviews',
@@ -128,8 +128,9 @@ const faqSchema = JSON.stringify({
 ---
 
 <BaseLayout
-  title="AI Solutions for Small Businesses | Capital Region NY"
-  description="Production AI Agents for small businesses: customer service automation, lead qualification, document processing, and custom integrations. Real systems running today, not demos."
+  title="AI & Automation for Small Businesses | Capital Region NY"
+  description="Production AI agents and cross-tool automation for small businesses: customer service, lead qualification, document processing, workflow handoffs, and custom integrations. Real systems running today, not demos."
+  pageLabel="AI & Automation"
 >
   <Header />
   <script type="application/ld+json" set:html={faqSchema} />
@@ -146,15 +147,15 @@ const faqSchema = JSON.stringify({
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
             </span>
-            Production AI, Running Today
+            Production AI &amp; Automation, Running Today
           </span>
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-fade-in-up">
-            Practical AI<br />For Small Businesses
+            AI &amp; Automation<br />Built For Small Businesses
           </h1>
 
           <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-300">
-            Real AI Agents that handle real work. One I built handles <span class="font-bold text-accent-600 dark:text-accent-400">68% of customer service cases</span> end-to-end for under <span class="font-bold text-accent-600 dark:text-accent-400">$5/month</span>. Not slide decks. Not chatbots that hallucinate. Production systems your team can run.
+            Real AI agents and cross-tool automation that handle real work. One agent I built handles <span class="font-bold text-accent-600 dark:text-accent-400">68% of customer service cases</span> end-to-end for under <span class="font-bold text-accent-600 dark:text-accent-400">$5/month</span>. Not slide decks. Not chatbots that hallucinate. Production systems your team can run.
           </p>
 
           <div class="flex flex-wrap gap-4 justify-center" style="animation: fade-in-up 0.6s ease-out 0.4s both;">
@@ -343,7 +344,7 @@ const faqSchema = JSON.stringify({
     </Section>
 
     <!-- Pricing -->
-    <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="Transparent ranges. Final scope confirmed after a free 30-minute call.">
+    <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="These reflect typical scope. Smaller business, smaller budget, or different needs? We sort that out on the call — nothing&rsquo;s locked in before we&rsquo;ve talked.">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {packages.map((pkg) => (
           <Card class="h-full flex flex-col">

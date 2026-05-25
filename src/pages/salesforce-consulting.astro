@@ -44,9 +44,9 @@ const services = [
 const packages = [
   {
     name: 'Health Check',
-    price: '$2,500 fixed',
-    duration: '1–2 weeks',
-    description: 'Comprehensive audit of your current Salesforce setup with a prioritized roadmap. Productized and predictable.',
+    price: '$3,500',
+    duration: 'Delivered in ~2 weeks',
+    description: 'Productized audit of your current Salesforce setup. About 15–25 hours of my time across two calendar weeks. You get a prioritized roadmap and a 60-minute findings call.',
     features: [
       'Data quality assessment',
       'Automation & flow review',
@@ -59,7 +59,7 @@ const packages = [
   },
   {
     name: 'Implementation Project',
-    price: 'Starting at $5,000',
+    price: 'Starting at $7,500',
     duration: '2–6 weeks',
     description: 'Build or fix a specific Salesforce capability. Final pricing depends on scope and complexity, locked in after a free scoping call.',
     features: [
@@ -74,9 +74,9 @@ const packages = [
   },
   {
     name: 'Ongoing Partner',
-    price: 'From $1,500/month',
+    price: 'From $2,500/month',
     duration: 'Monthly retainer',
-    description: 'Continuous Salesforce support, optimization, and team enablement. Cancel anytime.',
+    description: 'Continuous Salesforce support, optimization, and team enablement. Typically 5–10 hours per month. Cancel anytime.',
     features: [
       'Priority support (24–48hr response)',
       'Monthly optimization reviews',
@@ -127,8 +127,9 @@ const faqSchema = JSON.stringify({
 ---
 
 <BaseLayout
-  title="Salesforce + AI Consulting for Small Businesses | Schenectady, NY"
-  description="Certified Salesforce Administrator who builds production AI systems on the platform. CRM setup, intelligent automation, AI-powered lead qualification, and executive dashboards for small businesses in the Capital Region and nationwide."
+  title="Salesforce & Revenue Systems for Small Businesses | Schenectady, NY"
+  description="Certified Salesforce Administrator who builds the revenue systems your team actually uses. CRM setup, pipeline dashboards, lead routing, AI-powered automation, and executive reporting for small businesses in the Capital Region and nationwide."
+  pageLabel="Salesforce & Revenue Systems"
 >
   <Header />
   <script type="application/ld+json" set:html={faqSchema} />
@@ -169,11 +170,11 @@ const faqSchema = JSON.stringify({
         </a>
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-delay-200">
-          A CRM That Thinks<br />For Your Team
+          Salesforce &amp; Revenue Systems<br />Your Team Will Actually Use
         </h1>
 
         <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-300">
-          Clean Salesforce setup, AI-powered automation, and dashboards that drive decisions. I bring production AI patterns into your CRM, including agents that auto-handle <span class="font-bold text-accent-600 dark:text-accent-400">68% of cases</span> for under <span class="font-bold text-accent-600 dark:text-accent-400">$5/month</span>.
+          Clean CRM setup, lead routing that works, pipeline dashboards owners trust, and AI-powered automation where it earns its keep. Including production agents that auto-handle <span class="font-bold text-accent-600 dark:text-accent-400">68% of cases</span> for under <span class="font-bold text-accent-600 dark:text-accent-400">$5/month</span>.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center" style="animation: fade-in-up 0.6s ease-out 0.4s both;">
@@ -424,7 +425,7 @@ const faqSchema = JSON.stringify({
   </Section>
 
   <!-- Packages & Pricing -->
-  <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing & Packages" subtitle="Transparent, fixed-scope engagements">
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing & Packages" subtitle="These reflect typical scope. Smaller business, smaller budget, or different needs? We sort that out on the call — nothing’s locked in before we’ve talked.">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {packages.map((pkg) => (
         <Card class="h-full flex flex-col">

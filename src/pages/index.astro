@@ -3,13 +3,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
+
+const faqs = [
+  {
+    q: 'How much does this cost?',
+    a: 'Most projects fall between $3,500 and $15K+, depending on scope. After a 30-minute call, I’ll send a clear plan and a fixed quote. No surprises.',
+  },
+  {
+    q: 'Do you work with businesses outside New York?',
+    a: 'Yes. Most of my work is remote, and I’ve supported teams across the U.S. and internationally.',
+  },
+  {
+    q: 'We have Salesforce, but people don’t use it. Can you fix that?',
+    a: 'Yes. I’ll audit what you have, clean up the data, simplify the workflow, and rebuild the parts that slow your team down. The goal is to make Salesforce a tool your team actually wants to use.',
+  },
+  {
+    q: 'What happens after the project is done?',
+    a: 'Every project includes documentation and training so your team can own the system. If you want ongoing support, I also offer office hours.',
+  },
+  {
+    q: 'How long does a typical project take?',
+    a: 'Most projects take 2 to 6 weeks depending on scope. After our call, you’ll get a simple timeline with clear milestones.',
+  },
+  {
+    q: 'What if I just need advice, not a full project?',
+    a: 'That works too. I offer paid advisory sessions for quick answers, planning, or a second opinion. No long engagement required.',
+  },
+  {
+    q: 'Do you work with small teams or non-technical owners?',
+    a: 'Yes. I translate technical work into plain language and build systems your team can actually run day to day.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+});
 ---
 
 <BaseLayout
   title="Home"
-  description="Mau Consulting builds production AI Agents for small businesses. Customer service automation, lead qualification, document automation, and Salesforce AI integrations. Schenectady, Albany, and Capital Region."
+  description="Mau Consulting offers fractional operations leadership for small businesses — Salesforce, AI, automation, dashboards, and the systems work in between. Schenectady, Albany, and Capital Region."
 >
   <Header />
+  <script type="application/ld+json" set:html={faqSchema} />
 
   <main>
     <!-- ============================= -->
@@ -24,20 +69,20 @@ import Button from '../components/Button.astro';
           <!-- Left column: Headline + proof -->
           <div class="text-center lg:text-left">
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 leading-[1.1]">
-              AI Agents Built<br />
-              <span class="text-accent-600 dark:text-accent-400">For Small Businesses.</span>
+              The operations executive your<br />
+              <span class="text-accent-600 dark:text-accent-400">small business can&rsquo;t hire full-time.</span>
             </h1>
             <p class="text-lg sm:text-xl text-stone-600 dark:text-stone-400 leading-relaxed max-w-2xl lg:max-w-none mb-8">
-              I build production AI Agents that automate the work you can't afford to hire for. One I shipped handles <span class="font-bold text-navy-900 dark:text-white">68% of customer service cases</span> end-to-end for under <span class="font-bold text-navy-900 dark:text-white">$5/month</span>. Not demos. Real systems running today.
+              Fifteen years running revenue, technology, and operations at growth-stage companies. Now solving the same problems for small businesses &mdash; Salesforce, AI, dashboards, customer service, automation, and the unglamorous in-between.
             </p>
 
             <!-- Proof bar inline -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-stone-500 dark:text-stone-400 mb-10">
               <span class="font-semibold text-navy-800 dark:text-white">Salesforce Certified</span>
               <span class="hidden sm:inline text-stone-300 dark:text-stone-700">|</span>
-              <span>AI + Automation</span>
-              <span class="hidden sm:inline text-stone-300 dark:text-stone-700">|</span>
               <span>15+ Years Operations</span>
+              <span class="hidden sm:inline text-stone-300 dark:text-stone-700">|</span>
+              <span>Diagnose Before Building</span>
             </div>
 
             <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
@@ -84,8 +129,8 @@ import Button from '../components/Button.astro';
           <div class="flex flex-wrap justify-center gap-3">
             {[
               '\u201CWe can\u2019t afford another customer service hire\u201D',
-              '\u201COur reps spend half their time on repetitive emails\u201D',
-              '\u201CAI feels overwhelming. Where do we start?\u201D',
+              '\u201CI\u2019m running ops, sales, and the back office myself\u201D',
+              '\u201COur reports take all weekend and nobody trusts them\u201D',
               '\u201CSales doesn\u2019t see value in our CRM\u201D',
               '\u201CWe\u2019re stuck in copy/paste between tools\u201D',
               '\u201COur process lives in people\u2019s heads\u201D',
@@ -106,7 +151,105 @@ import Button from '../components/Button.astro';
     </section>
 
     <!-- ============================= -->
-    <!-- AI SPOTLIGHT                   -->
+    <!-- SERVICES (detailed)            -->
+    <!-- ============================= -->
+    <section id="services" class="py-20 sm:py-28 bg-white dark:bg-gray-950">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">What I Do</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
+          Diagnose. Build. Document. Move on.
+        </h2>
+        <p class="text-lg text-stone-500 dark:text-stone-400 mb-14 max-w-2xl">
+          Four ways I help small businesses. Every project starts with diagnosing the actual problem &mdash; then building, buying, or untangling the smallest thing that fixes it. Documentation and training included, so your team owns the system without depending on me.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              label: 'OPERATIONS',
+              title: 'Operations & Process',
+              desc: 'Diagnose the bottleneck. Document the work. Replace the duct tape with systems that don\u2019t fall apart when someone goes on vacation.',
+              items: ['Process diagnosis & redesign', 'Documentation & runbooks', 'Spreadsheets \u2192 real systems', 'Buy-vs-build advice'],
+              href: '/operations',
+            },
+            {
+              label: 'CRM + PIPELINE',
+              title: 'Salesforce & Revenue Systems',
+              desc: 'Make your CRM useful for sales: clear stages, clean data, lead routing that works, and dashboards owners actually look at.',
+              items: ['Setup & cleanup', 'Lead routing & assignment', 'Pipeline + revenue dashboards', 'Data hygiene & permissions'],
+              href: '/salesforce-consulting',
+            },
+            {
+              label: 'AI + AUTOMATION',
+              title: 'AI & Automation',
+              desc: 'When the right answer is software, I build it. When the right answer is a vendor, I tell you that instead. AI is one tool \u2014 not the only one.',
+              items: ['AI agents for repetitive work', 'Cross-tool workflow automation', 'Document & receipt processing', 'Internal AI assistants'],
+              href: '/ai-solutions',
+            },
+            {
+              label: 'GROWTH + DIGITAL',
+              title: 'Websites & Digital Presence',
+              desc: 'A modern site that captures leads instead of sitting there. Hooked into the tools you actually use.',
+              items: ['Builds & refreshes', 'Forms + lead capture', 'Tracking + SEO basics', 'Easy handoff to non-technical owners'],
+              href: '/website-design',
+            },
+          ].map((svc) => (
+            <a href={svc.href} class="group block">
+              <div class="relative h-full p-8 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-lg hover:shadow-accent-500/[0.06] hover:-translate-y-1 transition-all duration-300">
+                <p class="text-xs font-semibold uppercase tracking-wide text-navy-400 dark:text-stone-500 mb-4">{svc.label}</p>
+                <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{svc.title}</h3>
+                <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-6">{svc.desc}</p>
+                <ul class="space-y-2.5">
+                  {svc.items.map((item: string) => (
+                    <li class="flex items-center gap-2.5 text-sm text-stone-600 dark:text-stone-300">
+                      <div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-6 text-accent-600 dark:text-accent-400 text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
+                  Learn more&ensp;&rarr;
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Training callout -->
+        <div class="mt-8 rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-accent-50/50 dark:bg-accent-900/10 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-navy-900 dark:text-white">Every project includes training + documentation.</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400">Live walkthroughs, clear docs, and simple guides so your team owns the system without depending on me.</p>
+          </div>
+        </div>
+
+        <!-- Fractional banner -->
+        <a href="/contact/?source=homepage-fractional" class="group block mt-6 rounded-2xl border border-navy-200/60 dark:border-navy-800/40 bg-navy-50/50 dark:bg-navy-900/20 p-6 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-md transition-all duration-300">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-900/40 flex items-center justify-center">
+              <svg class="w-5 h-5 text-navy-700 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold text-navy-900 dark:text-white">Need someone to own a project without hiring full-time?</p>
+              <p class="text-sm text-stone-500 dark:text-stone-400">I take on 6&ndash;12 week engagements as fractional ops leadership &mdash; launches, system migrations, project rescue, executive-team backup. When you need an executive in the seat, temporarily.</p>
+            </div>
+            <div class="hidden sm:block text-accent-600 dark:text-accent-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              Let&rsquo;s talk&ensp;&rarr;
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- AI SPOTLIGHT (proof of capability) -->
     <!-- ============================= -->
     <section id="ai-spotlight" class="relative py-20 sm:py-28 overflow-hidden bg-navy-900 dark:bg-navy-950">
       <!-- Decorative pattern -->
@@ -122,16 +265,16 @@ import Button from '../components/Button.astro';
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              Featured Service
+              Proof of Capability
             </span>
-            <span class="text-xs font-semibold uppercase tracking-wide text-accent-300">AI Agents</span>
+            <span class="text-xs font-semibold uppercase tracking-wide text-accent-300">Recent Win</span>
           </div>
 
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-            What if you didn&rsquo;t need to hire<br class="hidden sm:inline" /> for that next role?
+            Real result: 68% of a customer-service<br class="hidden sm:inline" /> queue, automated.
           </h2>
           <p class="text-lg text-stone-300 mb-12 max-w-3xl leading-relaxed">
-            AI Agents handle the repetitive work that drains your team. I build production agents that classify, respond, and resolve real work autonomously, then ramp up safely with full audit trails. Below are the actual numbers from one running today.
+            Here&rsquo;s what one AI build looked like when it was the right tool. The customer-service team scaled from 6 people to 3 while response time improved. About $4/month in API costs. AI isn&rsquo;t always the answer &mdash; but when it is, this is what it looks like.
           </p>
 
           <!-- Stats grid + CTA -->
@@ -191,108 +334,17 @@ import Button from '../components/Button.astro';
 
               <!-- CTAs -->
               <div class="flex flex-wrap gap-4 pt-2">
-                <a href="/ai-solutions/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-semibold transition-colors shadow-lg">
-                  Explore AI Solutions
+                <a href="/work/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-semibold transition-colors shadow-lg">
+                  See more case studies
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </a>
-                <a href="/contact/?service=ai&source=homepage-ai-spotlight" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-white/30 hover:border-white text-white font-semibold transition-colors">
-                  Book a Free AI Audit
+                <a href="/contact/?source=homepage-ai-spotlight" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-white/30 hover:border-white text-white font-semibold transition-colors">
+                  Talk about your bottleneck
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============================= -->
-    <!-- SERVICES (detailed)            -->
-    <!-- ============================= -->
-    <section id="services" class="py-20 sm:py-28 bg-white dark:bg-gray-950">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">What Else I Do</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
-          Build it. Connect it. Teach it.
-        </h2>
-        <p class="text-lg text-stone-500 dark:text-stone-400 mb-14 max-w-2xl">
-          AI is the headliner. CRM, integrations, and websites are the plumbing that makes it work. Every project includes documentation and training so your team owns the system without depending on me.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              label: 'CRM + PIPELINE',
-              title: 'Salesforce & CRM',
-              desc: 'Make your CRM useful for sales: clear stages, clean data, and dashboards you trust.',
-              items: ['Setup & cleanup', 'Sales stages that match reality', 'Dashboards & reporting', 'Data hygiene & permissions'],
-              href: '/salesforce-consulting',
-            },
-            {
-              label: 'AUTOMATION + INTEGRATIONS',
-              title: 'Workflows & Integrations',
-              desc: 'Turn chaos into a clear flow so leads, tasks, and updates move smoothly across your tools.',
-              items: ['Automate handoffs (less copy/paste)', 'Connect tools using built-in integrations', 'Lightweight API connections (when needed)', 'Keep data clean and consistent'],
-              href: '/automation-consulting',
-            },
-            {
-              label: 'GROWTH + DIGITAL',
-              title: 'Websites & Digital Presence',
-              desc: 'A modern site that looks sharp and brings in inquiries, built to connect to how you work.',
-              items: ['Website builds & refreshes', 'Forms + lead capture', 'Tracking basics (so you know what\u2019s working)', 'Easy handoff and simple edits'],
-              href: '/website-design',
-            },
-          ].map((svc) => (
-            <a href={svc.href} class="group block">
-              <div class="relative h-full p-8 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-lg hover:shadow-accent-500/[0.06] hover:-translate-y-1 transition-all duration-300">
-                <p class="text-xs font-semibold uppercase tracking-wide text-navy-400 dark:text-stone-500 mb-4">{svc.label}</p>
-                <h3 class="text-xl font-bold text-navy-900 dark:text-white mb-3 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{svc.title}</h3>
-                <p class="text-sm text-stone-500 dark:text-stone-400 leading-relaxed mb-6">{svc.desc}</p>
-                <ul class="space-y-2.5">
-                  {svc.items.map((item: string) => (
-                    <li class="flex items-center gap-2.5 text-sm text-stone-600 dark:text-stone-300">
-                      <div class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0"></div>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div class="mt-6 text-accent-600 dark:text-accent-400 text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
-                  Learn more&ensp;&rarr;
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <!-- Training callout -->
-        <div class="mt-8 rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-accent-50/50 dark:bg-accent-900/10 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-navy-900 dark:text-white">Every project includes training + documentation.</p>
-            <p class="text-sm text-stone-500 dark:text-stone-400">Live walkthroughs, clear docs, and simple guides so your team owns the system without depending on me.</p>
-          </div>
-        </div>
-
-        <!-- Advisory banner -->
-        <a href="/consulting" class="group block mt-6 rounded-2xl border border-navy-200/60 dark:border-navy-800/40 bg-navy-50/50 dark:bg-navy-900/20 p-6 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-md transition-all duration-300">
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-navy-100 dark:bg-navy-900/40 flex items-center justify-center">
-              <svg class="w-5 h-5 text-navy-700 dark:text-navy-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-            </div>
-            <div class="flex-1">
-              <p class="text-sm font-semibold text-navy-900 dark:text-white">Not ready for a full project? Book a strategy call instead.</p>
-              <p class="text-sm text-stone-500 dark:text-stone-400">One-off calls, monthly office hours, and half-day deep dives for when you just need honest advice from someone in the trenches.</p>
-            </div>
-            <div class="hidden sm:block text-accent-600 dark:text-accent-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-              Learn more&ensp;&rarr;
-            </div>
-          </div>
-        </a>
       </div>
     </section>
 
@@ -434,7 +486,7 @@ import Button from '../components/Button.astro';
                 <p>
                   I&rsquo;ve spent 15+ years in revenue operations, enablement, and business technology, most of it at
                   <a href="https://www.talentsmarteq.com" target="_blank" rel="noopener noreferrer" class="text-navy-800 dark:text-white font-semibold hover:text-accent-600 dark:hover:text-accent-400 underline underline-offset-2 transition-colors">TalentSmartEQ</a>,
-                  where I run the technical side of a global training organization. I help small businesses get real value out of Salesforce, automation, and reporting.
+                  where I run the technical side of a global training organization. I help small businesses get the operations leadership they can&rsquo;t afford to hire full-time &mdash; Salesforce, AI, automation, reporting, and the day-to-day systems work in between.
                 </p>
                 <p>
                   I&rsquo;m not an agency. You work directly with me. I listen, map how your business really works, and build practical improvements you can own. Every project includes documentation and training so your team can run the system long after I&rsquo;m done.
@@ -462,36 +514,7 @@ import Button from '../components/Button.astro';
             Common questions
           </h2>
           <div class="space-y-3">
-            {[
-              {
-                q: 'How much does this cost?',
-                a: 'Most projects fall between $2K and $15K, depending on scope. After a 30-minute call, I\u2019ll send a clear plan and a fixed quote. No surprises.',
-              },
-              {
-                q: 'Do you work with businesses outside New York?',
-                a: 'Yes. Most of my work is remote, and I\u2019ve supported teams across the U.S. and internationally.',
-              },
-              {
-                q: 'We have Salesforce, but people don\u2019t use it. Can you fix that?',
-                a: 'Yes. I\u2019ll audit what you have, clean up the data, simplify the workflow, and rebuild the parts that slow your team down. The goal is to make Salesforce a tool your team actually wants to use.',
-              },
-              {
-                q: 'What happens after the project is done?',
-                a: 'Every project includes documentation and training so your team can own the system. If you want ongoing support, I also offer office hours.',
-              },
-              {
-                q: 'How long does a typical project take?',
-                a: 'Most projects take 2 to 6 weeks depending on scope. After our call, you\u2019ll get a simple timeline with clear milestones.',
-              },
-              {
-                q: 'What if I just need advice, not a full project?',
-                a: 'That works too. I offer paid advisory sessions for quick answers, planning, or a second opinion. No long engagement required.',
-              },
-              {
-                q: 'Do you work with small teams or non-technical owners?',
-                a: 'Yes. I translate technical work into plain language and build systems your team can actually run day to day.',
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
                 <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
                   <span>{faq.q}</span>

@@ -1,0 +1,433 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+
+const services = [
+  {
+    title: 'Process Diagnosis & Redesign',
+    description: 'Most operations problems aren’t tool problems. I sit with the actual data — tickets, lost-deal notes, funnel reports — before recommending a fix. The right system falls out of the diagnosis.',
+    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+  },
+  {
+    title: 'Documentation & Runbooks',
+    description: 'Write the stuff down. Every system I own has a deployment guide, a backfill guide, and a “what to do when it breaks” guide. The job isn’t to be the only one who knows how it works.',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+  },
+  {
+    title: 'Spreadsheets → Real Systems',
+    description: 'When “the workbook someone updates by hand” becomes the bottleneck. I replace fragile spreadsheet workflows with code that runs on a schedule and doesn’t need a person in the loop.',
+    icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4'
+  },
+  {
+    title: 'Buy-vs-Build Advice',
+    description: 'Honest read on whether to pay $30K/year for a vendor tool or build the smaller thing that actually fits. I’ve done both. I’ll tell you which one belongs on your project.',
+    icon: 'M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'
+  },
+  {
+    title: 'Internal Tools & Custom Apps',
+    description: 'When the off-the-shelf options don’t fit, I build the thing that does — small web apps, dashboards, automation scripts. Source-controlled, documented, easy to hand off.',
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
+  },
+  {
+    title: 'Vendor & Tech-Stack Review',
+    description: 'Audit what you’re paying for and what you’re actually using. Most small businesses are paying for software they barely use — and doing by hand the things that should be automated.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+  }
+];
+
+const packages = [
+  {
+    name: 'Process Audit',
+    price: '$3,500',
+    duration: 'Delivered in ~2 weeks',
+    description: 'Productized diagnostic. About 15–25 hours of my time across two calendar weeks. I sit with your data, then hand you a prioritized roadmap of what to fix first and a 60-min findings call.',
+    features: [
+      'Workflow & process mapping',
+      'Tech-stack & vendor audit',
+      'Manual-work inventory',
+      'Buy-vs-build recommendations',
+      'Quick-win identification',
+      'Prioritized roadmap',
+      '60-minute findings presentation'
+    ]
+  },
+  {
+    name: 'Custom Build',
+    price: 'Starting at $7,500',
+    duration: '2–6 weeks',
+    description: 'Scoped after the audit. Build the right thing — a process, a script, a small app, an integration — and document it so your team owns it.',
+    features: [
+      'Fixed-scope, fixed-price',
+      'Process redesign & documentation',
+      'Spreadsheet → system migration',
+      'Custom scripts or web apps',
+      'Integration & automation',
+      'Team training & handoff',
+      'Post-launch support (2 weeks)'
+    ]
+  },
+  {
+    name: 'Fractional Partner',
+    price: 'From $2,500/month',
+    duration: 'Monthly retainer',
+    description: 'Ongoing operations leadership for businesses that need an executive in the seat without the salary. Typically 5–10 hours per month. Cancel anytime.',
+    features: [
+      'Strategic operations advisor',
+      'Monthly review & prioritization',
+      'Ongoing process improvements',
+      'Vendor & contract review',
+      'Cross-functional project leadership',
+      'Documentation kept current',
+      'Priority access for fires'
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: 'What kinds of businesses do you work with?',
+    answer: 'Primarily small businesses with 30 or fewer employees, usually owner-operated. The owner is the one drowning in operations work — that’s exactly the gap I fill.'
+  },
+  {
+    question: 'Do I need to know what’s broken before we start?',
+    answer: 'No. Most owners know something feels off but can’t name it. The Process Audit exists for exactly that case. Bring the symptoms; I’ll find the root cause.'
+  },
+  {
+    question: 'How is this different from a generic “consultant”?',
+    answer: 'I write the code and ship the systems myself when that’s the right call. Most consultants hand you a slide deck and walk away. I leave behind documented, working software your team can actually run.'
+  },
+  {
+    question: 'What if the answer turns out to be “use a different tool”?',
+    answer: 'Then I tell you that. I’ll save you a lot more money recommending a $50/month vendor than charging you to build something you didn’t need.'
+  },
+  {
+    question: 'Do you handle ongoing day-to-day IT?',
+    answer: 'Not as managed daily support — it isn’t cost-effective at this size. I take on one-off hardware, infrastructure, or IT projects when they’re part of a bigger operations engagement.'
+  }
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+---
+
+<BaseLayout
+  title="Operations & Process Consulting for Small Businesses | Schenectady, NY"
+  description="Fractional operations leadership for small businesses. Process diagnosis, documentation, spreadsheet-to-systems migrations, vendor reviews, and custom tools. Diagnose before building. Capital Region and remote."
+  pageLabel="Operations & Process"
+>
+  <Header />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-16 sm:py-24 bg-white dark:bg-gray-950">
+      <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
+
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/50 dark:border-accent-800/40 mb-6">
+            Operations &amp; Process
+          </span>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 leading-[1.1]">
+            Operations help when you can&rsquo;t<br />
+            <span class="text-accent-600 dark:text-accent-400">justify a full-time hire.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-stone-600 dark:text-stone-400 mb-8 leading-relaxed max-w-3xl mx-auto">
+            Diagnose the bottleneck. Document the work. Replace the duct tape with systems that don&rsquo;t fall apart when someone goes on vacation. Most of what I do isn&rsquo;t software &mdash; it&rsquo;s untangling what&rsquo;s already there.
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center">
+            <Button href="/contact/?service=operations&source=operations" variant="primary" size="lg">
+              Book a Free Diagnostic Call
+            </Button>
+            <Button href="#services" variant="outline" size="lg">
+              See What&rsquo;s Included
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems -->
+    <Section class="bg-stone-50 dark:bg-gray-900">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">Sound Familiar?</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-10">
+          The operations problems I solve
+        </h2>
+        <div class="flex flex-wrap justify-center gap-3">
+          {[
+            '“I’m running ops, sales, and the back office myself”',
+            '“Our process lives in people’s heads”',
+            '“Our reports take all weekend and nobody trusts them”',
+            '“We’re stuck in copy/paste between tools”',
+            '“We’re paying for software we barely use”',
+            '“What would actually break if I went on vacation?”',
+          ].map((problem) => (
+            <span class="inline-block px-4 py-2.5 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-sm text-stone-600 dark:text-stone-300 shadow-sm">
+              {problem}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Section>
+
+    <!-- What I Do -->
+    <Section id="services" title="What I Do" subtitle="Diagnostic-first operations work for small businesses. AI is one tool in the kit, not the offer.">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <Card shimmer={true}>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">
+                  {service.title}
+                </h3>
+                <p class="text-stone-600 dark:text-stone-400 text-sm">
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- Every Project Includes -->
+    <Section class="bg-accent-50/50 dark:bg-accent-950/20" title="Every Project Includes">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {[
+          { title: 'Diagnostic First', desc: 'A few hours with your real data before I propose anything. The right fix falls out of the diagnosis.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
+          { title: 'Documentation', desc: 'Deployment guides, runbooks, and “what to do when it breaks” docs. Your team owns the system.', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+          { title: 'Hands-On Training', desc: 'Live walkthroughs and recorded sessions so your team isn’t dependent on one person’s memory.', icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z' }
+        ].map(item => (
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-14 h-14 bg-accent-100 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 rounded-2xl mb-4">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">{item.title}</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    <!-- What I've Built -->
+    <Section title="What I've Built" subtitle="Production operations systems running today. Not slide decks.">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Project Management Platform -->
+          <Card class="h-full flex flex-col">
+            <div class="flex flex-col h-full">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-navy-700 to-navy-900 rounded-xl flex items-center justify-center text-white shadow-lg mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-navy-100 dark:bg-navy-900/40 text-navy-700 dark:text-navy-300 self-start mb-3">Custom Build</span>
+              <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Project Management Platform</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm mb-4 flex-grow">
+                Built a full-stack web app to track projects, dependencies, and timelines when off-the-shelf options didn&rsquo;t fit. Drag-and-drop UI, PDF/Excel ingestion, single source of truth across an executive team.
+              </p>
+              <div class="border-t border-stone-200 dark:border-stone-800 pt-4 space-y-1 text-sm">
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Outcome</span><span class="font-semibold text-navy-900 dark:text-white">Replaced 3 separate tools</span></div>
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-semibold text-navy-900 dark:text-white">Next.js, Prisma, Postgres</span></div>
+              </div>
+            </div>
+          </Card>
+
+          <!-- AR & Collections Automation -->
+          <Card class="h-full flex flex-col">
+            <div class="flex flex-col h-full">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center text-white shadow-lg mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 self-start mb-3">Spreadsheet → System</span>
+              <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AR &amp; Collections Automation</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm mb-4 flex-grow">
+                Replaced a manual workbook that someone updated by hand. Daily job pulls payment terms from Salesforce, authenticates to Microsoft Graph, and drops a clean CSV on SharePoint. No human is the integration anymore.
+              </p>
+              <div class="border-t border-stone-200 dark:border-stone-800 pt-4 space-y-1 text-sm">
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Outcome</span><span class="font-semibold text-navy-900 dark:text-white">Manual workbook eliminated</span></div>
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-semibold text-navy-900 dark:text-white">Python, Salesforce, MS Graph</span></div>
+              </div>
+            </div>
+          </Card>
+
+          <!-- Customer Health -->
+          <Card class="h-full flex flex-col">
+            <div class="flex flex-col h-full">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-navy-700 to-navy-900 rounded-xl flex items-center justify-center text-white shadow-lg mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 18v-6a9 9 0 0118 0v6M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
+                </svg>
+              </div>
+              <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-navy-100 dark:bg-navy-900/40 text-navy-700 dark:text-navy-300 self-start mb-3">Reporting</span>
+              <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Customer Health “Who to Call”</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm mb-4 flex-grow">
+                Monthly HTML report flags low-balance customers, sorts by velocity, and gives the sales team a one-click outreach list. Drives reorder cadence and surfaces churn risk before it materializes.
+              </p>
+              <div class="border-t border-stone-200 dark:border-stone-800 pt-4 space-y-1 text-sm">
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Outcome</span><span class="font-semibold text-navy-900 dark:text-white">Monthly call-list cadence</span></div>
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-semibold text-navy-900 dark:text-white">Python, Salesforce, HTML</span></div>
+              </div>
+            </div>
+          </Card>
+
+          <!-- Onboarding compression -->
+          <Card class="h-full flex flex-col">
+            <div class="flex flex-col h-full">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center text-white shadow-lg mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 self-start mb-3">Process Redesign</span>
+              <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Onboarding: 8 months → 4 weeks</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm mb-4 flex-grow">
+                Earlier in my career at a national publisher. Rebuilt the new-hire ramp by writing the program, standardizing the playbook, and replacing tribal-knowledge handoffs with documented systems. Compressed ramp time from eight months to four weeks.
+              </p>
+              <div class="border-t border-stone-200 dark:border-stone-800 pt-4 space-y-1 text-sm">
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Outcome</span><span class="font-semibold text-navy-900 dark:text-white">8× faster ramp</span></div>
+                <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Approach</span><span class="font-semibold text-navy-900 dark:text-white">Documentation + standardization</span></div>
+              </div>
+            </div>
+          </Card>
+
+        </div>
+
+        <p class="text-center text-sm text-stone-500 dark:text-stone-400 mt-8 max-w-2xl mx-auto">
+          The pattern repeats: diagnose the actual problem, build or buy the smallest thing that fixes it, document so nobody depends on me.
+        </p>
+      </div>
+    </Section>
+
+    <!-- Pricing -->
+    <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing &amp; Packages" subtitle="These reflect typical scope. Smaller business, smaller budget, or different needs? We sort that out on the call — nothing&rsquo;s locked in before we&rsquo;ve talked.">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {packages.map((pkg) => (
+          <Card class="h-full flex flex-col">
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-navy-900 dark:text-white mb-2">
+                {pkg.name}
+              </h3>
+              <div class="text-3xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+                {pkg.price}
+              </div>
+              <div class="text-sm text-stone-500 dark:text-stone-400 mb-4">
+                {pkg.duration}
+              </div>
+              <p class="text-stone-600 dark:text-stone-300 mb-6">
+                {pkg.description}
+              </p>
+
+              <ul class="space-y-3">
+                {pkg.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <svg class="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-stone-600 dark:text-stone-400">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <Button href={`/contact/?service=operations&tier=${encodeURIComponent(pkg.name + ' (' + pkg.price + ')')}&source=operations`} variant="primary" class="w-full">
+                Get Started
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- How It Works -->
+    <Section title="How We&rsquo;ll Work Together">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {[
+          { step: '01', title: 'Diagnose', desc: 'Free 30-min call plus a few hours with your real data. The right fix falls out of the diagnosis.' },
+          { step: '02', title: 'Propose', desc: 'Fixed-scope, fixed-price proposal within 48 hours. No surprises, no scope creep.' },
+          { step: '03', title: 'Build / Buy / Untangle', desc: 'Whichever is right. Sometimes the answer is software; sometimes it’s a process rewrite or a different vendor.' },
+          { step: '04', title: 'Document &amp; Train', desc: 'Runbooks, walkthroughs, and a clean handoff so your team owns the result.' }
+        ].map((phase) => (
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-2xl font-bold text-2xl mb-4 shadow-lg">
+              {phase.step}
+            </div>
+            <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-2">
+              {phase.title}
+            </h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400" set:html={phase.desc}></p>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    <!-- FAQ -->
+    <Section class="bg-stone-50 dark:bg-gray-900" title="Frequently Asked Questions">
+      <div class="max-w-3xl mx-auto space-y-6">
+        {faqs.map((faq) => (
+          <Card>
+            <h3 class="text-lg font-semibold text-navy-900 dark:text-white mb-3">
+              {faq.question}
+            </h3>
+            <p class="text-stone-600 dark:text-stone-400">
+              {faq.answer}
+            </p>
+          </Card>
+        ))}
+      </div>
+    </Section>
+
+    <!-- CTA -->
+    <section class="bg-navy-900 dark:bg-navy-950 py-16 sm:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Ready to figure out what&rsquo;s actually broken?
+          </h2>
+          <p class="text-xl text-navy-200 mb-8">
+            Free 30-minute call. No pitch. Just a quick read on what&rsquo;s not working and a clear plan for what to do next.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <Button href="/contact/?service=operations&source=operations" variant="primary" size="lg">
+              Book a Free Call
+            </Button>
+            <a href="/" class="group relative inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden px-8 py-4 text-lg border-2 border-white/30 text-white hover:bg-white/10 hover:scale-105 active:scale-95">
+              <span class="relative z-10">Back to Home</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

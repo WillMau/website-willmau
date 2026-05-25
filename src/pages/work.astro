@@ -9,8 +9,9 @@ import Badge from '../components/Badge.astro';
 ---
 
 <BaseLayout
-  title="Portfolio | Salesforce & Web Design Projects in Schenectady, NY"
-  description="Real Salesforce implementations, website builds, and operational transformations for small businesses in Schenectady, Albany, and the Capital Region."
+  title="Portfolio | Operations, Salesforce, AI & Web Projects | Mau Consulting"
+  description="Real systems running today: custom platforms, executive dashboards, AR automation, AI agents, Salesforce builds, and websites. Each project started with diagnosing the actual problem."
+  pageLabel="Portfolio"
 >
   <Header />
 
@@ -29,128 +30,19 @@ import Badge from '../components/Badge.astro';
         </Badge>
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 animate-fade-in-up">
-          Work That Speaks<br />for Itself
+          Real systems.<br />Running today.
         </h1>
 
         <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-100">
-          Production websites, CRM overhauls, and process transformations. Every project here solved a real problem for a real business.
+          Every project started with diagnosing the actual problem, then building the smallest thing that fixes it. Custom platforms, dashboards, automation pipelines, AI agents, websites &mdash; running in production, not slide decks.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Websites -->
-  <Section class="bg-stone-50 dark:bg-gray-900" title="Websites I Have Built" subtitle="Designed, written, built, and launched.">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
-
-      <Card class="overflow-hidden">
-        <img src="/portfolio/shoreline-logo.png" alt="Shoreline Senior Care logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
-        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Business Website</div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Shoreline Senior Care</h3>
-        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Full website for a senior care provider in Schenectady, NY. Clean design, clear service pages, and a strong call to action for families seeking care.</p>
-        <a
-          href="https://www.shorelinecares.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
-        >
-          Visit shorelinecares.com
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-      </Card>
-
-      <Card class="overflow-hidden">
-        <img src="/portfolio/rockford-logo.png" alt="Rockford Milling & Woodworking logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
-        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Portfolio Site</div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Rockford Milling & Woodworking</h3>
-        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Custom woodworking portfolio showcasing craftsmanship with clean layout, product categories, and clear contact options.</p>
-        <a
-          href="https://www.rockfordmilling.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
-        >
-          Visit rockfordmilling.com
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-      </Card>
-
-      <Card class="overflow-hidden">
-        <img src="/portfolio/troop54-logo.png" alt="Troop 54 Schenectady logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
-        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Organization Website</div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">BSA Troop 54</h3>
-        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Website for a Scout troop in Rotterdam, NY. Meeting info, event details, and recruitment content for families and prospective Scouts.</p>
-        <a
-          href="https://www.troop3054.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
-        >
-          Visit troop3054.org
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-      </Card>
-
-      <Card class="overflow-hidden">
-        <img src="/portfolio/mau-consulting-favicon-M-consulting-transparent.jpg" alt="Mau Consulting logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
-        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Consulting Site</div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Mau Consulting</h3>
-        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">This site. Built on Astro with Tailwind CSS, custom branding, dark mode, and optimized for performance and SEO.</p>
-        <span class="text-accent-600 dark:text-accent-400 font-medium text-sm">You are here</span>
-      </Card>
-
-    </div>
-  </Section>
-
-  <!-- AI & Production Systems -->
-  <Section class="bg-white dark:bg-gray-950" title="AI & Production Systems" subtitle="Production AI agents and platforms I have designed, built, and shipped.">
+  <!-- Production Systems I've Built -->
+  <Section class="bg-white dark:bg-gray-950" title="Production Systems I&rsquo;ve Built" subtitle="Custom platforms, dashboards, automation pipelines, and AI agents I&rsquo;ve designed and shipped. Most are running today.">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
-
-      <!-- AI Customer Service Agent -->
-      <Card class="overflow-hidden h-full flex flex-col">
-        <div class="flex items-center gap-2 mb-3">
-          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">AI Agent</span>
-          <span class="inline-flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-semibold">
-            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-            Live in production
-          </span>
-        </div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AI Customer Service Agent</h3>
-        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
-          Production AI Agent that classifies, validates, and resolves inbound cases autonomously. Vision-powered receipt processing, structured templates, and confidence-based escalation.
-        </p>
-        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Auto-Handle Rate</span><span class="font-bold text-navy-900 dark:text-white">68%</span></div>
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Volume</span><span class="font-bold text-navy-900 dark:text-white">1,516 cases / 5 weeks</span></div>
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Operating Cost</span><span class="font-bold text-navy-900 dark:text-white">~$4/month</span></div>
-        </div>
-      </Card>
-
-      <!-- AI Lead Qualifier -->
-      <Card class="overflow-hidden h-full flex flex-col">
-        <div class="flex items-center gap-2 mb-3">
-          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">AI Agent</span>
-          <span class="inline-flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-semibold">
-            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-            Live in production
-          </span>
-        </div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AI Lead Qualification</h3>
-        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
-          Azure OpenAI lead triage system that processes 1,000+ inbound leads per month inside Salesforce. Phased shadow-then-autonomous rollout with confidence scoring and audit trails.
-        </p>
-        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Triage Reduction</span><span class="font-bold text-navy-900 dark:text-white">~80%</span></div>
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Volume</span><span class="font-bold text-navy-900 dark:text-white">1,000+ leads/month</span></div>
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">Apex, Azure OpenAI</span></div>
-        </div>
-      </Card>
 
       <!-- Project Management Platform -->
       <Card class="overflow-hidden h-full flex flex-col">
@@ -163,12 +55,28 @@ import Badge from '../components/Badge.astro';
         </div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Custom Project Management Platform</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
-          When SaaS PM tools fall short, I build custom. Full-stack platform with AI task assistant, document parsing (PDF/Word/Excel), and multi-view tracking. Replaced Smartsheets and eliminated the need to hire a dedicated project manager.
+          When SaaS PM tools fell short, I built custom. Full-stack platform with AI task assistant, document parsing (PDF/Word/Excel), and multi-view tracking. Replaced Smartsheets and eliminated the need to hire a dedicated project manager.
         </p>
         <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
           <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Active Users</span><span class="font-bold text-navy-900 dark:text-white">12 across teams</span></div>
           <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Initiatives Tracked</span><span class="font-bold text-navy-900 dark:text-white">5 company-wide</span></div>
           <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">Next.js, Prisma, AI</span></div>
+        </div>
+      </Card>
+
+      <!-- Cengage Salesforce Rollout -->
+      <Card class="overflow-hidden h-full flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-salesforce-100 dark:bg-salesforce-700/20 text-salesforce-700 dark:text-salesforce-300">Enterprise Rollout</span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Salesforce Rollout &mdash; Cengage Learning</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
+          Led the company-wide Salesforce implementation across the B2B segment of one of North America&rsquo;s largest education publishers. Built the KPI framework, the compensation model, and replaced a thicket of regional spreadsheets with one source of truth. Onboarding overhaul compressed new-hire ramp from eight months to four weeks.
+        </p>
+        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Productivity</span><span class="font-bold text-navy-900 dark:text-white">10&times; in 6 months</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Onboarding Ramp</span><span class="font-bold text-navy-900 dark:text-white">8 months &rarr; 4 weeks</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Scope</span><span class="font-bold text-navy-900 dark:text-white">Multi-region B2B</span></div>
         </div>
       </Card>
 
@@ -179,11 +87,60 @@ import Badge from '../components/Badge.astro';
         </div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Executive Pipeline Dashboard</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
-          Lightning Web Component dashboard with batch Apex snapshots, YoY trending, and quota tracking. Replaced manual Excel reporting with real-time pipeline visibility.
+          Lightning Web Component dashboard with batch Apex snapshots, YoY trending, and quota tracking. Replaced manual Excel reporting with real-time pipeline visibility. Runs weekly without intervention.
         </p>
         <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Snapshot Fields</span><span class="font-bold text-navy-900 dark:text-white">34 tracked weekly</span></div>
           <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Test Coverage</span><span class="font-bold text-navy-900 dark:text-white">95%</span></div>
-          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">LWC, SOQL, Chart.js</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">LWC, Apex, Chart.js</span></div>
+        </div>
+      </Card>
+
+      <!-- AR & Collections Automation -->
+      <Card class="overflow-hidden h-full flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-navy-100 dark:bg-navy-900/40 text-navy-700 dark:text-navy-300">Python Automation</span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AR &amp; Collections Automation</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
+          Replaced a manual workbook someone updated by hand. Daily job pulls payment terms from Salesforce, authenticates via Microsoft Graph using a service principal, and drops a clean CSV on SharePoint. No human is the integration anymore.
+        </p>
+        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Approach</span><span class="font-bold text-navy-900 dark:text-white">Spreadsheet &rarr; System</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Runs</span><span class="font-bold text-navy-900 dark:text-white">Daily, unattended</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">Python, Salesforce, MS Graph</span></div>
+        </div>
+      </Card>
+
+      <!-- Customer Health Who to Call -->
+      <Card class="overflow-hidden h-full flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-navy-100 dark:bg-navy-900/40 text-navy-700 dark:text-navy-300">Reporting</span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Customer Health &ldquo;Who to Call&rdquo;</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
+          Monthly HTML report flags low-balance customers, sorts by purchase velocity, and gives the sales team a one-click outreach list with prefilled emails. Drives reorder cadence and surfaces churn risk before it materializes.
+        </p>
+        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Drives</span><span class="font-bold text-navy-900 dark:text-white">Monthly call cadence</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Lookback</span><span class="font-bold text-navy-900 dark:text-white">3 years of purchases</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">Python, Salesforce, HTML</span></div>
+        </div>
+      </Card>
+
+      <!-- AccountHQ Lost-Deal Analysis -->
+      <Card class="overflow-hidden h-full flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-navy-100 dark:bg-navy-900/40 text-navy-700 dark:text-navy-300">Business Intelligence</span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AccountHQ &mdash; Lost-Deal Analysis</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
+          Analyzed every lost deal across the sales team. Quantified the lost revenue and identified that cost/budget, no-reply, and competing priorities accounted for 63% of losses. Turned &ldquo;we lose deals sometimes&rdquo; into &ldquo;here&rsquo;s the fixable money.&rdquo;
+        </p>
+        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Revenue Analyzed</span><span class="font-bold text-navy-900 dark:text-white">$14.2M lost</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Deals Studied</span><span class="font-bold text-navy-900 dark:text-white">1,052</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Stack</span><span class="font-bold text-navy-900 dark:text-white">Python, Salesforce</span></div>
         </div>
       </Card>
 
@@ -202,12 +159,52 @@ import Badge from '../components/Badge.astro';
         </div>
       </Card>
 
+      <!-- AI Customer Service Agent -->
+      <Card class="overflow-hidden h-full flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">AI Agent</span>
+          <span class="inline-flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+            Live in production
+          </span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AI Customer Service Agent</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
+          Production AI Agent that classifies, validates, and resolves inbound cases autonomously. Vision-powered receipt processing, structured templates, and confidence-based escalation. The customer-service team scaled from 6 people to 3 while response time improved.
+        </p>
+        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Auto-Handle Rate</span><span class="font-bold text-navy-900 dark:text-white">68%</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Volume</span><span class="font-bold text-navy-900 dark:text-white">1,516 cases / 5 weeks</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Operating Cost</span><span class="font-bold text-navy-900 dark:text-white">~$4/month</span></div>
+        </div>
+      </Card>
+
+      <!-- AI Lead Qualifier -->
+      <Card class="overflow-hidden h-full flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">AI Agent</span>
+          <span class="inline-flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+            Live in production
+          </span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">AI Lead Triage &amp; First-Touch</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
+          Azure OpenAI system that classifies every inbound lead, suppresses junk, and sends a personalized first-touch email roughly ten seconds after lead creation. Phased shadow-then-autonomous rollout with confidence scoring and audit trails.
+        </p>
+        <div class="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-1 text-xs">
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Volume</span><span class="font-bold text-navy-900 dark:text-white">365 leads / first 17 days</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Speed</span><span class="font-bold text-navy-900 dark:text-white">~10 sec classification</span></div>
+          <div class="flex justify-between"><span class="text-stone-500 dark:text-stone-400">Junk Suppressed</span><span class="font-bold text-navy-900 dark:text-white">~11% before any VP sees it</span></div>
+        </div>
+      </Card>
+
       <!-- Document Automation -->
       <Card class="overflow-hidden h-full flex flex-col">
         <div class="flex items-center gap-2 mb-3">
           <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">AI Vision</span>
         </div>
-        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Receipt & Document Processing</h3>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Receipt &amp; Document Processing</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4 flex-grow">
           GPT-4o vision integration that reads receipts and validates retailer, condition, and pricing automatically. Eliminates manual data entry and reduces fraud risk.
         </p>
@@ -219,8 +216,8 @@ import Badge from '../components/Badge.astro';
 
     </div>
     <div class="text-center mt-8">
-      <a href="/ai-solutions/" class="inline-flex items-center gap-2 text-accent-600 dark:text-accent-400 font-medium hover:underline">
-        Want one of these for your business?
+      <a href="/#services" class="inline-flex items-center gap-2 text-accent-600 dark:text-accent-400 font-medium hover:underline">
+        Want something like this for your business?
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
@@ -335,6 +332,75 @@ import Badge from '../components/Badge.astro';
           <Badge>Team Training</Badge>
         </div>
       </div>
+
+    </div>
+  </Section>
+
+  <!-- Websites -->
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Websites I Have Built" subtitle="Designed, written, built, and launched.">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/shoreline-logo.png" alt="Shoreline Senior Care logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Business Website</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Shoreline Senior Care</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Full website for a senior care provider in Schenectady, NY. Clean design, clear service pages, and a strong call to action for families seeking care.</p>
+        <a
+          href="https://www.shorelinecares.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit shorelinecares.com
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/rockford-logo.png" alt="Rockford Milling & Woodworking logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Portfolio Site</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Rockford Milling & Woodworking</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Custom woodworking portfolio showcasing craftsmanship with clean layout, product categories, and clear contact options.</p>
+        <a
+          href="https://www.rockfordmilling.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit rockfordmilling.com
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/troop54-logo.png" alt="Scouting America Troop 3054 logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Organization Website</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Scouting America Troop 3054</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Website for a Scout troop in Rotterdam, NY. Meeting info, event details, and recruitment content for families and prospective Scouts.</p>
+        <a
+          href="https://www.troop3054.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Visit troop3054.org
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <Card class="overflow-hidden">
+        <img src="/portfolio/mau-consulting-favicon-M-consulting-transparent.jpg" alt="Mau Consulting logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Consulting Site</div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Mau Consulting</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">This site. Built on Astro with Tailwind CSS, custom branding, dark mode, and optimized for performance and SEO.</p>
+        <span class="text-accent-600 dark:text-accent-400 font-medium text-sm">You are here</span>
+      </Card>
 
     </div>
   </Section>
