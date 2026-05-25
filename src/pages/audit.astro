@@ -398,7 +398,7 @@ const hoursOptions = [
             </div>
           </div>
 
-          <div class="text-center mb-10">
+          <div id="screen-headline" class="text-center mb-10">
             <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">Your Operations Audit</p>
             <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
               Here’s your diagnosis.
@@ -406,7 +406,7 @@ const hoursOptions = [
           </div>
 
           <!-- Overall score -->
-          <div class="rounded-3xl bg-gradient-to-br from-navy-900 to-navy-950 dark:from-navy-950 dark:to-black p-8 sm:p-12 text-center text-white shadow-2xl mb-8">
+          <div id="score-block" class="rounded-3xl bg-gradient-to-br from-navy-900 to-navy-950 dark:from-navy-950 dark:to-black p-8 sm:p-12 text-center text-white shadow-2xl mb-8">
             <p class="text-xs uppercase tracking-widest text-accent-300 font-bold mb-3">Overall Score</p>
             <div class="flex items-baseline justify-center gap-1 mb-3">
               <span id="overall-score" class="text-7xl sm:text-8xl font-black tabular-nums leading-none">0</span>
@@ -417,7 +417,7 @@ const hoursOptions = [
           </div>
 
           <!-- Radar chart -->
-          <div class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-8 mb-8 shadow-sm">
+          <div id="radar-block" class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-8 mb-8 shadow-sm">
             <p class="text-xs uppercase tracking-widest text-accent-600 dark:text-accent-400 font-bold mb-1 text-center">Category Map</p>
             <p class="text-sm text-stone-500 dark:text-stone-400 text-center mb-6">Where your operations are strongest and where they’re leaking.</p>
             <div class="max-w-md mx-auto aspect-square">
@@ -426,7 +426,7 @@ const hoursOptions = [
           </div>
 
           <!-- Category breakdown -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div id="cat-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             {categories.map((cat) => (
               <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-5">
                 <div class="flex items-center gap-3 mb-3">
@@ -447,7 +447,7 @@ const hoursOptions = [
           </div>
 
           <!-- Hidden cost callout -->
-          <div class="rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-gradient-to-br from-accent-50/80 to-white dark:from-accent-900/20 dark:to-stone-900/40 p-6 sm:p-8 mb-8">
+          <div id="cost-block" class="rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-gradient-to-br from-accent-50/80 to-white dark:from-accent-900/20 dark:to-stone-900/40 p-6 sm:p-8 mb-8">
             <p class="text-xs uppercase tracking-widest text-accent-700 dark:text-accent-400 font-bold mb-2">Hidden Cost Estimate</p>
             <p class="text-3xl sm:text-4xl font-black text-navy-900 dark:text-white tabular-nums mb-2">
               <span id="hidden-cost">$0</span><span class="text-lg text-stone-500 dark:text-stone-400 font-medium">/year in time alone</span>
@@ -460,13 +460,13 @@ const hoursOptions = [
           </div>
 
           <!-- Diagnosis (editorial) -->
-          <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-8 sm:p-12 mb-8 shadow-sm">
+          <div id="diagnosis-block" class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-8 sm:p-12 mb-8 shadow-sm">
             <p class="text-xs uppercase tracking-widest text-accent-600 dark:text-accent-400 font-bold mb-6 text-center">Diagnosis</p>
             <div id="diagnosis-text" class="diagnosis-prose prose prose-stone dark:prose-invert max-w-2xl mx-auto text-base sm:text-lg"></div>
           </div>
 
           <!-- Where to start -->
-          <div class="rounded-2xl border-2 border-accent-300/60 dark:border-accent-700/40 bg-accent-50/40 dark:bg-accent-900/10 p-6 sm:p-8 mb-8">
+          <div id="start-block" class="rounded-2xl border-2 border-accent-300/60 dark:border-accent-700/40 bg-accent-50/40 dark:bg-accent-900/10 p-6 sm:p-8 mb-8">
             <p class="text-xs uppercase tracking-widest text-accent-700 dark:text-accent-400 font-bold mb-2">Where to start</p>
             <h3 id="start-headline" class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-5"></h3>
             <ol id="start-steps" class="space-y-3 text-stone-700 dark:text-stone-300 mb-7"></ol>
@@ -634,61 +634,160 @@ const hoursOptions = [
 
     /* ============================ */
     /* PRINT STYLES (Save as PDF)   */
+    /* Compact one-page layout      */
     /* ============================ */
     @media print {
-      @page { margin: 0.5in; }
+      @page { size: letter; margin: 0.4in; }
 
       html, body {
         background: #ffffff !important;
         color: #102a43 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        font-family: "DM Sans", system-ui, sans-serif;
       }
 
-      /* Hide site chrome */
+      /* Hide site chrome and non-results screens */
       header, footer, #site-header, #progress-wrap { display: none !important; }
-
-      /* Hide non-results screens entirely */
       .audit-screen:not(#screen-results) { display: none !important; }
-
-      /* Hide explicitly excluded elements */
       .no-print, .no-print * { display: none !important; }
-
-      /* Show print-only elements */
       .print-only { display: block !important; }
 
-      /* Strip heavy shadows */
+      /* Hide the screen-only headline ("Your Operations Audit / Here's your diagnosis") */
+      #screen-headline { display: none !important; }
+
+      /* Container/section reset (strip all the screen padding) */
+      body, main, section { padding: 0 !important; margin: 0 !important; }
+      .container { padding: 0 !important; max-width: 100% !important; }
+
+      /* Results container: tight base font */
+      #screen-results {
+        font-size: 9pt !important;
+        line-height: 1.35 !important;
+        max-width: 100% !important;
+      }
+      #screen-results h2 { font-size: 12pt !important; margin-bottom: 3pt !important; }
+      #screen-results h3 { font-size: 10pt !important; margin-bottom: 3pt !important; }
+      #screen-results p { margin-bottom: 3pt !important; }
+
+      /* Strip shadows and gradients */
       #screen-results [class*='shadow'] { box-shadow: none !important; }
+      #screen-results [class*='bg-gradient'] { background-image: none !important; }
 
-      /* Convert dark navy hero/CTA backgrounds to plain bordered cards */
-      #screen-results .bg-navy-900,
-      #screen-results .bg-navy-950,
-      #screen-results [class*='from-navy'] {
-        background: #ffffff !important;
+      /* Convert dark backgrounds to plain bordered cards */
+      #score-block {
+        background: #fafafa !important;
         border: 1px solid #cbd5e1 !important;
+        padding: 8pt !important;
+        margin-bottom: 6pt !important;
       }
-      #screen-results .text-white,
-      #screen-results .text-stone-200,
-      #screen-results .text-stone-300,
-      #screen-results .text-accent-300 {
-        color: #102a43 !important;
-      }
-      #screen-results .text-accent-400,
-      #screen-results .text-accent-500,
-      #screen-results .text-accent-600 { color: #d94a33 !important; }
+      #score-block, #score-block * { color: #102a43 !important; }
+      #score-block .text-stone-400 { color: #627d98 !important; }
 
-      /* Right-size typography for print */
-      #screen-results { font-size: 11pt; line-height: 1.5; }
-      #screen-results h2 { font-size: 20pt; margin-bottom: 8pt; }
-      #screen-results h3 { font-size: 14pt; }
+      /* Shrink the giant score number */
+      #overall-score { font-size: 32pt !important; line-height: 1 !important; }
+      #score-block .text-3xl, #score-block .text-4xl { font-size: 18pt !important; }
+
+      /* Tier badge */
+      #tier-badge { padding: 2pt 8pt !important; font-size: 8pt !important; }
+      #tier-headline { font-size: 9pt !important; margin-top: 4pt !important; }
+
+      /* Radar chart smaller, accent color preserved */
+      #radar-block {
+        padding: 6pt !important;
+        margin-bottom: 6pt !important;
+        border: 1px solid #e7e5e4 !important;
+      }
+      #radar-block > p { font-size: 8pt !important; margin-bottom: 2pt !important; }
+      #radar-block [class*='aspect-square'] {
+        max-width: 240pt !important;
+        max-height: 240pt !important;
+        margin: 0 auto !important;
+      }
+      #radar-chart { max-height: 240pt !important; }
+
+      /* Category cards: 5 in a row, compact */
+      #cat-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 4pt !important;
+        margin-bottom: 6pt !important;
+      }
+      #cat-grid > div {
+        padding: 6pt !important;
+        border: 1px solid #e7e5e4 !important;
+      }
+      #cat-grid h3 { font-size: 8pt !important; margin-bottom: 2pt !important; line-height: 1.2 !important; }
+      #cat-grid .cat-score { font-size: 14pt !important; }
+      #cat-grid .w-10 { width: 18pt !important; height: 18pt !important; }
+      #cat-grid .w-10 svg { width: 10pt !important; height: 10pt !important; }
+      #cat-grid .h-1\.5 { height: 3pt !important; }
+
+      /* Hidden cost callout */
+      #cost-block {
+        background: #fef4f2 !important;
+        border: 1px solid #fcd0c8 !important;
+        padding: 8pt !important;
+        margin-bottom: 6pt !important;
+      }
+      #hidden-cost { font-size: 22pt !important; line-height: 1 !important; }
+      #cost-block .text-3xl, #cost-block .text-4xl { font-size: 14pt !important; }
+      #cost-explainer { font-size: 8pt !important; line-height: 1.35 !important; }
+
+      /* Diagnosis: kill drop cap, tighten */
+      #diagnosis-block {
+        padding: 8pt !important;
+        margin-bottom: 6pt !important;
+        border: 1px solid #e7e5e4 !important;
+      }
+      .diagnosis-prose > p:first-of-type::first-letter {
+        font-size: inherit !important;
+        float: none !important;
+        color: inherit !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+      .diagnosis-prose > p {
+        line-height: 1.4 !important;
+        margin-bottom: 3pt !important;
+        font-size: 9pt !important;
+      }
+      .diagnosis-prose { max-width: 100% !important; }
+
+      /* Where to start: compact 3-step list */
+      #start-block {
+        background: #fef4f2 !important;
+        border: 1px solid #fcd0c8 !important;
+        padding: 8pt !important;
+        margin-bottom: 6pt !important;
+      }
+      #start-headline { font-size: 11pt !important; margin-bottom: 4pt !important; }
+      #start-steps { gap: 0 !important; }
+      #start-steps li { padding: 1pt 0 !important; gap: 5pt !important; }
+      #start-steps li > span:first-child {
+        width: 14pt !important;
+        height: 14pt !important;
+        font-size: 8pt !important;
+        flex-shrink: 0 !important;
+        line-height: 1 !important;
+      }
+      #start-steps li > span:last-child { padding-top: 0 !important; line-height: 1.35 !important; }
 
       /* Page-break controls */
-      .page-break-avoid { page-break-inside: avoid; }
-      #screen-results > div { page-break-inside: avoid; }
+      #screen-results > div { page-break-inside: avoid !important; }
 
-      /* Trim card padding for print */
-      #screen-results .p-8, #screen-results .p-10, #screen-results .p-12 { padding: 1rem !important; }
-      #screen-results .mb-8 { margin-bottom: 1rem !important; }
+      /* Print footer (CTA URL strip at the bottom) */
+      #screen-results::after {
+        content: 'mauops.com/audit  ·  Built by William Mau  ·  Book a free call at mauops.com/contact';
+        display: block;
+        text-align: center;
+        margin-top: 8pt;
+        padding-top: 4pt;
+        border-top: 1px solid #cbd5e1;
+        font-size: 8pt;
+        color: #627d98;
+      }
     }
   </style>
 
