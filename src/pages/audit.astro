@@ -344,34 +344,36 @@ const hoursOptions = [
                   <p class="text-base sm:text-lg text-navy-900 dark:text-white font-medium mb-5 leading-snug">
                     {q.text}
                   </p>
-                  <div class="grid grid-cols-5 gap-2" role="radiogroup" aria-label={q.text}>
-                    {answerOptions.map((opt) => (
+                  <div role="radiogroup" aria-label={q.text}>
+                    <div class="grid grid-cols-5 gap-2">
+                      {answerOptions.map((opt) => (
+                        <button
+                          type="button"
+                          class="answer-btn group relative rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50/50 dark:bg-stone-800/40 hover:border-accent-400 dark:hover:border-accent-500 hover:bg-accent-50/50 dark:hover:bg-accent-900/20 px-2 py-3 text-center transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
+                          data-qid={q.id}
+                          data-value={opt.value}
+                          role="radio"
+                          aria-checked="false"
+                        >
+                          <span class="block text-lg sm:text-xl font-bold text-navy-900 dark:text-white tabular-nums leading-none mb-1">{opt.value}</span>
+                          <span class="block text-[10px] sm:text-xs text-stone-500 dark:text-stone-400 font-medium leading-tight">{opt.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                    {q.na && (
                       <button
                         type="button"
-                        class="answer-btn group relative rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50/50 dark:bg-stone-800/40 hover:border-accent-400 dark:hover:border-accent-500 hover:bg-accent-50/50 dark:hover:bg-accent-900/20 px-2 py-3 text-center transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
+                        class="answer-btn na-btn mt-3 w-full rounded-xl border border-dashed border-stone-300 dark:border-stone-700 bg-transparent hover:border-accent-400 hover:bg-accent-50/40 dark:hover:bg-accent-900/10 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-400 hover:text-accent-700 dark:hover:text-accent-300 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
                         data-qid={q.id}
-                        data-value={opt.value}
+                        data-value="-1"
+                        data-na-label={q.na}
                         role="radio"
                         aria-checked="false"
                       >
-                        <span class="block text-lg sm:text-xl font-bold text-navy-900 dark:text-white tabular-nums leading-none mb-1">{opt.value}</span>
-                        <span class="block text-[10px] sm:text-xs text-stone-500 dark:text-stone-400 font-medium leading-tight">{opt.label}</span>
+                        {q.na}
                       </button>
-                    ))}
+                    )}
                   </div>
-                  {q.na && (
-                    <button
-                      type="button"
-                      class="answer-btn na-btn mt-3 w-full rounded-xl border border-dashed border-stone-300 dark:border-stone-700 bg-transparent hover:border-accent-400 hover:bg-accent-50/40 dark:hover:bg-accent-900/10 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-400 hover:text-accent-700 dark:hover:text-accent-300 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
-                      data-qid={q.id}
-                      data-value="-1"
-                      data-na-label={q.na}
-                      role="radio"
-                      aria-checked="false"
-                    >
-                      {q.na}
-                    </button>
-                  )}
                 </div>
               ))}
             </div>
