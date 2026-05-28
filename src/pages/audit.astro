@@ -161,7 +161,7 @@ const hoursOptions = [
         <div id="screen-intro" class="audit-screen max-w-4xl mx-auto text-center">
           <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 border border-accent-200/60 dark:border-accent-800/40 mb-6">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            5 minutes · 16 questions · No email required
+            5 minutes · 12 questions · No email required
           </span>
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-navy-900 dark:text-white mb-6 leading-[1.1]">
@@ -170,7 +170,7 @@ const hoursOptions = [
           </h1>
 
           <p class="text-lg sm:text-xl text-stone-600 dark:text-stone-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Sixteen plain-spoken questions about how your business actually runs. The moment you finish, you’ll see your score, your weakest area, and what it’s likely costing you in time and money.
+            Twelve plain-spoken questions about how your business actually runs, plus a bit of context about your business. The moment you finish, you’ll see a real dollar estimate of what better operations could be worth, along with your weakest area and the cleanest opportunities to fix it.
           </p>
 
           <!-- Trust row -->
@@ -727,14 +727,16 @@ const hoursOptions = [
       to { opacity: 1; transform: translateY(0); }
     }
     .answer-btn[aria-checked="true"],
-    .hours-btn[aria-checked="true"] {
+    .hours-btn[aria-checked="true"],
+    .screening-btn[aria-checked="true"] {
       background: linear-gradient(135deg, rgb(236 98 73), rgb(217 74 51));
       border-color: rgb(217 74 51);
       color: white;
       box-shadow: 0 4px 12px -2px rgb(236 98 73 / 0.4);
     }
     .answer-btn[aria-checked="true"] span,
-    .hours-btn[aria-checked="true"] span {
+    .hours-btn[aria-checked="true"] span,
+    .screening-btn[aria-checked="true"] span {
       color: white;
     }
     @media (prefers-reduced-motion: reduce) {
