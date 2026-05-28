@@ -5,9 +5,15 @@ import Footer from '../components/Footer.astro';
 
 const categories = [
   {
+    id: 'marketing',
+    name: 'Marketing & Digital Presence',
+    blurb: 'How you get found, and how visitors become leads.',
+    iconPath: 'M21 12a9 9 0 11-18 0 9 9 0 0118 0zM3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18',
+  },
+  {
     id: 'sales',
-    name: 'Marketing, Leads & Sales',
-    blurb: 'Where the business comes from, and what happens after.',
+    name: 'Sales & Pipeline',
+    blurb: 'How leads become customers, and what happens in between.',
     iconPath: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
   },
   {
@@ -17,51 +23,57 @@ const categories = [
     iconPath: 'M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6 1.87a4 4 0 100-8 4 4 0 000 8z',
   },
   {
-    id: 'money',
-    name: 'Money & Cash Flow',
-    blurb: 'Where the money is, and where it isn’t.',
-    iconPath: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-  },
-  {
-    id: 'visibility',
-    name: 'Visibility & Decisions',
-    blurb: 'How you see what’s happening, and decide.',
-    iconPath: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-  },
-  {
-    id: 'team',
-    name: 'Team, Tools & Time',
-    blurb: 'How the work actually gets done.',
+    id: 'ops',
+    name: 'Operations & Tools',
+    blurb: 'How the work actually gets done, and what gets in the way.',
     iconPath: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z',
+  },
+  {
+    id: 'money',
+    name: 'Money & Time',
+    blurb: 'Where the money flows, and where your time goes.',
+    iconPath: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
 ];
 
 const questions = [
-  // Marketing, Leads & Sales
-  { id: 'q1', cat: 'sales', text: 'When a new lead comes in, I know exactly where it lives. It’s not scattered across my inbox, texts, and a notebook.' },
-  { id: 'q2', cat: 'sales', text: 'Every lead gets a real reply within a day, not whenever I get around to it.' },
-  { id: 'q3', cat: 'sales', text: 'I know which marketing channel actually brings in customers, not just which one I spend the most on.' },
+  // Marketing & Digital Presence (3)
+  { id: 'q1', cat: 'marketing', text: 'Our website turns visitors into actual leads, not just an online brochure.', na: 'We don’t have a website' },
+  { id: 'q2', cat: 'marketing', text: 'Our Google Business Profile is claimed, up to date, and getting reviews.', na: 'We haven’t claimed our Google Business Profile' },
+  { id: 'q3', cat: 'marketing', text: 'We can tell which marketing channels actually bring paying customers, not just clicks and likes.', na: 'We don’t do marketing yet' },
 
-  // Customers & Service
-  { id: 'q4', cat: 'service', text: 'Customer issues land in one place. They’re not scattered across my texts, voicemail, and three inboxes.' },
-  { id: 'q5', cat: 'service', text: 'If a customer is unhappy, I’d hear about it before they leave, not after.' },
-  { id: 'q6', cat: 'service', text: 'Repetitive customer questions get answered consistently, no matter who picks up.' },
+  // Sales & Pipeline (CRM) (2)
+  { id: 'q4', cat: 'sales', text: 'We have a CRM and use it consistently. Every lead, every contact, every conversation lives there.', na: 'We don’t use a CRM' },
+  { id: 'q5', cat: 'sales', text: 'We have a documented follow-up sequence that runs even when we’re busy.', na: 'We don’t have a follow-up sequence' },
 
-  // Money & Cash Flow
-  { id: 'q7', cat: 'money', text: 'I look at who owes us money at least once a week, not just when cash gets tight.' },
-  { id: 'q8', cat: 'money', text: 'Without calling my bookkeeper, I can tell you what’s in the bank, what’s coming in, and what’s going out.' },
-  { id: 'q9', cat: 'money', text: 'Invoices go out as soon as the work is done. I’m not the bottleneck on getting paid.' },
+  // Customers & Service (2)
+  { id: 'q6', cat: 'service', text: 'Customer issues land in one place, not scattered across texts, voicemail, and three inboxes.' },
+  { id: 'q7', cat: 'service', text: 'We can tell within a day if a customer is unhappy or at risk of leaving.' },
 
-  // Visibility & Decisions
-  { id: 'q10', cat: 'visibility', text: 'I see the numbers that matter at least once a week, not just at tax time.' },
-  { id: 'q11', cat: 'visibility', text: 'I can answer “how is the business doing?” in 30 seconds with confidence.' },
-  { id: 'q12', cat: 'visibility', text: 'Big decisions are backed by a number, not just a feeling.' },
+  // Operations & Tools (3)
+  { id: 'q8', cat: 'ops', text: 'Our tools talk to each other. We’re not retyping the same info between systems.' },
+  { id: 'q9', cat: 'ops', text: 'We use AI or automation to handle repetitive work where it makes sense.', na: 'We don’t use AI or automation' },
+  { id: 'q10', cat: 'ops', text: 'Key processes are documented well enough that the business survives vacations and turnover.' },
 
-  // Team, Tools & Time
-  { id: 'q13', cat: 'team', text: 'If my best person quit tomorrow, someone else could pick up their work. It’s not all in their head.' },
-  { id: 'q14', cat: 'team', text: 'I’m not retyping the same info into three different systems every day.' },
-  { id: 'q15', cat: 'team', text: 'Most of my week goes to moving the business forward, not putting out fires.' },
-  { id: 'q16', cat: 'team', text: 'When someone new joins the team, they have a clear way to ramp up. They’re not just shadowing whoever’s free.' },
+  // Money & Time (2)
+  { id: 'q11', cat: 'money', text: 'Invoices go out within 1–2 days of work being done.' },
+  { id: 'q12', cat: 'money', text: 'I (the owner) am spending my time on the right things, not stuck in admin and email triage.' },
+];
+
+const screeningEmployeeOptions = [
+  { value: 0, label: '1', mid: 1 },
+  { value: 1, label: '2–5', mid: 3.5 },
+  { value: 2, label: '6–15', mid: 10 },
+  { value: 3, label: '16–30', mid: 23 },
+  { value: 4, label: '30+', mid: 40 },
+];
+
+const screeningRevenueOptions = [
+  { value: 0, label: 'Under $250K' },
+  { value: 1, label: '$250K–$1M' },
+  { value: 2, label: '$1M–$5M' },
+  { value: 3, label: '$5M–$30M' },
+  { value: 4, label: 'Prefer not to say' },
 ];
 
 const answerOptions = [
@@ -82,7 +94,7 @@ const hoursOptions = [
 
 <BaseLayout
   title="The Small Business Operations Self-Audit"
-  description="A free 5-minute self-audit for small business owners. Sixteen questions across sales, customer service, cash flow, visibility, and team. Instant personalized diagnosis. No email required to see your score."
+  description="A free 5-minute self-audit for small business owners. Twelve questions across marketing, sales, customer service, operations, and money. Instant personalized diagnosis with a real dollar estimate of what better operations could be worth to your business."
 >
   <Header />
 
@@ -92,7 +104,7 @@ const hoursOptions = [
     "@type": "WebApplication",
     "name": "The Small Business Operations Self-Audit",
     "url": "https://mauops.com/audit/",
-    "description": "A free 5-minute self-audit for small business owners. Sixteen questions across sales, customer service, cash flow, visibility, and team. Instant personalized diagnosis.",
+    "description": "A free 5-minute self-audit for small business owners. Twelve questions across marketing, sales, customer service, operations, and money. Instant personalized diagnosis with a dollar estimate of what better operations could be worth.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web Browser",
     "browserRequirements": "Requires JavaScript",
@@ -216,6 +228,98 @@ const hoursOptions = [
         </div>
 
         <!-- ============================= -->
+        <!-- SCREEN: SCREENING (3 Qs)      -->
+        <!-- ============================= -->
+        <div id="screen-screening" class="audit-screen hidden max-w-3xl mx-auto">
+          <div class="text-center mb-10">
+            <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-2">Quick context first</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-2">
+              Tell us about your business
+            </h2>
+            <p class="text-stone-500 dark:text-stone-400">So we can make the diagnosis specific to you, not generic.</p>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Employees -->
+            <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-7 shadow-sm">
+              <p class="text-base sm:text-lg text-navy-900 dark:text-white font-medium mb-5 leading-snug">
+                How many employees?
+              </p>
+              <div class="grid grid-cols-5 gap-2" role="radiogroup" aria-label="Number of employees">
+                {screeningEmployeeOptions.map((opt) => (
+                  <button
+                    type="button"
+                    class="screening-btn rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50/50 dark:bg-stone-800/40 hover:border-accent-400 dark:hover:border-accent-500 hover:bg-accent-50/50 dark:hover:bg-accent-900/20 px-2 py-4 text-center transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
+                    data-key="employees"
+                    data-value={opt.value}
+                    role="radio"
+                    aria-checked="false"
+                  >
+                    <span class="block text-base sm:text-lg font-bold text-navy-900 dark:text-white tabular-nums leading-none">{opt.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Revenue (optional) -->
+            <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-7 shadow-sm">
+              <p class="text-base sm:text-lg text-navy-900 dark:text-white font-medium mb-2 leading-snug">
+                Roughly your annual revenue?
+              </p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mb-5">Optional, helps tailor the diagnosis.</p>
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" role="radiogroup" aria-label="Annual revenue range">
+                {screeningRevenueOptions.map((opt) => (
+                  <button
+                    type="button"
+                    class="screening-btn rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50/50 dark:bg-stone-800/40 hover:border-accent-400 dark:hover:border-accent-500 hover:bg-accent-50/50 dark:hover:bg-accent-900/20 px-2 py-3 text-center transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
+                    data-key="revenue"
+                    data-value={opt.value}
+                    role="radio"
+                    aria-checked="false"
+                  >
+                    <span class="block text-xs sm:text-sm font-semibold text-navy-900 dark:text-white leading-tight">{opt.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Business type (optional) -->
+            <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-7 shadow-sm">
+              <p class="text-base sm:text-lg text-navy-900 dark:text-white font-medium mb-2 leading-snug">
+                What kind of business?
+              </p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 mb-5">Optional. Example: "B2B services," "ecommerce," "professional services."</p>
+              <input
+                type="text"
+                id="businessType-input"
+                placeholder="What kind of business?"
+                class="w-full px-4 py-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/40 text-navy-900 dark:text-white placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-all"
+                maxlength="80"
+              />
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-10">
+            <button
+              type="button"
+              class="back-btn inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-navy-900 dark:hover:text-white transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button
+              type="button"
+              id="screening-continue"
+              class="next-btn inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-600 hover:bg-accent-700 disabled:bg-stone-300 dark:disabled:bg-stone-700 disabled:cursor-not-allowed disabled:shadow-none text-white font-semibold shadow-lg shadow-accent-500/20 hover:shadow-xl hover:shadow-accent-500/30 hover:-translate-y-0.5 active:translate-y-0 disabled:translate-y-0 transition-all duration-200"
+              disabled
+            >
+              Continue to the audit
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============================= -->
         <!-- SCREEN: CATEGORY QUESTIONS    -->
         <!-- (one screen rendered per cat) -->
         <!-- ============================= -->
@@ -255,6 +359,19 @@ const hoursOptions = [
                       </button>
                     ))}
                   </div>
+                  {q.na && (
+                    <button
+                      type="button"
+                      class="answer-btn na-btn mt-3 w-full rounded-xl border border-dashed border-stone-300 dark:border-stone-700 bg-transparent hover:border-accent-400 hover:bg-accent-50/40 dark:hover:bg-accent-900/10 px-4 py-2.5 text-sm text-stone-600 dark:text-stone-400 hover:text-accent-700 dark:hover:text-accent-300 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950"
+                      data-qid={q.id}
+                      data-value="-1"
+                      data-na-label={q.na}
+                      role="radio"
+                      aria-checked="false"
+                    >
+                      {q.na}
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -400,59 +517,22 @@ const hoursOptions = [
 
           <div id="screen-headline" class="text-center mb-10">
             <p class="text-sm font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">Your Operations Audit</p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white mb-4">
-              Here’s your diagnosis.
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-900 dark:text-white mb-4 leading-tight">
+              Here&rsquo;s what better operations<br class="hidden sm:inline"/> could be worth to your business.
             </h2>
-          </div>
-
-          <!-- Overall score -->
-          <div id="score-block" class="rounded-3xl bg-gradient-to-br from-navy-900 to-navy-950 dark:from-navy-950 dark:to-black p-8 sm:p-12 text-center text-white shadow-2xl mb-8">
-            <p class="text-xs uppercase tracking-widest text-accent-300 font-bold mb-3">Overall Score</p>
-            <div class="flex items-baseline justify-center gap-1 mb-3">
-              <span id="overall-score" class="text-7xl sm:text-8xl font-black tabular-nums leading-none">0</span>
-              <span class="text-3xl sm:text-4xl font-bold text-stone-400">/100</span>
-            </div>
-            <div id="tier-badge" class="inline-block px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider"></div>
-            <p id="tier-headline" class="text-lg text-stone-200 mt-4 max-w-xl mx-auto"></p>
-          </div>
-
-          <!-- Radar chart -->
-          <div id="radar-block" class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-8 mb-8 shadow-sm">
-            <p class="text-xs uppercase tracking-widest text-accent-600 dark:text-accent-400 font-bold mb-1 text-center">Category Map</p>
-            <p class="text-sm text-stone-500 dark:text-stone-400 text-center mb-6">Where your operations are strongest and where they’re leaking.</p>
-            <div class="max-w-md mx-auto aspect-square">
-              <canvas id="radar-chart" aria-label="Radar chart of operations category scores"></canvas>
-            </div>
-          </div>
-
-          <!-- Category breakdown -->
-          <div id="cat-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {categories.map((cat) => (
-              <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-5">
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={cat.iconPath}/></svg>
-                  </div>
-                  <h3 class="text-sm font-semibold text-navy-900 dark:text-white leading-tight">{cat.name}</h3>
-                </div>
-                <div class="flex items-baseline gap-1 mb-2">
-                  <span class={`cat-score text-2xl font-bold text-navy-900 dark:text-white tabular-nums`} data-cat={cat.id}>0</span>
-                  <span class="text-sm text-stone-400">/100</span>
-                </div>
-                <div class="h-1.5 rounded-full bg-stone-100 dark:bg-stone-800 overflow-hidden">
-                  <div class={`cat-bar h-full bg-gradient-to-r from-accent-400 to-accent-600 rounded-full transition-all duration-1000 ease-out`} data-cat={cat.id} style="width: 0%"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <!-- Hidden cost callout -->
-          <div id="cost-block" class="rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-gradient-to-br from-accent-50/80 to-white dark:from-accent-900/20 dark:to-stone-900/40 p-6 sm:p-8 mb-8">
-            <p class="text-xs uppercase tracking-widest text-accent-700 dark:text-accent-400 font-bold mb-2">Hidden Cost Estimate</p>
-            <p class="text-3xl sm:text-4xl font-black text-navy-900 dark:text-white tabular-nums mb-2">
-              <span id="hidden-cost">$0</span><span class="text-lg text-stone-500 dark:text-stone-400 font-medium">/year in time alone</span>
+            <p class="text-base sm:text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto">
+              A real dollar figure, based on your answers. The score and category breakdown are below as context.
             </p>
-            <p id="cost-explainer" class="text-sm text-stone-600 dark:text-stone-400 max-w-2xl mb-3"></p>
+          </div>
+
+          <!-- Cost callout — now the LEDE of the results page -->
+          <div id="cost-block" class="rounded-2xl border border-accent-200/60 dark:border-accent-800/40 bg-gradient-to-br from-accent-50/80 to-white dark:from-accent-900/20 dark:to-stone-900/40 p-6 sm:p-10 mb-8 shadow-sm">
+            <p class="text-xs uppercase tracking-widest text-accent-700 dark:text-accent-400 font-bold mb-3">What this is costing you</p>
+            <p class="text-4xl sm:text-5xl lg:text-6xl font-black text-navy-900 dark:text-white tabular-nums leading-none mb-2">
+              <span id="hidden-cost">$0</span><span class="text-xl sm:text-2xl text-stone-500 dark:text-stone-400 font-medium">/year in time alone</span>
+            </p>
+            <p id="cost-explainer" class="text-sm text-stone-600 dark:text-stone-400 max-w-2xl mb-4"></p>
+            <p id="opportunities-line" class="hidden text-sm text-stone-600 dark:text-stone-300 max-w-2xl mb-4 leading-relaxed"></p>
             <a href="/contact/?source=audit-cost-callout" class="no-print inline-flex items-center gap-1 text-sm font-semibold text-accent-700 dark:text-accent-400 hover:underline">
               That&rsquo;s a number worth talking about. Book a free call
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
@@ -485,6 +565,56 @@ const hoursOptions = [
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
               </a>
             </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- CONTEXT (score, radar, categories) -->
+          <!-- Now lives BELOW the action, not above. -->
+          <!-- ============================== -->
+          <div class="no-print mt-14 mb-2">
+            <p class="text-xs uppercase tracking-widest text-stone-500 dark:text-stone-500 font-bold mb-2 text-center">Where the number comes from</p>
+            <p class="text-sm text-stone-500 dark:text-stone-500 text-center max-w-2xl mx-auto">Your score and a category-by-category breakdown. Useful context, but the dollar number above is the headline.</p>
+          </div>
+
+          <!-- Overall score (context) -->
+          <div id="score-block" class="rounded-3xl bg-gradient-to-br from-navy-900 to-navy-950 dark:from-navy-950 dark:to-black p-8 sm:p-10 text-center text-white shadow-xl mb-8">
+            <p class="text-xs uppercase tracking-widest text-accent-300 font-bold mb-3">Overall Score</p>
+            <div class="flex items-baseline justify-center gap-1 mb-3">
+              <span id="overall-score" class="text-6xl sm:text-7xl font-black tabular-nums leading-none">0</span>
+              <span class="text-2xl sm:text-3xl font-bold text-stone-400">/100</span>
+            </div>
+            <div id="tier-badge" class="inline-block px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider"></div>
+            <p id="tier-headline" class="text-base text-stone-200 mt-4 max-w-xl mx-auto"></p>
+          </div>
+
+          <!-- Radar chart (context) -->
+          <div id="radar-block" class="rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-8 mb-8 shadow-sm">
+            <p class="text-xs uppercase tracking-widest text-accent-600 dark:text-accent-400 font-bold mb-1 text-center">Category Map</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400 text-center mb-6">Where your operations are strongest and where they&rsquo;re leaking.</p>
+            <div class="max-w-md mx-auto aspect-square">
+              <canvas id="radar-chart" aria-label="Radar chart of operations category scores"></canvas>
+            </div>
+          </div>
+
+          <!-- Category breakdown (context) -->
+          <div id="cat-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {categories.map((cat) => (
+              <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-5">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={cat.iconPath}/></svg>
+                  </div>
+                  <h3 class="text-sm font-semibold text-navy-900 dark:text-white leading-tight">{cat.name}</h3>
+                </div>
+                <div class="flex items-baseline gap-1 mb-2">
+                  <span class={`cat-score text-2xl font-bold text-navy-900 dark:text-white tabular-nums`} data-cat={cat.id}>0</span>
+                  <span class="text-sm text-stone-400">/100</span>
+                </div>
+                <div class="h-1.5 rounded-full bg-stone-100 dark:bg-stone-800 overflow-hidden">
+                  <div class={`cat-bar h-full bg-gradient-to-r from-accent-400 to-accent-600 rounded-full transition-all duration-1000 ease-out`} data-cat={cat.id} style="width: 0%"></div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <!-- Email capture (optional, never gates results) -->
@@ -800,13 +930,13 @@ const hoursOptions = [
   <!-- lottie-web for the "analyzing" animation (~10kb gzipped). The animation JSON is loaded only if /audit/lottie-analyzing.json exists. -->
   <script is:inline src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_light.min.js"></script>
 
-  <script is:inline define:vars={{ categoryIds: categories.map(c => c.id), questionList: questions, hoursOptionsData: hoursOptions, categoryNames: categories.map(c => c.name) }}>
+  <script is:inline define:vars={{ categoryIds: categories.map(c => c.id), questionList: questions, hoursOptionsData: hoursOptions, categoryNames: categories.map(c => c.name), employeeOptionsData: screeningEmployeeOptions }}>
     // ============================
     // AUDIT LOGIC (vanilla JS)
     // ============================
 
-    const STORAGE_KEY = 'mauops-audit-v1';
-    const SCREENS = ['intro', ...categoryIds, 'quant', 'analyzing', 'results'];
+    const STORAGE_KEY = 'mauops-audit-v2';
+    const SCREENS = ['intro', 'screening', ...categoryIds, 'quant', 'analyzing', 'results'];
 
     // Tier definitions
     const TIERS = [
@@ -822,22 +952,40 @@ const hoursOptions = [
 
     // Category metadata for diagnosis. weakDiags/strongDiags indexed by question position within the category.
     const CAT_META = {
-      sales: {
-        name: 'Marketing, Leads & Sales',
+      marketing: {
+        name: 'Marketing & Digital Presence',
         weakDiags: [
-          'leads scatter across inboxes, texts, and notebooks. Things slip',
-          'follow-up is uneven, and the quiet ones probably bought from someone else',
+          'visitors come and go but rarely become leads',
+          'people searching for what you do can’t find you on Google Maps',
           'you’re spending on marketing without a clean signal of what actually closes',
         ],
         strongDiags: [
-          'Your lead pipeline is organized.',
-          'Your follow-up game is tight.',
-          'You know what marketing channel actually works, which is rare.',
+          'Your website does the heavy lifting of converting visitors to leads.',
+          'You show up where you should when people search locally.',
+          'You can name the marketing channel that actually closes business.',
         ],
         fixSteps: [
-          'Pick one place every lead lives. Inbox, spreadsheet, CRM, whatever. Just one place.',
-          'Set a 24-hour reply standard, even if the first reply is automated, and hold it for two weeks.',
-          'Add lead-source capture to every form. Stop guessing what marketing works.',
+          'Add lead-capture forms and a clear next step to every page of your website.',
+          'Claim and complete your Google Business Profile. Then ask five happy customers for a review.',
+          'Tag where every lead came from. A single “How did you find us?” field is a fine place to start.',
+        ],
+        serviceLink: '/website-design/',
+        serviceLabel: 'See: Websites & Digital Presence',
+      },
+      sales: {
+        name: 'Sales & Pipeline',
+        weakDiags: [
+          'leads scatter across inboxes and texts. Things slip',
+          'follow-up depends on whoever remembered to check the inbox today',
+        ],
+        strongDiags: [
+          'Your CRM is doing its job. Every lead lives somewhere you can find it.',
+          'You’ve got a documented follow-up that runs even when you’re slammed.',
+        ],
+        fixSteps: [
+          'Pick one place every lead lives. CRM, spreadsheet, anything. Just one place.',
+          'Build a simple 5-touch follow-up sequence. Day 0, day 2, day 7, day 14, day 30.',
+          'Set a 24-hour reply standard for new leads. An auto-reply counts as a start.',
         ],
         serviceLink: '/salesforce-consulting/',
         serviceLabel: 'See: Salesforce & Revenue Systems',
@@ -847,79 +995,53 @@ const hoursOptions = [
         weakDiags: [
           'customer issues are scattered across texts, voicemail, and three inboxes',
           'you find out a customer is unhappy when they’re already gone',
-          'the answer they get depends on who happens to pick up',
         ],
         strongDiags: [
-          'Customer issues land in one place.',
-          'You’re close to your customers and catch problems early.',
-          'Your team answers consistently, no matter who picks up.',
+          'Customer issues land in one place where nothing falls through.',
+          'You’re close enough to your customers to catch trouble before it walks.',
         ],
         fixSteps: [
           'Get every customer issue into one place. A shared inbox works at the start.',
-          'Put a 15-minute weekly health-check on accounts on the calendar. Catch the quiet ones early.',
-          'Document the top 10 repeat questions so anyone on the team can handle them.',
+          'Put a 15-minute weekly account-health check on the calendar. Catch the quiet ones early.',
+          'Build a feedback loop. Even a single quarterly check-in email beats nothing.',
         ],
         serviceLink: '/operations/',
         serviceLabel: 'See: Operations & Process',
+      },
+      ops: {
+        name: 'Operations & Tools',
+        weakDiags: [
+          'your team is retyping the same info between systems all day',
+          'you’re leaving easy wins on the table because nothing repetitive is automated',
+          'too much work lives in specific people’s heads. If one of them leaves, you’re exposed',
+        ],
+        strongDiags: [
+          'Your tools mostly talk to each other. No human is the integration anymore.',
+          'You’re using automation where it earns its keep.',
+          'Your processes are documented well enough that the business survives vacations.',
+        ],
+        fixSteps: [
+          'Find where the same info is being typed twice. Connect those two systems first.',
+          'Pick the one repetitive task that eats the most time and automate it. Start with a one-hour-saved-per-week win.',
+          'Document your top three processes. Anyone could pick them up, not just the one who normally does the work.',
+        ],
+        serviceLink: '/ai-solutions/',
+        serviceLabel: 'See: AI & Automation',
       },
       money: {
-        name: 'Money & Cash Flow',
+        name: 'Money & Time',
         weakDiags: [
-          'AR drifts, customers stretch payment, and chasing money becomes a job',
-          'cash position is fuzzy, which makes every decision a guess',
           'invoices go out late, which means cash comes in even later',
+          'most of your week is reactive admin instead of moving the business forward',
         ],
         strongDiags: [
-          'You’re on top of AR.',
-          'You know what’s in the bank, which is rarer than it should be.',
           'You bill fast, which means you get paid sooner.',
+          'You’re spending your time on the work only you can do.',
         ],
         fixSteps: [
-          'Put a 15-minute weekly AR review on the calendar this week. Same time every week.',
-          'Build a one-page cash snapshot you can pull yourself, without calling anyone.',
-          'Invoice the day work is done. Same-day invoicing is the cheapest cash-flow fix there is.',
-        ],
-        serviceLink: '/operations/',
-        serviceLabel: 'See: Operations & Process',
-      },
-      visibility: {
-        name: 'Visibility & Decisions',
-        weakDiags: [
-          'you’re running blind on the numbers and only finding out at tax time',
-          'when someone asks how the business is doing, the honest answer is “I think OK?”',
-          'big decisions get made on gut feel because the data isn’t there to back them',
-        ],
-        strongDiags: [
-          'You see the numbers regularly.',
-          'You can answer how the business is doing in a sentence, with confidence.',
-          'Your decisions are backed by data, which is rare at your size.',
-        ],
-        fixSteps: [
-          'Build one weekly dashboard with the five numbers that actually matter. Not twenty.',
-          'Schedule 30 minutes every Monday to look at it. Same time every week.',
-          'For your next big decision, write down the number that would change your mind. Then go find it.',
-        ],
-        serviceLink: '/salesforce-consulting/',
-        serviceLabel: 'See: Salesforce & Revenue Systems',
-      },
-      team: {
-        name: 'Team, Tools & Time',
-        weakDiags: [
-          'too much work lives in specific people’s heads. If one of them leaves, you’re exposed',
-          'your team is retyping the same info into multiple systems all day',
-          'most of your week is reactive. You’re putting out fires instead of building',
-          'new hires ramp by shadowing whoever’s free. They’re slow to productive, and the lessons don’t stick',
-        ],
-        strongDiags: [
-          'Your processes are documented well enough that the business survives vacations.',
-          'Your tools mostly talk to each other.',
-          'You’re building forward, not just putting out fires.',
-          'New people onboard well, which is genuinely rare.',
-        ],
-        fixSteps: [
-          'Pick the one process that would hurt most if its owner left tomorrow. Document it this week.',
-          'Audit your tools. Where is the same info being typed twice? Connect those two systems first.',
-          'Reserve one half-day a week for forward-looking work. Defend it on the calendar.',
+          'Invoice the day the work is done. Same-day billing is the cheapest cash-flow fix there is.',
+          'Reserve one half-day per week for forward-looking work. Defend it on the calendar.',
+          'List the five things only you can do. Delegate or automate one item not on that list this week.',
         ],
         serviceLink: '/operations/',
         serviceLabel: 'See: Operations & Process',
@@ -929,9 +1051,13 @@ const hoursOptions = [
     // State
     let state = {
       step: 0, // index into SCREENS
-      answers: {},
+      answers: {}, // qid -> integer 1-5, or -1 for N/A
       manualHours: null,
       ownerHours: null,
+      // Screening
+      employees: null,     // index into employeeOptionsData
+      revenue: null,       // index into revenue brackets (4 = "prefer not to say")
+      businessType: '',    // free-text string
     };
 
     // ====== Persistence ======
@@ -983,20 +1109,29 @@ const hoursOptions = [
 
       const answered = Object.keys(state.answers).length;
       const total = questionList.length;
-      const pct = currentScreen === 'results'
-        ? 100
-        : currentScreen === 'analyzing' || currentScreen === 'quant'
-          ? Math.min(100, ((answered / total) * 90) + (currentScreen === 'analyzing' ? 10 : 0))
-          : (answered / total) * 90;
+      let pct;
+      let labelText;
+
+      if (currentScreen === 'screening') {
+        pct = 5;
+        labelText = 'A bit of context first';
+      } else if (currentScreen === 'results') {
+        pct = 100;
+        labelText = 'Diagnosis complete';
+      } else if (currentScreen === 'analyzing') {
+        pct = 95;
+        labelText = 'Analyzing…';
+      } else if (currentScreen === 'quant') {
+        pct = Math.min(95, ((answered / total) * 85) + 10);
+        labelText = 'Two final numbers';
+      } else {
+        // category screen
+        pct = ((answered / total) * 85) + 10;
+        labelText = `Question ${Math.min(answered + 1, total)} of ${total}`;
+      }
 
       fill.style.width = pct + '%';
-      label.textContent = currentScreen === 'results'
-        ? 'Diagnosis complete'
-        : currentScreen === 'analyzing'
-          ? 'Analyzing…'
-          : currentScreen === 'quant'
-            ? 'Two final numbers'
-            : `Question ${Math.min(answered + 1, total)} of ${total}`;
+      label.textContent = labelText;
     }
 
     function goto(stepIdx) {
@@ -1048,6 +1183,44 @@ const hoursOptions = [
       });
     }
 
+    function setupScreeningButtons() {
+      // Employees + Revenue brackets (chunky button group)
+      document.querySelectorAll('.screening-btn').forEach(btn => {
+        const key = btn.dataset.key;
+        const val = parseInt(btn.dataset.value, 10);
+
+        if (state[key] === val) {
+          btn.setAttribute('aria-checked', 'true');
+        }
+
+        btn.addEventListener('click', () => {
+          state[key] = val;
+          const siblings = btn.closest('[role="radiogroup"]').querySelectorAll('.screening-btn');
+          siblings.forEach(s => s.setAttribute('aria-checked', s === btn ? 'true' : 'false'));
+          saveState();
+          updateScreeningContinue();
+        });
+      });
+
+      // Business type free-text input
+      const bizInput = document.getElementById('businessType-input');
+      if (bizInput) {
+        // Restore
+        if (state.businessType) bizInput.value = state.businessType;
+        bizInput.addEventListener('input', (e) => {
+          state.businessType = e.target.value.slice(0, 80);
+          saveState();
+        });
+      }
+    }
+
+    function updateScreeningContinue() {
+      // Employees is required; revenue and business type are optional.
+      const btn = document.getElementById('screening-continue');
+      if (!btn) return;
+      btn.disabled = state.employees === null;
+    }
+
     // ====== Enable/disable continue buttons ======
     function updateNextEnabled() {
       categoryIds.forEach(catId => {
@@ -1067,15 +1240,18 @@ const hoursOptions = [
 
     // ====== Setup nav buttons ======
     function setupNav() {
+      // "Start the Audit" → goto screening (step 1)
       const startBtn = document.getElementById('start-btn');
-      if (startBtn) startBtn.addEventListener('click', () => goto(1)); // first category
+      if (startBtn) startBtn.addEventListener('click', () => goto(SCREENS.indexOf('screening')));
 
+      // Generic next-btn: advance one screen
       document.querySelectorAll('.next-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           if (!btn.disabled) goto(state.step + 1);
         });
       });
 
+      // Generic back-btn: back one screen (but never before intro)
       document.querySelectorAll('.back-btn').forEach(btn => {
         btn.addEventListener('click', () => goto(Math.max(0, state.step - 1)));
       });
@@ -1090,10 +1266,21 @@ const hoursOptions = [
       const restartBtn = document.getElementById('restart-btn');
       if (restartBtn) restartBtn.addEventListener('click', () => {
         clearState();
-        state = { step: 0, answers: {}, manualHours: null, ownerHours: null };
-        document.querySelectorAll('.answer-btn, .hours-btn').forEach(b => b.setAttribute('aria-checked', 'false'));
+        state = {
+          step: 0,
+          answers: {},
+          manualHours: null,
+          ownerHours: null,
+          employees: null,
+          revenue: null,
+          businessType: '',
+        };
+        document.querySelectorAll('.answer-btn, .hours-btn, .screening-btn').forEach(b => b.setAttribute('aria-checked', 'false'));
+        const bizInput = document.getElementById('businessType-input');
+        if (bizInput) bizInput.value = '';
         updateNextEnabled();
         updateFinishEnabled();
+        updateScreeningContinue();
         goto(0);
       });
     }
@@ -1101,11 +1288,11 @@ const hoursOptions = [
     // ====== Analyzing transition ======
     function runAnalyzing() {
       const messages = [
-        'Looking at your sales flow…',
-        'Checking your money signals…',
-        'Reviewing customer-service patterns…',
-        'Sizing up your visibility and decision tools…',
-        'Estimating what this is costing you…',
+        'Looking at your digital presence…',
+        'Reviewing your sales and CRM patterns…',
+        'Sizing up your customer-service signals…',
+        'Checking how your operations stack runs…',
+        'Estimating what this is costing you in dollars…',
       ];
       const msgEl = document.getElementById('analyzing-message');
       let i = 0;
@@ -1125,11 +1312,19 @@ const hoursOptions = [
     }
 
     // ====== Scoring ======
+    // N/A (value of -1) is skipped from the score. It does NOT count as 0.
+    // Rationale: "we don't have a CRM" is a clean-slate opportunity, not a low-quality CRM.
     function scoreCategory(catId) {
       const qs = questionList.filter(q => q.cat === catId);
-      const sum = qs.reduce((acc, q) => acc + (state.answers[q.id] || 0), 0);
-      const max = qs.length * 5;
-      return Math.round((sum / max) * 100);
+      const scored = qs
+        .map(q => state.answers[q.id])
+        .filter(v => typeof v === 'number' && v >= 1 && v <= 5);
+      if (scored.length === 0) {
+        // All N/A in this category — treat as 0 score (worst case, opportunity surfaced separately)
+        return 0;
+      }
+      const sum = scored.reduce((a, b) => a + b, 0);
+      return Math.round((sum / (scored.length * 5)) * 100);
     }
     function scoreOverall() {
       const scores = categoryIds.map(scoreCategory);
@@ -1148,21 +1343,34 @@ const hoursOptions = [
       scored.sort((a, b) => b.score - a.score);
       return scored[0];
     }
+    // Returns array of {qid, label} for every question answered N/A. These get surfaced
+    // in the diagnosis as "clean opportunities" — no migration friction, no entrenched habits.
+    function naOpportunities() {
+      return questionList
+        .filter(q => q.na && state.answers[q.id] === -1)
+        .map(q => ({ qid: q.id, label: q.na, cat: q.cat }));
+    }
+    // Cost calc V2: uses BLS Q4 2025 private-industry total compensation ($46.15/hr) for team
+    // labor and a conservative $100/hr for owner time. Bracket midpoints from hoursOptionsData.
     function hiddenCost() {
       const teamMid = (hoursOptionsData[state.manualHours] || hoursOptionsData[0]).mid;
       const ownerMid = (hoursOptionsData[state.ownerHours] || hoursOptionsData[0]).mid;
-      const team = teamMid * 50 * 52;
-      const owner = ownerMid * 100 * 52;
-      return { total: team + owner, teamMid, ownerMid };
+      const TEAM_HOURLY = 46.15;  // BLS ECEC Q4 2025, private industry total comp
+      const OWNER_HOURLY = 100;   // conservative SMB owner opportunity cost
+      const team = teamMid * TEAM_HOURLY * 52;
+      const owner = ownerMid * OWNER_HOURLY * 52;
+      return { total: Math.round(team + owner), team: Math.round(team), owner: Math.round(owner), teamMid, ownerMid };
     }
 
     // ====== Diagnosis composition ======
+    // These pickers SKIP N/A answers — N/A is surfaced as an opportunity, not a "low score".
     function lowestQuestionInCategory(catId) {
       const qs = questionList.filter(q => q.cat === catId);
       let idx = 0;
       let lowestScore = 6;
       qs.forEach((q, i) => {
-        const v = state.answers[q.id] || 0;
+        const v = state.answers[q.id];
+        if (typeof v !== 'number' || v < 1 || v > 5) return;
         if (v < lowestScore) { lowestScore = v; idx = i; }
       });
       return idx;
@@ -1173,7 +1381,8 @@ const hoursOptions = [
       let idx = 0;
       let highestScore = 0;
       qs.forEach((q, i) => {
-        const v = state.answers[q.id] || 0;
+        const v = state.answers[q.id];
+        if (typeof v !== 'number' || v < 1 || v > 5) return;
         if (v > highestScore) { highestScore = v; idx = i; }
       });
       return idx;
@@ -1222,7 +1431,7 @@ const hoursOptions = [
       return 'Operations are eating your week. Don’t take that personally. Most owners hit this point as the business outgrows the way it was originally run. The fixes don’t have to be big or expensive. They have to be in the right order.';
     }
 
-    function composeDiagnosis(overall, tier, weak, strong, second) {
+    function composeDiagnosis(overall, tier, weak, strong, second, opportunities) {
       const weakMeta = CAT_META[weak.id];
       const strongMeta = CAT_META[strong.id];
 
@@ -1239,6 +1448,19 @@ const hoursOptions = [
         secondPara = `<strong>${secondMeta.name}</strong> isn’t far behind at <strong>${second.score}</strong>. These two often feed each other. Fix one and the other gets cheaper.`;
       }
 
+      // N/A opportunities — "we don't have this yet" = clean-slate wins, no migration friction
+      let opportunitiesPara = '';
+      if (opportunities && opportunities.length > 0) {
+        const labels = opportunities.map(o => `<em>${o.label.replace(/^We /, '').replace(/\.$/, '').toLowerCase()}</em>`);
+        const joined = labels.length === 1
+          ? labels[0]
+          : labels.length === 2
+            ? `${labels[0]} and ${labels[1]}`
+            : labels.slice(0, -1).join(', ') + ', and ' + labels[labels.length - 1];
+        const noun = opportunities.length === 1 ? 'opportunity' : `${opportunities.length} clean opportunities`;
+        opportunitiesPara = `You signaled ${noun} <strong>that don’t even show up in the score above</strong>: ${joined}. These are usually the fastest wins because there’s no migration friction, no entrenched habits, and no political pushback from someone defending the current tool.`;
+      }
+
       const hoursLine = hoursFlavor(state.manualHours, state.ownerHours);
 
       let strongPara = '';
@@ -1250,6 +1472,7 @@ const hoursOptions = [
         `<p>${intro}</p>`,
         `<p>${weakPara}</p>`,
         secondPara ? `<p>${secondPara}</p>` : '',
+        opportunitiesPara ? `<p>${opportunitiesPara}</p>` : '',
         hoursLine ? `<p>${hoursLine}</p>` : '',
         strongPara ? `<p>${strongPara}</p>` : '',
       ];
@@ -1288,12 +1511,31 @@ const hoursOptions = [
         if (barEl) setTimeout(() => { barEl.style.width = score + '%'; }, 100);
       });
 
-      // Hidden cost
+      // Hidden cost — now the LEDE of the results page, not a footnote
       const costEl = document.getElementById('hidden-cost');
       if (costEl) animateNumber(costEl, 0, cost.total, 1500, true);
       const costExp = document.getElementById('cost-explainer');
       if (costExp) {
-        costExp.innerHTML = `~${cost.teamMid} hrs/wk of team manual work plus ~${cost.ownerMid} hrs/wk of your time, at typical loaded costs ($50/hr team, $100/hr owner). That’s before counting deals lost to slow follow-up, decisions made on bad data, or work that gets dropped.`;
+        costExp.innerHTML = `~${cost.teamMid} hrs/wk of team manual work plus ~${cost.ownerMid} hrs/wk of your time, at defensible loaded labor costs (<a href="https://www.bls.gov/news.release/ecec.nr0.htm" target="_blank" rel="noopener" class="underline decoration-stone-400 hover:decoration-accent-500">BLS Q4 2025 private-industry total compensation</a>: $46.15/hr team, $100/hr owner). Not counting deals lost to slow follow-up or decisions made on bad data.`;
+      }
+
+      // N/A opportunities — surfaced beneath the cost
+      const opportunities = naOpportunities();
+      const oppEl = document.getElementById('opportunities-line');
+      if (oppEl) {
+        if (opportunities.length === 0) {
+          oppEl.classList.add('hidden');
+        } else {
+          oppEl.classList.remove('hidden');
+          const labels = opportunities.map(o => `<span class="font-semibold text-navy-900 dark:text-white">${o.label}</span>`);
+          const joined = labels.length === 1
+            ? labels[0]
+            : labels.length === 2
+              ? `${labels[0]} and ${labels[1]}`
+              : labels.slice(0, -1).join(', ') + ', and ' + labels[labels.length - 1];
+          const noun = opportunities.length === 1 ? 'a clean opportunity' : `${opportunities.length} clean opportunities`;
+          oppEl.innerHTML = `Plus ${noun} that don’t show up in the dollar number above: ${joined}. These typically deliver another <span class="font-semibold text-navy-900 dark:text-white">$15–30K/year</span> in retained customers and reclaimed time, but the exact figure depends on your business.`;
+        }
       }
 
       // Radar chart
@@ -1301,7 +1543,7 @@ const hoursOptions = [
 
       // Diagnosis
       const diagEl = document.getElementById('diagnosis-text');
-      if (diagEl) diagEl.innerHTML = composeDiagnosis(overall, tier, weak, strong, second);
+      if (diagEl) diagEl.innerHTML = composeDiagnosis(overall, tier, weak, strong, second, opportunities);
 
       // Where to start
       const weakMeta = CAT_META[weak.id];
@@ -1528,9 +1770,11 @@ const hoursOptions = [
       loadState();
       setupAnswerButtons();
       setupHoursButtons();
+      setupScreeningButtons();
       setupNav();
       updateNextEnabled();
       updateFinishEnabled();
+      updateScreeningContinue();
       setupEmailForm();
       tryLoadLottie();
       // If they had a session going, resume at their step (but never resume at analyzing)
