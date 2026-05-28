@@ -649,10 +649,18 @@ const hoursOptions = [
                 />
                 <input type="hidden" name="source" value="audit" />
                 <input type="hidden" name="score" id="hidden-score" />
+                <input type="hidden" name="tier" id="hidden-tier" />
+                <input type="hidden" name="hidden_cost" id="hidden-cost-input" />
                 <input type="hidden" name="weakest_category" id="hidden-weak" />
                 <input type="hidden" name="strongest_category" id="hidden-strong" />
+                <input type="hidden" name="category_scores" id="hidden-cat-scores" />
+                <input type="hidden" name="opportunities" id="hidden-opportunities" />
+                <input type="hidden" name="employees" id="hidden-employees" />
+                <input type="hidden" name="revenue" id="hidden-revenue" />
+                <input type="hidden" name="business_type" id="hidden-business-type" />
                 <input type="hidden" name="manual_hours" id="hidden-manual" />
                 <input type="hidden" name="owner_hours" id="hidden-owner" />
+                <input type="hidden" name="all_answers" id="hidden-all-answers" />
                 <input type="hidden" name="_subject" value="Mauops Audit — new submission" />
                 <button
                   type="submit"
@@ -930,7 +938,7 @@ const hoursOptions = [
   <!-- lottie-web for the "analyzing" animation (~10kb gzipped). The animation JSON is loaded only if /audit/lottie-analyzing.json exists. -->
   <script is:inline src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_light.min.js"></script>
 
-  <script is:inline define:vars={{ categoryIds: categories.map(c => c.id), questionList: questions, hoursOptionsData: hoursOptions, categoryNames: categories.map(c => c.name), employeeOptionsData: screeningEmployeeOptions }}>
+  <script is:inline define:vars={{ categoryIds: categories.map(c => c.id), questionList: questions, hoursOptionsData: hoursOptions, categoryNames: categories.map(c => c.name), employeeOptionsData: screeningEmployeeOptions, revenueOptionsData: screeningRevenueOptions }}>
     // ============================
     // AUDIT LOGIC (vanilla JS)
     // ============================
@@ -1685,21 +1693,65 @@ const hoursOptions = [
         const successEl = document.getElementById('email-success');
         const submitBtn = form.querySelector('button[type="submit"]');
 
-        // Populate hidden fields with the current audit results
+        // Populate hidden fields with the current audit results.
+        // Every signal Will would want for a sales conversation goes here.
         const overall = scoreOverall();
+        const tier = pickTier(overall);
         const weak = weakestCategory();
         const strong = strongestCategory();
+        const cost = hiddenCost();
+        const opportunities = naOpportunities();
         const setHidden = (id, value) => {
           const el = document.getElementById(id);
           if (el) el.value = value;
         };
-        setHidden('hidden-score', String(overall));
+
+        // Headline metrics
+        setHidden('hidden-score', String(overall) + '/100');
+        setHidden('hidden-tier', tier.name);
+        setHidden('hidden-cost-input', '$' + cost.total.toLocaleString() + '/year (team $' + cost.team.toLocaleString() + ' + owner $' + cost.owner.toLocaleString() + ')');
+
+        // Category info
         setHidden('hidden-weak', CAT_META[weak.id].name + ' (' + weak.score + ')');
         setHidden('hidden-strong', CAT_META[strong.id].name + ' (' + strong.score + ')');
+        const catScoresStr = categoryIds
+          .map(id => CAT_META[id].name + ': ' + scoreCategory(id))
+          .join(' | ');
+        setHidden('hidden-cat-scores', catScoresStr);
+
+        // N/A opportunities — the most actionable sales intel
+        const oppStr = opportunities.length > 0
+          ? opportunities.map(o => o.label).join(' | ')
+          : '(none — they have something in every category)';
+        setHidden('hidden-opportunities', oppStr);
+
+        // Screening (lead qualification)
+        const empLabel = (state.employees !== null && employeeOptionsData[state.employees])
+          ? employeeOptionsData[state.employees].label + ' employees'
+          : '(not provided)';
+        setHidden('hidden-employees', empLabel);
+
+        const revLabel = (state.revenue !== null && revenueOptionsData[state.revenue])
+          ? revenueOptionsData[state.revenue].label
+          : '(not provided)';
+        setHidden('hidden-revenue', revLabel);
+
+        setHidden('hidden-business-type', state.businessType || '(not provided)');
+
+        // Hours
         const manualLabel = (hoursOptionsData[state.manualHours] || hoursOptionsData[0]).label;
         const ownerLabel = (hoursOptionsData[state.ownerHours] || hoursOptionsData[0]).label;
         setHidden('hidden-manual', manualLabel + ' hrs/wk');
         setHidden('hidden-owner', ownerLabel + ' hrs/wk');
+
+        // Every individual answer (for sales follow-up reference)
+        const answerLabels = { '-1': 'N/A', '1': '1 Not at all', '2': '2 A little', '3': '3 Somewhat', '4': '4 Mostly', '5': '5 Definitely' };
+        const allAnswersStr = questionList.map(q => {
+          const v = state.answers[q.id];
+          const label = answerLabels[String(v)] || '(no answer)';
+          return q.id + ' [' + q.cat + ']: ' + label;
+        }).join('\n');
+        setHidden('hidden-all-answers', allAnswersStr);
 
         // Bail with friendly error if the form ID hasn't been swapped in
         if (form.action.includes('YOUR_FORM_ID')) {
