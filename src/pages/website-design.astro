@@ -284,18 +284,31 @@ const faqSchema = JSON.stringify({
 
   <!-- Pricing -->
   <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="Ballpark ranges to help you plan. Final pricing depends on scope, number of pages, and integrations needed.">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
       {[
         {
-          name: 'Landing Page',
-          price: 'From $1,500',
-          desc: 'A single, focused page to capture leads or promote a service.',
+          name: 'Starter',
+          price: '$500',
+          desc: 'A custom-touched one-page site to get your business online fast and found on Google.',
           features: [
-            'Single-page design',
+            'One mobile-friendly page',
+            'Personalized to your brand, colors, logo, and photos',
+            'Contact form',
+            'Basic SEO so you show up locally',
+            'One round of revisions',
+            'You provide the content'
+          ]
+        },
+        {
+          name: 'Custom Landing Page',
+          price: 'From $1,500',
+          desc: 'A fully custom single page, designed from scratch with copy written for you.',
+          features: [
+            'Bespoke single-page design',
             'Mobile responsive',
             'Contact form with CRM integration',
             'Basic SEO setup',
-            'Content writing',
+            'Content writing included',
             '30 days support'
           ]
         },
