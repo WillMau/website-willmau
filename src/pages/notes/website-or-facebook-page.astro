@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'Do I Need a Website If I Have a Facebook Page?';
+const description = 'A Facebook page is a great start, but on its own it leaves a local business invisible on Google. Here is where it quietly costs you customers, and why a simple website helps.';
+const published = 'June 26, 2026';
+
+const faqs = [
+  {
+    q: 'Is a website better than a Facebook page for a local business?',
+    a: 'They do different jobs, so it is not either/or. People scroll Facebook but search Google, and 72% of consumers use Google to find local business information. Your website is what Google ranks and what you fully own. Your Facebook page is great for community and word of mouth. The best setup uses both.',
+  },
+  {
+    q: 'Will a website help my business show up on Google?',
+    a: 'Yes. Your own website is the single biggest factor in local organic search rankings, around 33% of the weighting. A Facebook page does not give you that foothold. Pairing a simple website with a free Google Business Profile is how local businesses show up for "near me" searches.',
+  },
+  {
+    q: 'How much does a simple website cost?',
+    a: 'Less than most people think. A clean one-page site that gets you online and found on Google can start around $500, not the thousands of dollars many owners assume. You do not need a big, expensive site to get the benefit.',
+  },
+  {
+    q: 'Do I have to stop using Facebook if I get a website?',
+    a: 'No, and you should not. Keep posting to Facebook for community and updates. A website works alongside it as your owned home base. Together with a Google Business Profile, the three catch customers the others miss.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Do I Need a Website If I Have a Facebook Page?",
+  "description": description,
+  "datePublished": "2026-06-26",
+  "dateModified": "2026-06-26",
+  "author": { "@type": "Organization", "name": "Mau Consulting", "url": "https://mauops.com" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/notes/website-or-facebook-page/" }
+});
+---
+
+<BaseLayout title={title} description={description} pageLabel="Notes">
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/notes/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All notes
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              Do I need a website if I already have a Facebook page?
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              {published} &middot; 6 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            It is one of the most common questions I hear from local business owners, and it is a fair one. You already have a Facebook page. People follow it. You post your work there. So why pay for a website too?
+          </p>
+          <p>
+            Here is the honest answer, from someone who builds websites for a living but also runs a Facebook page and finds plenty of customers in local groups: <strong class="text-navy-900 dark:text-white">a Facebook page is a great start, but on its own it leaves you invisible to a lot of the people who are actively trying to find you.</strong> The good news is you do not have to choose. The two work better together. Let me walk through why.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">First, what Facebook is genuinely great at</h2>
+          <p>
+            This is not an anti-Facebook post. For a local business, a Facebook page does real work. It is where word of mouth lives. When someone asks "can anyone recommend a good electrician?" in a local group, that is Facebook earning its keep. It is great for community, quick updates, posting photos of recent jobs, and letting people message you fast.
+          </p>
+          <p>
+            And people do use it to check you out. About <strong class="text-navy-900 dark:text-white">37% of consumers use Facebook to read reviews of local businesses</strong>, and roughly a third trust it as a source of business information (BrightLocal, 2024). So keep your page. Post to it. None of what follows means you should walk away from Facebook.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Where a Facebook-only presence quietly costs you customers</h2>
+          <p>
+            The problem is not what Facebook does well. It is what it cannot do. Here is the gap.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">1. When people are ready to buy, they go to Google, not Facebook</h3>
+          <p>
+            There is a difference between scrolling and searching. People scroll Facebook to pass the time. They go to Google when they actually need something. And the numbers are lopsided: <strong class="text-navy-900 dark:text-white">72% of consumers use Google to find information about a local business, and 81% use Google to read local reviews, versus just 37% on Facebook</strong> (BrightLocal, 2024).
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              So when someone in your town types "epoxy floors near me" or "hair salon in Schenectady" into Google, your Facebook page usually is not what comes up. Whoever does show up gets the call. That is business going to a competitor, not because they are better, but because they can be found.
+            </p>
+          </div>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">2. People cross-check, and an empty Google result looks like a red flag</h3>
+          <p>
+            Customers do not trust just one source. <strong class="text-navy-900 dark:text-white">74% of people use two or more sources when researching a business</strong> (BrightLocal, 2024). They see your Facebook page, then they Google your name to confirm you are real. If nothing solid comes up, a small doubt creeps in. A simple website is what closes that doubt.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">3. A website is the thing Google actually ranks</h3>
+          <p>
+            This is the part most people do not know. Your website is the single biggest factor in whether you show up in Google's local search results. In the industry's annual ranking-factors survey, <strong class="text-navy-900 dark:text-white">on-page website signals are the largest driver of local organic rankings, around 33%</strong> (BrightLocal, 2026). Google's own help docs say your visibility depends partly on how many other websites link to you. A Facebook page does not give you any of that. No website, no real foothold in search.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">4. You do not actually own your Facebook page</h3>
+          <p>
+            You built your following. But you do not control who sees your posts, and you do not own the page. Facebook does. Over the years, organic reach for business pages has fallen off a cliff: <strong class="text-navy-900 dark:text-white">from about 16% of your followers in 2012 to roughly 1 to 2% today</strong> (Hootsuite, 2025). That means if you have 500 followers, a typical post might reach 5 to 10 of them unless you pay to boost it.
+          </p>
+          <p>
+            A website is different. It is yours. The design, the content, the way people contact you, all of it is under your control, and no algorithm change can quietly throttle it overnight. You are renting your Facebook audience. You own your website.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">5. A website still signals "real and here to stay"</h3>
+          <p>
+            Especially for a newer business, a website reads as legitimate. In one 2026 survey by web host DreamHost, <strong class="text-navy-900 dark:text-white">69% of consumers said a website is essential for a local business to be credible</strong>, ranking it the second most important trust signal behind online reviews. Take that one with a grain of salt, since a web host has an interest in the answer, but it lines up with what I see: a simple, clean site makes a small business look established.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">You do not need a big, expensive website</h2>
+          <p>
+            Here is the myth that keeps people on Facebook only: that a website means thousands of dollars and months of work. It does not. A <a href="/website-design/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">simple one-page site</a> that loads fast, says what you do and where, and shows up on Google does the job for most local businesses.
+          </p>
+          <p>
+            And it is becoming the norm. <strong class="text-navy-900 dark:text-white">83% of small businesses now have a website</strong>, up from about 64% in 2018 (Clutch, 2025). Of the ones that still do not, most admit they are missing out on search visibility and lead generation. You do not want to be the business a customer cannot find.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The best setup is both, working as a system</h2>
+          <p>
+            This is the real answer. It was never website versus Facebook. The businesses that win locally use three things that feed each other:
+          </p>
+          <ul class="space-y-3 pl-1">
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">1.</span><span><strong class="text-navy-900 dark:text-white">A website</strong> as your home base, the part you own, that Google ranks and that customers trust.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">2.</span><span><strong class="text-navy-900 dark:text-white">A Google Business Profile</strong>, the free listing that puts you on the map for "near me" searches.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">3.</span><span><strong class="text-navy-900 dark:text-white">Your Facebook page</strong> for community, word of mouth, and staying in front of people who already know you.</span></li>
+          </ul>
+          <p>
+            Keep the Facebook page. Add the website. Set up the Google profile. Each one catches customers the others miss.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Where these numbers come from: BrightLocal Local Consumer Review Survey (2024) and Local Search Ranking Factors (2026); Clutch State of Small Business Websites (2025); DreamHost Local Business Trust Index (2026); Hootsuite organic reach data (2025). These are national U.S. figures, but they match what I see with local businesses here in the Capital Region.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">If you only have a Facebook page, you are not behind</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              You are normal. But a simple website is the highest-leverage next step you can take to get found. I build clean one-page sites for local businesses starting at $500, and I am happy to take a free look at what you have now and tell you the one thing I would do first. No pressure either way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?service=website&source=notes-facebook-website" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/audit/" variant="outline" size="lg">Take the Free Audit</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
