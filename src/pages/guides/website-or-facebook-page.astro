@@ -50,11 +50,11 @@ const articleSchema = JSON.stringify({
     "name": "Mau Consulting",
     "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
   },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/notes/website-or-facebook-page/" }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/website-or-facebook-page/" }
 });
 ---
 
-<BaseLayout title={title} description={description} pageLabel="Notes">
+<BaseLayout title={title} description={description} pageLabel="Guides">
   <Header />
   <script type="application/ld+json" set:html={articleSchema} />
   <script type="application/ld+json" set:html={faqSchema} />
@@ -65,9 +65,9 @@ const articleSchema = JSON.stringify({
       <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
           <div class="max-w-3xl mx-auto">
-            <a href="/notes/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-              All notes
+              All guides
             </a>
             <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
               Do I need a website if I already have a Facebook page?
@@ -188,7 +188,7 @@ const articleSchema = JSON.stringify({
               You are normal. But a simple website is the highest-leverage next step you can take to get found. I build clean one-page sites for local businesses starting at $500, and I am happy to take a free look at what you have now and tell you the one thing I would do first. No pressure either way.
             </p>
             <div class="flex flex-wrap gap-4">
-              <Button href="/contact/?service=website&source=notes-facebook-website" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/contact/?service=website&source=guides-facebook-website" variant="primary" size="lg">Book a Free Call</Button>
               <Button href="/audit/" variant="outline" size="lg">Take the Free Audit</Button>
             </div>
           </div>
