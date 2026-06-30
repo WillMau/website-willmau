@@ -65,32 +65,43 @@ import Badge from '../components/Badge.astro';
             </div>
           </Card>
 
-          <!-- Post 1 -->
+          <!-- Published post -->
           <Card>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <Badge variant="accent">Operations</Badge>
-              <Badge variant="accent">Process Design</Badge>
-            </div>
-            <h2 class="text-2xl font-bold text-navy-900 dark:text-white mb-3">
-              <a href="#" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
-                Designing Tiered Support Without Adding Headcount
+            <div class="flex flex-col sm:flex-row gap-6">
+              <a href="/guides/handle-customers-without-hiring/" class="block sm:w-72 sm:flex-shrink-0">
+                <img
+                  src="/og-handle-customers.png"
+                  alt="A phone showing a missed-call auto-reply, a text, and a Facebook message, next to a laptop showing a website FAQ page and an online booking button"
+                  width="1200"
+                  height="630"
+                  class="w-full rounded-xl border border-stone-200 dark:border-stone-800 hover:opacity-95 transition-opacity"
+                  loading="lazy"
+                />
               </a>
-            </h2>
-            <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">
-              Coming soon
-            </p>
-            <p class="text-stone-700 dark:text-stone-300 mb-4">
-              Most support teams get overwhelmed not because they lack people, but because they lack triage. High-priority issues sit in the same queue as routine requests, and everything feels urgent. A tiered support model separates requests by complexity and urgency, routing them to the right people without adding headcount.
-            </p>
-            <p class="text-stone-700 dark:text-stone-300 mb-4">
-              This post covers how to design a three-tier model (routine, technical, escalation) with clear escalation criteria, build a knowledge base to reduce repeat questions, and use lightweight ticketing to measure volume and resolution times. The goal: balance workload, resolve high-priority issues faster, and give leadership visibility into support metrics.
-            </p>
-            <a href="#" class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2">
-              Read more
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+              <div class="flex-1">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="accent">Operations</Badge>
+                  <Badge variant="accent">Getting Found</Badge>
+                </div>
+                <h2 class="text-2xl font-bold text-navy-900 dark:text-white mb-3">
+                  <a href="/guides/handle-customers-without-hiring/" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                    How to Handle More Customers Without Hiring
+                  </a>
+                </h2>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">
+                  June 30, 2026 &middot; 7 minute read
+                </p>
+                <p class="text-stone-700 dark:text-stone-300 mb-4">
+                  Drowning in calls, texts, and DMs? You probably do not need another employee. Most of your questions are the same handful, and a simple three-layer system, an FAQ page, missed-call text-back, and saved replies, handles the routine stuff so only the calls that need you reach you.
+                </p>
+                <a href="/guides/handle-customers-without-hiring/" class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2">
+                  Read more
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </Card>
 
           <!-- Post 2 -->
