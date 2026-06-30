@@ -54,7 +54,7 @@ const articleSchema = JSON.stringify({
 });
 ---
 
-<BaseLayout title={title} description={description} pageLabel="Guides">
+<BaseLayout title={title} description={description} image="/og-website-or-facebook.png" pageLabel="Guides">
   <Header />
   <script type="application/ld+json" set:html={articleSchema} />
   <script type="application/ld+json" set:html={faqSchema} />
@@ -76,6 +76,20 @@ const articleSchema = JSON.stringify({
               {published} &middot; 6 minute read
             </p>
           </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-website-or-facebook.png"
+            alt="A laptop showing a local business Facebook page next to a phone showing the same business in Google search results"
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
         </div>
       </div>
 
