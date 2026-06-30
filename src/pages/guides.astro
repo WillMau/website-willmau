@@ -28,27 +28,41 @@ import Badge from '../components/Badge.astro';
         <div class="space-y-8">
           <!-- Published post -->
           <Card>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <Badge variant="accent">Websites</Badge>
-              <Badge variant="accent">Getting Found</Badge>
-            </div>
-            <h2 class="text-2xl font-bold text-navy-900 dark:text-white mb-3">
-              <a href="/guides/website-or-facebook-page/" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
-                Do I Need a Website If I Have a Facebook Page?
+            <div class="flex flex-col sm:flex-row gap-6">
+              <a href="/guides/website-or-facebook-page/" class="block sm:w-72 sm:flex-shrink-0">
+                <img
+                  src="/og-website-or-facebook.png"
+                  alt="A laptop showing a local business Facebook page next to a phone showing the same business in Google search results"
+                  width="1200"
+                  height="630"
+                  class="w-full rounded-xl border border-stone-200 dark:border-stone-800 hover:opacity-95 transition-opacity"
+                  loading="lazy"
+                />
               </a>
-            </h2>
-            <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">
-              June 26, 2026 &middot; 6 minute read
-            </p>
-            <p class="text-stone-700 dark:text-stone-300 mb-4">
-              An honest answer for local business owners. A Facebook page is a great start, but on its own it leaves you invisible to a lot of the customers actively trying to find you. Here is where a Facebook-only presence quietly costs you business, what Facebook still does well, and why a simple website works alongside it, backed by the numbers.
-            </p>
-            <a href="/guides/website-or-facebook-page/" class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2">
-              Read more
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+              <div class="flex-1">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="accent">Websites</Badge>
+                  <Badge variant="accent">Getting Found</Badge>
+                </div>
+                <h2 class="text-2xl font-bold text-navy-900 dark:text-white mb-3">
+                  <a href="/guides/website-or-facebook-page/" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                    Do I Need a Website If I Have a Facebook Page?
+                  </a>
+                </h2>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">
+                  June 26, 2026 &middot; 6 minute read
+                </p>
+                <p class="text-stone-700 dark:text-stone-300 mb-4">
+                  An honest answer for local business owners. A Facebook page is a great start, but on its own it leaves you invisible to a lot of the customers actively trying to find you. Here is where a Facebook-only presence quietly costs you business, what Facebook still does well, and why a simple website works alongside it, backed by the numbers.
+                </p>
+                <a href="/guides/website-or-facebook-page/" class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2">
+                  Read more
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </Card>
 
           <!-- Post 1 -->
