@@ -44,7 +44,12 @@ const articleSchema = JSON.stringify({
   "description": description,
   "datePublished": "2026-06-26",
   "dateModified": "2026-06-26",
-  "author": { "@type": "Organization", "name": "Mau Consulting", "url": "https://mauops.com" },
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/",
+    "sameAs": "https://www.linkedin.com/in/will-mau/"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "Mau Consulting",
@@ -83,7 +88,7 @@ const articleSchema = JSON.stringify({
               Do I need a website if I already have a Facebook page?
             </h1>
             <p class="text-lg text-stone-500 dark:text-stone-400">
-              {published} &middot; 6 minute read
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 6 minute read
             </p>
           </div>
         </div>
