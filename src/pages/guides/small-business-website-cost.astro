@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'What Does a Small Business Website Cost?';
+const description = 'What does a small business website really cost? Honest 2026 price ranges, the traps to avoid, and the five things that matter more than the number.';
+const published = 'July 1, 2026';
+
+const faqs = [
+  {
+    q: 'Why do most web designers hide their prices?',
+    a: 'Usually because the price depends on scope, and they want a call before naming a number. That is fair, but it also makes it hard to plan. A designer who can at least give you honest starting ranges up front is a good sign. If someone will not talk about money at all until you are deep in a sales conversation, take note.',
+  },
+  {
+    q: 'Are cheap DIY website builders worth it?',
+    a: 'They can be, if you genuinely have the time and patience to build and maintain it yourself. The monthly fee is low, but the real cost is your hours, and most DIY sites end up half-finished or never show up on Google. For a lot of owners, paying once for a simple site that is actually done and findable is cheaper than months of tinkering.',
+  },
+  {
+    q: 'What are the ongoing costs of a website?',
+    a: 'Plan for hosting, a domain name, and some form of maintenance or updates. For a small business this typically runs somewhere between about $1,100 and $5,000 a year depending on the tools involved, and it is the part most owners forget to ask about. Always get the ongoing number, not just the build number.',
+  },
+  {
+    q: 'How much should a small business actually spend?',
+    a: 'Enough to get a fast, mobile-friendly site that shows up on Google and that someone will support after launch. For many local businesses that is a simple one-page or few-page site, not a five-figure build. Spend on being found and being supported, not on features you will never use.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What Does a Small Business Website Cost?",
+  "description": description,
+  "datePublished": "2026-07-01",
+  "dateModified": "2026-07-01",
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/",
+    "sameAs": "https://www.linkedin.com/in/will-mau/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/small-business-website-cost/" }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-website-cost.png"
+  imageAlt="What does a small business website cost? Five things to know before you pay, next to a laptop showing a local business website and a checklist"
+  imageWidth={1200}
+  imageHeight={630}
+  ogType="article"
+  publishedTime="2026-07-01T00:00:00-04:00"
+  pageLabel="Guides"
+>
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All guides
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              What does a small business website cost? Five things to know before you pay
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 5 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-website-cost.png"
+            alt="What does a small business website cost? Five things to know before you pay, next to a laptop showing a local business website and a checklist"
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            "How much does a website cost?" is one of the first questions every business owner asks, and one of the hardest to get a straight answer to. Most web designers dodge it with "it depends" and a contact form. So here is the honest version, ranges included.
+          </p>
+          <p>
+            A bit of where this comes from: <strong class="text-navy-900 dark:text-white">I have been through a lot of website builds and migrations, some I did myself, others where we hired an outside firm.</strong> The biggest lesson had nothing to do with price. It was that who you work with, and whether they actually listen to your business, matters far more than the number on the invoice.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">First, the real price ranges</h2>
+          <p>
+            Prices are all over the map because "a website" can mean a one-page flyer or a 40-page store. Here is the honest lay of the land for 2026:
+          </p>
+          <ul class="space-y-3 pl-1">
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Do it yourself (about $0 to $30/month).</strong> Wix, Squarespace, and similar. Cheap in dollars, expensive in your time, and most never get finished.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">A freelancer (about $1,000 to $5,000).</strong> A real person builds it for you. Simple one-page sites can start lower. This is the sweet spot for most local businesses.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">An agency (about $6,000 to $35,000+).</strong> A team, a process, and a price to match. Great for bigger companies, usually overkill for a local shop.</span></li>
+          </ul>
+          <p>
+            Most professional builds land somewhere between $3,000 and $15,000, with another <strong class="text-navy-900 dark:text-white">$1,100 to $5,000 a year in ongoing costs</strong> for hosting, a domain, and maintenance that owners often forget to ask about (industry averages, 2026).
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              A fair warning on the numbers: the scariest "you are losing thousands" figures usually come from people selling something. Treat all of these as directional. The sticker price is honestly the least interesting part of the decision. Here is what actually determines whether you get your money's worth.
+            </p>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Five things that matter more than the price</h2>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">1. The person matters more than the price</h3>
+          <p>
+            After a lot of builds, this is the one I feel most strongly about. The best results never came from the cheapest quote or the fanciest agency. They came from whoever took the time to understand how the business actually worked before they touched a design. Fit and listening beat features. Talk to whoever will do the work, not just a salesperson, and see if they ask about your business or just about your budget.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">2. It has to be built to be found</h3>
+          <p>
+            A website does nothing if nobody can find it. <strong class="text-navy-900 dark:text-white">Search optimization needs to be built in from the start, not sold to you as an add-on later.</strong> A cheap site that never shows up on Google costs you far more than a slightly pricier one that ranks, because the whole point is getting found by people searching for what you do. (More on that here: <a href="/guides/website-or-facebook-page/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">why a website beats a Facebook page for getting found</a>.)
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">3. Make sure support is included or available</h3>
+          <p>
+            Your website is not "done" at launch. You will want to change hours, add a service, fix a typo, or update a photo. <strong class="text-navy-900 dark:text-white">Make sure support is included or clearly available going forward</strong>, and that you are not left stranded the first time you need a small change. The worst position is a finished site and a builder who has vanished. Ask, before you pay: when I need help in six months, who do I call?
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">4. You probably need less than you think</h3>
+          <p>
+            The myth that keeps people from starting is that a website means five figures and months of work. For most local businesses it does not. A <a href="/website-design/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">clean one-page site</a> that loads fast, says what you do and where, and shows up on Google does the job. Do not let anyone upsell you into features you will never use.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">5. Ask exactly what is included</h3>
+          <p>
+            A price means nothing without the list behind it. Before you agree to anything, get clear answers on: who writes the content, is it mobile-friendly, is search optimization included, who updates it later, and what are the ongoing costs. Two quotes that look far apart on price are often identical once you compare what each one actually covers.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Where these numbers come from: 2026 small business website pricing averages compiled from Jim.com, GruffyGoat, and Lounge Lizard. Ranges vary widely by source and project, and the most alarming cost-of-inaction figures tend to come from vendors, so treat everything here as directional. It lines up with what I see with local businesses here in the Capital Region.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">Want a straight answer for your business?</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              I post my prices instead of hiding them, I build search optimization in from the start, and support does not end at launch. Local one-page sites start at $500. Happy to take a free look at what you have now and give you an honest number and the one thing I would do first. No pressure either way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?service=website&source=guides-website-cost" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/audit/" variant="outline" size="lg">Take the Free Audit</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

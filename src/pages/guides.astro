@@ -104,39 +104,50 @@ import Badge from '../components/Badge.astro';
             </div>
           </Card>
 
-          <!-- Post 2 -->
+          <!-- Published post -->
           <Card>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <Badge variant="accent">Documentation</Badge>
-              <Badge variant="accent">Operations</Badge>
-            </div>
-            <h2 class="text-2xl font-bold text-navy-900 dark:text-white mb-3">
-              <a href="#" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
-                What Good Operational Documentation Looks Like
+            <div class="flex flex-col sm:flex-row gap-6">
+              <a href="/guides/small-business-website-cost/" class="block sm:w-72 sm:flex-shrink-0">
+                <img
+                  src="/og-website-cost.png"
+                  alt="What does a small business website cost? Five things to know before you pay, next to a laptop showing a local business website and a checklist"
+                  width="1200"
+                  height="630"
+                  class="w-full rounded-xl border border-stone-200 dark:border-stone-800 hover:opacity-95 transition-opacity"
+                  loading="lazy"
+                />
               </a>
-            </h2>
-            <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">
-              Coming soon
-            </p>
-            <p class="text-stone-700 dark:text-stone-300 mb-4">
-              Bad documentation is worse than no documentation. It gives false confidence, wastes time, and breaks trust when reality doesn't match what's written. Good operational documentation is clear, current, and useful. It helps someone complete a task without asking for help.
-            </p>
-            <p class="text-stone-700 dark:text-stone-300 mb-4">
-              This post outlines what makes operational documentation effective: clear ownership, step-by-step instructions with screenshots, version history, and a maintenance schedule. It covers how to structure SOPs, when to use decision trees vs. linear steps, and how to keep docs from getting stale. The goal: documentation that actually gets used.
-            </p>
-            <a href="#" class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2">
-              Read more
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+              <div class="flex-1">
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="accent">Websites</Badge>
+                  <Badge variant="accent">Pricing</Badge>
+                </div>
+                <h2 class="text-2xl font-bold text-navy-900 dark:text-white mb-3">
+                  <a href="/guides/small-business-website-cost/" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                    What Does a Small Business Website Cost?
+                  </a>
+                </h2>
+                <p class="text-stone-600 dark:text-stone-400 text-sm mb-4">
+                  July 1, 2026 &middot; 5 minute read
+                </p>
+                <p class="text-stone-700 dark:text-stone-300 mb-4">
+                  A straight answer, ranges included. What a website really costs in 2026, from DIY builders to agencies, the traps at each end, and the five things that matter more than the sticker price: fit, getting found on Google, and support that does not end at launch.
+                </p>
+                <a href="/guides/small-business-website-cost/" class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2">
+                  Read more
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </Card>
         </div>
 
         <!-- Coming Soon Message -->
         <div class="mt-12 text-center p-8 bg-accent-50 dark:bg-accent-900/20 rounded-lg">
           <p class="text-lg text-stone-700 dark:text-stone-300">
-            More posts coming soon. Writing about revenue operations, Salesforce optimization, and lessons learned from building systems that scale.
+            More guides coming soon on getting found on Google, building a website that works, and running a small business without the busywork.
           </p>
         </div>
       </div>
