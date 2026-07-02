@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'Are Your Customers Asking AI Instead of Google?';
+const description = 'Customers are asking AI, not just Google, for local recommendations. Here is what that means for your business, and how to make sure AI can find you.';
+const published = 'July 2, 2026';
+
+const faqs = [
+  {
+    q: 'How do I get ChatGPT or AI to recommend my business?',
+    a: 'There is no magic button and no paying AI for placement. These tools pull their answers from what is already public about you: your website, your Google Business Profile, and your reviews. The businesses that get recommended are simply the ones with clear, accurate, readable information in those places. Fix those and you become recommendable.',
+  },
+  {
+    q: 'Is AI going to replace Google?',
+    a: 'Not entirely, at least not yet. Google is still the number one way people find local businesses. But AI has become the third most-used channel behind Google and Facebook in about a year, so the smart move is not to bet on one tool. Be findable across all of them, which happily comes down to the same basics.',
+  },
+  {
+    q: 'Do I need to do anything technical or special for AI?',
+    a: 'Mostly no. The same fundamentals that help you on Google (a clear website, a complete Google Business Profile, and real reviews) are exactly what AI reads. The one common mistake to avoid is hiding your key information, like your services, hours, or town, inside images or a PDF, where a machine cannot read it.',
+  },
+  {
+    q: 'I only have a Facebook page. Am I invisible to AI?',
+    a: 'Largely, yes, for these tools. A Facebook page is hard for AI assistants to read and rank, so a business with only a Facebook page tends not to show up in AI answers. A simple website is the fix, and it helps you everywhere else too. More on that in the guide linked below.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Are Your Customers Asking AI Instead of Google?",
+  "description": description,
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/",
+    "sameAs": "https://www.linkedin.com/in/will-mau/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/get-recommended-by-ai/" }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-ai-recommendations.png"
+  imageAlt="A phone showing an AI assistant recommending a single local business, while a laptop shows that business's website and Google profile feeding the answer"
+  imageWidth={1200}
+  imageHeight={630}
+  ogType="article"
+  publishedTime="2026-07-02T00:00:00-04:00"
+  pageLabel="Guides"
+>
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All guides
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              Your customers are asking AI for recommendations now, not just Google. Can it find you?
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 6 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-ai-recommendations.png"
+            alt="A phone showing an AI assistant recommending a single local business, while a laptop shows that business's website and Google profile feeding the answer"
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            Here is something that was barely happening a year ago. When someone needs a plumber, a salon, or a place for dinner, a growing number of them are not typing it into Google anymore. They are asking an AI. They open ChatGPT or Google's AI and type "who is a good electrician near me?", and it just answers. Not a page of ten links. One business. Maybe three.
+          </p>
+          <p>
+            That is a big change in how customers find local businesses, and it happened fast. This is not hype or a sales pitch, so let me show you the actual numbers, why it matters more for a small business than a big one, and the good news: what to do about it is simpler than you would think.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">This changed fast, and the numbers are real</h2>
+          <p>
+            In the space of about a year, asking AI for a local recommendation went from a novelty to mainstream. <strong class="text-navy-900 dark:text-white">The share of consumers using AI tools to find local businesses jumped from 6% to 45% in a single year</strong>, which makes AI the third most-used way people find local businesses, behind only Google and Facebook and ahead of Yelp (BrightLocal Local Consumer Review Survey, 2026).
+          </p>
+          <p>
+            At the same time, even plain Google searches are sending fewer people to websites, because Google increasingly answers the question right on the results page. <strong class="text-navy-900 dark:text-white">As of early 2026, about 68% of Google searches ended without anyone clicking through to a website</strong>, up from roughly 60% two years earlier (SparkToro, 2026). People are getting their answer and moving on.
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              A fair note on these numbers: they are moving so fast that they will look different in a year, and the surveys come from marketing companies, so treat them as the direction of travel rather than gospel. But every credible source points the same way. AI is now a real front door to your business, and it was not one two years ago.
+            </p>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Why this matters more for a small business than a big one</h2>
+          <p>
+            Think about the old way of being found. Someone searched, and they got a list. Ten links, a map with a handful of pins. Even if you were not at the very top, you were on the list, and you had a chance to get the click.
+          </p>
+          <p>
+            An AI answer does not work like a list. It gives one recommendation, or a short few. <strong class="text-navy-900 dark:text-white">If you are not in that short answer, you effectively do not exist for that customer.</strong> There is no page two to scroll to. And here is the part that stings: the businesses that tend to show up are the ones with lots of clear, consistent information online. That often means the big chains, while the genuinely better local shop, the one with only a Facebook page, is invisible. Not because it is worse, but because the AI cannot see it.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The good news: AI recommends what it can read</h2>
+          <p>
+            Here is the part that should make you feel better, because it puts you back in control. An AI assistant is not magic and it does not have opinions. It builds its answer from information it can actually read about you, and that comes from three places: <strong class="text-navy-900 dark:text-white">your website, your Google Business Profile, and your reviews.</strong>
+          </p>
+          <p>
+            That is the whole game, and it is worth saying plainly: <strong class="text-navy-900 dark:text-white">AI can only recommend a business it can read.</strong> A Facebook page is mostly a closed box to these tools. A clear website that spells out what you do and where, a complete Google profile, and a steady trickle of reviews are what feed the answer when someone asks. And the best news of all: those are the exact same things that help you show up on regular Google too. You are not starting over or chasing some new trend. You are doing the fundamentals, which now pay off in two places instead of one.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">What to do, in plain terms</h2>
+          <p>
+            None of this is technical. If you want AI to be able to recommend you, here is the short list:
+          </p>
+          <ul class="space-y-3 pl-1">
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">1.</span><span><strong class="text-navy-900 dark:text-white">Have a real website</strong> that says, in plain text, what you do, the towns you serve, your services, and your hours. This is the foundation the AI reads. Do not bury that information inside images, where a machine cannot see it. (If a Facebook page is all you have, here is <a href="/guides/website-or-facebook-page/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">why that leaves you invisible</a>.)</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">2.</span><span><strong class="text-navy-900 dark:text-white">Claim and complete your Google Business Profile.</strong> It is free, and it is one of the biggest sources these tools pull from. Fill in every field: hours, services, photos, description.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">3.</span><span><strong class="text-navy-900 dark:text-white">Get and keep reviews.</strong> AI reads and summarizes reviews to decide who to suggest. You do not need hundreds, just real, recent ones. Ask happy customers.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">4.</span><span><strong class="text-navy-900 dark:text-white">Keep your details consistent everywhere.</strong> Same business name, address, and phone number on your site, your Google profile, and Facebook. Mismatches make you look less trustworthy to both people and machines.</span></li>
+          </ul>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The takeaway</h2>
+          <p>
+            It was never Google versus Facebook versus AI. The businesses that get found feed all of them from one source of truth: an accurate, readable website, a complete Google profile, and real reviews. Set those up once, and it stops mattering whether your next customer asks Google, scrolls Facebook, or asks a robot. The same answer comes back: you.
+          </p>
+          <p>
+            The owners who win the next few years will not be the ones who chase every new tool. They will be the ones who are simply findable, so that whatever a customer asks, they get pointed to your door.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Where these numbers come from: BrightLocal Local Consumer Review Survey (2026) for AI and local discovery figures, and SparkToro's 2026 zero-click search study. These are national US figures from marketing research firms, and the space is changing quickly, so treat them as the direction of travel. They line up with what I am already seeing with local businesses here in the Capital Region.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">Want to make sure AI can find you?</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              I build clean, readable websites and help set up your Google profile and reviews so you show up whether a customer asks Google or an AI. Local one-page sites start at $500. Happy to take a free look at what you have now and tell you the one thing I would do first. No pressure either way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?service=website&source=guides-ai-recommendations" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/audit/" variant="outline" size="lg">Take the Free Audit</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
