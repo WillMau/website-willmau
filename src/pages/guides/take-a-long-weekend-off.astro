@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'How to Take a Long Weekend Off Without Losing Business';
+const description = 'Going away for the holiday weekend? Here is how to set up your small business so missed calls, emails, and bookings get handled while you actually unplug.';
+const published = 'July 3, 2026';
+
+const faqs = [
+  {
+    q: 'Do I have to answer calls on a holiday to keep customers?',
+    a: 'No. Customers do not expect you to answer on July 4th. What they do expect is a quick sign that they were heard and a clear idea of when you will get back to them. An automatic text reply does that for you, so you can enjoy the day without going silent.',
+  },
+  {
+    q: 'What is a missed-call text-back?',
+    a: 'It is a simple automation that sends a text whenever you miss a call. Something like: "Thanks for calling, we are closed for the holiday and will call you back Monday." It turns a missed call, which usually just disappears, into a saved lead who knows you exist and will wait for you.',
+  },
+  {
+    q: 'What should my out-of-office message say?',
+    a: 'Keep it short and specific: that you are closed, the date you reopen, and what to do if it is urgent. Vague messages ("we will get back to you soon") create anxiety. A clear date ("back Monday July 7") sets expectations and keeps people from calling a competitor.',
+  },
+  {
+    q: 'Can I just close and deal with everything on Monday?',
+    a: 'You can, but the calls and messages you ignore over a long weekend do not wait patiently. Many callers simply try the next business on the list. A few hours of setup before you leave keeps those leads warm so they are still yours on Monday.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Take a Long Weekend Off Without Losing Business",
+  "description": description,
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/",
+    "sameAs": "https://www.linkedin.com/in/will-mau/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/take-a-long-weekend-off/" }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-long-weekend.png"
+  imageAlt="Take the long weekend off without losing business: a phone showing a holiday auto-reply that thanks a customer and offers online booking, beside a list of missed-call text-back, out-of-office message, and online booking and FAQ"
+  imageWidth={1200}
+  imageHeight={630}
+  ogType="article"
+  publishedTime="2026-07-03T00:00:00-04:00"
+  pageLabel="Guides"
+>
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All guides
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              How to take a long weekend off without losing business
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 5 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-long-weekend.png"
+            alt="Take the long weekend off without losing business: a phone showing a holiday auto-reply that thanks a customer and offers online booking, beside a list of missed-call text-back, out-of-office message, and online booking and FAQ"
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            It is a holiday weekend, and more than <strong class="text-navy-900 dark:text-white">72 million Americans are traveling</strong> over the July 4th week alone (AAA, 2026). Some of them are your customers. Some of them are you, trying to enjoy a day off while your phone keeps buzzing with calls you feel like you cannot ignore.
+          </p>
+          <p>
+            Here is the thing most owners get wrong about time off: <strong class="text-navy-900 dark:text-white">you do not have to be reachable to keep your customers. You just have to be responsive-looking.</strong> A missed call that gets a quick, friendly reply keeps a lead warm. A missed call that vanishes into silence sends that person to the next name on their list. The difference is a couple of hours of setup, not a ruined weekend.
+          </p>
+          <p>
+            This works for any long weekend, Labor Day, Thanksgiving, the random summer Friday you want to take your kids to the lake. July 4th is just the one in front of us. Here is how to set it up.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Why a quiet weekend costs more than you think</h2>
+          <p>
+            A missed call is rarely just a missed call. It is a quote request, a booking, a "can you come out Tuesday," a new customer with money in hand. When nobody picks up and nothing follows, most people do not leave a voicemail and wait. They call the next business. You never even know the lead existed.
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              The goal over a holiday is not to answer everything. It is to make sure not a single person who reaches out feels ignored. Do that, and the leads are still there on Monday. Skip it, and you spend Monday wondering why it is so quiet.
+            </p>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The set-it-before-you-leave checklist</h2>
+          <p>
+            None of this requires new staff or fancy software. Most of it you can set up in an afternoon and reuse for every holiday after this one.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">1. Turn on missed-call text-back</h3>
+          <p>
+            This is the single highest-value thing you can do. When you miss a call, an automatic text goes out: "Thanks for calling Mau's Landscaping. We are closed for the holiday and will call you back Monday. For anything urgent, reply here." That one text turns a disappearing call into a saved lead who knows you got them. Most phone services and CRMs can do this, and it runs whether you are at a barbecue or asleep.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">2. Set a clear out-of-office message</h3>
+          <p>
+            On your email, voicemail, and Google or Facebook page, say three things: you are closed, the exact date you reopen, and what to do if it is urgent. <strong class="text-navy-900 dark:text-white">Be specific.</strong> "Back Monday, July 7" beats "away for the holiday." A real date sets expectations and quietly reassures people you have not vanished.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">3. Let your website answer the easy stuff</h3>
+          <p>
+            A lot of holiday calls are simple questions: your hours, your prices, whether you cover their area, how to book. A <a href="/website-design/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">simple website</a> with a clear FAQ page and an online booking button answers those around the clock, so people get what they need without you lifting a finger. This is the same idea that <a href="/guides/handle-customers-without-hiring/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">handles more customers without hiring</a>, just pointed at a weekend you want off.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">4. Name one backup, or one window</h3>
+          <p>
+            If you have anyone who can cover, assign one person to glance at messages once a day. If it is just you, do not pretend you will fully unplug when you know you will not. Pick one 15-minute window each morning to skim and flag true emergencies, then put the phone down. A planned check-in beats refreshing your inbox all day and calling it a vacation.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Set it up once, reuse it forever</h2>
+          <p>
+            The best part is that this is not holiday-specific work. Once your missed-call text-back, out-of-office templates, and website FAQ are in place, you flip them on for every long weekend, every vacation, every day you are stuck on a job site and cannot answer. You built the system once. It pays you back every time you want to step away.
+          </p>
+          <p>
+            That is really the whole point. A business that only runs when you are chained to your phone is not a business you own, it is a job that owns you. A few simple systems change that, starting with the weekend in front of you.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Travel figure from AAA's 2026 Independence Day forecast. The rest is the same playbook I set up for local businesses here in the Capital Region so the owner can actually take a day off.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">Want your business to run without you for a weekend?</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              I set up the simple systems that let local owners step away without losing business: missed-call text-back, out-of-office automation, and a website that answers the easy questions for you. Happy to take a free look at what you have now and tell you the one thing I would set up first. No pressure either way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?service=operations&source=guides-long-weekend" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/audit/" variant="outline" size="lg">Take the Free Audit</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
