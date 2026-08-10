@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'I Have a Website. So Why Isn’t Anyone Finding It?';
+const description = 'You built the website and nothing happened. Here is the part nobody told you about getting found on Google, and the simple system that actually does it.';
+const published = 'July 9, 2026';
+
+const faqs = [
+  {
+    q: 'Why does my website only show up when I search my own business name?',
+    a: 'That is normal, and it is the heart of the problem. Google can find you when someone types your exact name, but almost nobody does that. They search "plumber near me" or "hair salon in Schenectady." Showing up for those searches takes a Google Business Profile, reviews, and a site that clearly says what you do and where. That is a different job than simply having a website.',
+  },
+  {
+    q: 'Do I have to pay for Google Ads to show up?',
+    a: 'No. The map results (the little pack of three businesses with the map) and the regular results below are free. A complete Google Business Profile, recent reviews, and a findable website are what get you there. Ads can help on top of that, but you should not have to pay just to appear for your own kind of business in your own town.',
+  },
+  {
+    q: 'How long until I start getting found?',
+    a: 'Some of it is fast and some of it builds. Once your Google Business Profile is claimed and verified, you can start appearing on the map within days. Reviews and search rankings build over weeks as you gather recent reviews and Google trusts your information. It is not instant, but the highest-impact first steps happen quickly.',
+  },
+  {
+    q: 'I have a Facebook page and a website. Isn’t that enough?',
+    a: 'Not on its own. Facebook is great for community, but people search Google when they are ready to hire, and Google mostly shows the map and reviews. You need a Google Business Profile and reviews working alongside your site. Here is the fuller answer: why a website beats a Facebook page for getting found.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "I Have a Website. So Why Isn't Anyone Finding It?",
+  "description": description,
+  "datePublished": "2026-07-09",
+  "dateModified": "2026-07-09",
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/",
+    "sameAs": "https://www.linkedin.com/in/will-mau/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/website-not-showing-up-on-google/" }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-website-not-found.png"
+  imageAlt="A frustrated local business owner looking at a quiet website, next to a phone showing Google search results dominated by a map and reviews"
+  imageWidth={1200}
+  imageHeight={630}
+  ogType="article"
+  publishedTime="2026-07-09T00:00:00-04:00"
+  pageLabel="Guides"
+>
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All guides
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              I have a website. So why isn&rsquo;t anyone finding it?
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 7 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-website-not-found.png"
+            alt="A frustrated local business owner looking at a quiet website, next to a phone showing Google search results dominated by a map and reviews"
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            You did the thing everyone told you to do. You got a website. Maybe you paid good money for it. And then... nothing. No calls, no new customers, no sign that anyone has ever seen it. If you are quietly wondering whether you got ripped off, that is a fair question to ask.
+          </p>
+          <p>
+            Here is the honest answer: <strong class="text-navy-900 dark:text-white">a website is necessary, but on its own it does almost nothing to get you found.</strong> Getting found is a separate job, and it is the part nobody tells you about when they sell you the site. The good news is that the job is learnable, most of it is free, and I can walk you through exactly what actually moves the needle.
+          </p>
+          <p>
+            A quick confession so you know I am not talking down to you: I went through my own version of this recently. I set up a Google Business Profile for my own business, and Google&rsquo;s automated system promptly suspended it. I had to appeal, prove I was real, and wait to get reinstated. So if your online presence feels like a fight you did not sign up for, you are not behind. You are normal. Let me save you the trial and error.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">First, why your website alone stays invisible</h2>
+          <p>
+            Nobody finds a local business by typing your web address. They go to Google and search for what they need. And here is what has quietly changed: Google increasingly answers the search <em>without sending anyone to a website at all.</em> In early 2026, <strong class="text-navy-900 dark:text-white">about 68% of U.S. Google searches ended with no click to any website</strong> (SparkToro and Similarweb, via Search Engine Land), and Google&rsquo;s new AI answers, which now appear on more than 20% of searches, cut click-through by roughly 60% when they show up.
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              What that means in plain terms: getting your website page to &ldquo;rank&rdquo; is no longer the main game. For a local business, the game is being the business Google shows <em>inside</em> its own results, in the little map of three businesses at the top, in the reviews, and in the AI answer. Your website supports that, but it is not the thing doing the winning.
+            </p>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The part nobody told you: getting found is a system, not a website</h2>
+          <p>
+            Getting found locally comes down to three things working together. Miss one and the whole thing gets quiet, which is probably what happened to you.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">1. Your Google Business Profile is the single biggest lever</h3>
+          <p>
+            This is the free listing with your map pin, hours, photos, and reviews. It is the most important thing on this page by a wide margin. In the industry&rsquo;s annual survey of what drives local rankings, <strong class="text-navy-900 dark:text-white">Google Business Profile signals make up roughly 32% of what decides the map results, the single largest factor, and the number one individual signal is simply your primary business category</strong> (Whitespark, 2026). Six of the top ten ranking factors live on that profile, not on your website.
+          </p>
+          <p>
+            If your profile is unclaimed, half-filled, or has the wrong category, you are invisible in the exact place customers are looking. Claim it, verify it, choose the most accurate primary category, fill in every field, and add real photos. (This is the one that got me suspended and then reinstated, so if it fights you, appeal and keep going. It is worth it.)
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">2. Reviews decide whether you are even considered</h3>
+          <p>
+            Reviews are the second biggest ranking factor and their importance is rising (Whitespark, 2026). But they matter just as much for the human deciding whether to call you. The numbers on how people say they behave are blunt: <strong class="text-navy-900 dark:text-white">97% read reviews for local businesses, 68% will only use a business rated four stars or higher, and 47% will not use a business with fewer than 20 reviews</strong> (BrightLocal, 2026). Roughly 80% say they are more likely to choose a business whose owner replies to reviews.
+          </p>
+          <p>
+            So a great website with three old reviews loses to a plain competitor with fifty recent ones. Ask every happy customer for a Google review, make it easy with a direct link, and reply to all of them, the good and the bad. Recent reviews are both a ranking signal and the thing that wins the click.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">3. Be consistent and clear everywhere</h3>
+          <p>
+            Google is trying to confirm you are a real, local business that matches the search. You help it by keeping your <strong class="text-navy-900 dark:text-white">name, address, and phone number identical</strong> everywhere they appear: your website, Google, Facebook, Apple, anywhere you are listed. Mismatched or old information makes Google less sure about you, and less sure means less visible.
+          </p>
+          <p>
+            Your website has a real job here too. It should plainly say <strong class="text-navy-900 dark:text-white">what you do and which towns you serve</strong>. Name your area (Schenectady, Albany, Saratoga, wherever you work), give each main service its own clear page, use a real headline, and make sure it loads fast on a phone. That is what lets Google connect your site to your profile and to the searches that matter.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Your website&rsquo;s job changed. It didn&rsquo;t disappear.</h2>
+          <p>
+            None of this means your site was a waste. Its role changed. It is now your home base, the part you own, that feeds and backs up everything else. People do not trust one source: the typical customer <strong class="text-navy-900 dark:text-white">checks around six different places before choosing a local business</strong> (BrightLocal, 2026). They see your Google listing, then your reviews, then your site, and they need all three to agree and look legit.
+          </p>
+          <p>
+            There is a newer wrinkle worth knowing about, too. People are starting to ask AI for recommendations: use of tools like ChatGPT to find local businesses <strong class="text-navy-900 dark:text-white">jumped from 6% to 45% in a single year</strong> (BrightLocal, 2026). And AI can only recommend a business it can actually read across Google, reviews, and your site. Same system, one more reason to get it right. (More on that here: <a href="/guides/get-recommended-by-ai/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">are your customers asking AI instead of Google?</a>)
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">So what do you actually do? Start here.</h2>
+          <p>
+            In plain order of impact, this is the whole checklist:
+          </p>
+          <ul class="space-y-3 pl-1">
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">1.</span><span><strong class="text-navy-900 dark:text-white">Claim and complete your Google Business Profile.</strong> Right category, every field, real photos. This is the biggest lever, so do it first.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">2.</span><span><strong class="text-navy-900 dark:text-white">Get recent Google reviews and reply to every one.</strong> Ask happy customers directly. This never stops mattering.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">3.</span><span><strong class="text-navy-900 dark:text-white">Make your name, address, and phone match everywhere.</strong> Website, Google, Facebook, all identical.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">4.</span><span><strong class="text-navy-900 dark:text-white">Make your website say what you do and where.</strong> Town names, a page per service, a clear headline.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">5.</span><span><strong class="text-navy-900 dark:text-white">Make sure it loads fast on a phone.</strong> Most of your visitors are on one.</span></li>
+          </ul>
+          <p>
+            Do the first two and you will usually see more than doing everything else combined. None of it requires paying Google a cent.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Where these numbers come from: Whitespark 2026 Local Search Ranking Factors survey; BrightLocal Local Consumer Review Survey (2024 and 2026); SparkToro and Similarweb zero-click study (via Search Engine Land, 2026); Seer Interactive AI Overviews click-through analysis. Ranking-factor weightings are expert-survey estimates, and consumer figures reflect what people say they do, so treat them as directional. They match what I see with local businesses here in the Capital Region.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">A website that doesn&rsquo;t get found isn&rsquo;t finished</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              This is exactly why I do not treat getting found as an upsell. When I build a <a href="/website-design/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">website</a>, I build it to be found: Google Business Profile setup, the local SEO basics, and the review groundwork are part of the job, not a separate invoice. If your current site is quiet, I am happy to take a free look and tell you the one thing I would fix first. No pressure either way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?service=website&source=guides-website-not-found" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/audit/" variant="outline" size="lg">Take the Free Audit</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
