@@ -60,6 +60,10 @@ const faqs = [
   {
     question: 'How long does a typical website project take?',
     answer: 'Most sites launch within 2 to 4 weeks. After our call, you get a clear timeline with milestones so you know exactly what to expect.'
+  },
+  {
+    question: 'Do you only work with businesses in Schenectady?',
+    answer: 'No. I am based in Schenectady and work with small businesses across the whole Capital Region, including Albany, Saratoga Springs, Troy, Niskayuna, Clifton Park, and the surrounding towns. Most of the work can be done remotely, and I am happy to meet in person when you are nearby.'
   }
 ];
 
@@ -78,8 +82,8 @@ const faqSchema = JSON.stringify({
 ---
 
 <BaseLayout
-  title="Website Design for Small Businesses | Schenectady, NY"
-  description="Custom website design for small businesses in the Capital Region. Fast, mobile-first sites with SEO, CRM integration, and content writing included."
+  title="Website Design in Schenectady & the Capital Region"
+  description="Custom website design for small businesses in Schenectady, Albany, Saratoga, and the Capital Region. Fast, mobile-first sites with local SEO and Google Business Profile setup included."
   pageLabel="Websites & Digital Presence"
 >
   <Header />
@@ -104,7 +108,7 @@ const faqSchema = JSON.stringify({
         </h1>
 
         <p class="text-xl sm:text-2xl text-stone-600 dark:text-stone-300 mb-8 animate-delay-100">
-          Fast, modern websites with clear copy, CRM integration, and SEO built in. Every project includes training so your team stays in control.
+          Fast, modern websites for small businesses across Schenectady, Albany, and the Capital Region. Clear copy, CRM integration, and local SEO built in, with training so your team stays in control.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center animate-delay-200">
@@ -381,6 +385,23 @@ const faqSchema = JSON.stringify({
         </div>
       ))}
     </div>
+  </Section>
+
+  <!-- Serving the Capital Region -->
+  <Section id="capital-region" class="bg-white dark:bg-gray-950" title="Serving small businesses across the Capital Region" subtitle="Based in Schenectady, building websites for local businesses from Albany to Saratoga.">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <p class="text-stone-600 dark:text-stone-300 leading-relaxed">
+        I am local, not a faceless agency three states away. Based in Schenectady, I work with small businesses across the Capital Region, and I am glad to meet in person to talk through your project. Because I know the area, I build every site to get you found by nearby customers: local SEO and Google Business Profile setup are included, so you show up when someone searches for what you do &ldquo;near me.&rdquo;
+      </p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+      {['Schenectady', 'Niskayuna', 'Rotterdam', 'Scotia', 'Glenville', 'Albany', 'Troy', 'Saratoga Springs', 'Clifton Park', 'Ballston Spa', 'Latham', 'Guilderland'].map(town => (
+        <span class="inline-block px-4 py-2 rounded-full bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-sm font-medium text-navy-800 dark:text-stone-200">{town}, NY</span>
+      ))}
+    </div>
+    <p class="text-center text-sm text-stone-500 dark:text-stone-400 mt-8 max-w-2xl mx-auto">
+      Not on the list? If you are anywhere in the Capital Region or beyond, I work remotely too. Reach out and let us talk.
+    </p>
   </Section>
 
   <!-- FAQ -->
