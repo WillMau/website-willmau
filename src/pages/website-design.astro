@@ -286,6 +286,59 @@ const faqSchema = JSON.stringify({
     </div>
   </Section>
 
+  <!-- How I Compare -->
+  <Section class="bg-white dark:bg-gray-950" title="How I compare" subtitle="Agency-level service and the things others charge extra for, at honest prices with no agency overhead. Here is where I fit.">
+    <div class="max-w-5xl mx-auto">
+      <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <table class="w-full min-w-[680px] border-collapse">
+          <thead>
+            <tr>
+              <th class="p-3"></th>
+              <th class="p-3 text-center text-sm font-semibold text-navy-700 dark:text-stone-300">DIY builder</th>
+              <th class="p-3 text-center text-sm font-semibold text-navy-700 dark:text-stone-300">Freelancer / Fiverr</th>
+              <th class="p-3 text-center text-sm font-semibold text-navy-700 dark:text-stone-300">Agency</th>
+              <th class="p-3 text-center text-sm font-bold text-white bg-accent-600 rounded-t-xl">Mau Consulting</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { label: 'Typical price', diy: '$0–$30/mo', freelancer: '$1k–$5k', agency: '$6k–$35k', mau: '$500–$3,500', check: false },
+              { label: 'You work directly with who builds it', diy: 'You do it all', freelancer: 'Sometimes', agency: 'No, an account manager', mau: 'Yes, always me', check: true },
+              { label: 'Content written for you', diy: 'No', freelancer: 'Sometimes', agency: 'Extra cost', mau: 'Included', check: true },
+              { label: 'Getting found on Google (SEO + Business Profile)', diy: 'No', freelancer: 'Rarely', agency: 'Extra cost', mau: 'Included', check: true },
+              { label: 'Support after launch', diy: 'You', freelancer: 'Often gone', agency: 'Paid retainer', mau: 'Included', check: true },
+              { label: 'Training to update it yourself', diy: 'n/a', freelancer: 'Rarely', agency: 'Extra cost', mau: 'Included', check: true },
+              { label: 'The systems behind it (CRM, lead follow-up)', diy: 'No', freelancer: 'No', agency: 'Limited', mau: 'Yes, 15 yrs of ops', check: true },
+              { label: 'Local, meets in person', diy: 'n/a', freelancer: 'Usually not', agency: 'Maybe', mau: 'Yes, Capital Region', check: true },
+              { label: 'Fixed price, no surprises', diy: 'n/a', freelancer: 'Varies', agency: 'Varies', mau: 'Yes', check: true },
+            ].map((row, i, arr) => (
+              <tr class="border-t border-stone-200 dark:border-stone-800">
+                <td class="p-3 text-sm font-medium text-navy-900 dark:text-white">{row.label}</td>
+                <td class="p-3 text-center text-sm text-stone-500 dark:text-stone-400">{row.diy}</td>
+                <td class="p-3 text-center text-sm text-stone-500 dark:text-stone-400">{row.freelancer}</td>
+                <td class="p-3 text-center text-sm text-stone-500 dark:text-stone-400">{row.agency}</td>
+                <td class:list={["p-3 text-center text-sm font-semibold text-accent-700 dark:text-accent-300 bg-accent-50/70 dark:bg-accent-900/15", i === arr.length - 1 && "rounded-b-xl"]}>
+                  <span class="inline-flex items-center justify-center gap-1.5">
+                    {row.check && (
+                      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                    )}
+                    <span>{row.mau}</span>
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-stone-500 dark:text-stone-400 mt-6 max-w-3xl">
+        Prices are typical market ranges and vary by project. The real point is not just the number, it is what is included and who you actually work with. With me, the things agencies bill extra for are simply part of the build.
+      </p>
+      <div class="mt-8">
+        <Button href="/contact/?service=website&source=website-design-compare" variant="primary" size="lg">Book a Free Call</Button>
+      </div>
+    </div>
+  </Section>
+
   <!-- Pricing -->
   <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="Ballpark ranges to help you plan. Final pricing depends on scope, number of pages, and integrations needed.">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
