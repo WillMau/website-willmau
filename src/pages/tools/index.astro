@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Free Tools for Small Businesses';
+const description = 'Free, private tools for small businesses. Convert images or make custom QR codes right in your browser. Nothing is uploaded, no sign-up, and they are free to use.';
+
+const tools = [
+  {
+    name: 'Free Image Converter',
+    href: '/tools/image-converter/',
+    blurb: 'Convert HEIC, WebP, and other images to JPG, PNG, or WebP right in your browser. Great for turning iPhone photos or downloaded WebP files into something you can use anywhere.',
+    tags: ['Images', 'Private'],
+    icon: 'image',
+  },
+  {
+    name: 'Free QR Code Generator',
+    href: '/tools/qr-code-generator/',
+    blurb: 'Make customizable QR codes with your colors and logo, including a "leave us a Google review" code for your business. No account, and the codes never expire.',
+    tags: ['QR Codes', 'Private'],
+    icon: 'qr',
+  },
+];
+
+const listSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": tools.map((t, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": t.name,
+    "url": `https://mauops.com${t.href}`,
+  })),
+});
+---
+
+<BaseLayout title={title} description={description} pageLabel="Tools">
+  <Header />
+  <script type="application/ld+json" set:html={listSchema} />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-white dark:bg-gray-950 border-b border-stone-200 dark:border-stone-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-16 sm:pt-24 pb-10 sm:pb-14">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Free, private, no sign-up
+          </span>
+          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-4 leading-[1.1]">
+            Free Tools
+          </h1>
+          <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
+            Handy little tools I built for small business owners. Everything runs in your own browser, so nothing you use is ever uploaded or stored. Free, and yours to use anytime.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools grid -->
+    <section class="py-14 sm:py-20 bg-stone-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {tools.map((tool) => (
+            <a href={tool.href} class="group block rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 p-6 hover:border-accent-300 dark:hover:border-accent-700 hover:shadow-lg hover:shadow-accent-500/[0.06] hover:-translate-y-1 transition-all duration-300">
+              <div class="w-12 h-12 rounded-xl bg-accent-50 dark:bg-accent-900/20 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-5">
+                {tool.icon === 'image' ? (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+                ) : (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.008v.008H6.75V6.75zm0 9.75h.008v.008H6.75v-.008zm9.75-9.75h.008v.008H16.5V6.75zm-3 6.75h.75v.75h-.75v-.75zm0 6h.75v.75h-.75v-.75zm6-6h.75v.75h-.75v-.75zm0 6h.75v.75h-.75v-.75zm-3-3h.75v.75h-.75v-.75z" /></svg>
+                )}
+              </div>
+              <div class="flex flex-wrap gap-2 mb-3">
+                {tool.tags.map((tag) => (
+                  <span class="text-[11px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300">{tag}</span>
+                ))}
+              </div>
+              <h2 class="text-xl font-bold text-navy-900 dark:text-white mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">{tool.name}</h2>
+              <p class="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mb-4">{tool.blurb}</p>
+              <span class="text-accent-600 dark:text-accent-400 text-sm font-medium inline-flex items-center gap-1.5">
+                Open tool
+                <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <p class="max-w-4xl mx-auto text-sm text-stone-500 dark:text-stone-400 mt-8 text-center">
+          More small tools coming. Have one you wish existed? <a href="/contact/?source=tools-hub" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">Tell me about it.</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

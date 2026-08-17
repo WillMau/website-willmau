@@ -52,7 +52,15 @@ const appSchema = JSON.stringify({
 });
 ---
 
-<BaseLayout title={title} description={description} pageLabel="Tools">
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-qr-generator.png"
+  imageAlt="Free QR Code Generator by Mau Consulting: create customizable QR codes instantly, 100 percent private, no tracking"
+  imageWidth={1200}
+  imageHeight={630}
+  pageLabel="Tools"
+>
   <Header />
   <script type="application/ld+json" set:html={appSchema} />
   <script type="application/ld+json" set:html={faqSchema} />
