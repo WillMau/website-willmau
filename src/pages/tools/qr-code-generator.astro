@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Free QR Code Generator (with Google Review QR Codes)';
+const description = 'Make free, customizable QR codes that never expire. Add your colors and logo, or generate a "Leave us a Google review" QR code. No sign-up, and everything happens in your browser.';
+
+const faqs = [
+  {
+    q: 'How do I make a "Leave a Google review" QR code?',
+    a: 'Choose the Google Review option, then paste your review link. To find it, open your Google Business Profile, click "Ask for reviews" or "Get more reviews," and copy the link it gives you. Paste it here and the QR code points customers straight to your review form. Print it on a card, a receipt, or a sign at your counter.',
+  },
+  {
+    q: 'Do these QR codes expire or need an account?',
+    a: 'No. These are static QR codes, which means the link is baked directly into the code. There is no account, no subscription, and no expiration. Many "free" QR sites make dynamic codes that stop working unless you pay. This one just works, forever.',
+  },
+  {
+    q: 'Is my information private?',
+    a: 'Yes. The QR code is created entirely in your browser on your own device. Nothing you type, and no logo you add, is uploaded or stored anywhere.',
+  },
+  {
+    q: 'Can I add my logo and brand colors?',
+    a: 'Yes. You can set the foreground and background colors, choose a dot style, and drop your logo into the center. When you add a logo, the code automatically uses stronger error correction so it still scans reliably.',
+  },
+  {
+    q: 'What size should I download for printing?',
+    a: 'For print, download the SVG. It is a vector file that stays perfectly sharp at any size, from a business card to a banner. Use the PNG for screens and websites.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const appSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR Code Generator by Mau Consulting",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (web browser)",
+  "url": "https://mauops.com/tools/qr-code-generator/",
+  "description": description,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Mau Consulting", "url": "https://mauops.com" },
+});
+---
+
+<BaseLayout title={title} description={description} pageLabel="Tools">
+  <Header />
+  <script type="application/ld+json" set:html={appSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-white dark:bg-gray-950 border-b border-stone-200 dark:border-stone-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-14 sm:pt-20 pb-8 sm:pb-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Free, no sign-up, never expires
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-4 leading-[1.1]">
+            Free QR Code Generator
+          </h1>
+          <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
+            Make a customizable QR code for your website, menu, or a &ldquo;leave us a Google review&rdquo; link. Add your colors and logo, then download. Everything happens in your browser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool -->
+    <section class="py-10 sm:py-14 bg-stone-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+          <!-- Controls -->
+          <div class="lg:col-span-3 space-y-6">
+            <!-- Content type -->
+            <div>
+              <label class="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2">What should the QR code do?</label>
+              <div class="grid grid-cols-3 gap-2" id="type-tabs">
+                <button data-type="url" class="type-tab px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors border-accent-500 bg-accent-50 dark:bg-accent-900/20 text-accent-700 dark:text-accent-300">Website / Link</button>
+                <button data-type="review" class="type-tab px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-300">Google Review</button>
+                <button data-type="text" class="type-tab px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-300">Plain Text</button>
+              </div>
+            </div>
+
+            <!-- Content input -->
+            <div>
+              <label for="content" id="content-label" class="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2">Website address</label>
+              <input id="content" type="text" value="https://mauops.com" placeholder="https://yourbusiness.com"
+                class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-navy-900 dark:text-white focus:ring-2 focus:ring-accent-500 focus:border-accent-500" />
+              <p id="content-help" class="mt-2 text-sm text-stone-500 dark:text-stone-400">The web page people land on when they scan the code.</p>
+            </div>
+
+            <!-- Customization -->
+            <div class="rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-5 space-y-5">
+              <p class="text-sm font-semibold text-navy-900 dark:text-white">Customize</p>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="fg" class="block text-sm text-stone-600 dark:text-stone-400 mb-1.5">Code color</label>
+                  <input id="fg" type="color" value="#102A43" class="h-10 w-full rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 cursor-pointer" />
+                </div>
+                <div>
+                  <label for="bg" class="block text-sm text-stone-600 dark:text-stone-400 mb-1.5">Background</label>
+                  <input id="bg" type="color" value="#FFFFFF" class="h-10 w-full rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 cursor-pointer" />
+                </div>
+              </div>
+              <div>
+                <label for="dot-style" class="block text-sm text-stone-600 dark:text-stone-400 mb-1.5">Dot style</label>
+                <select id="dot-style" class="w-full px-3 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-navy-900 dark:text-white focus:ring-2 focus:ring-accent-500 focus:border-accent-500">
+                  <option value="square">Square (classic)</option>
+                  <option value="rounded">Rounded</option>
+                  <option value="dots">Dots</option>
+                  <option value="extra-rounded">Extra rounded</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-stone-600 dark:text-stone-400 mb-1.5">Center logo (optional)</label>
+                <div class="flex items-center gap-3">
+                  <label for="logo" class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-sm text-stone-600 dark:text-stone-300 hover:border-accent-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    Upload logo
+                  </label>
+                  <input id="logo" type="file" accept="image/*" class="hidden" />
+                  <button id="logo-clear" class="hidden text-sm text-stone-500 dark:text-stone-400 hover:text-accent-600 dark:hover:text-accent-400">Remove logo</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview + download -->
+          <div class="lg:col-span-2">
+            <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 p-6 flex flex-col items-center sticky top-24">
+              <div id="qr-preview" class="rounded-xl overflow-hidden bg-white p-3 shadow-sm"></div>
+              <div class="mt-5 w-full grid grid-cols-2 gap-3">
+                <button id="dl-png" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent-600 hover:bg-accent-700 text-white text-sm font-semibold transition-colors">PNG</button>
+                <button id="dl-svg" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 text-sm font-semibold transition-colors">SVG (print)</button>
+              </div>
+              <p class="mt-3 text-xs text-stone-500 dark:text-stone-400 text-center">Use SVG for printing so it stays sharp at any size.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Privacy note -->
+        <div class="max-w-5xl mx-auto mt-8 rounded-xl border border-green-200/70 dark:border-green-800/40 bg-green-50/60 dark:bg-green-900/10 p-5 flex items-start gap-3">
+          <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          <p class="text-sm text-stone-700 dark:text-stone-300 m-0">
+            <strong class="text-navy-900 dark:text-white">Made in your browser, and yours forever.</strong> The QR code is generated on your device, nothing is uploaded, and the code never expires or needs an account. Built by <a href="/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">Mau Consulting</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Uses + why -->
+    <section class="py-14 sm:py-20 bg-white dark:bg-gray-950">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-4">What local businesses use this for</h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 mb-8">
+            {[
+              'A "leave us a Google review" QR for the counter or receipt',
+              'A link to your website or booking page',
+              'A digital menu or price list',
+              'Your details on a business card or flyer',
+              'A link to your latest offer or event',
+              'A "follow us" link to your Facebook page',
+            ].map((c) => (
+              <li class="flex items-start gap-2.5 text-stone-700 dark:text-stone-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0 mt-2.5"></span>
+                <span class="text-base">{c}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">The Google review QR is the one to make first</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+              Reviews are the single biggest thing you can do to show up higher in local search, but most customers never get around to leaving one. A QR code at your counter or on the receipt removes the friction: they scan, and they are on your review form in seconds. Print it, stick it somewhere visible, and watch the reviews start coming in.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-14 sm:py-20 bg-stone-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-8">Common questions</h2>
+          <div class="space-y-3">
+            {faqs.map((faq) => (
+              <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                  <span class="text-base">{faq.q}</span>
+                  <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div>
+              </details>
+            ))}
+          </div>
+
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-8 text-center">
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-5">
+              Want a website that turns those scans into customers, built by someone local who respects your customers? That is what I do.
+            </p>
+            <a href="/contact/?source=tools-qr-code" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-600 hover:bg-accent-700 text-white font-semibold transition-colors">
+              Book a free call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    import QRCodeStyling from 'qr-code-styling';
+
+    type DotType = 'square' | 'rounded' | 'dots' | 'extra-rounded';
+
+    const typeTabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.type-tab'));
+    const content = document.getElementById('content') as HTMLInputElement;
+    const contentLabel = document.getElementById('content-label') as HTMLLabelElement;
+    const contentHelp = document.getElementById('content-help') as HTMLParagraphElement;
+    const fg = document.getElementById('fg') as HTMLInputElement;
+    const bg = document.getElementById('bg') as HTMLInputElement;
+    const dotStyle = document.getElementById('dot-style') as HTMLSelectElement;
+    const logoInput = document.getElementById('logo') as HTMLInputElement;
+    const logoClear = document.getElementById('logo-clear') as HTMLButtonElement;
+    const preview = document.getElementById('qr-preview') as HTMLDivElement;
+    const dlPng = document.getElementById('dl-png') as HTMLButtonElement;
+    const dlSvg = document.getElementById('dl-svg') as HTMLButtonElement;
+
+    let currentType: 'url' | 'review' | 'text' = 'url';
+    let logoData: string | undefined;
+
+    const copy: Record<string, { label: string; placeholder: string; help: string; value: string }> = {
+      url: {
+        label: 'Website address',
+        placeholder: 'https://yourbusiness.com',
+        help: 'The web page people land on when they scan the code.',
+        value: 'https://mauops.com',
+      },
+      review: {
+        label: 'Your Google review link',
+        placeholder: 'https://g.page/r/....../review',
+        help: 'In your Google Business Profile, click "Ask for reviews" or "Get more reviews" and paste the link it gives you here.',
+        value: '',
+      },
+      text: {
+        label: 'Text',
+        placeholder: 'Any text you want in the code',
+        help: 'Plain text is shown to whoever scans the code.',
+        value: '',
+      },
+    };
+
+    const qr = new QRCodeStyling({
+      width: 280,
+      height: 280,
+      type: 'canvas',
+      data: content.value,
+      margin: 8,
+      dotsOptions: { color: fg.value, type: 'square' },
+      backgroundOptions: { color: bg.value },
+      cornersSquareOptions: { color: fg.value, type: 'square' },
+      qrOptions: { errorCorrectionLevel: 'Q' },
+    });
+    qr.append(preview);
+
+    function dataForType(): string {
+      const v = content.value.trim();
+      if (!v) return ' ';
+      return v;
+    }
+
+    function cornerType(dot: DotType): 'square' | 'extra-rounded' | 'dot' {
+      if (dot === 'dots') return 'dot';
+      if (dot === 'rounded' || dot === 'extra-rounded') return 'extra-rounded';
+      return 'square';
+    }
+
+    let timer: number | undefined;
+    function render() {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        const dot = dotStyle.value as DotType;
+        qr.update({
+          data: dataForType(),
+          dotsOptions: { color: fg.value, type: dot === 'extra-rounded' ? 'extra-rounded' : dot },
+          backgroundOptions: { color: bg.value },
+          cornersSquareOptions: { color: fg.value, type: cornerType(dot) },
+          image: logoData,
+          imageOptions: { crossOrigin: 'anonymous', margin: 6, imageSize: 0.35 },
+          // stronger recovery when a logo covers part of the code
+          qrOptions: { errorCorrectionLevel: logoData ? 'H' : 'Q' },
+        });
+      }, 120);
+    }
+
+    // Content type switching
+    typeTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        currentType = tab.dataset.type as 'url' | 'review' | 'text';
+        typeTabs.forEach((t) => {
+          const active = t === tab;
+          t.classList.toggle('border-accent-500', active);
+          t.classList.toggle('bg-accent-50', active);
+          t.classList.toggle('dark:bg-accent-900/20', active);
+          t.classList.toggle('text-accent-700', active);
+          t.classList.toggle('dark:text-accent-300', active);
+          t.classList.toggle('border-stone-300', !active);
+          t.classList.toggle('dark:border-stone-700', !active);
+          t.classList.toggle('bg-white', !active);
+          t.classList.toggle('dark:bg-stone-800', !active);
+          t.classList.toggle('text-stone-600', !active);
+          t.classList.toggle('dark:text-stone-300', !active);
+        });
+        const c = copy[currentType];
+        contentLabel.textContent = c.label;
+        content.placeholder = c.placeholder;
+        contentHelp.textContent = c.help;
+        content.value = c.value;
+        render();
+      });
+    });
+
+    content.addEventListener('input', render);
+    fg.addEventListener('input', render);
+    bg.addEventListener('input', render);
+    dotStyle.addEventListener('change', render);
+
+    logoInput.addEventListener('change', () => {
+      const file = logoInput.files && logoInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => { logoData = reader.result as string; logoClear.classList.remove('hidden'); render(); };
+      reader.readAsDataURL(file);
+    });
+    logoClear.addEventListener('click', () => {
+      logoData = undefined;
+      logoInput.value = '';
+      logoClear.classList.add('hidden');
+      render();
+    });
+
+    function fileName(): string {
+      return currentType === 'review' ? 'google-review-qr-code' : 'qr-code';
+    }
+    dlPng.addEventListener('click', () => qr.download({ name: fileName(), extension: 'png' }));
+    dlSvg.addEventListener('click', () => qr.download({ name: fileName(), extension: 'svg' }));
+  </script>
+</BaseLayout>
