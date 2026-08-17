@@ -48,7 +48,15 @@ const appSchema = JSON.stringify({
 });
 ---
 
-<BaseLayout title={title} description={description} pageLabel="Tools">
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-image-converter.png"
+  imageAlt="Free Image Converter by Mau Consulting: convert HEIC and WebP to JPG, 100 percent private, nothing uploaded"
+  imageWidth={1200}
+  imageHeight={630}
+  pageLabel="Tools"
+>
   <Header />
   <script type="application/ld+json" set:html={appSchema} />
   <script type="application/ld+json" set:html={faqSchema} />
