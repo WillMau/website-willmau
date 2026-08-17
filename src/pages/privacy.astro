@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Privacy Policy';
+const description = 'How Mau Consulting handles data on this website: what is collected, what is not, and the tools that keep your files on your own device.';
+const updated = 'August 17, 2026';
+---
+
+<BaseLayout title={title} description={description} pageLabel="Privacy">
+  <Header />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-4 leading-[1.1]">
+              Privacy Policy
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">Last updated: {updated}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            Mau Consulting (&ldquo;I,&rdquo; &ldquo;me,&rdquo; or &ldquo;this site&rdquo;) respects your privacy. This policy explains, in plain language, what information this website collects, what it does not, and how it is used. It applies to mauops.com.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The short version</h2>
+          <p>
+            I collect as little as possible. The site uses basic analytics to understand how many people visit and what they read, and the contact form collects the details you choose to send me so I can reply. That is it. I do not sell, rent, or trade your information to anyone.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Tools that never see your files</h2>
+          <p>
+            Some pages on this site, such as the <a href="/tools/image-converter/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">image converter</a>, do their work entirely inside your web browser, on your own device. When you use a tool like that, <strong class="text-navy-900 dark:text-white">your files are never uploaded, never stored, and never seen by me or anyone else.</strong> They do not leave your computer. The analytics described below still count that you visited the page, but they never involve the contents of your files.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Information collected automatically (analytics)</h2>
+          <p>
+            Like most websites, this site uses <strong class="text-navy-900 dark:text-white">Google Analytics</strong> to understand general traffic: which pages are visited, roughly where visitors come from, what type of device they use, and how they move through the site. This is done with cookies and similar technology, and the information is aggregated. I use it to improve the site, not to identify you personally.
+          </p>
+          <p>
+            You can opt out of Google Analytics at any time using the
+            <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">Google Analytics Opt-out Browser Add-on</a>,
+            or by blocking cookies in your browser settings. Google&rsquo;s own handling of this data is covered by the
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">Google Privacy Policy</a>.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Information you give me (contact form)</h2>
+          <p>
+            If you fill out the contact form, I collect the information you choose to provide, such as your name, email address, company, your message, and your timeline. This is handled by a form service called
+            <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">Formspree</a>,
+            which delivers the message to me by email.
+          </p>
+          <p>
+            I use this information for one purpose: to respond to you and, if we work together, to carry out that work. I do not add you to a marketing list without your permission, and I do not sell or share your details with anyone outside of what is needed to reply to you.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Cookies</h2>
+          <p>
+            The cookies on this site come from Google Analytics and are used to measure traffic as described above. You can block or delete cookies in your browser settings at any time. The site will still work.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Third parties</h2>
+          <p>
+            A few trusted services help run this site. Each has its own privacy practices:
+          </p>
+          <ul class="space-y-3 pl-1">
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Google Analytics</strong> for website traffic measurement.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Formspree</strong> for handling contact form submissions.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">GitHub Pages and Cloudflare</strong> for hosting and delivering the site.</span></li>
+          </ul>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">How long information is kept</h2>
+          <p>
+            Contact form messages are kept as long as needed to respond to you and to handle any work that follows, after which they may be deleted. Analytics data is retained according to Google&rsquo;s standard settings.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Your choices</h2>
+          <p>
+            You can ask me what information I hold about you, ask me to delete it, or opt out of analytics as described above. To make a request, just email me using the address below.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Children</h2>
+          <p>
+            This site is meant for business owners and is not directed at children. I do not knowingly collect information from anyone under 13.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Links to other sites</h2>
+          <p>
+            This site may link to other websites. I am not responsible for the privacy practices of sites I do not control, so it is worth reviewing their policies too.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Changes to this policy</h2>
+          <p>
+            If this policy changes, I will update it here and change the date at the top. Continued use of the site after a change means you accept the updated policy.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Contact</h2>
+          <p>
+            Questions about this policy or your information? Email me at
+            <a id="privacy-email" href="#" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2"><span id="privacy-email-text">the address below</span></a>.
+          </p>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+
+  <script>
+    // Assemble email in the browser to reduce scraping
+    const _u = 'will';
+    const _d = 'mauops.com';
+    const _e = `${_u}@${_d}`;
+    const link = document.getElementById('privacy-email') as HTMLAnchorElement | null;
+    const text = document.getElementById('privacy-email-text');
+    if (link) link.href = `mailto:${_e}`;
+    if (text) text.textContent = _e;
+  </script>
+</BaseLayout>
