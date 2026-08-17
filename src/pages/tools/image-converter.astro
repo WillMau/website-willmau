@@ -1,0 +1,390 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Free Image Converter (HEIC & WebP to JPG, PNG, and more)';
+const description = 'Convert HEIC, WebP, PNG, JPG, AVIF, and more right in your browser. 100% private: your files never get uploaded, everything happens on your device. Free, no sign-up.';
+
+const faqs = [
+  {
+    q: 'Are my files uploaded anywhere?',
+    a: 'No. The conversion happens entirely in your browser on your own device. Your images are never sent to a server, never stored, and never seen by anyone. You can even turn off your internet after the page loads and it still works.',
+  },
+  {
+    q: 'What formats can I convert?',
+    a: 'You can convert from WebP, PNG, JPG, GIF, BMP, and AVIF into JPG, PNG, or WebP. That covers the most common everyday needs, like turning a WebP you downloaded into a JPG you can use anywhere.',
+  },
+  {
+    q: 'Can I convert HEIC (iPhone) photos?',
+    a: 'Yes. HEIC is the format iPhones use, and most websites and programs cannot open it. This tool converts HEIC to JPG or PNG right on your device. The first time you convert a HEIC file, a small decoder loads in the background, so that first one may take a second or two longer. After that it is quick, and like everything else here, nothing is uploaded.',
+  },
+  {
+    q: 'Is there a file size or number limit?',
+    a: 'No hard limit. Because everything runs on your device, very large images or big batches just depend on your computer. For everyday images it is instant.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const appSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Converter by Mau Consulting",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (web browser)",
+  "url": "https://mauops.com/tools/image-converter/",
+  "description": description,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Mau Consulting", "url": "https://mauops.com" },
+});
+---
+
+<BaseLayout title={title} description={description} pageLabel="Tools">
+  <Header />
+  <script type="application/ld+json" set:html={appSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-white dark:bg-gray-950 border-b border-stone-200 dark:border-stone-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-accent-50/40 via-transparent to-navy-50/30 dark:from-accent-900/10 dark:via-transparent dark:to-navy-950/20" aria-hidden="true"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-14 sm:pt-20 pb-8 sm:pb-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 mb-4">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            100% private, nothing uploaded
+          </span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-4 leading-[1.1]">
+            Free Image Converter
+          </h1>
+          <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">
+            Convert WebP, PNG, JPG, AVIF and more, right here. Your files are converted on your own device and never leave your browser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Converter tool -->
+    <section class="py-10 sm:py-14 bg-stone-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+
+          <!-- Controls -->
+          <div class="flex flex-col sm:flex-row gap-4 mb-6">
+            <div class="flex-1">
+              <label for="format" class="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2">Convert to</label>
+              <select id="format" class="w-full px-4 py-2.5 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 text-navy-900 dark:text-white focus:ring-2 focus:ring-accent-500 focus:border-accent-500">
+                <option value="image/jpeg" data-ext="jpg">JPG</option>
+                <option value="image/png" data-ext="png">PNG</option>
+                <option value="image/webp" data-ext="webp">WebP</option>
+              </select>
+            </div>
+            <div class="flex-1" id="quality-wrap">
+              <label for="quality" class="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2">
+                Quality: <span id="quality-val" class="font-semibold text-accent-600 dark:text-accent-400">90%</span>
+              </label>
+              <input type="range" id="quality" min="10" max="100" value="90" step="5" class="w-full accent-accent-600 mt-2.5" />
+            </div>
+          </div>
+
+          <!-- Drop zone -->
+          <label id="dropzone" for="file-input" class="block cursor-pointer rounded-2xl border-2 border-dashed border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900/40 hover:border-accent-400 dark:hover:border-accent-600 hover:bg-accent-50/40 dark:hover:bg-accent-900/10 transition-colors p-10 sm:p-14 text-center">
+            <input type="file" id="file-input" accept="image/*,.heic,.heif" multiple class="hidden" />
+            <svg class="w-12 h-12 mx-auto text-stone-400 dark:text-stone-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
+            <p class="text-navy-900 dark:text-white font-semibold mb-1">Drop images here, or click to choose</p>
+            <p class="text-sm text-stone-500 dark:text-stone-400">HEIC, WebP, PNG, JPG, GIF, BMP, AVIF. You can select several at once.</p>
+          </label>
+
+          <!-- Results -->
+          <div id="results" class="mt-6 space-y-3"></div>
+
+          <div id="results-actions" class="mt-6 hidden flex-wrap gap-3">
+            <button id="download-all" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-600 hover:bg-accent-700 text-white font-semibold transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+              Download all
+            </button>
+            <button id="clear-all" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 font-medium transition-colors">
+              Clear
+            </button>
+          </div>
+
+          <!-- Privacy note -->
+          <div class="mt-8 rounded-xl border border-green-200/70 dark:border-green-800/40 bg-green-50/60 dark:bg-green-900/10 p-5 flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            <p class="text-sm text-stone-700 dark:text-stone-300 m-0">
+              <strong class="text-navy-900 dark:text-white">Your files stay on your device.</strong> This tool converts images right in your browser using your computer, not a server. Nothing is uploaded, stored, or seen by anyone. Built by <a href="/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">Mau Consulting</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you can convert + why -->
+    <section class="py-14 sm:py-20 bg-white dark:bg-gray-950">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-4">What you can convert</h2>
+          <p class="text-base text-stone-600 dark:text-stone-400 mb-6 leading-relaxed">
+            This is a simple, free way to change one image format into another. Some of the conversions people use it for most:
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5 mb-6">
+            {[
+              'Convert HEIC to JPG',
+              'Convert HEIC to PNG',
+              'Convert WebP to JPG',
+              'Convert WebP to PNG',
+              'Convert PNG to JPG',
+              'Convert JPG to PNG',
+              'Convert JPG to WebP',
+              'Convert AVIF to JPG',
+            ].map((c) => (
+              <li class="flex items-center gap-2.5 text-stone-700 dark:text-stone-300">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-500 flex-shrink-0"></span>
+                <span class="text-base">{c}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-sm text-stone-500 dark:text-stone-400">
+            HEIC (from iPhones), WebP, and AVIF are newer formats that save space but do not open everywhere. Converting them to JPG or PNG gives you a file that works in any program, email, or website.
+          </p>
+
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">Why I built this</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+              I convert images all the time, and I never loved uploading my files to some random website just to turn a WebP into a JPG. You can rarely tell who is storing your images or what they do with them afterward. So I built one that does not upload anything at all. It runs on your own device, and your files stay yours. That is the same way I think about the websites I build for local businesses: useful, honest, and respectful of the people using them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-14 sm:py-20 bg-stone-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-8">Common questions</h2>
+          <div class="space-y-3">
+            {faqs.map((faq) => (
+              <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                  <span class="text-base">{faq.q}</span>
+                  <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div>
+              </details>
+            ))}
+          </div>
+
+          <!-- Soft CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8 text-center">
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-5">
+              Need a website with genuinely useful tools like this one, built for a local business that respects its customers? That is what I do.
+            </p>
+            <a href="/contact/?source=tools-image-converter" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent-600 hover:bg-accent-700 text-white font-semibold transition-colors">
+              Book a free call
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <script>
+    type Job = { file: File; url?: string; blob?: Blob; outName?: string; error?: string };
+
+    const fileInput = document.getElementById('file-input') as HTMLInputElement;
+    const dropzone = document.getElementById('dropzone') as HTMLLabelElement;
+    const formatSel = document.getElementById('format') as HTMLSelectElement;
+    const qualityWrap = document.getElementById('quality-wrap') as HTMLDivElement;
+    const quality = document.getElementById('quality') as HTMLInputElement;
+    const qualityVal = document.getElementById('quality-val') as HTMLSpanElement;
+    const results = document.getElementById('results') as HTMLDivElement;
+    const resultsActions = document.getElementById('results-actions') as HTMLDivElement;
+    const downloadAll = document.getElementById('download-all') as HTMLButtonElement;
+    const clearAll = document.getElementById('clear-all') as HTMLButtonElement;
+
+    let jobs: Job[] = [];
+
+    function fmtSize(bytes: number): string {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+    }
+
+    function newName(name: string, ext: string): string {
+      return name.replace(/\.[^.]+$/, '') + '.' + ext;
+    }
+
+    function updateQualityVisibility() {
+      // PNG is lossless, so quality does not apply
+      qualityWrap.style.display = formatSel.value === 'image/png' ? 'none' : '';
+    }
+    formatSel.addEventListener('change', updateQualityVisibility);
+    quality.addEventListener('input', () => { qualityVal.textContent = quality.value + '%'; });
+    updateQualityVisibility();
+
+    function isHeic(file: File): boolean {
+      return /\.hei[cf]$/i.test(file.name) || file.type === 'image/heic' || file.type === 'image/heif';
+    }
+
+    async function loadBitmap(file: File): Promise<ImageBitmap | HTMLImageElement> {
+      let src: Blob = file;
+      if (isHeic(file)) {
+        // Browsers can't decode HEIC natively. Load the decoder on demand;
+        // it runs on-device, so the file is still never uploaded anywhere.
+        const heic2any = (await import('heic2any')).default as any;
+        const out = await heic2any({ blob: file, toType: 'image/png' });
+        src = Array.isArray(out) ? out[0] : out;
+      }
+      try {
+        return await createImageBitmap(src);
+      } catch {
+        return await new Promise((resolve, reject) => {
+          const img = new Image();
+          const u = URL.createObjectURL(src);
+          img.onload = () => { URL.revokeObjectURL(u); resolve(img); };
+          img.onerror = () => { URL.revokeObjectURL(u); reject(new Error('decode failed')); };
+          img.src = u;
+        });
+      }
+    }
+
+    async function convert(file: File): Promise<{ blob: Blob }> {
+      const mime = formatSel.value;
+      const q = parseInt(quality.value, 10) / 100;
+      const bmp = await loadBitmap(file);
+      const w = (bmp as any).width, h = (bmp as any).height;
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('canvas unsupported');
+      // JPG has no transparency, so flatten onto white instead of black
+      if (mime === 'image/jpeg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h); }
+      ctx.drawImage(bmp as any, 0, 0);
+      if ((bmp as any).close) (bmp as any).close();
+      const blob: Blob = await new Promise((res, rej) =>
+        canvas.toBlob((b) => (b ? res(b) : rej(new Error('encode failed'))), mime, mime === 'image/png' ? undefined : q)
+      );
+      return { blob };
+    }
+
+    function render() {
+      results.innerHTML = '';
+      if (jobs.length === 0) { resultsActions.classList.add('hidden'); resultsActions.classList.remove('flex'); return; }
+      resultsActions.classList.remove('hidden'); resultsActions.classList.add('flex');
+
+      const ext = formatSel.selectedOptions[0].dataset.ext || 'jpg';
+      jobs.forEach((job, i) => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 p-4';
+        if (job.error) {
+          row.innerHTML = `
+            <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-navy-900 dark:text-white truncate">${job.file.name}</p>
+              <p class="text-xs text-red-600 dark:text-red-400">${job.error}</p>
+            </div>`;
+        } else if (job.blob) {
+          row.innerHTML = `
+            <div class="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-navy-900 dark:text-white truncate">${job.outName}</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400">${fmtSize(job.file.size)} &rarr; ${fmtSize(job.blob!.size)}</p>
+            </div>`;
+          const a = document.createElement('a');
+          a.href = job.url!;
+          a.download = job.outName!;
+          a.className = 'inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent-600 hover:bg-accent-700 text-white text-sm font-semibold transition-colors flex-shrink-0';
+          a.innerHTML = 'Download';
+          row.appendChild(a);
+        } else {
+          row.innerHTML = `
+            <div class="w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-accent-500 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-navy-900 dark:text-white truncate">${job.file.name}</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400">Converting&hellip;</p>
+            </div>`;
+        }
+        results.appendChild(row);
+      });
+    }
+
+    async function handleFiles(files: FileList | File[]) {
+      const list = Array.from(files).filter((f) => f.type.startsWith('image/') || /\.(webp|png|jpe?g|gif|bmp|avif|heic|heif)$/i.test(f.name));
+      if (list.length === 0) return;
+      // revoke old urls
+      jobs.forEach((j) => j.url && URL.revokeObjectURL(j.url));
+      jobs = list.map((file) => ({ file }));
+      render();
+
+      for (const job of jobs) {
+        try {
+          const { blob } = await convert(job.file);
+          job.blob = blob;
+          job.url = URL.createObjectURL(blob);
+          job.outName = newName(job.file.name, formatSel.selectedOptions[0].dataset.ext || 'jpg');
+        } catch (e) {
+          job.error = 'Could not read this image. The file may be corrupted or an unsupported format.';
+        }
+        render();
+      }
+    }
+
+    fileInput.addEventListener('change', () => { if (fileInput.files) handleFiles(fileInput.files); });
+
+    ['dragenter', 'dragover'].forEach((ev) =>
+      dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.add('border-accent-400', 'bg-accent-50/40'); })
+    );
+    ['dragleave', 'drop'].forEach((ev) =>
+      dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.remove('border-accent-400', 'bg-accent-50/40'); })
+    );
+    dropzone.addEventListener('drop', (e) => {
+      const dt = (e as DragEvent).dataTransfer;
+      if (dt && dt.files) handleFiles(dt.files);
+    });
+
+    // Re-convert everything when format or quality changes and there are files loaded
+    let reconvertTimer: number | undefined;
+    function scheduleReconvert() {
+      if (jobs.length === 0) return;
+      window.clearTimeout(reconvertTimer);
+      reconvertTimer = window.setTimeout(() => handleFiles(jobs.map((j) => j.file)), 250);
+    }
+    formatSel.addEventListener('change', scheduleReconvert);
+    quality.addEventListener('change', scheduleReconvert);
+
+    downloadAll.addEventListener('click', () => {
+      jobs.filter((j) => j.url).forEach((j, i) => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = j.url!; a.download = j.outName!;
+          document.body.appendChild(a); a.click(); a.remove();
+        }, i * 150);
+      });
+    });
+
+    clearAll.addEventListener('click', () => {
+      jobs.forEach((j) => j.url && URL.revokeObjectURL(j.url));
+      jobs = [];
+      fileInput.value = '';
+      render();
+    });
+  </script>
+</BaseLayout>
