@@ -341,6 +341,33 @@ import Badge from '../components/Badge.astro';
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
 
       <Card class="overflow-hidden">
+        <div class="w-full h-48 rounded-lg mb-4 flex flex-col items-center justify-center bg-gradient-to-br from-navy-900 to-navy-950 dark:from-navy-950 dark:to-black">
+          <span class="text-3xl font-bold tracking-[0.35em] text-white pl-[0.35em]">INTL</span>
+          <span class="text-[11px] uppercase tracking-[0.3em] text-accent-400 mt-1.5">Wellness</span>
+        </div>
+        <div class="flex items-center gap-2 mb-1">
+          <div class="text-sm text-accent-600 dark:text-accent-400 font-medium">Business Website</div>
+          <span class="inline-flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            In progress
+          </span>
+        </div>
+        <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">INTL Wellness</h3>
+        <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Website for a holistic wellness coaching membership that brings fitness, nutrition, and mental health together in one place. Bold, video-led design built around a full-screen hero.</p>
+        <a
+          href="https://intlwellness.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 font-medium inline-flex items-center gap-2 text-sm"
+        >
+          Preview the site
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </Card>
+
+      <Card class="overflow-hidden">
         <img src="/portfolio/shoreline-logo.png" alt="Shoreline Senior Care logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
         <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Business Website</div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Shoreline Senior Care</h3>
