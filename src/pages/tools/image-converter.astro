@@ -215,6 +215,7 @@ const appSchema = JSON.stringify({
     const clearAll = document.getElementById('clear-all') as HTMLButtonElement;
 
     let jobs: Job[] = [];
+    let runId = 0;
 
     function fmtSize(bytes: number): string {
       if (bytes < 1024) return bytes + ' B';
@@ -248,7 +249,8 @@ const appSchema = JSON.stringify({
         src = Array.isArray(out) ? out[0] : out;
       }
       try {
-        return await createImageBitmap(src);
+        // imageOrientation: honor EXIF rotation so phone photos are not sideways
+        return await createImageBitmap(src, { imageOrientation: 'from-image' });
       } catch {
         return await new Promise((resolve, reject) => {
           const img = new Image();
@@ -284,8 +286,7 @@ const appSchema = JSON.stringify({
       if (jobs.length === 0) { resultsActions.classList.add('hidden'); resultsActions.classList.remove('flex'); return; }
       resultsActions.classList.remove('hidden'); resultsActions.classList.add('flex');
 
-      const ext = formatSel.selectedOptions[0].dataset.ext || 'jpg';
-      jobs.forEach((job, i) => {
+      jobs.forEach((job) => {
         const row = document.createElement('div');
         row.className = 'flex items-center gap-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 p-4';
         if (job.error) {
@@ -329,12 +330,14 @@ const appSchema = JSON.stringify({
     async function handleFiles(files: FileList | File[]) {
       const list = Array.from(files).filter((f) => f.type.startsWith('image/') || /\.(webp|png|jpe?g|gif|bmp|avif|heic|heif)$/i.test(f.name));
       if (list.length === 0) return;
-      // revoke old urls
+      const myRun = ++runId; // supersede any in-flight run (e.g. from a format change)
+      // revoke old urls before replacing
       jobs.forEach((j) => j.url && URL.revokeObjectURL(j.url));
       jobs = list.map((file) => ({ file }));
       render();
 
       for (const job of jobs) {
+        if (myRun !== runId) return; // a newer run took over
         try {
           const { blob } = await convert(job.file);
           job.blob = blob;
@@ -343,6 +346,7 @@ const appSchema = JSON.stringify({
         } catch (e) {
           job.error = 'Could not read this image. The file may be corrupted or an unsupported format.';
         }
+        if (myRun !== runId) { if (job.url) URL.revokeObjectURL(job.url); return; }
         render();
       }
     }
