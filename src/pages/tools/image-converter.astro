@@ -20,6 +20,10 @@ const faqs = [
     a: 'Yes. HEIC is the format iPhones use, and most websites and programs cannot open it. This tool converts HEIC to JPG or PNG right on your device. The first time you convert a HEIC file, a small decoder loads in the background, so that first one may take a second or two longer. After that it is quick, and like everything else here, nothing is uploaded.',
   },
   {
+    q: 'My transparent image got a white background. How do I keep it transparent?',
+    a: 'That happens because JPG cannot store transparency, so any see-through areas have to be filled with a solid color. To keep the transparency, convert to PNG or WebP instead, since both support it. If you do need a JPG, you can now choose the background fill color instead of being stuck with white.',
+  },
+  {
     q: 'Is there a file size or number limit?',
     a: 'No hard limit. Because everything runs on your device, very large images or big batches just depend on your computer. For everyday images it is instant.',
   },
@@ -102,6 +106,14 @@ const appSchema = JSON.stringify({
               </label>
               <input type="range" id="quality" min="10" max="100" value="90" step="5" class="w-full accent-accent-600 mt-2.5" />
             </div>
+          </div>
+
+          <!-- Background fill (JPG only, since JPG can't be transparent) -->
+          <div id="bg-wrap" class="mb-6 hidden items-center gap-3 rounded-lg border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-4">
+            <input type="color" id="bg-color" value="#ffffff" class="h-9 w-12 rounded border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 cursor-pointer flex-shrink-0" />
+            <label for="bg-color" class="text-sm text-stone-600 dark:text-stone-400">
+              <span class="font-medium text-navy-900 dark:text-white">Background fill.</span> JPG can&rsquo;t be transparent, so pick the color that goes behind any see-through areas. Want to keep the transparency instead? Choose PNG.
+            </label>
           </div>
 
           <!-- Drop zone -->
@@ -217,6 +229,8 @@ const appSchema = JSON.stringify({
     const qualityWrap = document.getElementById('quality-wrap') as HTMLDivElement;
     const quality = document.getElementById('quality') as HTMLInputElement;
     const qualityVal = document.getElementById('quality-val') as HTMLSpanElement;
+    const bgWrap = document.getElementById('bg-wrap') as HTMLDivElement;
+    const bgColor = document.getElementById('bg-color') as HTMLInputElement;
     const results = document.getElementById('results') as HTMLDivElement;
     const resultsActions = document.getElementById('results-actions') as HTMLDivElement;
     const downloadAll = document.getElementById('download-all') as HTMLButtonElement;
@@ -238,6 +252,10 @@ const appSchema = JSON.stringify({
     function updateQualityVisibility() {
       // PNG is lossless, so quality does not apply
       qualityWrap.style.display = formatSel.value === 'image/png' ? 'none' : '';
+      // Only JPG needs a background fill, since PNG and WebP keep transparency
+      const isJpg = formatSel.value === 'image/jpeg';
+      bgWrap.classList.toggle('hidden', !isJpg);
+      bgWrap.classList.toggle('flex', isJpg);
     }
     formatSel.addEventListener('change', updateQualityVisibility);
     quality.addEventListener('input', () => { qualityVal.textContent = quality.value + '%'; });
@@ -279,8 +297,8 @@ const appSchema = JSON.stringify({
       canvas.width = w; canvas.height = h;
       const ctx = canvas.getContext('2d');
       if (!ctx) throw new Error('canvas unsupported');
-      // JPG has no transparency, so flatten onto white instead of black
-      if (mime === 'image/jpeg') { ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h); }
+      // JPG has no transparency, so flatten onto the chosen background color
+      if (mime === 'image/jpeg') { ctx.fillStyle = bgColor.value; ctx.fillRect(0, 0, w, h); }
       ctx.drawImage(bmp as any, 0, 0);
       if ((bmp as any).close) (bmp as any).close();
       const blob: Blob = await new Promise((res, rej) =>
@@ -381,6 +399,7 @@ const appSchema = JSON.stringify({
     }
     formatSel.addEventListener('change', scheduleReconvert);
     quality.addEventListener('change', scheduleReconvert);
+    bgColor.addEventListener('input', scheduleReconvert);
 
     downloadAll.addEventListener('click', () => {
       jobs.filter((j) => j.url).forEach((j, i) => {
