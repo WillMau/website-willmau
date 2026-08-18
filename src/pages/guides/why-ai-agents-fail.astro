@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'Your AI Agent Doesn’t Need to Be Smarter. It Needs to Be Scoped.';
+const description = 'Most AI agent projects fail for organizational reasons, not model quality. What actually makes them work: a narrow job, real integration, and human oversight.';
+const published = 'August 18, 2026';
+
+const faqs = [
+  {
+    q: 'Why do most AI agent projects fail?',
+    a: 'Rarely because the model is not smart enough. The common causes are organizational: the job is scoped too broadly, the agent does not integrate cleanly with the systems a business already runs, and there is no human oversight on the parts that matter. Surveys in 2026 consistently rank data, trust, governance, and integration as the top barriers, not model quality.',
+  },
+  {
+    q: 'Do I need the most advanced AI model for my business?',
+    a: 'Usually not. Most of the production agents I run use a small, inexpensive model. When the job is scoped tightly enough, a small model does it reliably and cheaply. Reaching for a bigger, more expensive model is often a sign the job is too broad, not that the model is too weak.',
+  },
+  {
+    q: 'What does it mean to "scope" an AI agent?',
+    a: 'It means giving the agent the smallest, most specific job you can, instead of a vague one like "handle support." A well-scoped agent might only read an email, sort it into one of a fixed set of categories, and fill two lines of a template a human wrote. Everything consequential, and anything ambiguous, is handed to a person.',
+  },
+  {
+    q: 'Should AI agents run fully autonomously?',
+    a: 'For most business tasks, no. The agents that work keep a human in the loop on anything that matters, issuing something, closing something, spending money, and let the agent act on its own only within tight, well-tested limits. In a 2026 Deloitte survey, most leaders agreed that humans working with agents create more value than full automation alone.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Your AI Agent Doesn't Need to Be Smarter. It Needs to Be Scoped.",
+  "description": description,
+  "datePublished": "2026-08-18",
+  "dateModified": "2026-08-18",
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/",
+    "sameAs": "https://www.linkedin.com/in/will-mau/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/why-ai-agents-fail/" }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-ai-agent-scoped.png"
+  imageAlt="Your AI agent doesn't need to be smarter, it needs to be scoped. A guide on why AI agents succeed or fail."
+  imageWidth={1200}
+  imageHeight={630}
+  ogType="article"
+  publishedTime="2026-08-18T00:00:00-04:00"
+  pageLabel="Guides"
+>
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All guides
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              Your AI agent doesn&rsquo;t need to be smarter. It needs to be scoped.
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 7 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-ai-agent-scoped.png"
+            alt="Your AI agent doesn't need to be smarter, it needs to be scoped."
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            In late 2025, Salesforce cut thousands of customer-support roles and <a href="https://qz.com/salesforce-layoffs-agentforce-mulesoft-marketing-cloud-061026" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">pointed to its own AI agents</a> as the reason it needed fewer people. That story made a lot of business owners feel like they were already behind. If the giants are replacing whole teams with autonomous agents, the thinking goes, I should be racing to do the same.
+          </p>
+          <p>
+            Here is what that story leaves out: for every headline agent that works, plenty are quietly getting shelved. Gartner expects <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">more than 40% of agentic AI projects to be canceled by the end of 2027</a>. And the reason is almost never the one people assume.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The mistake everyone makes</h2>
+          <p>
+            When an AI agent project fails, people blame the model. Not smart enough. Wait for the next version. But that is rarely the real problem. The models are already good enough for most business tasks. What fails is everything around the model: how narrowly the job is scoped, how it connects to your real systems, and whether a human is watching the parts that matter.
+          </p>
+          <p>
+            I have built several AI agents that run in production, handling real customer support, triaging real sales leads, and reconciling real payments. The ones that work are not the smartest. They are the most narrowly scoped.
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              To put real numbers on it: one of these support agents handled about <strong class="text-navy-900 dark:text-white">76% of a 2,900-case queue last month</strong>, resolved most cases in seconds, and runs on under a dollar a month. More telling than the speed: <strong class="text-navy-900 dark:text-white">93% of what it closes stays closed</strong>, and under 5% ever needs a human to step in behind it. That reliability is what scoping buys you.
+            </p>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">This isn&rsquo;t just my opinion</h2>
+          <p>
+            Deloitte&rsquo;s August 2026 readiness survey found only <a href="https://www.deloitte.com/us/en/about/press-room/deloitte-survey-examines-ai-readiness-agentic-ai-success.html" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">5% of organizations consider their processes highly prepared</a> for AI agents. The top three barriers were unified data (72%), trust and governance (70%), and integration cost (67%). Not one was model quality. Teradata&rsquo;s 2026 report found <a href="https://www.teradata.com/getattachment/61a6c756-44b3-4e1e-a6d7-6de0a7a27203/teradata-2026-agentic-ai-report.pdf?lang=en-us" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">63% of tech leaders had seen no more than minimal return</a> on their agentic AI investments so far. And in Deloitte&rsquo;s broader survey, <a href="https://www.deloitte.com/us/en/about/press-room/state-of-ai-report-2026.html" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">only 21% of companies had a mature way to govern agents</a> while nearly 75% planned to deploy them within two years.
+          </p>
+          <p>
+            In plain terms: everyone is rushing to deploy, almost nobody is ready, and what is holding them back is organizational, not technical.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Why agents actually fail</h2>
+          <p>Three things, over and over.</p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">1. Scope creep</h3>
+          <p>
+            The most common mistake is asking an agent to do too much. &ldquo;Handle customer support&rdquo; is not a job you can hand an agent. It is a hundred jobs. Point a model at that and it does the easy 60% acceptably and the hard 40% badly, and the hard 40% is what creates angry customers. A large <a href="https://arxiv.org/abs/2605.14830" target="_blank" rel="noopener noreferrer" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">field experiment at Alibaba</a> showed it clearly: autonomous support agents handled chats faster but were rated worse, and a human could rescue the technical failures but not the emotional ones. The lesson is not &ldquo;agents do not work.&rdquo; It is that agents are good at some slices of a job and bad at others, and you have to know which is which.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">2. Integration</h3>
+          <p>
+            The unglamorous one. Your agent has to plug into the systems you already run: your CRM, your email, your files. That is where most of the engineering time goes, and where most of the breakage happens. In my own systems, when something goes wrong, it is almost never the model being wrong. It is two automations stepping on each other, or a file saved somewhere the agent cannot see, or a permission nobody granted. The intelligence is fine. The plumbing is where it breaks.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">3. Missing oversight</h3>
+          <p>
+            An agent that can act with no human checkpoint will eventually act wrongly, confidently. The question is not whether that happens. It is whether you find out.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">What actually works</h2>
+          <p>
+            Here is the clearest example I can give you. My support agent kept choking on messages it could not cleanly read, and about 160 of them a month were landing on my team as broken &ldquo;AI error&rdquo; escalations. The obvious fix is a better model that fails less often. That is not what I did. I changed how those cases got routed, so instead of dumping on a human as an error, the agent now sends the customer a simple &ldquo;can you give me a bit more detail?&rdquo; and waits. Those 160 errors a month dropped to two. The model never got smarter. The routing got better, and that single change drove most of the agent&rsquo;s jump from 70% to 76% handled on its own. That is the whole lesson in one fix.
+          </p>
+
+          <figure class="my-2">
+            <img
+              src="/chart-ai-routing.png"
+              alt="Bar chart: broken AI-error escalations dropped from about 160 per month before the fix to 2 total after, with no change to the model."
+              width="1200"
+              height="1200"
+              class="w-full max-w-md mx-auto rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+              loading="lazy"
+            />
+          </figure>
+
+          <p>Here is what I do to make an agent survive contact with a real business. None of it is about a smarter model.</p>
+          <ul class="space-y-4 pl-1">
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Give it the smallest possible job.</strong> My support agent does not &ldquo;answer the customer.&rdquo; It reads an email, classifies it into one of about sixteen specific request types, and writes two short lines of personalization that drop into a reply template a human wrote. The model selects and fills. The humans wrote the words.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Use the cheapest model that can do the job.</strong> Most of my agents run on a small, inexpensive model, not the biggest one. That is not a compromise, it is the point. Scope the job tightly enough and a small model does it reliably and cheaply. Reaching for a bigger model is usually a sign the job is too broad, not that the model is too weak.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Separate reading from deciding.</strong> When a customer sends a receipt, one model reads what is visible and is explicitly told it is not deciding anything. Then plain, deterministic code applies the policy and makes the call. A model that misreads a fact cannot, on its own, take a wrong action.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Gate anything that matters.</strong> Issuing an access code, closing a case, marking an invoice paid, none of it happens unless the system clears a hard confidence threshold, and the consequential calls wait for a person. On my lead system, the model only runs on the ambiguous minority of leads; simple rules handle the clear majority without ever calling it.</span></li>
+            <li class="flex gap-3"><span class="text-accent-500 font-bold">&bull;</span><span><strong class="text-navy-900 dark:text-white">Build the safety rails first.</strong> A kill switch to shut the whole thing off. A shadow mode where it runs silently and you compare its calls to reality before it touches anything. An audit trail so every action leaves a comment explaining itself. I launched more than one of these agents deliberately turned off, watched it in the dark for weeks, and only then let it act.</span></li>
+          </ul>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The real question</h2>
+          <p>
+            None of that fits in a keynote about autonomous agents replacing your workforce. But it is the difference between an agent that quietly does real work for years and one that becomes a cautionary tale in someone&rsquo;s board deck.
+          </p>
+          <p>
+            So if you are wondering whether the technology is finally good enough, you are asking the wrong question. It is good enough. The real question is whether you can carve out a job narrow enough, and wire in enough oversight, that a not-especially-smart model can do it reliably.
+          </p>
+          <p class="text-xl font-semibold text-navy-900 dark:text-white">
+            Your agent does not need to be smarter. It needs to be scoped.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Where these numbers come from: Gartner (2025); Deloitte&rsquo;s agentic-AI readiness survey and State of AI report (2026); Teradata&rsquo;s 2026 Agentic AI report; and a 2026 field experiment on autonomous customer-service agents. The examples from my own work are generalized from real systems I have built and run in production.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">{faq.a}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">Thinking about AI for your business?</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              The hard part is rarely the model. It is figuring out the one job worth automating, how it fits the way your business already runs, and where a human still needs to be. That is the kind of thing I help with. Happy to talk it through, no pressure either way.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?source=guides-ai-agents" variant="primary" size="lg">Book a Free Call</Button>
+              <Button href="/guides/" variant="outline" size="lg">More Guides</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
