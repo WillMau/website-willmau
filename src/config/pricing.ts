@@ -16,8 +16,9 @@ export const pricing = {
   forms: 'From $500',
   cms: 'From $750',
 
-  // Moving an existing site (WordPress and similar) stays at package pricing.
-  migration: 'From $1,500',
+  // Moving an existing site (WordPress and similar) is quoted per project.
+  // No two migrations carry the same content, so there is no useful list price.
+  migration: 'Quoted after a conversation',
 
   // Optional yearly care: keeps the lights on and patched.
   care: '$100/year',
