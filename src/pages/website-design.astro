@@ -6,6 +6,7 @@ import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import Button from '../components/Button.astro';
 import Badge from '../components/Badge.astro';
+import { pricing } from '../config/pricing';
 
 const services = [
   {
@@ -118,6 +119,27 @@ const faqSchema = JSON.stringify({
           <Button href="#portfolio" variant="outline" size="lg">
             See My Work
           </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free mockup first -->
+  <section class="bg-accent-50/60 dark:bg-accent-950/20 border-y border-accent-200/60 dark:border-accent-800/40">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start gap-6">
+        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent-600 text-white flex items-center justify-center shadow-md">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wide text-accent-700 dark:text-accent-400 mb-2">Step one, and it is free</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-3">You see your site before you pay anything</h2>
+          <p class="text-base text-stone-700 dark:text-stone-300 leading-relaxed">
+            I build you a real, working mockup first, with your brand, your photos, and your words. Not a picture of a website, an actual site you can click through on your phone. It lives at your own review address, something like <span class="font-medium text-navy-900 dark:text-white">yourbusiness.mauops.com</span>, and it costs you nothing.
+          </p>
+          <p class="text-base text-stone-700 dark:text-stone-300 leading-relaxed mt-3">
+            If you like it, we talk about what it takes to launch it. If you do not, you owe me nothing and you walk away. No deposit, and no contract to sign before you have seen the work.
+          </p>
         </div>
       </div>
     </div>
@@ -283,7 +305,8 @@ const faqSchema = JSON.stringify({
           </thead>
           <tbody>
             {[
-              { label: 'Typical price', diy: '$0–$30/mo', freelancer: '$1k–$5k', agency: '$6k–$35k', mau: '$500–$3,500', check: false },
+              { label: 'Typical price', diy: '$0–$30/mo', freelancer: '$1k–$5k', agency: '$6k–$35k', mau: '$250–$500 + add-ons', check: false },
+              { label: 'See a working site before you pay', diy: 'n/a', freelancer: 'Rarely', agency: 'No, paid discovery', mau: 'Yes, free mockup', check: true },
               { label: 'You work directly with who builds it', diy: 'You do it all', freelancer: 'Sometimes', agency: 'No, an account manager', mau: 'Yes, always me', check: true },
               { label: 'Content written for you', diy: 'No', freelancer: 'Sometimes', agency: 'Extra cost', mau: 'Included', check: true },
               { label: 'Getting found on Google (SEO + Business Profile)', diy: 'No', freelancer: 'Rarely', agency: 'Extra cost', mau: 'Included', check: true },
@@ -321,59 +344,55 @@ const faqSchema = JSON.stringify({
   </Section>
 
   <!-- Pricing -->
-  <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="Ballpark ranges to help you plan. Final pricing depends on scope, number of pages, and integrations needed.">
+  <Section class="bg-stone-50 dark:bg-gray-900" title="Pricing" subtitle="You see a working mockup before you pay anything. After that the pages are a fixed price, and you only add the pieces you actually need.">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
       {[
         {
-          name: 'Starter',
-          price: '$500',
-          desc: 'A custom-touched one-page site to get your business online fast and found on Google.',
+          name: 'Free mockup',
+          price: pricing.mockup,
+          desc: 'A real, working version of your site, before any money changes hands.',
           features: [
-            'One mobile-friendly page',
-            'Personalized to your brand, colors, logo, and photos',
-            'Contact form',
-            'Basic SEO so you show up locally',
-            'One round of revisions',
-            'You provide the content'
+            'An actual site you can click through, not a picture',
+            'Your brand, your photos, your words',
+            'Lives at your own review address',
+            'No deposit and no contract first',
+            'Walk away owing nothing'
           ]
         },
         {
-          name: 'Custom Landing Page',
-          price: 'From $1,500',
-          desc: 'A fully custom single page, designed from scratch with copy written for you.',
+          name: 'Your pages',
+          price: pricing.pages,
+          desc: 'The site itself, designed and built around your business.',
           features: [
-            'Bespoke single-page design',
-            'Mobile responsive',
-            'Contact form with CRM integration',
-            'Basic SEO setup',
-            'Content writing included',
-            '30 days support'
+            'Custom design from your brand, colors, and photos',
+            'Copy written for you',
+            'Works properly on phones',
+            'Search and Google Business Profile basics included',
+            'Yours to keep'
           ]
         },
         {
-          name: 'Business Website',
-          price: 'From $3,500',
-          desc: 'A full multi-page site that represents your business and brings in inquiries.',
+          name: 'Forms & launch',
+          price: pricing.forms,
+          desc: 'Add it when you need it. Fixed price, quoted up front.',
           features: [
-            'Up to 7 pages',
-            'Custom design and branding',
-            'CRM and form integrations',
-            'SEO optimization',
-            'Content writing for all pages',
-            'CMS training and documentation',
-            '60 days support'
+            'Contact, booking, or application forms to your inbox',
+            'Payment or donation embeds',
+            'Domain, email, and analytics set up',
+            'Go-live, a training session, and a written guide',
+            '30 days of support after launch'
           ]
         },
         {
-          name: 'Ongoing Support',
-          price: '$150/mo',
-          desc: 'For teams that want a partner to keep their site running smoothly.',
+          name: 'Content manager',
+          price: pricing.cms,
+          desc: 'Update the site yourself from your phone, with no monthly software fees.',
           features: [
-            'Content updates',
-            'Performance monitoring',
-            'Security patches',
-            'Monthly analytics review',
-            'Priority support'
+            'Sign in and add or edit content yourself',
+            'Photos, listings, and banners you control',
+            'Changes are live in about a minute',
+            'No monthly software fees',
+            'Built around your business, not a generic CMS'
           ]
         }
       ].map(pkg => (
@@ -401,12 +420,29 @@ const faqSchema = JSON.stringify({
     </div>
   </Section>
 
+  <!-- Pricing notes -->
+  <section class="bg-stone-50 dark:bg-gray-900 pb-14 sm:pb-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-6 sm:p-7">
+        <p class="text-base text-stone-700 dark:text-stone-300 leading-relaxed m-0">
+          <strong class="text-navy-900 dark:text-white">Moving an existing site</strong> from WordPress, Wix, Squarespace or similar is quoted as a package, usually from $1,500, because the work is in the migration rather than the pages.
+        </p>
+        <p class="text-base text-stone-700 dark:text-stone-300 leading-relaxed mt-3 mb-0">
+          <strong class="text-navy-900 dark:text-white">Keeping it running is {pricing.care}</strong>, which covers hosting, uptime monitoring, security patches, and a check every quarter on links, forms, and speed. There is no monthly fee. When you want a change, updates are {pricing.hourly}, billed in 30-minute increments, and anything that takes me a few minutes is free.
+        </p>
+        <p class="text-base text-stone-700 dark:text-stone-300 leading-relaxed mt-3 mb-0">
+          <strong class="text-navy-900 dark:text-white">Your domain stays in your name.</strong> I will set it up and manage the technical side, but the domain is registered to your business, on your card. You own it. If you ever want to work with someone else, you take it with you and nothing of yours is locked up with me.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- How It Works -->
   <Section title="How We Work Together">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       {[
-        { step: '01', title: 'Free Call', desc: 'We discuss your goals, your audience, and what is not working with your current site (if you have one).' },
-        { step: '02', title: 'Design', desc: 'I create wireframes and mockups for your review. Nothing gets built until you approve the direction.' },
+        { step: '01', title: 'Free Call', desc: 'We talk about your business, your customers, and what is not working with your current site (if you have one).' },
+        { step: '02', title: 'Free Mockup', desc: 'I build a real, working version of your site at your own review address. You see the actual thing before you pay anything.' },
         { step: '03', title: 'Build & Launch', desc: 'Development, content writing, testing, and go-live. You see progress along the way.' },
         { step: '04', title: 'Train & Support', desc: 'Hands-on training, documentation handoff, and ongoing support so your team owns the site.' }
       ].map(phase => (
