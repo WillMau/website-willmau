@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+
+const title = 'Should You Use Google Voice as Your Business Number?';
+const description = 'Google Voice gives a small business a free second phone number in about ten minutes. Here is what it actually does, the four things that bite business owners, and when it is time to pay for a real phone system.';
+const published = 'October 29, 2026';
+
+const faqs = [
+  {
+    q: 'Is Google Voice free for business use?',
+    a: 'Google’s own plan comparison describes the no-charge version in five words: "This no-charge plan is for personal, consumer use." Nothing stops a one-person business from using it, and plenty do. But the free tier has no customer support, no 911 emergency calling, and no way to let a second person answer the phone. Paid Google Voice plans start around $10 a month for one person and add those things back.',
+  },
+  {
+    q: 'Can customers tell I am using Google Voice?',
+    a: 'No. It is an ordinary phone number with an ordinary area code. It shows up on caller ID like any other number, it can be texted like any other number, and nobody on the other end sees anything about Google. The only way to give it away is to call people from your regular phone app instead of the Google Voice app, which sends your personal number instead.',
+  },
+  {
+    q: 'Will I lose my Google Voice number if I do not use it?',
+    a: 'It is possible. Google reclaims numbers that sit unused. Making or answering a call, sending a text, or listening to a voicemail all count as activity and reset the clock. If a number does get reclaimed, Google gives you 45 days after the reclaim date to get it back. For a seasonal or part-time business, set a monthly reminder to text the number so it never goes quiet long enough to matter.',
+  },
+  {
+    q: 'Can I move a Google Voice number to a real business phone system later?',
+    a: 'Yes, and this is the part that makes it safe to start. You unlock the number in Google Voice settings, then your new provider ports it over the way any carrier transfer works. Google charges a small unlock fee, $3 at the time of writing. That means the number you pick today can follow you to a paid phone system in two years, so publishing it now is not a trap.',
+  },
+  {
+    q: 'Should I just put my cell number on my website instead?',
+    a: 'You can, and a cell number beats no number at all. Just know you are making a permanent decision with a temporary tool. Once your personal number is on your website, your Google Business Profile, your invoices, your truck, and every directory that copies those, taking it back off is a project. A second number costs nothing and keeps that door open.',
+  },
+];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Should You Use Google Voice as Your Business Number?",
+  "description": description,
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29",
+  "author": {
+    "@type": "Person",
+    "name": "William Mau",
+    "url": "https://mauops.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mau Consulting",
+    "logo": { "@type": "ImageObject", "url": "https://mauops.com/mau-consulting-favicon-navy-coral-transparent-filled-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://mauops.com/guides/google-voice-for-small-business/" }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image="/og-google-voice.png"
+  imageAlt="A small business owner taking a work call at the family dinner table while her kids look on, beside a phone showing an incoming call on a line labeled Business Line"
+  imageWidth={1200}
+  imageHeight={630}
+  ogType="article"
+  publishedTime="2026-10-29T00:00:00-04:00"
+  pageLabel="Guides"
+>
+  <Header />
+  <script type="application/ld+json" set:html={articleSchema} />
+  <script type="application/ld+json" set:html={faqSchema} />
+
+  <main>
+    <article class="bg-white dark:bg-gray-950">
+      <!-- Header -->
+      <div class="bg-gradient-to-b from-stone-50 to-white dark:from-gray-900 dark:to-gray-950">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-8">
+          <div class="max-w-3xl mx-auto">
+            <a href="/guides/" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:underline underline-offset-2 inline-flex items-center gap-1.5 mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+              All guides
+            </a>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-navy-900 dark:text-white mb-5 leading-[1.1]">
+              Should you use Google Voice as your business number?
+            </h1>
+            <p class="text-lg text-stone-500 dark:text-stone-400">
+              By <a href="/about/" class="font-medium text-navy-700 dark:text-stone-200 hover:text-accent-600 dark:hover:text-accent-400 hover:underline underline-offset-2">William Mau</a> &middot; {published} &middot; 8 minute read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div class="max-w-3xl mx-auto">
+          <img
+            src="/og-google-voice.png"
+            alt="A small business owner taking a work call at the family dinner table while her kids look on, beside a phone showing an incoming call on a line labeled Business Line"
+            width="1200"
+            height="630"
+            class="w-full rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+        <div class="max-w-3xl mx-auto text-lg text-stone-700 dark:text-stone-300 leading-relaxed space-y-6">
+
+          <p>
+            Almost every small business starts the same way: you put your cell number on the website, because that is the number you have. It works fine, right up until the day it does not.
+          </p>
+          <p>
+            By then the number is on your truck, in your Google listing, on a business card you handed somebody two years ago, at the bottom of every invoice you have ever sent, and inside a few hundred customer phones. The day you want to stop taking quote calls at nine at night, or hand the phone to the person you just hired, or simply stop giving strangers the number your kids call you on, you find out what that early shortcut actually cost.
+          </p>
+          <p>
+            <strong class="text-navy-900 dark:text-white">A second number fixes it, and it is free.</strong> Google Voice is the obvious candidate, and for a lot of one-person businesses it is genuinely the right answer. It also has four specific limits that catch owners off guard. Most articles about this are written by companies selling $30-a-month phone systems, so they tell you it is a trap. Google&rsquo;s own help pages tell you how to set it up but not when it is wrong for you. Here is the version in between.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">What you actually get for nothing</h2>
+          <p>
+            The free version of Google Voice gives you a real phone number, in an area code you pick, that rings the phone already in your pocket. There is no second device and no SIM card. Specifically, you get:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 marker:text-accent-500">
+            <li>A phone number you choose, usually in your local area code</li>
+            <li>Calls and texts to the US and Canada at no cost</li>
+            <li>Calls that forward to your existing cell, so you carry one phone</li>
+            <li>Voicemail transcribed to text and emailed to you</li>
+            <li>Call screening, where unknown callers say their name before your phone rings</li>
+            <li>Spam filtering and a Do Not Disturb switch for nights and weekends</li>
+            <li>Apps on your phone, your computer, and the web, so you can text from a keyboard</li>
+          </ul>
+          <p>
+            That is a serious amount of function for zero dollars, and it solves the actual problem: a line between your business and your life. Ten minutes of setup and your personal number never has to appear in public again.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The sentence in Google&rsquo;s own documentation</h2>
+          <p>
+            Google&rsquo;s page comparing Voice plans describes the free one in five words: <strong class="text-navy-900 dark:text-white">&ldquo;This no-charge plan is for personal, consumer use.&rdquo;</strong>
+          </p>
+          <div class="border-l-4 border-accent-400 bg-accent-50/50 dark:bg-accent-900/10 rounded-r-xl px-6 py-5 my-2">
+            <p class="text-base text-stone-700 dark:text-stone-300 m-0">
+              Nobody is going to shut you down for answering a customer call on a free number. The cost of that sentence is not a penalty. It is that on the day something goes wrong, you are a consumer, and consumers do not get a phone number to call.
+            </p>
+          </div>
+          <p>
+            Google&rsquo;s own comparison marks 24/7 Voice support as unavailable on the free plan. If your business line stops working on a Friday afternoon, your options are community forums and patience. Paid Google Voice plans start around $10 a month for a single person and add support, along with the features below. That is the honest tradeoff: free costs you nothing and owes you nothing.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Four things that bite small businesses</h2>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">1. There is no 911</h3>
+          <p>
+            Google&rsquo;s plan comparison lists 911 emergency support as not included on the free tier. If you have a shop, a studio, a salon, a job site, anywhere people physically are, this is the one that matters most and gets mentioned least. A free Google Voice number is not a line that can call for help. Keep a real phone at the location, and never let the Google Voice number become the only phone in the building.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">2. Only you can answer it</h3>
+          <p>
+            The free plan rings the phones you have linked to your own account. Ring groups, call delegation, and call queuing, which are the features that let a call reach whoever is free, live on the paid plans. The moment there is a second person who should be able to pick up, or you want calls to roll to someone else while you are up on a roof, you have outgrown free. <strong class="text-navy-900 dark:text-white">This is the single most common reason a business graduates</strong>, and it usually arrives alongside your first hire. If you are already feeling that squeeze, the same problem shows up in <a href="/guides/handle-customers-without-hiring/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">every other part of a business that runs through one person</a>.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">3. A quiet number can be taken back</h3>
+          <p>
+            Google reclaims Voice numbers that sit unused. Making or answering a call, sending a text, or listening to a voicemail all count as activity. If a number does get reclaimed, you have 45 days after that to recover it. For a seasonal business, a side business, or a number you grabbed in January and did not publish until April, this is a genuine risk and an avoidable one. Put a monthly reminder on your calendar and send the number a text. That is the whole fix.
+          </p>
+
+          <h3 class="text-xl font-bold text-navy-900 dark:text-white pt-2">4. Texting a list is a different world</h3>
+          <p>
+            Texting back and forth with a customer is normal use and works fine. Sending appointment reminders, promotions, or any kind of blast out to a list of people is a separate regulated category in the US, and carriers require businesses to register that traffic in advance. Unregistered messages that look like business marketing get filtered by the carriers, often silently, with no bounce and no warning that anyone missed them. Google Voice is not built for that and no setting turns it into that. If texting a customer list is part of your plan, that is a different tool and a real budget line.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The part that makes it safe to start</h2>
+          <p>
+            Here is what rarely gets mentioned: <strong class="text-navy-900 dark:text-white">it is not a one-way door.</strong> A Google Voice number can be ported out. You unlock it in settings, tell your new phone provider you want to bring a number over, and they pull it across the way any carrier transfer works. Google charges a small unlock fee, $3 at the time of writing.
+          </p>
+          <p>
+            That one fact changes the decision. The number you pick today can follow you onto a paid business phone system in two years, with your customers none the wiser. You are not choosing a provider for life. You are choosing a number.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Pick the number like you are keeping it</h2>
+          <p>
+            Which matters, because the moment you publish a phone number it stops being just a phone number. It goes on your Google Business Profile, your website, your contact forms, your invoices, your signs, your Facebook page, and then into the directories that quietly copy all of those. Google reads how consistently your name, address, and phone number appear across the web as a signal about whether your business is real and where it is. Changing the number later means changing it everywhere, and the places you miss work against you. That consistency is part of <a href="/guides/website-not-showing-up-on-google/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">why some businesses never show up on Google</a> no matter how nice the website is.
+          </p>
+          <p>
+            So spend the extra two minutes:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 marker:text-accent-500">
+            <li><strong class="text-navy-900 dark:text-white">Take a local area code.</strong> A 518 number tells a Capital Region customer you are actually here. A number from three states away quietly says otherwise.</li>
+            <li><strong class="text-navy-900 dark:text-white">Pick something you can say out loud.</strong> You will be reading it over the phone, in noisy rooms, for years.</li>
+            <li><strong class="text-navy-900 dark:text-white">Write it the same way everywhere.</strong> Pick one format and use it on every page, listing, and invoice.</li>
+            <li><strong class="text-navy-900 dark:text-white">Publish it the same week you get it.</strong> A number nobody calls is a number Google eventually takes back.</li>
+          </ul>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">Set it up like a business line, not a second cell</h2>
+          <p>
+            The defaults are built for a personal second number. Six changes turn it into something that behaves like a business line:
+          </p>
+          <ol class="list-decimal pl-6 space-y-3 marker:text-stone-400">
+            <li><strong class="text-navy-900 dark:text-white">Create it under a separate Google account for the business.</strong> The number then belongs to the business instead of to you. Someone else can help answer it someday without you handing over your personal email.</li>
+            <li><strong class="text-navy-900 dark:text-white">Turn on voicemail transcription to email.</strong> Every voicemail arrives as text you can read in a meeting, search a year later, and forward to somebody.</li>
+            <li><strong class="text-navy-900 dark:text-white">Turn on message forwarding to email.</strong> Otherwise your customer texts live only on one phone, which is a problem the first time that phone goes in a lake.</li>
+            <li><strong class="text-navy-900 dark:text-white">Turn on call screening.</strong> Unknown callers state their name before your phone rings. It removes most of the junk without sending real customers to voicemail.</li>
+            <li><strong class="text-navy-900 dark:text-white">Use Do Not Disturb at night.</strong> Business calls go to voicemail instead of waking you up. The point of a separate number is a line you can actually close.</li>
+            <li><strong class="text-navy-900 dark:text-white">Always dial from inside the app.</strong> Call a customer from your regular phone app and your personal number shows on their screen, which undoes the entire exercise.</li>
+          </ol>
+          <p>
+            Then record a greeting that does some work for you. Say who you are, point people at the page on your website that already answers their question, say what to do if it is urgent, and ask for a name, a number, and a reason. A good greeting deflects the calls that never needed you and makes the ones that did easier to return. The same thinking applies when you want to <a href="/guides/take-a-long-weekend-off/" class="text-accent-600 dark:text-accent-400 font-medium hover:underline underline-offset-2">actually take a weekend off</a>.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">When to stop using it</h2>
+          <p>
+            You have outgrown the free plan when any one of these is true:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 marker:text-accent-500">
+            <li>Someone other than you needs to answer the phone</li>
+            <li>You need calls recorded, for training, disputes, or compliance</li>
+            <li>You need a desk phone sitting on a counter</li>
+            <li>People at a physical location need to be able to dial 911 from it</li>
+            <li>You need somebody to call when it breaks</li>
+            <li>Texting a customer list is part of the plan</li>
+          </ul>
+          <p>
+            Any one of those puts you at roughly $10 to $30 a month per person, on a paid Google Voice plan or a dedicated business phone service. That is a perfectly normal cost of doing business. The mistake is not paying it. The mistake is paying it in year one, for features you will not use for three more, while a free number would have done the job.
+          </p>
+
+          <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white pt-6">The actual point</h2>
+          <p>
+            Hold the free version up against a real phone system and it loses. Hold it up against what most small businesses are actually doing, which is a personal cell number printed on a sign, and it wins easily.
+          </p>
+          <p>
+            Ten minutes and no money buys you a line between your business and your life, a voicemail that writes itself down, a number that stops ringing at bedtime, and something you can hand to somebody else when the time comes. Start there. Pay for more when the business makes you, not before.
+          </p>
+
+          <p class="text-sm text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-800">
+            Plan features, the &ldquo;personal, consumer use&rdquo; wording, the 45-day recovery window, and porting steps are from Google&rsquo;s own Voice help pages and plan comparison as of October 2026. Google changes these, so check the current pages before you build anything important on top of them. The rest is what I set up for local businesses here in the Capital Region.
+          </p>
+
+          <!-- FAQ -->
+          <div class="pt-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 dark:text-white mb-6">Common questions</h2>
+            <div class="space-y-3">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/60 overflow-hidden">
+                  <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-navy-900 dark:text-white font-medium hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                    <span class="text-base">{faq.q}</span>
+                    <svg class="w-5 h-5 text-stone-400 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5 text-base text-stone-600 dark:text-stone-400 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 rounded-2xl border border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-stone-900/40 p-6 sm:p-8">
+            <h2 class="text-xl sm:text-2xl font-bold text-navy-900 dark:text-white mb-3">Getting the small stuff right</h2>
+            <p class="text-base text-stone-600 dark:text-stone-400 mb-6">
+              The phone number is one piece of a bigger picture: a website that answers the easy questions, a Google Business Profile that actually shows up, and a number people can reach you at without reaching your dinner table. I set all of that up for local businesses, and I will build you a working mockup of your site before you pay anything. Happy to just look at what you have now and tell you the one thing I would fix first.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button href="/contact/?service=website&source=guides-google-voice" variant="primary" size="lg">Get a Free Mockup</Button>
+              <Button href="/website-design/" variant="outline" size="lg">See How It Works</Button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
