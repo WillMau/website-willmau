@@ -7,9 +7,6 @@ export default defineConfig({
   site: 'https://mauops.com',
   base: '/',
   trailingSlash: 'always',
-  redirects: {
-    '/automation-consulting': '/ai-solutions',
-  },
   integrations: [
     tailwind(),
     sitemap({
