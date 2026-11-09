@@ -10,23 +10,29 @@ interface Props {
   publishedTime?: string;
   canonicalURL?: string;
   pageLabel?: string;
+  noindex?: boolean;
+  brandSuffix?: boolean;
 }
 
 const {
   title,
   description,
   image = '/og-home.jpg',
-  imageAlt,
-  imageWidth,
-  imageHeight,
+  imageAlt = 'Mau Consulting: websites and operations for small businesses in Schenectady, NY',
+  imageWidth = 1200,
+  imageHeight = 630,
   ogType = 'website',
   publishedTime,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-  pageLabel
+  pageLabel,
+  noindex = false,
+  brandSuffix = true
 } = Astro.props;
 
-const siteTitle = 'Website Design & Operations for Small Business | Schenectady NY';
-const fullTitle = title === 'Home' ? siteTitle : `${title} | Mau Consulting`;
+const siteTitle = 'Small Business Website Design & Operations | Schenectady NY';
+const fullTitle = title === 'Home'
+  ? siteTitle
+  : (brandSuffix ? `${title} | Mau Consulting` : title);
 const ogImage = new URL(image, Astro.site).href;
 
 const breadcrumbSchema = pageLabel ? JSON.stringify({
@@ -44,8 +50,9 @@ const breadcrumbSchema = pageLabel ? JSON.stringify({
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/mau-consulting-favicon-navy-coral-transparent-filled-512.png" />
-    <link rel="apple-touch-icon" href="/mau-consulting-favicon-navy-coral-transparent-filled-512.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0f172a" />
 
@@ -69,6 +76,7 @@ const breadcrumbSchema = pageLabel ? JSON.stringify({
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:locale" content="en_US" />
@@ -83,12 +91,12 @@ const breadcrumbSchema = pageLabel ? JSON.stringify({
     {ogType === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={fullTitle} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
-    {imageAlt && <meta property="twitter:image:alt" content={imageAlt} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">

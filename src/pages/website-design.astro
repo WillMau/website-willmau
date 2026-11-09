@@ -84,7 +84,8 @@ const faqSchema = JSON.stringify({
 
 <BaseLayout
   title="Website Design in Schenectady & the Capital Region"
-  description="Custom website design for small businesses in Schenectady, Albany, Saratoga, and the Capital Region. Fast, mobile-first sites with local SEO and Google Business Profile setup included."
+  brandSuffix={false}
+  description="Custom website design for small businesses in Schenectady, Albany, and the Capital Region. Fast, mobile-first sites with local SEO and Google Business setup."
   pageLabel="Websites & Digital Presence"
 >
   <Header />
@@ -151,7 +152,7 @@ const faqSchema = JSON.stringify({
 
       <!-- LMNOP Advisors -->
       <Card class="overflow-hidden">
-        <img src="/portfolio/lmnop-logo.png" alt="LMNOP Advisors logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <img src="/portfolio/lmnop-logo.png" width="512" height="512" alt="LMNOP Advisors logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
         <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">WordPress Migration</div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">LMNOP Advisors</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Full rebuild for a fractional COO practice in Clifton Park, NY. Moved off WordPress to a fast static site with service pages, an insights section, and online booking.</p>
@@ -170,7 +171,7 @@ const faqSchema = JSON.stringify({
 
       <!-- Rockford Milling -->
       <Card class="overflow-hidden">
-        <img src="/portfolio/rockford-logo.png" alt="Rockford Milling & Woodworking logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <img src="/portfolio/rockford-logo.png" width="192" height="192" alt="Rockford Milling & Woodworking logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
         <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Portfolio Site</div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Rockford Milling & Woodworking</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Custom woodworking portfolio showcasing craftsmanship with clean layout, product categories, and clear contact options for custom orders.</p>
@@ -189,7 +190,7 @@ const faqSchema = JSON.stringify({
 
       <!-- Scouting America Troop 3054 -->
       <Card class="overflow-hidden">
-        <img src="/portfolio/troop54-logo.png" alt="Scouting America Troop 3054 logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <img src="/portfolio/troop54-logo.png" width="400" height="400" alt="Scouting America Troop 3054 logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
         <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Organization Website</div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Scouting America Troop 3054</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Website for a Scout troop in Rotterdam, NY. Meeting info, event details, and recruitment content for families and prospective Scouts.</p>
@@ -208,7 +209,7 @@ const faqSchema = JSON.stringify({
 
       <!-- Cub Scout Pack 3054 -->
       <Card class="overflow-hidden">
-        <img src="/portfolio/pack3054-logo.png" alt="Cub Scout Pack 3054 Rotterdam NY logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <img src="/portfolio/pack3054-logo.png" width="400" height="400" alt="Cub Scout Pack 3054 Rotterdam NY logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
         <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Organization Website</div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Cub Scout Pack 3054</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">Website for a Cub Scout pack in Rotterdam, NY. Den and rank information for kindergarten through fifth grade, a year of events families can subscribe to, meeting details, and a clear path to join.</p>
@@ -227,7 +228,7 @@ const faqSchema = JSON.stringify({
 
       <!-- Mau Consulting (this site) -->
       <Card class="overflow-hidden">
-        <img src="/portfolio/mau-consulting-favicon-M-consulting-transparent.jpg" alt="Mau Consulting logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
+        <img src="/portfolio/mau-consulting-logo.png" width="400" height="400" alt="Mau Consulting logo" class="w-full h-48 object-contain bg-stone-100 dark:bg-stone-800 rounded-lg mb-4 p-6" loading="lazy" />
         <div class="text-sm text-accent-600 dark:text-accent-400 font-medium mb-1">Consulting Site</div>
         <h3 class="text-xl font-semibold text-navy-900 dark:text-white mb-2">Mau Consulting</h3>
         <p class="text-sm text-stone-600 dark:text-stone-400 mb-4">This site. Built on Astro with Tailwind CSS, custom branding, dark mode, and optimized for performance and SEO. Designed and coded from scratch.</p>
@@ -283,6 +284,8 @@ const faqSchema = JSON.stringify({
   <section class="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
     <img
       src="/photo-break-laptop.jpg"
+      width="1600"
+      height="1067"
       alt="Laptop and notepad on a clean desk"
       class="absolute inset-0 w-full h-full object-cover grayscale"
       loading="lazy"
