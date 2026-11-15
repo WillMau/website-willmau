@@ -19,13 +19,13 @@ it goes live. If an image is not listed, it does not ship.
 
 | File | Source | Creator | Licence | Terms | Downloaded |
 |---|---|---|---|---|---|
-| `public/photo-break-notebook-coffee.jpg` | [rawpixel 432045](https://www.rawpixel.com/image/432045/notebook-and-cup-coffee) via [Openverse](https://openverse.org/image/f23071c5-996b-451e-b023-31ba1f8d9f06) | Markus Spiske | CC0 1.0 | https://creativecommons.org/publicdomain/zero/1.0/ | 2026-11-15 |
+| `public/photo-break-meeting-room.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Quiet_meeting_room_(Unsplash).jpg) | Breather | CC0 1.0 | https://creativecommons.org/publicdomain/zero/1.0/ | 2026-11-15 |
 
-Openverse record id: `f23071c5-996b-451e-b023-31ba1f8d9f06`
+Source record: Wikimedia Commons file page, which carries the CC0 tag, the upload
+history and a Wayback Machine archive of the original source page. That archived
+copy is the durable part: it survives even if the upstream host removes the image.
 
-Attribution text (not required under CC0, kept for completeness):
-> "Notebook cup coffee wooden table" by Markus Spiske is marked with CC0 1.0.
-> To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/
+Original: 5345x3563. Shipped as a 2000x300 crop sized for the full-bleed band.
 
 ## Own work
 
