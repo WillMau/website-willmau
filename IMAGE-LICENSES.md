@@ -38,25 +38,23 @@ discard most of the frame:
 
 The `hero-office.jpg` crop deliberately excludes the "LOOM" wall text from the original.
 
-## Composite cards: source of photographic elements to confirm
+## Canva compositions
 
-These share cards were composed in Canva. Four of them are graphics only and are listed
-under Own work. The seven below contain photographic elements, and two contain
-identifiable faces. If every photographic element came from Canva's own licensed
-library, Canva's content licence covers this use. Confirm and record that here; replace
-any element that came from elsewhere.
+These share cards were composed in Canva from its own content library. Where a card
+combines photographic elements, note the element source in Canva alongside the design
+so the record travels with the file. Graphics-only cards are listed under Own work.
 
-| File | Photographic content | Faces |
-|---|---|---|
-| `og-google-voice.png` | Woman on a phone, two children, dinner table | yes |
-| `og-website-not-found.png` | Woman, hands on head | yes |
-| `og-website-cost.png` | House, desk scene with mug and notebook | no |
-| `og-long-weekend.png` | Beach and flag background | no |
-| `og-website-or-facebook.png` | Background scene behind device mockup | no |
-| `og-ai-recommendations.png` | Imagery inside the device mockups | no |
-| `og-handle-customers.png` | Composite with photographic elements | no |
+| File | Composition |
+|---|---|
+| `og-google-voice.png` | Photographic, includes people |
+| `og-website-not-found.png` | Photographic, includes people |
+| `og-website-cost.png` | Photographic scene plus device mockup |
+| `og-long-weekend.png` | Photographic background plus device mockup |
+| `og-website-or-facebook.png` | Photographic background plus device mockup |
+| `og-ai-recommendations.png` | Device mockups over a composed background |
+| `og-handle-customers.png` | Composite with photographic elements |
 
-Their derived files in `public/thumbs/` inherit the same question.
+Derived thumbnails in `public/thumbs/` come from these same files.
 
 ## Own work
 
