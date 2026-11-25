@@ -38,13 +38,33 @@ discard most of the frame:
 
 The `hero-office.jpg` crop deliberately excludes the "LOOM" wall text from the original.
 
+## Composite cards: source of photographic elements to confirm
+
+These share cards were composed in Canva. Four of them are graphics only and are listed
+under Own work. The seven below contain photographic elements, and two contain
+identifiable faces. If every photographic element came from Canva's own licensed
+library, Canva's content licence covers this use. Confirm and record that here; replace
+any element that came from elsewhere.
+
+| File | Photographic content | Faces |
+|---|---|---|
+| `og-google-voice.png` | Woman on a phone, two children, dinner table | yes |
+| `og-website-not-found.png` | Woman, hands on head | yes |
+| `og-website-cost.png` | House, desk scene with mug and notebook | no |
+| `og-long-weekend.png` | Beach and flag background | no |
+| `og-website-or-facebook.png` | Background scene behind device mockup | no |
+| `og-ai-recommendations.png` | Imagery inside the device mockups | no |
+| `og-handle-customers.png` | Composite with photographic elements | no |
+
+Their derived files in `public/thumbs/` inherit the same question.
+
 ## Own work
 
 | File | Note |
 |---|---|
 | `public/william-mau-headshot.jpg` | Own photo |
 | `public/favicon-*.png`, `public/apple-touch-icon.png`, `public/mau-consulting-favicon-*.png` | Own brand assets |
-| `public/og-*.png`, `public/thumbs/*.webp` | Own artwork |
+| `public/og-home.jpg`, `og-ai-agent-scoped.png`, `og-image-converter.png`, `og-qr-generator.png` | Own artwork, graphics only |
 | `public/chart-ai-routing.png` | Own artwork |
 | `public/salesforce-admin-badge.png` | Salesforce certification badge, issued to William |
 | `public/portfolio/*` | Client logos, shown with the client's permission |
