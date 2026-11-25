@@ -45,10 +45,10 @@ SECURITY-SEO-CHECKLIST.md
 *.jpg
 *.pdf
 !public/**
+!Images/**
 
 # Salesforce CLI
 .sfdx/
 
-# Local working assets and data exports (not part of the site)
-/Images/
+# Data exports (not part of the site)
 *.csv
