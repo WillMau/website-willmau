@@ -54,6 +54,7 @@ than real individuals, so no stock licence or model release applies.
 
 | Original in `Images/` | Generated |
 |---|---|
+| `mau-consulting-facebook-share-250.png` (served as `og-offer.jpg`) | 2026-11-27 |
 | `Should You Use Google Voice as Your Business Number.png` | 2026-10-29 |
 | `Free Audit.png` | 2026-08-19 |
 | `og-image-converter.png` | 2026-08-17 |
