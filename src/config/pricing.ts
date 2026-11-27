@@ -1,6 +1,6 @@
 // Single source of truth for website pricing.
 // Change a number here and every page that shows it follows.
-// Last updated: October 29, 2026
+// Last updated: November 27, 2026
 
 export const pricing = {
   // A real, working review copy before any money changes hands.
@@ -31,4 +31,18 @@ export const pricing = {
 
   // As-needed updates, billed in 30-minute increments.
   hourly: '$95/hour',
+};
+
+// The $250 offer: a standard site with two years of care included.
+// To update availability, change spotsLeft. To end it, set active to false;
+// the /offer/ page stays up and tells visitors it has ended, so no 404.
+export const offer = {
+  active: true,
+  price: '$250',
+  // Standard site at the low end ($250) plus two years of care ($100 x 2).
+  value: '$450',
+  years: 2,
+  pages: 5,
+  spots: 3,
+  spotsLeft: 3,
 };
